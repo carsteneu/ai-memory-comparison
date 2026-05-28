@@ -108,11 +108,11 @@
   CC0 Public Domain. Stars fetched live via GitHub API, cached 24h. <a href="https://github.com/carsteneu/ai-memory-comparison">Contribute on GitHub</a>
 </footer>
 
-<script src="data.js"></script>
+<script src="data.js?v=3"></script>
 <script>
-(function() {
+(function renderLoop() {
   if (typeof FEATURE_GROUPS === 'undefined' || typeof SYSTEMS === 'undefined') {
-    setTimeout(arguments.callee, 50);
+    setTimeout(renderLoop, 50);
     return;
   }
 
@@ -316,6 +316,13 @@
   // ── go ──
   filter();
 })();
+
+// Fallback: if table not rendered after 5s, show error
+setTimeout(function() {
+  if (document.getElementById('tbody').children.length === 0) {
+    document.getElementById('tbody').innerHTML = '<tr><td colspan="100" style="padding:2rem;text-align:center;color:var(--muted);">⚠️ Could not load comparison data. <a href="javascript:location.reload()">Refresh</a> or check <a href="comparison.md">Markdown version</a>.</td></tr>';
+  }
+}, 5000);
 </script>
 </body>
 </html>
