@@ -1,0 +1,110 @@
+name: Update Star Counts
+
+on:
+  schedule:
+    - cron: '0 6 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-stars:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch and update star counts
+        run: |
+          cat > /tmp/update-stars.js << 'SCRIPT'
+          const fs = require('fs');
+          const https = require('https');
+
+          const data = fs.readFileSync('data.js', 'utf8');
+
+          // Extract repos from url fields
+          const repos = [];
+          const urlRe = /url:\s*"https:\/\/github\.com\/([^"]+)"/g;
+          let m;
+          while ((m = urlRe.exec(data)) !== null) {
+            repos.push(m[1]);
+          }
+
+          console.log(`Found ${repos.length} repos`);
+
+          function fetchRepo(i, results) {
+            if (i >= repos.length) {
+              // Apply updates
+              let updated = data;
+              let changed = 0;
+              for (const [repo, stars] of Object.entries(results)) {
+                const escapedRepo = repo.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+                const re = new RegExp(`(url:\\s*"https://github\\.com/${escapedRepo}"[\\s\\S]*?stars:\\s*)\\d+`, 'm');
+                const before = updated.match(re);
+                if (before && before[1]) {
+                  const oldVal = updated.match(re)[0].match(/stars:\s*(\d+)/)[1];
+                  if (parseInt(oldVal) !== stars) {
+                    updated = updated.replace(re, `$1${stars}`);
+                    changed++;
+                    console.log(`${repo}: ${oldVal} → ${stars}`);
+                  }
+                }
+              }
+              if (changed > 0) {
+                fs.writeFileSync('data.js', updated);
+                console.log(`Updated ${changed} repos`);
+              } else {
+                console.log('All counts up to date');
+              }
+              return;
+            }
+
+            const repo = repos[i];
+            const opts = {
+              hostname: 'api.github.com',
+              path: `/repos/${repo}`,
+              headers: {
+                'User-Agent': 'ai-memory-comparison',
+                'Accept': 'application/vnd.github.v3+json'
+              }
+            };
+            if (process.env.GITHUB_TOKEN) {
+              opts.headers['Authorization'] = `Bearer ${process.env.GITHUB_TOKEN}`;
+            }
+
+            https.get(opts, (res) => {
+              let body = '';
+              res.on('data', d => body += d);
+              res.on('end', () => {
+                try {
+                  const json = JSON.parse(body);
+                  if (json.stargazers_count !== undefined) {
+                    results[repo] = json.stargazers_count;
+                  }
+                } catch(e) {
+                  console.error(`Error parsing ${repo}: ${e.message}`);
+                }
+                setTimeout(() => fetchRepo(i + 1, results), 200);
+              });
+            }).on('error', (e) => {
+              console.error(`Error fetching ${repo}: ${e.message}`);
+              setTimeout(() => fetchRepo(i + 1, results), 500);
+            });
+          }
+
+          fetchRepo(0, {});
+          SCRIPT
+
+          node /tmp/update-stars.js
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data.js
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Update star counts [automated]"
+            git push
+          fi
