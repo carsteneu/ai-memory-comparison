@@ -4,7 +4,7 @@
 > Corrections via PR welcome. No affiliation with any listed project.
 
 **Last updated:** 2026-05-28  
-**Systems:** 61  
+**Systems:** 64  
 **Live:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 
 ---
@@ -45,7 +45,9 @@
 | [mem9](https://github.com/mem9-ai/mem9) | 1116 | TypeScript | Apache 2.0 | 2026-01 | TiDB Cloud backed, hybrid search, multi-agent spaces, conflict resolution, 6 platforms |
 | [nocturne](https://github.com/Dataojitori/nocturne_memory) | 1150 | Python | MIT | 2025-12-25 | Rollbackable, visual LTM for MCP agents, no vector RAG, 9 MCP clients |
 | [LangMem](https://github.com/langchain-ai/langmem) | 1473 | Python | MIT | 2025-02 | LangChain memory toolkit — library only, no CLI/plugin, requires API keys |
+| [memsearch](https://github.com/zilliztech/memsearch) | 1861 | Python | Apache 2.0 | 2025-08 | Cross-platform semantic memory: hybrid RRF, SHA-256 dedup, 3-layer progressive recall, ONNX bge-m3 |
 | [mcp-memory-service](https://github.com/doobidoo/mcp-memory-service) | 1901 | Python | Apache 2.0 | 2024-12-26 | Persistent memory for AI agent pipelines, REST API + MCP + knowledge graph + auto-consolidation |
+| [Memary](https://github.com/kingjulio8238/Memary) | 2618 | Python | MIT | 2024-04-10 | KG-native memory: entity-relation triplets, recursive subgraph traversal, multi-hop reasoning |
 | [obsidian-mind](https://github.com/breferrari/obsidian-mind) | 2715 | TypeScript | MIT | 2026-02-28 | Obsidian vault template, markdown-native memory, QMD hybrid RRF search |
 | [MemMachine](https://github.com/MemMachine/MemMachine) | 3091 | Python | Apache 2.0 | 2025-08 | Agentic retrieval with ChainOfQueryAgent multi-hop, 3-layer memory, Neo4j+PG |
 | [Acontext](https://github.com/memodb-io/Acontext) | 3500 | JS/TS/Go/Python | Apache-2.0 | 2025-10 | Agent Skills as a Memory Layer — auto-captures learnings as Markdown skill files, progressive disclosure retrieval |
@@ -60,6 +62,7 @@
 | [ByteRover](https://github.com/campfirein/byterover-cli) | 4796 | TypeScript | Elastic 2.0 | 2025-06-19 | Context tree with git-like VC, strongest benchmarks (LoCoMo 96.1) |
 | [EverOS](https://github.com/EverMind-AI/EverOS) | 5755 | Python | Apache 2.0 | 2025-10-28 | Self-evolving agent memory with evaluation framework |
 | [MemOS](https://github.com/MemTensor/MemOS) | 9442 | Python | Apache 2.0 | 2025-10 | Self-evolving memory OS, L1/L2/L3, MemCubes, time machine, strong benchmarks |
+| [memU](https://github.com/NevaMind-AI/memU) | 13700 | Python | MIT | 2025-09 | Always-on memory for 24/7 proactive agents, 3-tier layered, LoCoMo 92.09%, 5 modality preprocessing |
 | [hindsight](https://github.com/vectorize-io/hindsight) | 14954 | Python | MIT | 2025-10 | Self-improving agentic memory, 91.4% LongMemEval, reflect engine, web dashboard |
 | [Memori](https://github.com/MemoriLabs/Memori) | 14979 | Python | Apache 2.0 | 2025-07-24 | Agent-native memory (captures execution, not just conversation) |
 | [Memvid](https://github.com/memvid/memvid) | 15583 | Rust | Apache 2.0 | 2025-05-27 | Single-file memory (.mv2) with Smart Frames and time-travel |
@@ -113,7 +116,9 @@
 | mem9 | 1116 | TypeScript | Apache 2.0 | — | 2026-01 | 35% |
 | nocturne | 1150 | Python | MIT | — | 2025-12-25 | 25% |
 | LangMem | 1473 | Python | MIT | — | 2025-02 | 4% |
+| memsearch | 1861 | Python | Apache 2.0 | — | 2025-08 | 19% |
 | mcp-memory-service | 1901 | Python | Apache 2.0 | — | 2024-12-26 | 72% |
+| Memary | 2618 | Python | MIT | — | 2024-04-10 | 21% |
 | obsidian-mind | 2715 | TypeScript | MIT | — | 2026-02-28 | 23% |
 | MemMachine | 3091 | Python | Apache 2.0 | — | 2025-08 | 33% |
 | Acontext | 3500 | JS/TS/Go/Python | Apache-2.0 | — | 2025-10 | 23% |
@@ -128,6 +133,7 @@
 | ByteRover | 4796 | TypeScript | Elastic 2.0 | — | 2025-06-19 | 26% |
 | EverOS | 5755 | Python | Apache 2.0 | — | 2025-10-28 | 25% |
 | MemOS | 9442 | Python | Apache 2.0 | — | 2025-10 | 28% |
+| memU | 13700 | Python | MIT | — | 2025-09 | 18% |
 | hindsight | 14954 | Python | MIT | — | 2025-10 | 21% |
 | Memori | 14979 | Python | Apache 2.0 | — | 2025-07-24 | 16% |
 | Memvid | 15583 | Rust | Apache 2.0 | — | 2025-05-27 | 18% |
@@ -181,7 +187,9 @@
 | mem9 | Cloud/Self-host | TiDB Cloud | MCP+Hooks | — | ✅ | ✅ | ✅ | 3 | — | ✅ | ✅ | npx install | freemium |
 | nocturne | Local MCP server | SQLite | MCP | — | ✅ | ✅ | — | 1 | — | — | — | pip install | free |
 | LangMem | Library | Pluggable backends | LangChain/LangGraph | — | — | — | — | 1 | — | — | — | pip install | free |
+| memsearch | Local CLI+MCP | Milvus+Markdown | MCP+CLI | — | — | ✅ | — | 9 | — | — | — | pip install | free |
 | mcp-memory-service | Local/Docker/Cloudflare | SQLite-vec+Cloudflare+Milvus | REST(76ep)+MCP+OAuth2+CLI | — | ✅ | ✅ | ✅ | 5 | ✅ | ✅ | ✅ | pip install | free |
+| Memary | Python library | Neo4j/FalkorDB | Library (ReAct agent) | — | ✅ | ✅ | ✅ | 3 | — | — | ✅ | pip install | free |
 | obsidian-mind | Obsidian vault + npm | Markdown + QMD/SQLite | CLI + MCP | — | ✅ | ✅ | — | 1 | — | — | — | npm install | free |
 | MemMachine | Server+SDK | Neo4j+PostgreSQL+pgvector | MCP+SDK | — | ✅ | ✅ | ✅ | 1 | — | ✅ | — | docker compose | free |
 | Acontext | Cloud + Docker self-host | PostgreSQL+pgvector+Redis+RabbitMQ+S3 | SDK+REST | — | ✅ | ✅ | — | 3 | — | ✅ | ✅ | curl \| sh | freemium |
@@ -196,6 +204,7 @@
 | ByteRover | Local CLI / Cloud | SQLite+Context tree | MCP+REPL | — | ✅ | ✅ | — | 20 | — | — | — | npm install -g | freemium |
 | EverOS | Lib/MCP | Vector DB | MCP | — | — | ✅ | — | 1 | — | — | — | ? | free |
 | MemOS | Cloud/Self-host | Neo4j+Qdrant+Redis | API+Plugin | — | ✅ | ✅ | — | 1 | — | — | — | docker compose | freemium |
+| memU | Library+MCP | Vector DB | MCP+SDK | — | — | ✅ | — | 3 | — | — | — | pip install | free |
 | hindsight | SDK/Cloud | Vector+graph+temporal | Python API+MCP | — | ✅ | ✅ | — | 1 | — | — | — | pip install | freemium |
 | Memori | Cloud / BYODB | Cloud | SDK/MCP | — | ✅ | — | — | 1 | — | — | — | ? | free |
 | Memvid | Lib/Local file | Single .mv2 file | SDK | — | — | ✅ | — | 1 | — | — | — | ? | free |
@@ -249,7 +258,9 @@
 | mem9 | Memory entry (14 fields) | — | — | ✅ | — | — | — | — | — | ✅ | — | — | ✅ | — | — | 14 |
 | nocturne | Memory entry | — | — | — | — | ✅ | — | — | — | — | — | — | — | — | ✅ | 5 |
 | LangMem | Memory namespace | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 3 |
+| memsearch | Text chunk (no learning abstraction) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 9 |
 | mcp-memory-service | Memory (text+metadata) | ✅ | — | ✅ | — | — | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | ✅ | 28 |
+| Memary | Entity-relation triplet | ✅ | — | — | — | — | — | — | — | — | — | — | — | — | — | 5 |
 | obsidian-mind | Markdown note (wiki) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 4 |
 | MemMachine | Memory (3 layers) | ✅ | — | — | — | — | — | — | ✅ | ✅ | — | — | — | ✅ | — | 10 |
 | Acontext | Skill file (Markdown) | — | — | — | — | — | — | ✅ | — | — | — | — | — | — | — | 12 |
@@ -264,6 +275,7 @@
 | ByteRover | Context node (tree) | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | ✅ | 6 |
 | EverOS | Memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 8 |
 | MemOS | MemCube | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 19 |
+| memU | MemoryItem (3 tiers) | ✅ | — | — | — | — | — | — | — | — | — | — | — | ✅ | — | 8 |
 | hindsight | Memory entry | ✅ | — | ✅ | — | — | — | — | ✅ | — | — | — | — | — | ✅ | 7 |
 | Memori | Memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 6 |
 | Memvid | Smart Frame | ✅ | — | ✅ | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 9 |
@@ -317,7 +329,9 @@
 | mem9 | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
 | nocturne | ✅ | — | — | — | — | — | — | — | 1 | 1 |
 | LangMem | — | ✅ | — | — | — | — | — | — | 1 | 1 |
+| memsearch | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
 | mcp-memory-service | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 6 |
+| Memary | — | — | — | — | — | — | — | ✅ | 2 | 1 |
 | obsidian-mind | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | MemMachine | — | ✅ | ✅ | — | — | — | — | — | 2 | 1 |
 | Acontext | ✅ | — | — | — | — | — | — | — | 4 | 4 |
@@ -332,6 +346,7 @@
 | ByteRover | ✅ | — | — | — | — | — | — | — | 1 | 1 |
 | EverOS | ✅ | ✅ | ✅ | — | — | — | — | — | 1 | 1 |
 | MemOS | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
+| memU | — | ✅ | — | — | — | — | — | — | 1 | 1 |
 | hindsight | ✅ | ✅ | ✅ | — | — | — | — | — | 4 | 1 |
 | Memori | ✅ | ✅ | — | — | — | — | — | — | 1 | 1 |
 | Memvid | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 1 | 1 |
@@ -385,7 +400,9 @@
 | mem9 | — | ✅ | — | — | — | — | ✅ |
 | nocturne | — | — | — | — | — | — | — |
 | LangMem | — | — | — | — | — | — | — |
+| memsearch | — | — | — | — | — | — | — |
 | mcp-memory-service | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
+| Memary | — | ✅ | — | — | — | — | ✅ |
 | obsidian-mind | — | — | — | — | — | — | — |
 | MemMachine | — | — | — | — | — | — | ✅ |
 | Acontext | — | — | — | — | — | — | ✅ |
@@ -400,6 +417,7 @@
 | ByteRover | ✅ | ✅ | — | — | — | — | — |
 | EverOS | — | — | — | — | — | — | ✅ |
 | MemOS | — | ✅ | — | — | — | — | ✅ |
+| memU | — | — | — | — | — | — | ✅ |
 | hindsight | — | — | — | — | — | — | — |
 | Memori | — | — | — | — | — | — | — |
 | Memvid | — | — | — | — | — | — | — |
@@ -453,7 +471,9 @@
 | mem9 | ✅ | — | — | — | — | — | — | — |
 | nocturne | — | — | — | — | — | — | — | — |
 | LangMem | ✅ | — | — | — | — | — | — | — |
+| memsearch | ✅ | — | ✅ | — | — | — | — | — |
 | mcp-memory-service | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — |
+| Memary | ✅ | — | ✅ | — | — | — | ✅ | ✅ |
 | obsidian-mind | — | — | — | — | — | — | — | — |
 | MemMachine | ✅ | ✅ | ✅ | — | — | — | — | ✅ |
 | Acontext | ✅ | — | ✅ | — | ✅ | — | — | ✅ |
@@ -468,6 +488,7 @@
 | ByteRover | ✅ | ✅ | ✅ | — | — | — | — | — |
 | EverOS | ✅ | — | — | — | ✅ | ✅ | — | ✅ |
 | MemOS | ✅ | ✅ | ✅ | ✅ | — | — | — | — |
+| memU | ✅ | ✅ | — | — | — | — | — | — |
 | hindsight | ✅ | — | — | — | — | — | — | — |
 | Memori | ✅ | — | — | — | — | — | — | — |
 | Memvid | — | — | — | — | — | — | — | — |
@@ -521,7 +542,9 @@
 | mem9 | ✅ | ✅ | ✅ | — | — | — | — | ✅ | ✅ | — | — |
 | nocturne | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | LangMem | — | — | — | — | — | — | — | — | — | — | — |
+| memsearch | ✅ | ✅ | ✅ | — | — | — | — | ✅ | — | — | — |
 | mcp-memory-service | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — |
+| Memary | — | — | — | — | — | — | — | — | — | — | — |
 | obsidian-mind | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | MemMachine | ✅ | — | — | — | — | ✅ | — | ✅ | — | — | — |
 | Acontext | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
@@ -536,6 +559,7 @@
 | ByteRover | ✅ | ✅ | — | — | — | ✅ | ✅ | — | — | — | — |
 | EverOS | ✅ | — | — | ✅ | — | ✅ | — | ✅ | — | — | — |
 | MemOS | — | — | — | — | — | — | — | ✅ | ✅ | — | — |
+| memU | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
 | hindsight | ✅ | — | — | — | — | — | — | — | — | — | — |
 | Memori | ✅ | — | — | — | — | ✅ | — | ✅ | ✅ | — | — |
 | Memvid | — | — | — | — | — | — | — | — | — | — | — |
@@ -589,7 +613,9 @@
 | mem9 | 58.84 | — | — | — | ✅ |
 | nocturne | — | — | — | — | — |
 | LangMem | — | — | — | — | — |
+| memsearch | — | — | — | — | ✅ |
 | mcp-memory-service | — | 86.0% (sess) / 80.4% (turn) | — | — | ✅ |
+| Memary | — | — | — | — | — |
 | obsidian-mind | — | — | — | — | — |
 | MemMachine | — | — | — | — | ✅ |
 | Acontext | — | — | — | ~45% tool calls | — |
@@ -604,6 +630,7 @@
 | ByteRover | 96.1 | 92.8 | — | — | ✅ |
 | EverOS | 93.05 | 83.00 | — | — | ✅ |
 | MemOS | 75.80 | +40.43% | +40.75% | 35.24% | ✅ |
+| memU | 92.09 | — | — | — | ✅ |
 | hindsight | — | 91.4 | — | — | ✅ |
 | Memori | 81.95 | — | — | 95% fewer | ✅ |
 | Memvid | +35% SOTA | — | — | — | ✅ |
