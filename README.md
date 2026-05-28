@@ -70,3 +70,7 @@ Project maintainers: corrections to your project's row get priority review.
 CC0 — Public Domain. Fork it, republish it, use it anywhere. No attribution required.
 
 Star counts and data are snapshots from 2026-05-27. See [comparison.md](comparison.md) for last-updated date.
+
+## Disclosure
+
+This comparison is maintained by the author of [YesMem](https://github.com/carsteneu/yesmem). YesMem is listed alongside every other system and follows the same evidence rules — every ✅ has a public source link, every ❌ is "not documented", not a judgment. Corrections to YesMem's row (or any other row) via PR with public evidence are welcome.
