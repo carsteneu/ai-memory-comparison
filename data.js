@@ -295,6 +295,7 @@ const SYSTEMS = [
     url: "https://github.com/carsteneu/yesmem",
     evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/yesmem.md",
     description: "Project continuity layer with deepest data model and proxy collapse",
+    authorPick: true,
     stars: 10, language: "Go", license: "Apache 2.0", singleBinary: true, created: "2026-04-09", docs: "https://github.com/carsteneu/yesmem/blob/main/Features.md",
     deployment: "Local binary", storage: "SQLite+Vector", integration: "Proxy+MCP+Hooks", proxy: true, webUi: false, offline: true, multiAgent: true, llmFlex: 4, cacheOpt: true, privacy: true, export: true, setup: "curl | bash", pricing: "free",
     unit: "Learning V2 (structured)",
@@ -302,7 +303,7 @@ const SYSTEMS = [
     fulltext: true, semantic: true, hybrid: true, deep: true, codeGraph: true, docsSearch: true, factQuery: true, timeline: true, searchModes: 9, dataSources: 4,
     decay: true, supersede: true, contradiction: true, quarantine: true, autoResolve: true, trustModel: true, explicitForget: true,
     autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: true, narrative: true, clustering: true, recurrence: true, persona: true,
-    p_claude: true, p_codex: true, p_opencode: true, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
+    p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: true, p_cursor: true, p_windsurf: true, p_openclaw: true, p_hermes: false, p_pi: true, p_antigravity: true,
     b_locomo: "0.87", b_longmemeval: "—", b_personamem: "—", b_token: "~30% proxy", b_methodology: true,
   },
   {

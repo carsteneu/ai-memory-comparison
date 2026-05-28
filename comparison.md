@@ -84,7 +84,7 @@
 | System | Stars | Language | License | Single binary | Created | Coverage |
 | --- | --- | --- | --- | --- | --- | --- |
 | gitmem | 8 | TypeScript | MIT | — | 2026-04 | 18% |
-| YesMem | 10 | Go | Apache 2.0 | ✅ | 2026-04-09 | 82% |
+| YesMem | 10 | Go | Apache 2.0 | ✅ | 2026-04-09 | 95% |
 | Fullerenes | 19 | TypeScript | MIT | — | 2026-04-25 | 16% |
 | fidelis | 20 | Python | MIT | — | 2026-03 | 11% |
 | ArcRift | 75 | TypeScript | MIT | — | 2026-04 | 28% |
@@ -504,7 +504,7 @@
 | System | Claude Code | Codex | OpenCode | Gemini CLI | Copilot | Cursor | Windsurf | OpenClaw | Hermes | pi/omp | Antigravity |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | gitmem | ✅ | ✅ | — | — | — | ✅ | ✅ | — | — | — | — |
-| YesMem | ✅ | ✅ | ✅ | — | — | — | — | — | — | — | — |
+| YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ |
 | Fullerenes | ✅ | ✅ | — | — | — | ✅ | — | — | — | — | — |
 | fidelis | ✅ | — | — | — | — | — | — | — | — | — | — |
 | ArcRift | ✅ | — | — | — | — | ✅ | ✅ | — | — | — | — |
