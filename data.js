@@ -11,6 +11,7 @@ const FEATURE_GROUPS = [
       { id: "language", label: "Language", type: "text" },
       { id: "license", label: "License", type: "text" },
       { id: "singleBinary", label: "Single binary", type: "bool" },
+      { id: "created", label: "Created", type: "text" },
     ]
   },
   {
