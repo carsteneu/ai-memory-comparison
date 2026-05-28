@@ -74,8 +74,12 @@ for (const g of groups) secRow += `<th class="sec" colspan="${g.span}">${escapeH
 secRow += '</tr>';
 theadParts.push(secRow);
 
-let featRow = `<tr><th class="sys-h sortable" data-key="stars">${filtered.length} systems</th>`;
-for (const x of features) featRow += `<th class="feat sortable" data-key="${x.f.id}">${escapeHtml(x.f.label)}</th>`;
+let featRow = `<tr><th class="sys-h">${filtered.length} systems</th>`;
+for (const x of features) {
+  const fid = x.f.id;
+  const isSortable = fid !== 'stars';
+  featRow += `<th class="feat${isSortable ? ' sortable' : ''}"${isSortable ? ` data-key="${fid}"` : ''}>${escapeHtml(x.f.label)}</th>`;
+}
 featRow += '</tr>';
 theadParts.push(featRow);
 
@@ -106,6 +110,10 @@ html = html.replace(
 html = html.replace(
   /<tbody id="tbody">[\s\S]*?<\/tbody>/,
   `<tbody id="tbody">\n      ${tbodyHtml}\n    </tbody>`
+);
+html = html.replace(
+  /<span id="legendCount">[^<]*<\/span>/,
+  `<span id="legendCount">${filtered.length} systems</span>`
 );
 fs.writeFileSync(HTML, html);
 
