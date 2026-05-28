@@ -4,7 +4,7 @@
 > Corrections via PR welcome. No affiliation with any listed project.
 
 **Last updated:** 2026-05-28  
-**Systems:** 64  
+**Systems:** 63  
 **Live:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 
 ---
@@ -47,7 +47,6 @@
 | [LangMem](https://github.com/langchain-ai/langmem) | 1473 | Python | MIT | 2025-02 | LangChain memory toolkit — library only, no CLI/plugin, requires API keys |
 | [memsearch](https://github.com/zilliztech/memsearch) | 1861 | Python | Apache 2.0 | 2025-08 | Cross-platform semantic memory: hybrid RRF, SHA-256 dedup, 3-layer progressive recall, ONNX bge-m3 |
 | [mcp-memory-service](https://github.com/doobidoo/mcp-memory-service) | 1901 | Python | Apache 2.0 | 2024-12-26 | Persistent memory for AI agent pipelines, REST API + MCP + knowledge graph + auto-consolidation |
-| [Memary](https://github.com/kingjulio8238/Memary) | 2618 | Python | MIT | 2024-04-10 | KG-native memory: entity-relation triplets, recursive subgraph traversal, multi-hop reasoning |
 | [obsidian-mind](https://github.com/breferrari/obsidian-mind) | 2715 | TypeScript | MIT | 2026-02-28 | Obsidian vault template, markdown-native memory, QMD hybrid RRF search |
 | [MemMachine](https://github.com/MemMachine/MemMachine) | 3091 | Python | Apache 2.0 | 2025-08 | Agentic retrieval with ChainOfQueryAgent multi-hop, 3-layer memory, Neo4j+PG |
 | [Acontext](https://github.com/memodb-io/Acontext) | 3500 | JS/TS/Go/Python | Apache-2.0 | 2025-10 | Agent Skills as a Memory Layer — auto-captures learnings as Markdown skill files, progressive disclosure retrieval |
@@ -118,7 +117,6 @@
 | LangMem | 1473 | Python | MIT | — | 2025-02 | 4% |
 | memsearch | 1861 | Python | Apache 2.0 | — | 2025-08 | 19% |
 | mcp-memory-service | 1901 | Python | Apache 2.0 | — | 2024-12-26 | 72% |
-| Memary | 2618 | Python | MIT | — | 2024-04-10 | 21% |
 | obsidian-mind | 2715 | TypeScript | MIT | — | 2026-02-28 | 23% |
 | MemMachine | 3091 | Python | Apache 2.0 | — | 2025-08 | 33% |
 | Acontext | 3500 | JS/TS/Go/Python | Apache-2.0 | — | 2025-10 | 23% |
@@ -189,7 +187,6 @@
 | LangMem | Library | Pluggable backends | LangChain/LangGraph | — | — | — | — | 1 | — | — | — | pip install | free |
 | memsearch | Local CLI+MCP | Milvus+Markdown | MCP+CLI | — | — | ✅ | — | 9 | — | — | — | pip install | free |
 | mcp-memory-service | Local/Docker/Cloudflare | SQLite-vec+Cloudflare+Milvus | REST(76ep)+MCP+OAuth2+CLI | — | ✅ | ✅ | ✅ | 5 | ✅ | ✅ | ✅ | pip install | free |
-| Memary | Python library | Neo4j/FalkorDB | Library (ReAct agent) | — | ✅ | ✅ | ✅ | 3 | — | — | ✅ | pip install | free |
 | obsidian-mind | Obsidian vault + npm | Markdown + QMD/SQLite | CLI + MCP | — | ✅ | ✅ | — | 1 | — | — | — | npm install | free |
 | MemMachine | Server+SDK | Neo4j+PostgreSQL+pgvector | MCP+SDK | — | ✅ | ✅ | ✅ | 1 | — | ✅ | — | docker compose | free |
 | Acontext | Cloud + Docker self-host | PostgreSQL+pgvector+Redis+RabbitMQ+S3 | SDK+REST | — | ✅ | ✅ | — | 3 | — | ✅ | ✅ | curl \| sh | freemium |
@@ -260,7 +257,6 @@
 | LangMem | Memory namespace | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 3 |
 | memsearch | Text chunk (no learning abstraction) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 9 |
 | mcp-memory-service | Memory (text+metadata) | ✅ | — | ✅ | — | — | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | ✅ | 28 |
-| Memary | Entity-relation triplet | ✅ | — | — | — | — | — | — | — | — | — | — | — | — | — | 5 |
 | obsidian-mind | Markdown note (wiki) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 4 |
 | MemMachine | Memory (3 layers) | ✅ | — | — | — | — | — | — | ✅ | ✅ | — | — | — | ✅ | — | 10 |
 | Acontext | Skill file (Markdown) | — | — | — | — | — | — | ✅ | — | — | — | — | — | — | — | 12 |
@@ -331,7 +327,6 @@
 | LangMem | — | ✅ | — | — | — | — | — | — | 1 | 1 |
 | memsearch | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
 | mcp-memory-service | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 6 |
-| Memary | — | — | — | — | — | — | — | ✅ | 2 | 1 |
 | obsidian-mind | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | MemMachine | — | ✅ | ✅ | — | — | — | — | — | 2 | 1 |
 | Acontext | ✅ | — | — | — | — | — | — | — | 4 | 4 |
@@ -402,7 +397,6 @@
 | LangMem | — | — | — | — | — | — | — |
 | memsearch | — | — | — | — | — | — | — |
 | mcp-memory-service | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
-| Memary | — | ✅ | — | — | — | — | ✅ |
 | obsidian-mind | — | — | — | — | — | — | — |
 | MemMachine | — | — | — | — | — | — | ✅ |
 | Acontext | — | — | — | — | — | — | ✅ |
@@ -473,7 +467,6 @@
 | LangMem | ✅ | — | — | — | — | — | — | — |
 | memsearch | ✅ | — | ✅ | — | — | — | — | — |
 | mcp-memory-service | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — |
-| Memary | ✅ | — | ✅ | — | — | — | ✅ | ✅ |
 | obsidian-mind | — | — | — | — | — | — | — | — |
 | MemMachine | ✅ | ✅ | ✅ | — | — | — | — | ✅ |
 | Acontext | ✅ | — | ✅ | — | ✅ | — | — | ✅ |
@@ -544,7 +537,6 @@
 | LangMem | — | — | — | — | — | — | — | — | — | — | — |
 | memsearch | ✅ | ✅ | ✅ | — | — | — | — | ✅ | — | — | — |
 | mcp-memory-service | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — |
-| Memary | — | — | — | — | — | — | — | — | — | — | — |
 | obsidian-mind | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | MemMachine | ✅ | — | — | — | — | ✅ | — | ✅ | — | — | — |
 | Acontext | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
@@ -615,7 +607,6 @@
 | LangMem | — | — | — | — | — |
 | memsearch | — | — | — | — | ✅ |
 | mcp-memory-service | — | 86.0% (sess) / 80.4% (turn) | — | — | ✅ |
-| Memary | — | — | — | — | — |
 | obsidian-mind | — | — | — | — | — |
 | MemMachine | — | — | — | — | ✅ |
 | Acontext | — | — | — | ~45% tool calls | — |
