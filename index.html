@@ -38,7 +38,7 @@
   
   .wrap { overflow-x: auto; }
   table { border-collapse: collapse; font-size: 0.85rem; }
-  thead { position: sticky; top: 54px; z-index: 100; }
+  thead { }
   th, td { padding: 0.45rem 0.7rem; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); white-space: nowrap; vertical-align: middle; }
   /* section header */
   th.sec {
@@ -53,11 +53,11 @@
   }
   /* system name column (sticky) */
   th.sys-h, td.sys-c {
-    position: sticky; left: 0; z-index: 150;
+    position: sticky; left: 0;
     text-align: left; min-width: 160px; max-width: 160px;
   }
-  th.sys-h { background: var(--section); z-index: 160; }
-  td.sys-c { background: var(--bg); z-index: 140; }
+  th.sys-h { background: var(--section); }
+  td.sys-c { background: var(--bg); }
   tr:hover td.sys-c { background: var(--hover); }
   td.sys-c a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
   td.sys-c a:hover { text-decoration: underline; }
@@ -227,13 +227,6 @@
       tbodyRows.push(row);
     }
     document.getElementById('tbody').innerHTML = tbodyRows.join('');
-    
-    // Sticky fixes for system column
-    var cells = document.querySelectorAll('td.sys-c');
-    for (var ci = 0; ci < cells.length; ci++) {
-      cells[ci].style.position = 'sticky';
-      cells[ci].style.left = '0';
-    }
   }
 
   function filter() {
