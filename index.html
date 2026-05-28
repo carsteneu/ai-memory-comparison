@@ -49,7 +49,7 @@
   /* feature column header */
   th.feat {
     background: var(--section); font-size: 0.75rem; font-weight: 600; text-align: center;
-    min-width: 55px; max-width: 85px; overflow: hidden; text-overflow: ellipsis;
+    padding: 0.45rem 0.7rem;
   }
   /* system name column (sticky) */
   th.sys-h, td.sys-c {
@@ -66,7 +66,7 @@
   td.yes { background: var(--green-bg); color: var(--green); font-weight: 700; text-align: center; font-size: 0.85rem; min-width: 40px; }
   td.no  { color: var(--muted); text-align: center; font-size: 0.7rem; min-width: 40px; }
   td.num, td.txt { text-align: center; font-variant-numeric: tabular-nums; min-width: 50px; }
-  td.txt { text-align: center; max-width: 100px; min-width: 50px; overflow: hidden; text-overflow: ellipsis; }
+  td.txt { text-align: center; min-width: 50px; }
   td.best { background: var(--green-bg); color: var(--green); font-weight: 700; }
   /* alternating column groups for readability */
   td:nth-child(2n+3) { background-color: rgba(128,128,128,0.03); }
@@ -186,9 +186,7 @@
     // Row 2: feature names
     var featRow = '<tr><th class="sys-h">' + filtered.length + ' systems</th>';
     for (var j = 0; j < features.length; j++) {
-      var label = features[j].f.label;
-      if (label.length > 14) label = label.slice(0, 13) + '…';
-      featRow += '<th class="feat" title="' + features[j].f.label + '">' + label + '</th>';
+      featRow += '<th class="feat">' + features[j].f.label + '</th>';
     }
     featRow += '</tr>';
     theadRows.push(featRow);
