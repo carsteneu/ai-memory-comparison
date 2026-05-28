@@ -56,6 +56,8 @@
   thead th { position: sticky; top: 0; z-index: 2; }
   thead tr:last-child th { top: var(--row1-h, 32px); }
   thead th.sys-h { z-index: 3; }
+  th.sortable { cursor: pointer; user-select: none; }
+  th.sortable:hover { background: var(--hover); }
   tr:hover td.sys-c { background: var(--hover); }
   td.sys-c a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
   td.sys-c a:hover { text-decoration: underline; }
@@ -120,7 +122,7 @@
     return;
   }
 
-  var current = { section: null, arch: 'all', sortAsc: true };
+  var current = { section: null, arch: 'all', sortKey: 'stars', sortAsc: false };
 
   // ── theme ──
   var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -166,8 +168,9 @@
     }
 
     // thead
+    function arrow(k) { return current.sortKey === k ? (current.sortAsc ? ' ▲' : ' ▼') : ''; }
     var theadRows = [];
-    var secRow = '<tr><th class="sys-h">System</th>';
+    var secRow = '<tr><th class="sys-h sortable" data-key="name">System' + arrow('name') + '</th>';
     var curSec = null, secSpan = 0, spans = [];
     for (var i = 0; i < features.length; i++) {
       if (features[i].glabel !== curSec) {
@@ -182,9 +185,9 @@
     secRow += '</tr>';
     theadRows.push(secRow);
 
-    var featRow = '<tr><th class="sys-h">' + filtered.length + ' systems</th>';
+    var featRow = '<tr><th class="sys-h sortable" data-key="stars">' + filtered.length + ' systems' + arrow('stars') + '</th>';
     for (var j = 0; j < features.length; j++) {
-      featRow += '<th class="feat">' + features[j].f.label + '</th>';
+      featRow += '<th class="feat sortable" data-key="' + features[j].f.id + '">' + features[j].f.label + arrow(features[j].f.id) + '</th>';
     }
     featRow += '</tr>';
     theadRows.push(featRow);
@@ -244,22 +247,51 @@
     if (r1) document.documentElement.style.setProperty('--row1-h', r1.getBoundingClientRect().height + 'px');
   }
 
+  function cmpVal(a, b, key, asc) {
+    function score(v) {
+      if (v === true) return 2;
+      if (v === false) return 0;
+      if (v === '—' || v == null) return 1;
+      return v;
+    }
+    var av = a[key], bv = b[key];
+    if (key === 'name') return asc ? String(av).localeCompare(String(bv)) : String(bv).localeCompare(String(av));
+    var sa = score(av), sb = score(bv);
+    var r;
+    if (typeof sa === 'number' && typeof sb === 'number') r = sa - sb;
+    else if (typeof sa === 'string' && typeof sb === 'string') r = sa.localeCompare(sb);
+    else r = String(sa).localeCompare(String(sb));
+    if (r === 0) r = (a.stars || 0) - (b.stars || 0);
+    return asc ? r : -r;
+  }
+
   function filter() {
     var filtered = SYSTEMS.slice();
     if (current.arch === 'local') filtered = filtered.filter(function(s) { return s.offline === true; });
     if (current.arch === 'binary') filtered = filtered.filter(function(s) { return s.singleBinary === true; });
-    filtered.sort(function(a, b) {
-      return current.sortAsc ? a.stars - b.stars : b.stars - a.stars;
-    });
+    filtered.sort(function(a, b) { return cmpVal(a, b, current.sortKey, current.sortAsc); });
     render(filtered);
   }
 
-  // ── sort toggle ──
+  // ── sort toggle (button = stars shortcut) ──
   window.toggleSort = function() {
-    current.sortAsc = !current.sortAsc;
+    if (current.sortKey === 'stars') current.sortAsc = !current.sortAsc;
+    else { current.sortKey = 'stars'; current.sortAsc = false; }
     document.getElementById('btnSort').textContent = current.sortAsc ? '↑ Fewest first' : '↓ Most stars';
     filter();
   };
+
+  // ── click-to-sort on any header ──
+  document.getElementById('thead').addEventListener('click', function(e) {
+    var th = e.target.closest('th.sortable');
+    if (!th) return;
+    var key = th.getAttribute('data-key');
+    if (!key) return;
+    if (current.sortKey === key) current.sortAsc = !current.sortAsc;
+    else { current.sortKey = key; current.sortAsc = (key === 'name'); }
+    if (key === 'stars') document.getElementById('btnSort').textContent = current.sortAsc ? '↑ Fewest first' : '↓ Most stars';
+    filter();
+  });
 
   // ── live stars ──
   var STAR_CACHE = {};
