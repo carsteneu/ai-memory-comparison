@@ -122,7 +122,7 @@
     return;
   }
 
-  var current = { section: null, arch: 'all', sortKey: 'stars', sortAsc: false, sortStep: 0 };
+  var current = { section: null, arch: 'all', sortKey: 'stars', sortAsc: true, sortStep: 0 };
 
   // ── theme ──
   var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -295,7 +295,7 @@
       current.sortStep = (current.sortStep || 0) + 1;
       if (current.sortStep === 1) current.sortAsc = false;
       else if (current.sortStep === 2) current.sortAsc = true;
-      else { current.sortKey = 'stars'; current.sortAsc = false; current.sortStep = 0; }
+      else { current.sortKey = 'stars'; current.sortAsc = true; current.sortStep = 0; }
     } else {
       current.sortKey = key; current.sortAsc = false; current.sortStep = 1;
     }
