@@ -541,4 +541,14 @@ const SYSTEMS = [
     p_claude: true, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
     b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: false,
   },
+  {
+    id: "openviking", name: "OpenViking", url: "https://github.com/volcengine/OpenViking", description: "ByteDance context DB, filesystem paradigm, L0/L1/L2 tiers, LoCoMo 82%", stars: 24815, language: "Python", license: "AGPL-3.0", singleBinary: false,
+    deployment: "Self-hosted", storage: "Context DB (filesystem paradigm)", integration: "API", proxy: false, webUi: true, offline: true,
+    unit: "Context node (filesystem tree)", entities: false, actions: false, keywords: false, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: false, originTrust: false, emotional: false, conflict: false, layeredMemory: true, timeTravel: false, schemaFields: 6,
+    fulltext: false, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: false, timeline: false, searchModes: 2, dataSources: 3,
+    decay: false, supersede: false, contradiction: false, quarantine: false, autoResolve: false, trustModel: false, explicitForget: false,
+    autoExtract: true, contentPreproc: false, dedup: false, qualityRefine: false, narrative: false, clustering: false, recurrence: false, persona: false,
+    p_claude: true, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: true, p_hermes: true, p_pi: false, p_antigravity: false,
+    b_locomo: "82.1", b_longmemeval: "—", b_personamem: "—", b_token: "91%", b_methodology: true,
+  },
 ];
