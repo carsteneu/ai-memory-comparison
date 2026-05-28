@@ -4,7 +4,7 @@
 > Corrections via PR welcome. No affiliation with any listed project.
 
 **Last updated:** 2026-05-28  
-**Systems:** 56  
+**Systems:** 59  
 **Live:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 
 ---
@@ -15,6 +15,7 @@
 |---|---:|---|---|---|---|
 | [gitmem](https://github.com/gitmem-dev/gitmem) | 8 | TypeScript | MIT | 2026-04 | MCP server, BM25+semantic, 17 schema fields, keywords, local-first |
 | [YesMem](https://github.com/carsteneu/yesmem) | 10 | Go | Apache 2.0 | 2026-04-09 | Project continuity layer with deepest data model and proxy collapse |
+| [Fullerenes](https://github.com/codebreaker77/Fullerenes) | 19 | TypeScript | MIT | 2026-04-25 | Zero-LLM Tree-sitter code graph, blast radius analysis, 64% SWE-bench token reduction |
 | [fidelis](https://github.com/hermes-labs-ai/fidelis) | 20 | Python | MIT | 2026-03 | Non-LLM agent memory, BM25 + rerank, 83.2% R@1 on LongMemEval-S, depends on mem0 |
 | [ArcRift](https://github.com/Eshaan-Nair/ArcRift) | 75 | TypeScript | MIT | 2026-04 | Local persistent memory layer, Chrome extension + MCP, sqlite-vec RAG |
 | [CommonGround](https://github.com/Intelligent-Internet/CommonGround) | 137 | TypeScript | MIT | 2025-11 | Shared agent workspace: collaborative memory, pub/sub events, agent directory |
@@ -24,10 +25,12 @@
 | [shodh-memory](https://github.com/varun29ankuS/shodh-memory) | 215 | Rust | ? | 2025-12-03 | Cognitive: learns from use, forgets irrelevant, TinyBERT NER, RichContext |
 | [memanto](https://github.com/moorcheh-ai/memanto) | 230 | Python | MIT | 2026-03 | Vector-only (no graph), 13 memory types, 5 search modes, LoCoMo 87.1% SOTA |
 | [MoltBrain](https://github.com/nhevers/MoltBrain) | 250 | TypeScript | ? | 2026-01-26 | Long-term memory, MoltBook multi-agent, web viewer, ChromaDB |
+| [MemLayer](https://github.com/divagr18/memlayer) | 275 | Python | MIT | 2025-11-16 | 3-line LTM for any LLM: hybrid vector+graph, 3 speed tiers, salience gating, offline mode |
 | [icarus](https://github.com/esaradev/icarus-memory-infra) | 285 | Python | MIT | 2026-03-24 | Provenance, rollback, 3-layer: working+session+wiki, 23 schema fields |
 | [Memory Palace](https://github.com/AGI-is-going-to-arrive/Memory-Palace) | 300 | Python | MIT | 2026-02-19 | Forgetting engine, snapshot rollback, intent-aware search, 4 maintenance engines |
 | [Octopoda-OS](https://github.com/RyjoxTechnologies/Octopoda-OS) | 337 | Python | MIT | 2026-04-02 | Memory OS: loop detection, agent messaging, crash recovery, 29 MCP tools |
 | [ai-memory](https://github.com/akitaonrails/ai-memory) | 341 | Rust | MIT | 2026-05-21 | Git-versioned markdown wiki, zero LLM mode, cross-agent handoffs |
+| [Memora](https://github.com/agentic-box/memora) | 407 | Python | MIT | 2025-11-11 | MCP memory: hybrid RRF, auto-hierarchy, LLM dedup, live graph UI, event-driven multi-agent |
 | [memorix](https://github.com/memorix-ai/memorix) | 433 | Python | Apache 2.0 | 2026-02-14 | Generic vector-store SDK wrapping FAISS/Qdrant — NOT agent memory |
 | [TeleMem](https://github.com/Tele-AI/TeleMem) | 461 | Python | MIT | 2026-05 | Mem0 drop-in replacement: semantic dedup, multimodal video, multi-user |
 | [context-infra](https://github.com/grapeot/context-infrastructure) | 503 | Python | MIT | 2026-03-16 | Memory + rules + skills + scheduled observations |
@@ -78,6 +81,7 @@
 | --- | --- | --- | --- | --- | --- | --- |
 | gitmem | 8 | TypeScript | MIT | — | 2026-04 | 18% |
 | YesMem | 10 | Go | Apache 2.0 | ✅ | 2026-04-09 | 82% |
+| Fullerenes | 19 | TypeScript | MIT | — | 2026-04-25 | 16% |
 | fidelis | 20 | Python | MIT | — | 2026-03 | 11% |
 | ArcRift | 75 | TypeScript | MIT | — | 2026-04 | 28% |
 | CommonGround | 137 | TypeScript | MIT | — | 2025-11 | 9% |
@@ -87,10 +91,12 @@
 | shodh-memory | 215 | Rust | ? | ✅ | 2025-12-03 | 33% |
 | memanto | 230 | Python | MIT | — | 2026-03 | 30% |
 | MoltBrain | 250 | TypeScript | ? | — | 2026-01-26 | 21% |
+| MemLayer | 275 | Python | MIT | — | 2025-11-16 | 16% |
 | icarus | 285 | Python | MIT | — | 2026-03-24 | 19% |
 | Memory Palace | 300 | Python | MIT | — | 2026-02-19 | 35% |
 | Octopoda-OS | 337 | Python | MIT | — | 2026-04-02 | 16% |
 | ai-memory | 341 | Rust | MIT | ✅ | 2026-05-21 | 33% |
+| Memora | 407 | Python | MIT | — | 2025-11-11 | 28% |
 | memorix | 433 | Python | Apache 2.0 | — | 2026-02-14 | 7% |
 | TeleMem | 461 | Python | MIT | — | 2026-05 | 7% |
 | context-infra | 503 | Python | MIT | — | 2026-03-16 | 25% |
@@ -141,6 +147,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | gitmem | MCP server (npx) | .gitmem/ + Supabase | MCP | — | — | ✅ | — | 1 | — | ✅ | — | npx install | free |
 | YesMem | Local binary | SQLite+Vector | Proxy+MCP+Hooks | ✅ | — | ✅ | ✅ | 4 | ✅ | ✅ | ✅ | curl \| bash | free |
+| Fullerenes | Local CLI + MCP | SQLite (graph.db) | MCP | — | — | ✅ | — | 0 | — | — | — | npm install | free |
 | fidelis | MCP server + hooks | BM25+ChromaDB | MCP + hooks | — | — | ✅ | — | 1 | — | ✅ | — | pip install | free |
 | ArcRift | Local server + Chrome ext | sqlite-vec | MCP + browser | — | ✅ | ✅ | — | 1 | — | ✅ | — | ? | free |
 | CommonGround | Self-hosted | SQLite+Vector | REST+WebSocket | — | ✅ | ✅ | ✅ | 1 | — | — | — | docker compose | free |
@@ -150,10 +157,12 @@
 | shodh-memory | Local binary | Tantivy+FTS5+Vector | MCP | — | — | ✅ | ✅ | 1 | — | ✅ | — | cargo install | free |
 | memanto | Local/Cloud | Vector DB | MCP+SaaS | — | — | ✅ | — | 1 | — | — | — | pip install | freemium |
 | MoltBrain | Plugin | ChromaDB+SQLite | Plugin+MCP | — | ✅ | ✅ | ✅ | 1 | — | ✅ | — | npm install | free |
+| MemLayer | Python library | ChromaDB+NetworkX | Library (3 lines) | — | — | ✅ | — | 5 | — | ✅ | — | pip install memlayer | free |
 | icarus | Local Python | Markdown wiki + archive | MCP | — | — | ✅ | — | 1 | — | ✅ | — | pip install | free |
 | Memory Palace | Docker / local Python | SQLite+sqlite-vec | MCP+Skills | — | ✅ | ✅ | — | 1 | — | — | — | docker compose | free |
 | Octopoda-OS | Local server | Key-value store | MCP | — | ✅ | ✅ | — | 1 | — | — | ✅ | pip install | free |
 | ai-memory | Local binary | Git wiki (md) | MCP+Hooks | — | ✅ | ✅ | — | 1 | — | — | — | ? | free |
+| Memora | MCP server | SQLite+FTS5 | MCP | — | ✅ | ✅ | ✅ | 2 | — | ✅ | — | pip install | free |
 | memorix | Python library | FAISS/Qdrant | Python SDK | — | — | ✅ | — | 1 | — | — | — | pip install | free |
 | TeleMem | Library | Vector DB | SDK | — | — | ✅ | — | 1 | — | — | — | pip install | free |
 | context-infra | Local Python | Markdown files | MCP | — | — | ✅ | — | 1 | ✅ | — | — | setup_guide.md | free |
@@ -204,6 +213,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | gitmem | Learning entry | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 17 |
 | YesMem | Learning V2 (structured) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | 51 |
+| Fullerenes | Code symbol node | ✅ | — | — | — | — | — | — | — | — | — | — | — | — | — | 8 |
 | fidelis | Verbatim passage | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 3 |
 | ArcRift | Memory entry | ✅ | — | ✅ | — | — | — | — | ✅ | — | — | — | — | — | — | 7 |
 | CommonGround | Shared memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 4 |
@@ -213,10 +223,12 @@
 | shodh-memory | Cognitive entry | ✅ | — | — | — | — | — | — | ✅ | ✅ | — | ✅ | — | ✅ | — | 6 |
 | memanto | Memory (13 types) | — | — | — | — | — | — | — | — | ✅ | — | — | — | — | ✅ | 6 |
 | MoltBrain | Observation (17 fields) | — | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | 17 |
+| MemLayer | Memory fact | ✅ | — | — | — | — | — | — | — | — | — | — | — | — | — | 6 |
 | icarus | Working + session + wiki layers | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 23 |
 | Memory Palace | Memory entry | — | — | — | — | ✅ | — | — | — | — | — | — | — | ✅ | ✅ | 8 |
 | Octopoda-OS | Memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 5 |
 | ai-memory | Wiki page (md) | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 10 |
+| Memora | Memory entry (hierarchical) | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 8 |
 | memorix | Vector entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 6 |
 | TeleMem | Memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 7 |
 | context-infra | Context entry | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | — | 4 |
@@ -267,6 +279,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | gitmem | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 9 | 4 |
+| Fullerenes | ✅ | — | — | — | ✅ | — | — | — | 9 | 1 |
 | fidelis | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | ArcRift | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 2 |
 | CommonGround | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
@@ -276,10 +289,12 @@
 | shodh-memory | ✅ | ✅ | ✅ | — | — | — | ✅ | — | 1 | 1 |
 | memanto | — | ✅ | — | — | — | — | — | ✅ | 5 | 1 |
 | MoltBrain | ✅ | ✅ | — | — | — | — | — | ✅ | 2 | 1 |
+| MemLayer | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
 | icarus | ✅ | ✅ | ✅ | — | — | — | — | — | 4 | 1 |
 | Memory Palace | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
 | Octopoda-OS | — | ✅ | — | — | — | — | — | — | 3 | 1 |
 | ai-memory | ✅ | ✅ | — | — | — | — | — | — | 3 | 1 |
+| Memora | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 4 | 1 |
 | memorix | — | ✅ | — | — | — | — | — | — | 2 | 1 |
 | TeleMem | — | ✅ | — | — | — | — | — | — | 1 | 1 |
 | context-infra | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
@@ -330,6 +345,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | gitmem | — | — | — | — | — | — | ✅ |
 | YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Fullerenes | — | — | — | — | — | — | — |
 | fidelis | — | — | — | — | — | — | — |
 | ArcRift | — | ✅ | — | — | — | — | ✅ |
 | CommonGround | — | — | — | — | — | — | — |
@@ -339,10 +355,12 @@
 | shodh-memory | ✅ | — | — | — | — | — | ✅ |
 | memanto | — | ✅ | — | — | — | — | — |
 | MoltBrain | — | — | — | — | — | — | — |
+| MemLayer | ✅ | — | — | — | — | — | — |
 | icarus | — | ✅ | — | — | — | — | ✅ |
 | Memory Palace | ✅ | — | — | — | — | — | ✅ |
 | Octopoda-OS | — | — | — | — | — | — | ✅ |
 | ai-memory | ✅ | ✅ | — | — | — | — | — |
+| Memora | — | ✅ | ✅ | — | — | — | ✅ |
 | memorix | — | ✅ | — | — | — | — | ✅ |
 | TeleMem | — | — | — | — | — | — | — |
 | context-infra | — | — | — | — | — | — | — |
@@ -393,6 +411,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | gitmem | — | — | — | — | — | — | — | — |
 | YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Fullerenes | ✅ | — | — | — | — | — | — | — |
 | fidelis | — | — | — | — | — | — | — | — |
 | ArcRift | ✅ | — | ✅ | — | — | — | — | — |
 | CommonGround | — | — | — | — | — | — | — | — |
@@ -402,10 +421,12 @@
 | shodh-memory | ✅ | — | ✅ | — | — | — | — | — |
 | memanto | ✅ | — | — | — | — | — | — | — |
 | MoltBrain | ✅ | — | — | — | ✅ | — | — | — |
+| MemLayer | ✅ | — | ✅ | — | — | — | — | — |
 | icarus | — | — | — | — | — | — | — | — |
 | Memory Palace | — | — | ✅ | — | — | ✅ | — | — |
 | Octopoda-OS | ✅ | — | ✅ | — | — | — | — | — |
 | ai-memory | ✅ | — | — | — | ✅ | — | — | — |
+| Memora | — | ✅ | ✅ | — | — | — | — | — |
 | memorix | — | — | — | — | — | — | — | — |
 | TeleMem | ✅ | — | ✅ | — | — | — | — | — |
 | context-infra | ✅ | ✅ | — | ✅ | ✅ | — | ✅ | ✅ |
@@ -456,6 +477,7 @@
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | gitmem | ✅ | ✅ | — | — | — | ✅ | ✅ | — | — | — | — |
 | YesMem | ✅ | ✅ | ✅ | — | — | — | — | — | — | — | — |
+| Fullerenes | ✅ | ✅ | — | — | — | ✅ | — | — | — | — | — |
 | fidelis | ✅ | — | — | — | — | — | — | — | — | — | — |
 | ArcRift | ✅ | — | — | — | — | ✅ | ✅ | — | — | — | — |
 | CommonGround | — | — | — | — | — | — | — | — | — | — | — |
@@ -465,10 +487,12 @@
 | shodh-memory | ✅ | — | — | — | — | ✅ | — | — | — | — | — |
 | memanto | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — |
 | MoltBrain | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
+| MemLayer | — | — | — | — | — | — | — | — | — | — | — |
 | icarus | ✅ | — | — | — | — | ✅ | — | — | — | — | — |
 | Memory Palace | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | — | — | ✅ |
 | Octopoda-OS | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
 | ai-memory | ✅ | ✅ | ✅ | ✅ | — | ✅ | — | ✅ | — | ✅ | ✅ |
+| Memora | ✅ | ✅ | — | — | — | — | — | — | — | — | — |
 | memorix | — | — | — | — | — | — | — | — | — | — | — |
 | TeleMem | — | — | — | — | — | — | — | — | — | — | — |
 | context-infra | ✅ | — | ✅ | — | — | ✅ | — | — | — | — | — |
@@ -519,6 +543,7 @@
 | --- | --- | --- | --- | --- | --- |
 | gitmem | — | — | — | — | — |
 | YesMem | 0.87 | — | — | ~30% proxy | ✅ |
+| Fullerenes | — | — | — | 64% | ✅ |
 | fidelis | — | 83.2% R@1 | — | — | ✅ |
 | ArcRift | — | — | — | — | — |
 | CommonGround | — | — | — | — | — |
@@ -528,10 +553,12 @@
 | shodh-memory | — | — | — | — | — |
 | memanto | 87.1 | 89.8 | — | — | ✅ |
 | MoltBrain | — | — | — | — | — |
+| MemLayer | — | — | — | — | — |
 | icarus | — | — | — | — | — |
 | Memory Palace | — | — | — | — | ✅ |
 | Octopoda-OS | — | — | — | — | — |
 | ai-memory | — | — | — | — | — |
+| Memora | — | — | — | — | — |
 | memorix | — | — | — | — | — |
 | TeleMem | — | — | — | — | — |
 | context-infra | — | — | — | — | — |
