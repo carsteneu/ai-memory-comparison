@@ -233,7 +233,7 @@
     for (var r = 0; r < filtered.length; r++) {
       var sys = filtered[r];
       var row = '<tr>';
-      row += '<td class="sys-c"><a href="' + sys.url + '" target="_blank">' + sys.name + '</a> <a href="' + (sys.docs || sys.url) + '" class="src" title="Documentation source">📋</a><span class="stars">⭐' + fmtStars(sys.stars) + ' · ' + (sys.created || '') + '</span><span>' + sys.description + '</span></td>';
+      row += '<td class="sys-c"><a href="' + (sys.evidence || sys.docs || sys.url) + '" class="src" title="Evidence &amp; sources">📋</a> <a href="' + sys.url + '" target="_blank">' + sys.name + '</a><span class="stars">⭐' + fmtStars(sys.stars) + ' · ' + (sys.created || '') + '</span><span>' + sys.description + '</span></td>';
       for (var c = 0; c < features.length; c++) {
         var f = features[c].f;
         var val = sys[f.id];

@@ -277,6 +277,7 @@ const SYSTEMS = [
     id: "yesmem",
     name: "YesMem",
     url: "https://github.com/carsteneu/yesmem",
+    evidence: "evidence/yesmem.md",
     description: "Project continuity layer with deepest data model and proxy collapse",
     stars: 10, language: "Go", license: "Apache 2.0", singleBinary: true, created: "2026-04-09", docs: "https://github.com/carsteneu/yesmem/blob/main/Features.md",
     deployment: "Local binary", storage: "SQLite+Vector", integration: "Proxy+MCP+Hooks", proxy: true, webUi: false, offline: true,
