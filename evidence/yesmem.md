@@ -188,3 +188,34 @@
 
 ### Methodology open ✅
 - `docs/BENCHMARK.md` — Reproducible methodology with parameter documentation
+
+---
+
+## Operations
+
+### Multi-agent ✅
+- `docs/features/multi-agent.md` — Multi-Agent System with spawn, heartbeat, crash recovery, inter-agent messaging, shared scratchpad
+- `docs/mcp-tools-reference.md` — `spawn_agent()`, `relay_agent()`, `send_to()`, `broadcast()`, `scratchpad_write()`
+
+### LLM providers (4+) ✅
+- `internal/proxy/provider_autoconf.go` — Auto-discovers 84 models across Anthropic, OpenAI, DeepSeek, Mistral
+- `Features.md` — "84 models across 3 providers auto-routed"
+
+### Cache optimization ✅
+- `internal/proxy/sawtooth.go` — Sawtooth freeze algorithm for context collapse
+- `internal/proxy/cache_keepalive.go` — Prompt cache keepalive bridging idle gaps up to ~27min
+- `README.md` — "Prompt cache optimization: Cache TTL upgrades, breakpoint enforcement"
+
+### Privacy/encryption ✅
+- `README.md` — "Your data stays yours, everything in ~/.claude/yesmem/. Nothing leaves your machine."
+- Local-first architecture, no cloud dependency
+
+### Data export ✅
+- `cmd_backup.go`, `cmd_export.go`, `cmd_wiki_render.go` — Backup, export, and wiki rendering commands
+- Sessions archived permanently in `~/.claude/yesmem/archive/`
+
+### Setup ✅
+- `README.md` — "curl -fsSL ... | bash" + "yesmem setup" — two commands
+
+### Pricing ✅
+- `LICENSE` — Apache 2.0, completely free
