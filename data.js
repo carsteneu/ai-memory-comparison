@@ -282,7 +282,7 @@ const SYSTEMS = [
     stars: 10, language: "Go", license: "Apache 2.0", singleBinary: true, created: "2026-04-09", docs: "https://github.com/carsteneu/yesmem/blob/main/Features.md",
     deployment: "Local binary", storage: "SQLite+Vector", integration: "Proxy+MCP+Hooks", proxy: true, webUi: false, offline: true,
     unit: "Learning V2 (structured)",
-    entities: true, actions: true, keywords: true, anticipatedQueries: true, triggerRules: true, domainTag: true, taskType: true, context: true, source: true, originTrust: true, emotional: true, conflict: true, layeredMemory: false, timeTravel: true, schemaFields: 22,
+    entities: true, actions: true, keywords: true, anticipatedQueries: true, triggerRules: true, domainTag: true, taskType: true, context: true, source: true, originTrust: true, emotional: true, conflict: true, layeredMemory: false, timeTravel: true, schemaFields: 51,
     fulltext: true, semantic: true, hybrid: true, deep: true, codeGraph: true, docsSearch: true, factQuery: true, timeline: true, searchModes: 9, dataSources: 4,
     decay: true, supersede: true, contradiction: true, quarantine: true, autoResolve: true, trustModel: true, explicitForget: true,
     autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: true, narrative: true, clustering: true, recurrence: true, persona: true,
