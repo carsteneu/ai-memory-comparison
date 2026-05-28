@@ -134,7 +134,10 @@
   // ── helpers ──
   function fmt(val, type) {
     if (type === 'bool') return val === true ? '✅' : '—';
-    if (type === 'number') return String(val);
+    if (type === 'number') {
+      // Check if this is the coverage field - show as percentage
+      return String(val) + (arguments.length > 2 && arguments[2] === 'coverage' ? '%' : '');
+    }
     return val || '—';
   }
   function cls(val, type) {
@@ -187,6 +190,23 @@
     theadRows.push(featRow);
     document.getElementById('thead').innerHTML = theadRows.join('');
 
+    // Compute coverage score per system (% of bool features)
+    var allBool = [];
+    for (var g = 0; g < FEATURE_GROUPS.length; g++) {
+      for (var f = 0; f < FEATURE_GROUPS[g].features.length; f++) {
+        if (FEATURE_GROUPS[g].features[f].type === 'bool' && FEATURE_GROUPS[g].features[f].id !== 'coverage') {
+          allBool.push(FEATURE_GROUPS[g].features[f].id);
+        }
+      }
+    }
+    for (var si = 0; si < filtered.length; si++) {
+      var hits = 0;
+      for (var b = 0; b < allBool.length; b++) {
+        if (filtered[si][allBool[b]] === true) hits++;
+      }
+      filtered[si].coverage = Math.round(hits / allBool.length * 100);
+    }
+
     // best values
     var bestVals = {};
     for (var k = 0; k < features.length; k++) {
@@ -210,7 +230,7 @@
         var f = features[c].f;
         var val = sys[f.id];
         var cclass = cls(val, f.type);
-        var display = fmt(val, f.type);
+        var display = fmt(val, f.type, f.id);
         if (f.type === 'number' && val === bestVals[f.id] && val > 0 && filtered.length > 1) {
           cclass += ' best';
         }

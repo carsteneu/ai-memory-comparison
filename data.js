@@ -12,6 +12,7 @@ const FEATURE_GROUPS = [
       { id: "license", label: "License", type: "text" },
       { id: "singleBinary", label: "Single binary", type: "bool" },
       { id: "created", label: "Created", type: "text" },
+      { id: "coverage", label: "Coverage", type: "number" },
     ]
   },
   {
