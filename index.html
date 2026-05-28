@@ -18,7 +18,6 @@
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--fg); }
-  
   header {
     position: sticky; top: 0; z-index: 200;
     background: var(--bg); border-bottom: 1px solid var(--border);
@@ -35,23 +34,18 @@
   button:hover, select:hover { background: var(--hover); }
   button.on { background: var(--accent); color: #fff; border-color: var(--accent); }
   .sep { width: 1px; height: 20px; background: var(--border); margin: 0 0.2rem; }
-  
   .wrap { overflow-x: auto; }
   table { border-collapse: collapse; font-size: 0.85rem; }
-  thead { }
   th, td { padding: 0.45rem 0.7rem; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); white-space: nowrap; vertical-align: middle; }
-  /* section header */
   th.sec {
     background: var(--section); color: var(--accent); font-size: 0.72rem;
     text-transform: uppercase; letter-spacing: 0.05em; text-align: left; font-weight: 700;
     padding: 0.55rem 0.7rem;
   }
-  /* feature column header */
   th.feat {
     background: var(--section); font-size: 0.75rem; font-weight: 600; text-align: center;
     padding: 0.45rem 0.7rem;
   }
-  /* system name column (sticky) */
   th.sys-h, td.sys-c {
     position: sticky; left: 0;
     text-align: left; min-width: 160px; max-width: 160px;
@@ -62,28 +56,22 @@
   td.sys-c a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
   td.sys-c a:hover { text-decoration: underline; }
   td.sys-c span { display: block; font-weight: 400; font-size: 0.7rem; color: var(--muted); white-space: normal; line-height: 1.3; }
-  
+  td.sys-c .stars { font-size: 0.65rem; color: var(--muted); }
   td.yes { background: var(--green-bg); color: var(--green); font-weight: 700; text-align: center; font-size: 0.85rem; min-width: 40px; }
   td.no  { color: var(--muted); text-align: center; font-size: 0.7rem; min-width: 40px; }
   td.num, td.txt { text-align: center; font-variant-numeric: tabular-nums; min-width: 50px; }
   td.txt { text-align: center; min-width: 50px; }
   td.best { background: var(--green-bg); color: var(--green); font-weight: 700; }
-  /* alternating column groups for readability */
   td:nth-child(2n+3) { background-color: rgba(128,128,128,0.03); }
   tr:hover td:nth-child(2n+3) { background-color: rgba(128,128,128,0.06); }
   td.yes:nth-child(2n+3), td.best:nth-child(2n+3) { background: var(--green-bg); }
   tr:hover td.yes, tr:hover td.best { background: var(--green-bg); }
-  tr:hover td.yes { background: var(--green-bg); }
-  tr:hover td.best { background: var(--green-bg); }
-  
   .legend { padding: 0.5rem 1.5rem; font-size: 0.68rem; color: var(--muted); border-bottom: 1px solid var(--border); display: flex; gap: 1rem; flex-wrap: wrap; }
   .legend strong { color: var(--green); }
   footer { padding: 1.5rem; text-align: center; font-size: 0.7rem; color: var(--muted); border-top: 1px solid var(--border); }
   footer a { color: var(--accent); }
-  
   @media (max-width: 768px) {
-    header { padding: 0.5rem; }
-    header h1 { font-size: 0.9rem; }
+    header { padding: 0.5rem; } header h1 { font-size: 0.9rem; }
     td.sys-c, th.sys-h { min-width: 110px; max-width: 110px; }
     th.feat { font-size: 0.58rem; }
   }
@@ -97,6 +85,9 @@
     <span class="sep"></span>
     <select id="selArch"><option value="all">All</option><option value="local">Local-first</option><option value="binary">Single binary</option></select>
     <span class="sep"></span>
+    <button id="btnSort" onclick="toggleSort()" title="Sort by stars (click to toggle)">↑ Fewest first</button>
+    <button id="btnRefresh" onclick="refreshStars()" title="Fetch live star counts from GitHub">🔄 Live</button>
+    <span class="sep"></span>
     <button id="btnTheme" onclick="toggleTheme()">🌙</button>
     <a href="comparison.md" style="font-size:0.7rem;color:var(--muted);">Markdown</a>
     <a href="https://github.com/carsteneu/ai-memory-comparison" style="font-size:0.7rem;color:var(--muted);">GitHub</a>
@@ -105,7 +96,7 @@
 <div class="legend">
   <span><strong>✅</strong> = has feature</span><span style="color:var(--muted)">—</span> = not documented &nbsp;|&nbsp;
   <span><strong style="color:var(--green)">green</strong> = best value in column</span>&nbsp;|&nbsp;
-  <span>13 systems · sources linked · <a href="https://github.com/carsteneu/ai-memory-comparison">PR corrections welcome</a></span>
+  <span id="legendCount">13 systems</span> · sources linked · <a href="https://github.com/carsteneu/ai-memory-comparison">PR corrections welcome</a>
 </div>
 <div class="wrap">
   <table id="tbl">
@@ -114,19 +105,18 @@
   </table>
 </div>
 <footer>
-  CC0 Public Domain. Snapshot 2026-05-27. <a href="https://github.com/carsteneu/ai-memory-comparison">Contribute on GitHub</a>
+  CC0 Public Domain. Stars fetched live via GitHub API, cached 24h. <a href="https://github.com/carsteneu/ai-memory-comparison">Contribute on GitHub</a>
 </footer>
 
 <script src="data.js"></script>
 <script>
 (function() {
-  // Wait for data.js to be loaded
   if (typeof FEATURE_GROUPS === 'undefined' || typeof SYSTEMS === 'undefined') {
     setTimeout(arguments.callee, 50);
     return;
   }
 
-  var current = { section: null, arch: 'all' };
+  var current = { section: null, arch: 'all', sortAsc: true };
 
   // ── theme ──
   var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -148,13 +138,18 @@
     if (type === 'number') return 'num';
     return 'txt';
   }
+  function fmtStars(n) {
+    if (n >= 1000) return (n/1000).toFixed(n >= 10000 ? 1 : 1) + 'k';
+    return String(n);
+  }
 
   // ── render ──
   function render(filtered) {
+    document.getElementById('legendCount').textContent = filtered.length + ' systems';
+    
     var groups = FEATURE_GROUPS;
     if (current.section) groups = groups.filter(function(g) { return g.id === current.section; });
     
-    // flatten features with group context
     var features = [];
     for (var gi = 0; gi < groups.length; gi++) {
       var g = groups[gi];
@@ -163,17 +158,14 @@
       }
     }
 
-    // Build thead
+    // thead
     var theadRows = [];
-    // Row 1: section headers
     var secRow = '<tr><th class="sys-h">System</th>';
-    var curSec = null, secSpan = 0;
-    var spans = [];
+    var curSec = null, secSpan = 0, spans = [];
     for (var i = 0; i < features.length; i++) {
       if (features[i].glabel !== curSec) {
         if (secSpan > 0) spans.push({ label: curSec, span: secSpan });
-        curSec = features[i].glabel;
-        secSpan = 1;
+        curSec = features[i].glabel; secSpan = 1;
       } else { secSpan++; }
     }
     if (secSpan > 0) spans.push({ label: curSec, span: secSpan });
@@ -183,7 +175,6 @@
     secRow += '</tr>';
     theadRows.push(secRow);
 
-    // Row 2: feature names
     var featRow = '<tr><th class="sys-h">' + filtered.length + ' systems</th>';
     for (var j = 0; j < features.length; j++) {
       featRow += '<th class="feat">' + features[j].f.label + '</th>';
@@ -192,7 +183,7 @@
     theadRows.push(featRow);
     document.getElementById('thead').innerHTML = theadRows.join('');
 
-    // Compute best values for number columns
+    // best values
     var bestVals = {};
     for (var k = 0; k < features.length; k++) {
       if (features[k].f.type !== 'number') continue;
@@ -205,12 +196,12 @@
       bestVals[key] = max;
     }
 
-    // Build tbody
+    // tbody
     var tbodyRows = [];
     for (var r = 0; r < filtered.length; r++) {
       var sys = filtered[r];
       var row = '<tr>';
-      row += '<td class="sys-c"><a href="' + sys.url + '" target="_blank">' + sys.name + '</a><span>' + sys.description + '</span></td>';
+      row += '<td class="sys-c"><a href="' + sys.url + '" target="_blank">' + sys.name + '</a><span class="stars">⭐' + fmtStars(sys.stars) + '</span><span>' + sys.description + '</span></td>';
       for (var c = 0; c < features.length; c++) {
         var f = features[c].f;
         var val = sys[f.id];
@@ -228,10 +219,87 @@
   }
 
   function filter() {
-    var filtered = SYSTEMS;
+    var filtered = SYSTEMS.slice();
     if (current.arch === 'local') filtered = filtered.filter(function(s) { return s.offline === true; });
     if (current.arch === 'binary') filtered = filtered.filter(function(s) { return s.singleBinary === true; });
+    filtered.sort(function(a, b) {
+      return current.sortAsc ? a.stars - b.stars : b.stars - a.stars;
+    });
     render(filtered);
+  }
+
+  // ── sort toggle ──
+  window.toggleSort = function() {
+    current.sortAsc = !current.sortAsc;
+    document.getElementById('btnSort').textContent = current.sortAsc ? '↑ Fewest first' : '↓ Most stars';
+    filter();
+  };
+
+  // ── live stars ──
+  var STAR_CACHE = {};
+  try { STAR_CACHE = JSON.parse(localStorage.getItem('amc_stars') || '{}'); } catch(e) {}
+
+  window.refreshStars = function() {
+    var btn = document.getElementById('btnRefresh');
+    btn.textContent = '⏳ ...'; btn.disabled = true;
+    
+    var repos = [];
+    for (var i = 0; i < SYSTEMS.length; i++) {
+      var m = SYSTEMS[i].url.match(/github\.com\/([^\/]+\/[^\/]+)/);
+      if (m) repos.push({ id: SYSTEMS[i].id, repo: m[1] });
+    }
+    
+    var fetched = 0, total = repos.length, updated = 0;
+    for (var j = 0; j < repos.length; j++) {
+      (function(r) {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', 'https://api.github.com/repos/' + r.repo, true);
+        xhr.timeout = 8000;
+        xhr.onload = function() {
+          fetched++;
+          if (xhr.status === 200) {
+            var d = JSON.parse(xhr.responseText);
+            var s = d.stargazers_count || 0;
+            STAR_CACHE[r.id] = { stars: s, ts: Date.now() };
+            for (var k = 0; k < SYSTEMS.length; k++) {
+              if (SYSTEMS[k].id === r.id) { SYSTEMS[k].stars = s; break; }
+            }
+            updated++;
+          }
+          checkDone();
+        };
+        xhr.onerror = function() { fetched++; checkDone(); };
+        xhr.ontimeout = function() { fetched++; checkDone(); };
+        xhr.send();
+        
+        function checkDone() {
+          if (fetched === total) {
+            localStorage.setItem('amc_stars', JSON.stringify(STAR_CACHE));
+            btn.textContent = '🔄 Live (' + updated + '/' + total + ')';
+            btn.disabled = false;
+            filter();
+          } else {
+            btn.textContent = '⏳ ' + fetched + '/' + total;
+          }
+        }
+      })(repos[j]);
+    }
+  };
+
+  // Apply cached stars if < 24h old
+  var cacheAge = Infinity;
+  for (var key in STAR_CACHE) {
+    if (STAR_CACHE[key].ts && (Date.now() - STAR_CACHE[key].ts) < cacheAge) {
+      cacheAge = Date.now() - STAR_CACHE[key].ts;
+    }
+  }
+  if (cacheAge < 86400000) {
+    for (var sid in STAR_CACHE) {
+      for (var si = 0; si < SYSTEMS.length; si++) {
+        if (SYSTEMS[si].id === sid) SYSTEMS[si].stars = STAR_CACHE[sid].stars;
+      }
+    }
+    document.getElementById('btnRefresh').textContent = '🔄 Live (cached)';
   }
 
   // ── UI bindings ──
@@ -239,19 +307,11 @@
   for (var gi2 = 0; gi2 < FEATURE_GROUPS.length; gi2++) {
     var g = FEATURE_GROUPS[gi2];
     var opt = document.createElement('option');
-    opt.value = g.id;
-    opt.textContent = g.label;
+    opt.value = g.id; opt.textContent = g.label;
     selSection.appendChild(opt);
   }
-  selSection.onchange = function() {
-    current.section = this.value || null;
-    filter();
-  };
-
-  document.getElementById('selArch').onchange = function() {
-    current.arch = this.value;
-    filter();
-  };
+  selSection.onchange = function() { current.section = this.value || null; filter(); };
+  document.getElementById('selArch').onchange = function() { current.arch = this.value; filter(); };
 
   // ── go ──
   filter();
