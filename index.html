@@ -61,6 +61,8 @@
   tr:hover td.sys-c { background: var(--hover); }
   td.sys-c a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
   td.sys-c a:hover { text-decoration: underline; }
+  a.src { font-size: 0.7rem; text-decoration: none; opacity: 0.5; }
+  a.src:hover { opacity: 1; }
   td.sys-c span { display: block; font-weight: 400; font-size: 0.7rem; color: var(--muted); white-space: normal; line-height: 1.3; }
   td.sys-c .stars { font-size: 0.65rem; color: var(--muted); }
   td.yes { background: var(--green-bg); color: var(--green); font-weight: 700; text-align: center; font-size: 0.85rem; min-width: 40px; }
@@ -231,7 +233,7 @@
     for (var r = 0; r < filtered.length; r++) {
       var sys = filtered[r];
       var row = '<tr>';
-      row += '<td class="sys-c"><a href="' + sys.url + '" target="_blank">' + sys.name + '</a><span class="stars">⭐' + fmtStars(sys.stars) + ' · ' + (sys.created || '') + '</span><span>' + sys.description + '</span></td>';
+      row += '<td class="sys-c"><a href="' + sys.url + '" target="_blank">' + sys.name + '</a> <a href="' + (sys.docs || sys.url) + '" class="src" title="Documentation source">📋</a><span class="stars">⭐' + fmtStars(sys.stars) + ' · ' + (sys.created || '') + '</span><span>' + sys.description + '</span></td>';
       for (var c = 0; c < features.length; c++) {
         var f = features[c].f;
         var val = sys[f.id];
