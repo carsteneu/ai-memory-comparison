@@ -37,6 +37,9 @@
   .wrap { overflow-x: auto; }
   table { border-collapse: collapse; font-size: 0.85rem; }
   th, td { padding: 0.45rem 0.7rem; border-bottom: 1px solid var(--border); border-right: 1px solid var(--border); white-space: nowrap; vertical-align: middle; }
+  thead th { position: sticky; top: 54px; z-index: 2; }
+  thead tr:first-child th { top: 54px; } /* section headers */
+  thead tr:last-child th { top: 82px; }  /* feature names, below section headers */
   th.sec {
     background: var(--section); color: var(--accent); font-size: 0.72rem;
     text-transform: uppercase; letter-spacing: 0.05em; text-align: left; font-weight: 700;
@@ -50,8 +53,8 @@
     position: sticky; left: 0;
     text-align: left; min-width: 160px; max-width: 160px;
   }
-  th.sys-h { background: var(--section); }
-  td.sys-c { background: var(--bg); }
+  th.sys-h { background: var(--section); top: 54px; z-index: 3; }
+  td.sys-c { background: var(--bg); z-index: 1; }
   tr:hover td.sys-c { background: var(--hover); }
   td.sys-c a { color: var(--accent); text-decoration: none; font-weight: 600; font-size: 0.85rem; }
   td.sys-c a:hover { text-decoration: underline; }
