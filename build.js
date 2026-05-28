@@ -69,7 +69,7 @@ for (const x of features) {
 }
 
 const theadParts = [];
-let secRow = '<tr><th class="sys-h sortable" data-key="name">System</th>';
+let secRow = '<tr><th class="sys-h sortable" data-key="name">System</th><th class="desc-h" rowspan="2">Description</th>';
 for (const g of groups) secRow += `<th class="sec" colspan="${g.span}">${escapeHtml(g.label)}</th>`;
 secRow += '</tr>';
 theadParts.push(secRow);
@@ -83,7 +83,8 @@ const tbodyParts = [];
 for (const sys of filtered) {
   let row = '<tr>';
   const href = sys.evidence || sys.docs || sys.url;
-  row += `<td class="sys-c"><a href="${escapeHtml(href)}" class="src" title="Evidence &amp; sources">📋</a> <a href="${escapeHtml(sys.url)}" target="_blank">${escapeHtml(sys.name)}</a><span class="stars">⭐${fmtStars(sys.stars)} · ${escapeHtml(sys.created || '')}</span><span>${escapeHtml(sys.description)}</span></td>`;
+  row += `<td class="sys-c"><a href="${escapeHtml(href)}" class="src" title="Evidence &amp; sources">📋</a> <a href="${escapeHtml(sys.url)}" target="_blank">${escapeHtml(sys.name)}</a><span class="stars">⭐${fmtStars(sys.stars)} · ${escapeHtml(sys.created || '')}</span></td>`;
+  row += `<td class="desc">${escapeHtml(sys.description || '')}</td>`;
   for (const x of features) {
     const f = x.f, val = sys[f.id];
     let cclass = cls(val, f.type);

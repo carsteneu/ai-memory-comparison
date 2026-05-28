@@ -897,5 +897,18 @@ const SYSTEMS = [
     p_claude: true, p_codex: true, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: true, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
     b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "64%", b_methodology: true,
   },
+  {
+    id: "mcp-memory-service", name: "mcp-memory-service", url: "https://github.com/doobidoo/mcp-memory-service", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/mcp-memory-service.md",
+    description: "Persistent memory for AI agent pipelines, REST API + MCP + knowledge graph + auto-consolidation",
+    stars: 1901, language: "Python", license: "Apache 2.0", singleBinary: false, created: "2024-12-26", docs: "https://github.com/doobidoo/mcp-memory-service#readme",
+    deployment: "Local/Docker/Cloudflare", storage: "SQLite-vec+Cloudflare+Milvus", integration: "REST(76ep)+MCP+OAuth2+CLI", proxy: false, webUi: true, offline: true, multiAgent: true, llmFlex: 5, cacheOpt: true, privacy: true, export: true, setup: "pip install", pricing: "free",
+    unit: "Memory (text+metadata)",
+    entities: true, actions: false, keywords: true, anticipatedQueries: false, triggerRules: false, domainTag: true, taskType: true, context: true, source: true, originTrust: false, emotional: true, conflict: true, layeredMemory: false, timeTravel: true, schemaFields: 28,
+    fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 7, dataSources: 6,
+    decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: true, trustModel: false, explicitForget: true,
+    autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: true, narrative: true, clustering: true, recurrence: true, persona: false,
+    p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: true, p_cursor: true, p_windsurf: true, p_openclaw: true, p_hermes: false, p_pi: false, p_antigravity: false,
+    b_locomo: "—", b_longmemeval: "86.0% (sess) / 80.4% (turn)", b_personamem: "—", b_token: "—", b_methodology: true,
+  },
 ];
 

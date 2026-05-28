@@ -4,7 +4,7 @@
 > Corrections via PR welcome. No affiliation with any listed project.
 
 **Last updated:** 2026-05-28  
-**Systems:** 59  
+**Systems:** 60  
 **Live:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 
 ---
@@ -45,6 +45,7 @@
 | [mem9](https://github.com/mem9-ai/mem9) | 1116 | TypeScript | Apache 2.0 | 2026-01 | TiDB Cloud backed, hybrid search, multi-agent spaces, conflict resolution, 6 platforms |
 | [nocturne](https://github.com/Dataojitori/nocturne_memory) | 1150 | Python | MIT | 2025-12-25 | Rollbackable, visual LTM for MCP agents, no vector RAG, 9 MCP clients |
 | [LangMem](https://github.com/langchain-ai/langmem) | 1473 | Python | MIT | 2025-02 | LangChain memory toolkit — library only, no CLI/plugin, requires API keys |
+| [mcp-memory-service](https://github.com/doobidoo/mcp-memory-service) | 1901 | Python | Apache 2.0 | 2024-12-26 | Persistent memory for AI agent pipelines, REST API + MCP + knowledge graph + auto-consolidation |
 | [obsidian-mind](https://github.com/breferrari/obsidian-mind) | 2715 | TypeScript | MIT | 2026-02-28 | Obsidian vault template, markdown-native memory, QMD hybrid RRF search |
 | [MemMachine](https://github.com/MemMachine/MemMachine) | 3091 | Python | Apache 2.0 | 2025-08 | Agentic retrieval with ChainOfQueryAgent multi-hop, 3-layer memory, Neo4j+PG |
 | [MIRIX](https://github.com/MIRIX-AI/MIRIX) | 3552 | Python | MIT | 2025-09 | 6-type memory architecture, LoCoMo 85.38% SOTA, 99.9% storage reduction, best extraction pipeline |
@@ -111,6 +112,7 @@
 | mem9 | 1116 | TypeScript | Apache 2.0 | — | 2026-01 | 35% |
 | nocturne | 1150 | Python | MIT | — | 2025-12-25 | 25% |
 | LangMem | 1473 | Python | MIT | — | 2025-02 | 4% |
+| mcp-memory-service | 1901 | Python | Apache 2.0 | — | 2024-12-26 | 72% |
 | obsidian-mind | 2715 | TypeScript | MIT | — | 2026-02-28 | 23% |
 | MemMachine | 3091 | Python | Apache 2.0 | — | 2025-08 | 33% |
 | MIRIX | 3552 | Python | MIT | — | 2025-09 | 42% |
@@ -177,6 +179,7 @@
 | mem9 | Cloud/Self-host | TiDB Cloud | MCP+Hooks | — | ✅ | ✅ | ✅ | 3 | — | ✅ | ✅ | npx install | freemium |
 | nocturne | Local MCP server | SQLite | MCP | — | ✅ | ✅ | — | 1 | — | — | — | pip install | free |
 | LangMem | Library | Pluggable backends | LangChain/LangGraph | — | — | — | — | 1 | — | — | — | pip install | free |
+| mcp-memory-service | Local/Docker/Cloudflare | SQLite-vec+Cloudflare+Milvus | REST(76ep)+MCP+OAuth2+CLI | — | ✅ | ✅ | ✅ | 5 | ✅ | ✅ | ✅ | pip install | free |
 | obsidian-mind | Obsidian vault + npm | Markdown + QMD/SQLite | CLI + MCP | — | ✅ | ✅ | — | 1 | — | — | — | npm install | free |
 | MemMachine | Server+SDK | Neo4j+PostgreSQL+pgvector | MCP+SDK | — | ✅ | ✅ | ✅ | 1 | — | ✅ | — | docker compose | free |
 | MIRIX | Self-hosted | PostgreSQL+pgvector | REST API | — | ✅ | ✅ | ✅ | 1 | — | ✅ | — | docker compose | free |
@@ -243,6 +246,7 @@
 | mem9 | Memory entry (14 fields) | — | — | ✅ | — | — | — | — | — | ✅ | — | — | ✅ | — | — | 14 |
 | nocturne | Memory entry | — | — | — | — | ✅ | — | — | — | — | — | — | — | — | ✅ | 5 |
 | LangMem | Memory namespace | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 3 |
+| mcp-memory-service | Memory (text+metadata) | ✅ | — | ✅ | — | — | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | ✅ | 28 |
 | obsidian-mind | Markdown note (wiki) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 4 |
 | MemMachine | Memory (3 layers) | ✅ | — | — | — | — | — | — | ✅ | ✅ | — | — | — | ✅ | — | 10 |
 | MIRIX | Memory (6 types) | ✅ | ✅ | ✅ | — | — | — | — | — | ✅ | — | — | — | ✅ | — | 10 |
@@ -309,6 +313,7 @@
 | mem9 | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
 | nocturne | ✅ | — | — | — | — | — | — | — | 1 | 1 |
 | LangMem | — | ✅ | — | — | — | — | — | — | 1 | 1 |
+| mcp-memory-service | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 6 |
 | obsidian-mind | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | MemMachine | — | ✅ | ✅ | — | — | — | — | — | 2 | 1 |
 | MIRIX | ✅ | ✅ | — | — | — | — | — | ✅ | 6 | 1 |
@@ -375,6 +380,7 @@
 | mem9 | — | ✅ | — | — | — | — | ✅ |
 | nocturne | — | — | — | — | — | — | — |
 | LangMem | — | — | — | — | — | — | — |
+| mcp-memory-service | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
 | obsidian-mind | — | — | — | — | — | — | — |
 | MemMachine | — | — | — | — | — | — | ✅ |
 | MIRIX | ✅ | ✅ | — | — | ✅ | — | — |
@@ -441,6 +447,7 @@
 | mem9 | ✅ | — | — | — | — | — | — | — |
 | nocturne | — | — | — | — | — | — | — | — |
 | LangMem | ✅ | — | — | — | — | — | — | — |
+| mcp-memory-service | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — |
 | obsidian-mind | — | — | — | — | — | — | — | — |
 | MemMachine | ✅ | ✅ | ✅ | — | — | — | — | ✅ |
 | MIRIX | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -507,6 +514,7 @@
 | mem9 | ✅ | ✅ | ✅ | — | — | — | — | ✅ | ✅ | — | — |
 | nocturne | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | LangMem | — | — | — | — | — | — | — | — | — | — | — |
+| mcp-memory-service | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — |
 | obsidian-mind | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | MemMachine | ✅ | — | — | — | — | ✅ | — | ✅ | — | — | — |
 | MIRIX | — | — | — | — | — | — | — | — | — | — | — |
@@ -573,6 +581,7 @@
 | mem9 | 58.84 | — | — | — | ✅ |
 | nocturne | — | — | — | — | — |
 | LangMem | — | — | — | — | — |
+| mcp-memory-service | — | 86.0% (sess) / 80.4% (turn) | — | — | ✅ |
 | obsidian-mind | — | — | — | — | — |
 | MemMachine | — | — | — | — | ✅ |
 | MIRIX | 85.38 | — | — | — | ✅ |
