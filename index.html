@@ -122,7 +122,7 @@
     return;
   }
 
-  var current = { section: null, arch: 'all', sortKey: 'stars', sortAsc: false };
+  var current = { section: null, arch: 'all', sortKey: 'stars', sortAsc: false, sortStep: 0 };
 
   // ── theme ──
   var dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
@@ -168,7 +168,10 @@
     }
 
     // thead
-    function arrow(k) { return current.sortKey === k ? (current.sortAsc ? ' ▲' : ' ▼') : ''; }
+    function arrow(k) {
+      if (current.sortKey !== k || current.sortStep === 0) return '';
+      return current.sortAsc ? ' ▲' : ' ▼';
+    }
     var theadRows = [];
     var secRow = '<tr><th class="sys-h sortable" data-key="name">System' + arrow('name') + '</th>';
     var curSec = null, secSpan = 0, spans = [];
@@ -277,19 +280,26 @@
   window.toggleSort = function() {
     if (current.sortKey === 'stars') current.sortAsc = !current.sortAsc;
     else { current.sortKey = 'stars'; current.sortAsc = false; }
+    current.sortStep = current.sortAsc ? 2 : 1;
     document.getElementById('btnSort').textContent = current.sortAsc ? '↑ Fewest first' : '↓ Most stars';
     filter();
   };
 
-  // ── click-to-sort on any header ──
+  // ── click-to-sort on any header: 3-state cycle (desc → asc → reset) ──
   document.getElementById('thead').addEventListener('click', function(e) {
     var th = e.target.closest('th.sortable');
     if (!th) return;
     var key = th.getAttribute('data-key');
     if (!key) return;
-    if (current.sortKey === key) current.sortAsc = !current.sortAsc;
-    else { current.sortKey = key; current.sortAsc = (key === 'name'); }
-    if (key === 'stars') document.getElementById('btnSort').textContent = current.sortAsc ? '↑ Fewest first' : '↓ Most stars';
+    if (current.sortKey === key) {
+      current.sortStep = (current.sortStep || 0) + 1;
+      if (current.sortStep === 1) current.sortAsc = false;
+      else if (current.sortStep === 2) current.sortAsc = true;
+      else { current.sortKey = 'stars'; current.sortAsc = false; current.sortStep = 0; }
+    } else {
+      current.sortKey = key; current.sortAsc = false; current.sortStep = 1;
+    }
+    document.getElementById('btnSort').textContent = (current.sortKey === 'stars' && current.sortAsc) ? '↑ Fewest first' : '↓ Most stars';
     filter();
   });
 
