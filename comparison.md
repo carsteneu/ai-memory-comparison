@@ -4,7 +4,7 @@
 > Corrections via PR welcome. No affiliation with any listed project.
 
 **Last updated:** 2026-05-28  
-**Systems:** 60  
+**Systems:** 61  
 **Live:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 
 ---
@@ -48,6 +48,7 @@
 | [mcp-memory-service](https://github.com/doobidoo/mcp-memory-service) | 1901 | Python | Apache 2.0 | 2024-12-26 | Persistent memory for AI agent pipelines, REST API + MCP + knowledge graph + auto-consolidation |
 | [obsidian-mind](https://github.com/breferrari/obsidian-mind) | 2715 | TypeScript | MIT | 2026-02-28 | Obsidian vault template, markdown-native memory, QMD hybrid RRF search |
 | [MemMachine](https://github.com/MemMachine/MemMachine) | 3091 | Python | Apache 2.0 | 2025-08 | Agentic retrieval with ChainOfQueryAgent multi-hop, 3-layer memory, Neo4j+PG |
+| [Acontext](https://github.com/memodb-io/Acontext) | 3500 | JS/TS/Go/Python | Apache-2.0 | 2025-10 | Agent Skills as a Memory Layer — auto-captures learnings as Markdown skill files, progressive disclosure retrieval |
 | [MIRIX](https://github.com/MIRIX-AI/MIRIX) | 3552 | Python | MIT | 2025-09 | 6-type memory architecture, LoCoMo 85.38% SOTA, 99.9% storage reduction, best extraction pipeline |
 | [engram](https://github.com/Gentleman-Programming/engram) | 3825 | Go | MIT | 2026-02-16 | Go binary agent memory with conflict surfacing and TUI |
 | [OpenMemory](https://github.com/CaviraOSS/OpenMemory) | 4164 | Python | Apache 2.0 | 2025-10 | HMD v2 cognitive engine: 5-sector decay, temporal KG, waypoint graph, document ingestion |
@@ -115,6 +116,7 @@
 | mcp-memory-service | 1901 | Python | Apache 2.0 | — | 2024-12-26 | 72% |
 | obsidian-mind | 2715 | TypeScript | MIT | — | 2026-02-28 | 23% |
 | MemMachine | 3091 | Python | Apache 2.0 | — | 2025-08 | 33% |
+| Acontext | 3500 | JS/TS/Go/Python | Apache-2.0 | — | 2025-10 | 23% |
 | MIRIX | 3552 | Python | MIT | — | 2025-09 | 42% |
 | engram | 3825 | Go | MIT | ✅ | 2026-02-16 | 40% |
 | OpenMemory | 4164 | Python | Apache 2.0 | — | 2025-10 | 26% |
@@ -182,6 +184,7 @@
 | mcp-memory-service | Local/Docker/Cloudflare | SQLite-vec+Cloudflare+Milvus | REST(76ep)+MCP+OAuth2+CLI | — | ✅ | ✅ | ✅ | 5 | ✅ | ✅ | ✅ | pip install | free |
 | obsidian-mind | Obsidian vault + npm | Markdown + QMD/SQLite | CLI + MCP | — | ✅ | ✅ | — | 1 | — | — | — | npm install | free |
 | MemMachine | Server+SDK | Neo4j+PostgreSQL+pgvector | MCP+SDK | — | ✅ | ✅ | ✅ | 1 | — | ✅ | — | docker compose | free |
+| Acontext | Cloud + Docker self-host | PostgreSQL+pgvector+Redis+RabbitMQ+S3 | SDK+REST | — | ✅ | ✅ | — | 3 | — | ✅ | ✅ | curl \| sh | freemium |
 | MIRIX | Self-hosted | PostgreSQL+pgvector | REST API | — | ✅ | ✅ | ✅ | 1 | — | ✅ | — | docker compose | free |
 | engram | Local bin / Cloud (opt-in) | SQLite+FTS5 | MCP+Hooks (19) | — | ✅ | ✅ | — | 2 | — | ✅ | ✅ | brew install | free |
 | OpenMemory | Self-hosted | Vector DB | REST API+MCP | — | — | ✅ | — | 1 | — | ✅ | — | docker compose | free |
@@ -249,6 +252,7 @@
 | mcp-memory-service | Memory (text+metadata) | ✅ | — | ✅ | — | — | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | ✅ | 28 |
 | obsidian-mind | Markdown note (wiki) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 4 |
 | MemMachine | Memory (3 layers) | ✅ | — | — | — | — | — | — | ✅ | ✅ | — | — | — | ✅ | — | 10 |
+| Acontext | Skill file (Markdown) | — | — | — | — | — | — | ✅ | — | — | — | — | — | — | — | 12 |
 | MIRIX | Memory (6 types) | ✅ | ✅ | ✅ | — | — | — | — | — | ✅ | — | — | — | ✅ | — | 10 |
 | engram | Memory (What/Why/Where/Learned) | — | — | ✅ | — | — | — | — | ✅ | — | — | — | ✅ | — | ✅ | 6 |
 | OpenMemory | Memory (5 sectors) | — | — | — | — | — | — | — | — | — | — | ✅ | — | ✅ | ✅ | 13 |
@@ -316,6 +320,7 @@
 | mcp-memory-service | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 6 |
 | obsidian-mind | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | MemMachine | — | ✅ | ✅ | — | — | — | — | — | 2 | 1 |
+| Acontext | ✅ | — | — | — | — | — | — | — | 4 | 4 |
 | MIRIX | ✅ | ✅ | — | — | — | — | — | ✅ | 6 | 1 |
 | engram | ✅ | — | — | — | — | — | — | ✅ | 4 | 2 |
 | OpenMemory | — | ✅ | — | — | — | — | — | ✅ | 2 | 1 |
@@ -383,6 +388,7 @@
 | mcp-memory-service | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
 | obsidian-mind | — | — | — | — | — | — | — |
 | MemMachine | — | — | — | — | — | — | ✅ |
+| Acontext | — | — | — | — | — | — | ✅ |
 | MIRIX | ✅ | ✅ | — | — | ✅ | — | — |
 | engram | — | ✅ | ✅ | — | — | — | ✅ |
 | OpenMemory | ✅ | — | — | — | — | — | ✅ |
@@ -450,6 +456,7 @@
 | mcp-memory-service | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — |
 | obsidian-mind | — | — | — | — | — | — | — | — |
 | MemMachine | ✅ | ✅ | ✅ | — | — | — | — | ✅ |
+| Acontext | ✅ | — | ✅ | — | ✅ | — | — | ✅ |
 | MIRIX | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | engram | — | — | ✅ | — | — | — | — | — |
 | OpenMemory | — | — | — | — | — | — | — | — |
@@ -517,6 +524,7 @@
 | mcp-memory-service | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — |
 | obsidian-mind | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | MemMachine | ✅ | — | — | — | — | ✅ | — | ✅ | — | — | — |
+| Acontext | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
 | MIRIX | — | — | — | — | — | — | — | — | — | — | — |
 | engram | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | — | ✅ | ✅ |
 | OpenMemory | ✅ | ✅ | — | — | ✅ | ✅ | ✅ | — | — | — | ✅ |
@@ -584,6 +592,7 @@
 | mcp-memory-service | — | 86.0% (sess) / 80.4% (turn) | — | — | ✅ |
 | obsidian-mind | — | — | — | — | — |
 | MemMachine | — | — | — | — | ✅ |
+| Acontext | — | — | — | ~45% tool calls | — |
 | MIRIX | 85.38 | — | — | — | ✅ |
 | engram | — | — | — | — | — |
 | OpenMemory | — | — | — | — | — |
