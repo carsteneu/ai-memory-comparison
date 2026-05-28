@@ -936,18 +936,6 @@ const SYSTEMS = [
     b_locomo: "92.09", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: true,
   },
   {
-    id: "memary", name: "Memary", url: "https://github.com/kingjulio8238/Memary", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/memary.md",
-    description: "KG-native memory: entity-relation triplets, recursive subgraph traversal, multi-hop reasoning",
-    stars: 2618, language: "Python", license: "MIT", singleBinary: false, created: "2024-04-10", docs: "https://github.com/kingjulio8238/Memary#readme",
-    deployment: "Python library", storage: "Neo4j/FalkorDB", integration: "Library (ReAct agent)", proxy: false, webUi: true, offline: true, multiAgent: true, llmFlex: 3, cacheOpt: false, privacy: false, export: true, setup: "pip install", pricing: "free",
-    unit: "Entity-relation triplet", entities: true, actions: false, keywords: false, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: false, originTrust: false, emotional: false, conflict: false, layeredMemory: false, timeTravel: false, schemaFields: 5,
-    fulltext: false, semantic: false, hybrid: false, deep: false, codeGraph: false, docsSearch: false, factQuery: false, timeline: true, searchModes: 2, dataSources: 1,
-    decay: false, supersede: true, contradiction: false, quarantine: false, autoResolve: false, trustModel: false, explicitForget: true,
-    autoExtract: true, contentPreproc: false, dedup: true, qualityRefine: false, narrative: false, clustering: false, recurrence: true, persona: true,
-    p_claude: false, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
-    b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: false,
-  },
-  {
     id: "memsearch", name: "memsearch", url: "https://github.com/zilliztech/memsearch", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/memsearch.md",
     description: "Cross-platform semantic memory: hybrid RRF, SHA-256 dedup, 3-layer progressive recall, ONNX bge-m3",
     stars: 1861, language: "Python", license: "Apache 2.0", singleBinary: false, created: "2025-08", docs: "https://github.com/zilliztech/memsearch#readme",
