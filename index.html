@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Memory Systems — Feature Comparison</title>
+<meta name="description" content="Source-backed feature comparison of memory systems for AI coding agents. No affiliation, no marketing — just facts from public docs.">
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #2563eb;
+    --green: #059669;
+    --green-bg: #ecfdf5;
+    --red: #dc2626;
+    --red-bg: #fef2f2;
+    --row-hover: #f9fafb;
+    --section-bg: #f3f4f6;
+  }
+  [data-theme="dark"] {
+    --bg: #0f1117;
+    --fg: #e5e7eb;
+    --muted: #9ca3af;
+    --border: #1f2937;
+    --accent: #60a5fa;
+    --green: #34d399;
+    --green-bg: #064e3b;
+    --red: #f87171;
+    --red-bg: #7f1d1d;
+    --row-hover: #1a1d2e;
+    --section-bg: #111827;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    line-height: 1.5;
+  }
+  header {
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: var(--bg);
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+  header h1 { font-size: 1.25rem; font-weight: 700; }
+  header p { color: var(--muted); font-size: 0.85rem; }
+  .controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  button, select {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--fg);
+    cursor: pointer;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  button:hover, select:hover { background: var(--row-hover); }
+  button.active { background: var(--accent); color: white; border-color: var(--accent); }
+  
+  .table-container {
+    overflow-x: auto;
+    margin: 0;
+    position: relative;
+  }
+  table {
+    border-collapse: separate;
+    border-spacing: 0;
+    width: max-content;
+    min-width: 100%;
+    font-size: 0.78rem;
+    table-layout: auto;
+  }
+  thead {
+    position: sticky;
+    top: 70px;
+    z-index: 50;
+  }
+  th, td {
+    padding: 0.45rem 0.7rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+    white-space: nowrap;
+    min-width: 50px;
+  }
+  th {
+    background: var(--section-bg);
+    font-weight: 600;
+    color: var(--fg);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  th.sys-col {
+    position: sticky;
+    left: 0;
+    z-index: 60;
+    background: var(--section-bg);
+    min-width: 140px;
+    width: 140px;
+    text-align: left;
+    font-size: 0.78rem;
+    text-transform: none;
+    letter-spacing: 0;
+    font-weight: 700;
+  }
+  th.section-header {
+    background: var(--bg);
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.75rem;
+    text-align: left;
+    padding: 0.6rem 0.7rem;
+  }
+  td {
+    background: var(--bg);
+  }
+  tr:hover td { background: var(--row-hover); }
+  td.sys-name {
+    position: sticky;
+    left: 0;
+    z-index: 30;
+    background: var(--bg);
+    text-align: left;
+    font-weight: 600;
+    min-width: 140px;
+    width: 140px;
+  }
+  tr:hover td.sys-name { background: var(--row-hover); }
+  td.sys-name a {
+    color: var(--accent);
+    text-decoration: none;
+  }
+  td.sys-name a:hover { text-decoration: underline; }
+  td.sys-name .desc {
+    display: block;
+    font-weight: 400;
+    font-size: 0.68rem;
+    color: var(--muted);
+    white-space: normal;
+    line-height: 1.3;
+  }
+  td.bool-true {
+    background: var(--green-bg);
+    color: var(--green);
+    font-weight: 700;
+    font-size: 0.85rem;
+  }
+  td.bool-false {
+    color: var(--muted);
+    font-size: 0.6rem;
+  }
+  td.number, td.text {
+    white-space: nowrap;
+    font-variant-numeric: tabular-nums;
+  }
+  td.best {
+    background: var(--green-bg);
+    font-weight: 700;
+    color: var(--green);
+  }
+  tr:hover td.bool-true { background: var(--green-bg); }
+  tr:hover td.bool-false { color: var(--muted); }
+
+  /* Override hover bg for colored cells */
+  tr:hover td.best { background: var(--green-bg); }
+
+  .footer {
+    padding: 1.5rem 2rem;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 0.75rem;
+    text-align: center;
+  }
+  .footer a { color: var(--accent); }
+
+  @media (max-width: 768px) {
+    header { padding: 1rem; }
+    header h1 { font-size: 1rem; }
+    .controls { width: 100%; }
+    th, td { padding: 0.3rem 0.5rem; font-size: 0.7rem; }
+    td.sys-name, th.sys-col { min-width: 110px; width: 110px; }
+  }
+</style>
+</head>
+<body data-theme="light">
+<header>
+  <div>
+    <h1>🧠 AI Memory Systems — Feature Comparison</h1>
+    <p>Source-backed · 13 systems · No affiliation</p>
+  </div>
+  <div class="controls">
+    <select id="filterArch" onchange="applyFilters()">
+      <option value="all">All architectures</option>
+      <option value="local">Local-first only</option>
+      <option value="binary">Single binary only</option>
+      <option value="cloud">Cloud/SaaS only</option>
+    </select>
+    <select id="filterLang" onchange="applyFilters()">
+      <option value="all">All languages</option>
+    </select>
+    <button id="themeToggle" onclick="toggleTheme()">🌙 Dark</button>
+    <button onclick="showAllColumns()">All features</button>
+    <button onclick="showBoolColumns()">Bool only</button>
+    <a href="https://github.com/carsteneu/ai-memory-comparison" style="font-size:0.8rem;color:var(--muted);text-decoration:none;">GitHub ↗</a>
+  </div>
+</header>
+
+<div class="table-container">
+  <table id="comparisonTable">
+    <thead id="tableHead"></thead>
+    <tbody id="tableBody"></tbody>
+  </table>
+</div>
+
+<div class="footer">
+  CC0 — Public Domain. Corrections via <a href="https://github.com/carsteneu/ai-memory-comparison">PR on GitHub</a>.
+  Stars & data snapshot from 2026-05-27.
+</div>
+
+<script src="data.js"></script>
+<script>
+  // ── State ──────────────────────────────────────────
+  let activeSection = null;      // which section group to show (null = all)
+  let visibleSystems = SYSTEMS;  // filtered list
+  
+  // ── Theme ──────────────────────────────────────────
+  const themeBtn = document.getElementById('themeToggle');
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (prefersDark) { document.body.dataset.theme = 'dark'; themeBtn.textContent = '☀️ Light'; }
+
+  function toggleTheme() {
+    const next = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+    document.body.dataset.theme = next;
+    themeBtn.textContent = next === 'dark' ? '☀️ Light' : '🌙 Dark';
+  }
+
+  // ── Format cell value ──────────────────────────────
+  function formatValue(value, type) {
+    if (type === 'bool') {
+      if (value === true) return '✅';
+      if (value === false) return '—';
+      return value; // text like "add-only"
+    }
+    if (type === 'number') return value;
+    if (type === 'text') return value || '—';
+    return value || '—';
+  }
+
+  function cellClass(value, type) {
+    if (type === 'bool') {
+      if (value === true) return 'bool-true';
+      return 'bool-false';
+    }
+    if (type === 'number') return 'number';
+    return 'text';
+  }
+
+  // ── Render ─────────────────────────────────────────
+  function renderTable(systems, sectionFilter) {
+    const thead = document.getElementById('tableHead');
+    const tbody = document.getElementById('tableBody');
+    
+    // Determine which feature groups to show
+    const groups = sectionFilter 
+      ? FEATURE_GROUPS.filter(g => g.id === sectionFilter)
+      : FEATURE_GROUPS;
+
+    // Build header rows
+    const headerHTML = [];
+    const allFeatures = [];
+    for (const group of groups) {
+      headerHTML.push(`<tr><th class="section-header" colspan="${1 + group.features.length}">${group.label}</th></tr>`);
+      headerHTML.push(`<tr><th class="sys-col">System</th>${group.features.map(f => `<th title="${f.label}">${f.label.length > 12 ? f.label.slice(0,11)+'…' : f.label}</th>`).join('')}</tr>`);
+      for (const f of group.features) {
+        allFeatures.push({ ...f, groupId: group.id });
+      }
+    }
+    thead.innerHTML = headerHTML.join('');
+
+    // Build body rows (systems as rows, features as columns)
+    const bodyHTML = [];
+    for (const sys of systems) {
+      const cells = [];
+      for (const f of allFeatures) {
+        const val = sys[f.id];
+        const cls = cellClass(val, f.type);
+        const display = formatValue(val, f.type);
+        
+        // Highlight "best" values
+        let bestClass = '';
+        if (f.type === 'number') {
+          const allVals = systems.map(s => s[f.id]).filter(v => typeof v === 'number' && v > 0);
+          if (val === Math.max(...allVals) && allVals.length > 1 && val > 0) {
+            bestClass = ' best';
+          }
+        }
+        
+        cells.push(`<td class="${cls}${bestClass}">${display}</td>`);
+      }
+      bodyHTML.push(`<tr>
+        <td class="sys-name">
+          <a href="${sys.url}" target="_blank">${sys.name}</a>
+          <span class="desc">${sys.description}</span>
+        </td>
+        ${cells.join('')}
+      </tr>`);
+    }
+    tbody.innerHTML = bodyHTML.join('');
+    
+    // Re-apply sticky left position to system name cells
+    document.querySelectorAll('td.sys-name').forEach(td => {
+      td.style.position = 'sticky';
+      td.style.left = '0';
+      td.style.zIndex = '30';
+    });
+    document.querySelectorAll('th.sys-col').forEach(th => {
+      th.style.position = 'sticky';
+      th.style.left = '0';
+      th.style.zIndex = '60';
+    });
+  }
+
+  // ── Filters ────────────────────────────────────────
+  function applyFilters() {
+    const arch = document.getElementById('filterArch').value;
+    const lang = document.getElementById('filterLang').value;
+    
+    visibleSystems = SYSTEMS.filter(s => {
+      if (arch === 'local' && (s.offline !== true)) return false;
+      if (arch === 'binary' && (s.singleBinary !== true)) return false;
+      if (arch === 'cloud' && (s.offline === true)) return false;
+      if (lang !== 'all' && s.language !== lang) return false;
+      return true;
+    });
+    
+    renderTable(visibleSystems, activeSection);
+  }
+
+  // ── Section buttons ────────────────────────────────
+  function showAllColumns() {
+    activeSection = null;
+    document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+    renderTable(visibleSystems, null);
+  }
+
+  function showBoolColumns() {
+    // Show only features that are boolean (comparison highlights)
+    activeSection = null;
+    document.querySelectorAll('.controls button').forEach(b => b.classList.remove('active'));
+    // Filter to show only bool-type features across all groups
+    const thead = document.getElementById('tableHead');
+    const tbody = document.getElementById('tableBody');
+    
+    const groups = FEATURE_GROUPS.map(g => ({
+      ...g,
+      features: g.features.filter(f => f.type === 'bool')
+    })).filter(g => g.features.length > 0);
+    
+    const allFeatures = [];
+    const headerHTML = [];
+    for (const group of groups) {
+      headerHTML.push(`<tr><th class="section-header" colspan="${1 + group.features.length}">${group.label}</th></tr>`);
+      headerHTML.push(`<tr><th class="sys-col">System</th>${group.features.map(f => `<th title="${f.label}">${f.label.length > 12 ? f.label.slice(0,11)+'…' : f.label}</th>`).join('')}</tr>`);
+      for (const f of group.features) allFeatures.push(f);
+    }
+    thead.innerHTML = headerHTML.join('');
+
+    const bodyHTML = [];
+    for (const sys of visibleSystems) {
+      const cells = allFeatures.map(f => {
+        const val = sys[f.id];
+        return `<td class="${cellClass(val, f.type)}">${formatValue(val, f.type)}</td>`;
+      });
+      bodyHTML.push(`<tr>
+        <td class="sys-name"><a href="${sys.url}" target="_blank">${sys.name}</a><span class="desc">${sys.description}</span></td>
+        ${cells.join('')}
+      </tr>`);
+    }
+    tbody.innerHTML = bodyHTML.join('');
+    document.querySelectorAll('td.sys-name').forEach(td => {
+      td.style.position = 'sticky'; td.style.left = '0'; td.style.zIndex = '30';
+    });
+    document.querySelectorAll('th.sys-col').forEach(th => {
+      th.style.position = 'sticky'; th.style.left = '0'; th.style.zIndex = '60';
+    });
+  }
+
+  // ── Init ────────────────────────────────────────────
+  function init() {
+    // Language filter options
+    const langs = [...new Set(SYSTEMS.map(s => s.language))].sort();
+    const langSelect = document.getElementById('filterLang');
+    for (const l of langs) {
+      langSelect.innerHTML += `<option value="${l}">${l}</option>`;
+    }
+
+    // Section quick-nav buttons
+    const controls = document.querySelector('.controls');
+    for (const group of FEATURE_GROUPS) {
+      const btn = document.createElement('button');
+      btn.textContent = group.label;
+      btn.onclick = () => {
+        document.querySelectorAll('.controls button.section-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        activeSection = group.id;
+        renderTable(visibleSystems, group.id);
+      };
+      btn.classList.add('section-btn');
+      controls.insertBefore(btn, document.getElementById('filterArch'));
+    }
+
+    renderTable(SYSTEMS, null);
+  }
+
+  init();
+</script>
+</body>
+</html>
