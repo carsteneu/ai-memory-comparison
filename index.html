@@ -17,8 +17,8 @@
     --red: #f87171; --red-bg: #7f1d1d; --hover: #1a1d2e; --section: #111827;
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
-  html, body { height: 100%; }
-  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--fg); display: flex; flex-direction: column; }
+  html, body { min-height: 100%; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg); color: var(--fg); }
   header {
     flex: 0 0 auto;
     background: var(--bg); border-bottom: 1px solid var(--border);
@@ -35,7 +35,7 @@
   button:hover, select:hover { background: var(--hover); }
   button.on { background: var(--accent); color: #fff; border-color: var(--accent); }
   .sep { width: 1px; height: 20px; background: var(--border); margin: 0 0.2rem; }
-  .wrap { flex: 1 1 auto; min-height: 0; overflow: auto; }
+  .wrap { overflow-x: auto; }
   table { border-collapse: separate; border-spacing: 0; font-size: 0.85rem; }
   th, td { padding: 0.45rem 0.7rem; box-shadow: inset 0 -1px 0 var(--border), inset -1px 0 0 var(--border); background: var(--bg); white-space: nowrap; vertical-align: middle; }
   th.sec {
