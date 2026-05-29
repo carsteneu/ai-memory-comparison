@@ -1001,18 +1001,6 @@ const SYSTEMS = [
     b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: false,
   },
   {
-    id: "membase", name: "Membase", url: "https://membase.so", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/membase.md",
-    description: "SaaS memory+wiki dual-store, Neo4j KG, 11+ agents, Gmail/Slack sync, conflict resolution",
-    stars: 0, language: "Closed-source", license: "Proprietary", singleBinary: false, created: "2025-10", docs: "https://membase.so/docs",
-    deployment: "Cloud SaaS", storage: "Neo4j+Supabase+Vector", integration: "MCP remote+plugins", proxy: false, webUi: true, offline: false, multiAgent: false, llmFlex: 1, cacheOpt: false, proceduralMemory: false, sandboxedExec: false, scheduledExec: false, privacy: true, export: false, setup: "npx -y membase", pricing: "freemium",
-    unit: "Memory+Wiki entry", entities: true, actions: false, keywords: true, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: true, source: true, originTrust: false, emotional: false, conflict: true, layeredMemory: false, timeTravel: false, schemaFields: 8,
-    fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: false, timeline: false, searchModes: 2, dataSources: 1,
-    decay: false, supersede: true, contradiction: true, quarantine: false, autoResolve: false, trustModel: false, explicitForget: true,
-    autoExtract: true, contentPreproc: false, dedup: false, qualityRefine: false, narrative: false, clustering: false, recurrence: false, persona: false,
-    p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: false, p_cursor: true, p_windsurf: false, p_openclaw: true, p_hermes: true, p_pi: false, p_antigravity: false,
-    b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: false,
-  },
-  {
     id: "continuity-v2", name: "Continuity v2", url: "https://github.com/Haustorium12/continuity-v2", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/continuity-v2.md",
     description: "SSE proxy for Claude Code, FTS5+ANN search, compaction hooks, thread recall via BFS graph",
     stars: 32, language: "Python", license: "MIT", singleBinary: false, created: "2026-04", docs: "https://github.com/Haustorium12/continuity-v2#readme",
