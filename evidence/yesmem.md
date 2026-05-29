@@ -219,3 +219,18 @@
 
 ### Pricing ✅
 - `LICENSE` — Apache 2.0, completely free
+
+## Execution
+
+### Procedural memory ✅
+- `docs/mcp-tools-reference.md` — `save_cap()`: persist user-defined executable tools (bash/JS)
+- `docs/features/memory.md` — "70+ MCP tools" including Cap system for reusable, versioned tool definitions
+- `Features.md` — Caps as persistent, shareable, auto-correcting workflow definitions
+
+### Sandboxed exec ✅
+- `docs/mcp-tools-reference.md` — `execute_cap()`: runs handlers sandboxed via ai-jail
+- `internal/cap/executor.go` — ai-jail Bun/bash sandbox with resource limits and network controls
+
+### Scheduled/autonomous ✅
+- `docs/mcp-tools-reference.md` — `yesmem_schedule()`: cron/interval-based autonomous execution
+- `internal/scheduler/scheduler.go` — `auto_correct: true` retries failed jobs via LLM

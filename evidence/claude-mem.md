@@ -32,6 +32,11 @@
 - `docs/usage/export-import.md` — Import with duplicate prevention (transactional, idempotent)
 - `docs/llms.txt` — Lists "Memory Export/Import" documentation page
 
+### Procedural memory ⚠️ (via hooks)
+- `README.md` — "5-stage Hook System" with event-driven execution
+- `docs/hooks-architecture.md` — User-defined code triggered by PreToolUse, PostToolUse, Stop, and other lifecycle events
+- ⚠️ Limited to event reactions; not independently invocable, not sandboxed, no scheduling
+
 ---
 
 ## Data Model
