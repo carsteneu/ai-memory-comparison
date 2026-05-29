@@ -1,0 +1,29 @@
+name: Generate static table
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data.js'
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Generate tbody
+        run: node tools/generate-tbody.js
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add index.html
+          git diff --staged --quiet || git commit -m "[auto] Regenerate static table from data.js"
+          git push
