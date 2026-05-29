@@ -3,7 +3,7 @@
 > **Open-source fact table.** Every claim links to public README, docs, or source.
 > Corrections via PR welcome. No affiliation with any listed project.
 
-**Last updated:** 2026-05-28  
+**Last updated:** 2026-05-29  
 **Systems:** 63  
 **Live:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 
@@ -83,139 +83,139 @@
 
 | System | Stars | Language | License | Single binary | Created | Coverage |
 | --- | --- | --- | --- | --- | --- | --- |
-| gitmem | 8 | TypeScript | MIT | — | 2026-04 | 18% |
+| gitmem | 8 | TypeScript | MIT | — | 2026-04 | 17% |
 | YesMem | 10 | Go | Apache 2.0 | ✅ | 2026-04-09 | 95% |
-| Fullerenes | 19 | TypeScript | MIT | — | 2026-04-25 | 16% |
-| fidelis | 20 | Python | MIT | — | 2026-03 | 11% |
-| ArcRift | 75 | TypeScript | MIT | — | 2026-04 | 28% |
-| CommonGround | 137 | TypeScript | MIT | — | 2025-11 | 9% |
-| AIPass | 148 | Python | MIT | — | 2026-02 | 30% |
-| omega-memory | 148 | Python | MIT | — | 2026-01 | 46% |
-| ClawMem | 176 | TypeScript | MIT | — | 2026-02-06 | 40% |
-| shodh-memory | 215 | Rust | ? | ✅ | 2025-12-03 | 33% |
-| memanto | 230 | Python | MIT | — | 2026-03 | 30% |
-| MoltBrain | 250 | TypeScript | ? | — | 2026-01-26 | 21% |
-| MemLayer | 275 | Python | MIT | — | 2025-11-16 | 16% |
-| icarus | 285 | Python | MIT | — | 2026-03-24 | 19% |
-| Memory Palace | 300 | Python | MIT | — | 2026-02-19 | 35% |
-| Octopoda-OS | 337 | Python | MIT | — | 2026-04-02 | 16% |
-| ai-memory | 341 | Rust | MIT | ✅ | 2026-05-21 | 33% |
-| Memora | 407 | Python | MIT | — | 2025-11-11 | 28% |
+| Fullerenes | 19 | TypeScript | MIT | — | 2026-04-25 | 15% |
+| fidelis | 20 | Python | MIT | — | 2026-03 | 10% |
+| ArcRift | 75 | TypeScript | MIT | — | 2026-04 | 27% |
+| CommonGround | 137 | TypeScript | MIT | — | 2025-11 | 8% |
+| AIPass | 148 | Python | MIT | — | 2026-02 | 28% |
+| omega-memory | 148 | Python | MIT | — | 2026-01 | 43% |
+| ClawMem | 176 | TypeScript | MIT | — | 2026-02-06 | 38% |
+| shodh-memory | 215 | Rust | ? | ✅ | 2025-12-03 | 32% |
+| memanto | 230 | Python | MIT | — | 2026-03 | 28% |
+| MoltBrain | 250 | TypeScript | ? | — | 2026-01-26 | 20% |
+| MemLayer | 275 | Python | MIT | — | 2025-11-16 | 15% |
+| icarus | 285 | Python | MIT | — | 2026-03-24 | 18% |
+| Memory Palace | 300 | Python | MIT | — | 2026-02-19 | 33% |
+| Octopoda-OS | 337 | Python | MIT | — | 2026-04-02 | 15% |
+| ai-memory | 341 | Rust | MIT | ✅ | 2026-05-21 | 32% |
+| Memora | 407 | Python | MIT | — | 2025-11-11 | 27% |
 | memorix | 433 | Python | Apache 2.0 | — | 2026-02-14 | 7% |
 | TeleMem | 461 | Python | MIT | — | 2026-05 | 7% |
-| context-infra | 503 | Python | MIT | — | 2026-03-16 | 25% |
-| vestige | 540 | Rust | AGPL-3.0 | ✅ | 2026-01-25 | 37% |
-| memoir | 554 | Python | Apache-2.0 | — | 2025-08 | 19% |
-| stash | 701 | Go | Apache 2.0 | ✅ | 2026-04-24 | 35% |
-| MemoMind | 716 | Python | ? | — | 2026-03-15 | 25% |
-| Wax | 742 | Swift | Apache 2.0 | ✅ | 2026-01-20 | 18% |
-| opencode-mem | 787 | TypeScript | ? | — | 2026-01-10 | 16% |
-| LightMem | 872 | Python | MIT | — | 2025-05 | 4% |
-| token-savior | 912 | Python | MIT | — | 2026-03-30 | 30% |
-| mem9 | 1116 | TypeScript | Apache 2.0 | — | 2026-01 | 35% |
-| nocturne | 1150 | Python | MIT | — | 2025-12-25 | 25% |
-| LangMem | 1473 | Python | MIT | — | 2025-02 | 4% |
-| memsearch | 1861 | Python | Apache 2.0 | — | 2025-08 | 19% |
-| mcp-memory-service | 1901 | Python | Apache 2.0 | — | 2024-12-26 | 72% |
-| obsidian-mind | 2715 | TypeScript | MIT | — | 2026-02-28 | 23% |
-| MemMachine | 3091 | Python | Apache 2.0 | — | 2025-08 | 33% |
-| Acontext | 3500 | JS/TS/Go/Python | Apache-2.0 | — | 2025-10 | 23% |
-| MIRIX | 3552 | Python | MIT | — | 2025-09 | 42% |
-| engram | 3825 | Go | MIT | ✅ | 2026-02-16 | 40% |
-| OpenMemory | 4164 | Python | Apache 2.0 | — | 2025-10 | 26% |
-| MemoryBear | 4167 | Python | Apache 2.0 | — | 2025-06 | 58% |
-| m_flow | 4336 | Python | Apache 2.0 | — | 2026-02 | 25% |
-| TencentDB-AM | 4347 | TypeScript | MIT | — | 2026-04-07 | 18% |
-| memory-lancedb-pro | 4386 | TypeScript | MIT | — | 2025-11 | 16% |
-| Honcho | 4422 | Python | AGPL-3.0 | — | 2024-04 | 19% |
-| ByteRover | 4796 | TypeScript | Elastic 2.0 | — | 2025-06-19 | 26% |
-| EverOS | 5755 | Python | Apache 2.0 | — | 2025-10-28 | 25% |
-| MemOS | 9442 | Python | Apache 2.0 | — | 2025-10 | 28% |
-| memU | 13700 | Python | MIT | — | 2025-09 | 18% |
-| hindsight | 14954 | Python | MIT | — | 2025-10 | 21% |
-| Memori | 14979 | Python | Apache 2.0 | — | 2025-07-24 | 16% |
-| Memvid | 15583 | Rust | Apache 2.0 | — | 2025-05-27 | 18% |
-| Cognee | 17559 | Python | Apache 2.0 | — | 2023-08-16 | 18% |
-| agentmemory | 19200 | TypeScript | Apache 2.0 | — | 2026-02-25 | 46% |
-| gbrain | 19553 | TypeScript | MIT | — | 2025-07 | 37% |
-| Supermemory | 22700 | TypeScript | MIT | — | 2024 | 49% |
-| Letta | 23011 | Python | Apache-2.0 | — | 2023-10 | 21% |
-| OpenViking | 24815 | Python | AGPL-3.0 | — | 2026-01-05 | 30% |
-| Graphiti | 26688 | Python | Apache 2.0 | — | 2024-08-08 | 26% |
+| context-infra | 503 | Python | MIT | — | 2026-03-16 | 23% |
+| vestige | 540 | Rust | AGPL-3.0 | ✅ | 2026-01-25 | 35% |
+| memoir | 554 | Python | Apache-2.0 | — | 2025-08 | 18% |
+| stash | 701 | Go | Apache 2.0 | ✅ | 2026-04-24 | 33% |
+| MemoMind | 716 | Python | ? | — | 2026-03-15 | 23% |
+| Wax | 742 | Swift | Apache 2.0 | ✅ | 2026-01-20 | 17% |
+| opencode-mem | 787 | TypeScript | ? | — | 2026-01-10 | 15% |
+| LightMem | 872 | Python | MIT | — | 2025-05 | 3% |
+| token-savior | 912 | Python | MIT | — | 2026-03-30 | 28% |
+| mem9 | 1116 | TypeScript | Apache 2.0 | — | 2026-01 | 33% |
+| nocturne | 1150 | Python | MIT | — | 2025-12-25 | 23% |
+| LangMem | 1473 | Python | MIT | — | 2025-02 | 3% |
+| memsearch | 1861 | Python | Apache 2.0 | — | 2025-08 | 18% |
+| mcp-memory-service | 1901 | Python | Apache 2.0 | — | 2024-12-26 | 68% |
+| obsidian-mind | 2715 | TypeScript | MIT | — | 2026-02-28 | 22% |
+| MemMachine | 3091 | Python | Apache 2.0 | — | 2025-08 | 32% |
+| Acontext | 3500 | JS/TS/Go/Python | Apache-2.0 | — | 2025-10 | 22% |
+| MIRIX | 3552 | Python | MIT | — | 2025-09 | 40% |
+| engram | 3825 | Go | MIT | ✅ | 2026-02-16 | 38% |
+| OpenMemory | 4164 | Python | Apache 2.0 | — | 2025-10 | 25% |
+| MemoryBear | 4167 | Python | Apache 2.0 | — | 2025-06 | 55% |
+| m_flow | 4336 | Python | Apache 2.0 | — | 2026-02 | 23% |
+| TencentDB-AM | 4347 | TypeScript | MIT | — | 2026-04-07 | 17% |
+| memory-lancedb-pro | 4386 | TypeScript | MIT | — | 2025-11 | 15% |
+| Honcho | 4422 | Python | AGPL-3.0 | — | 2024-04 | 18% |
+| ByteRover | 4796 | TypeScript | Elastic 2.0 | — | 2025-06-19 | 25% |
+| EverOS | 5755 | Python | Apache 2.0 | — | 2025-10-28 | 23% |
+| MemOS | 9442 | Python | Apache 2.0 | — | 2025-10 | 27% |
+| memU | 13700 | Python | MIT | — | 2025-09 | 17% |
+| hindsight | 14954 | Python | MIT | — | 2025-10 | 20% |
+| Memori | 14979 | Python | Apache 2.0 | — | 2025-07-24 | 15% |
+| Memvid | 15583 | Rust | Apache 2.0 | — | 2025-05-27 | 17% |
+| Cognee | 17559 | Python | Apache 2.0 | — | 2023-08-16 | 17% |
+| agentmemory | 19200 | TypeScript | Apache 2.0 | — | 2026-02-25 | 43% |
+| gbrain | 19553 | TypeScript | MIT | — | 2025-07 | 35% |
+| Supermemory | 22700 | TypeScript | MIT | — | 2024 | 47% |
+| Letta | 23011 | Python | Apache-2.0 | — | 2023-10 | 20% |
+| OpenViking | 24815 | Python | AGPL-3.0 | — | 2026-01-05 | 28% |
+| Graphiti | 26688 | Python | Apache 2.0 | — | 2024-08-08 | 25% |
 | Nanobot | 43300 | Python | MIT | — | 2025-05 | 12% |
-| MemPalace | 52973 | Python | MIT | — | 2026-04-05 | 16% |
-| Mem0 | 56958 | Python | Apache 2.0 | — | 2023-06-20 | 18% |
-| claude-mem | 79290 | TypeScript | Apache 2.0 | — | 2025-08-31 | 26% |
+| MemPalace | 52973 | Python | MIT | — | 2026-04-05 | 15% |
+| Mem0 | 56958 | Python | Apache 2.0 | — | 2023-06-20 | 17% |
+| claude-mem | 79290 | TypeScript | Apache 2.0 | — | 2025-08-31 | 27% |
 
 ---
 
 ## Architecture
 
-| System | Deployment | Storage | Integration | Proxy | Web/TUI | Offline | Multi-agent | LLM providers | Cache optimization | Privacy/encrypt | Data export | Setup | Pricing |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| gitmem | MCP server (npx) | .gitmem/ + Supabase | MCP | — | — | ✅ | — | 1 | — | ✅ | — | npx install | free |
-| YesMem | Local binary | SQLite+Vector | Proxy+MCP+Hooks | ✅ | — | ✅ | ✅ | 4 | ✅ | ✅ | ✅ | curl \| bash | free |
-| Fullerenes | Local CLI + MCP | SQLite (graph.db) | MCP | — | — | ✅ | — | 0 | — | — | — | npm install | free |
-| fidelis | MCP server + hooks | BM25+ChromaDB | MCP + hooks | — | — | ✅ | — | 1 | — | ✅ | — | pip install | free |
-| ArcRift | Local server + Chrome ext | sqlite-vec | MCP + browser | — | ✅ | ✅ | — | 1 | — | ✅ | — | ? | free |
-| CommonGround | Self-hosted | SQLite+Vector | REST+WebSocket | — | ✅ | ✅ | ✅ | 1 | — | — | — | docker compose | free |
-| AIPass | Local CLI | ChromaDB+JSON | CLI | — | — | ✅ | — | 1 | — | ✅ | ✅ | pip install | free |
-| omega-memory | Local server | SQLite+Vector | MCP | — | — | ✅ | ✅ | 1 | — | — | — | pip install | free |
-| ClawMem | Local server (Bun) | SQLite+FTS5+Vector | Hooks + MCP | — | — | ✅ | — | 1 | — | ✅ | ✅ | bun install | free |
-| shodh-memory | Local binary | Tantivy+FTS5+Vector | MCP | — | — | ✅ | ✅ | 1 | — | ✅ | — | cargo install | free |
-| memanto | Local/Cloud | Vector DB | MCP+SaaS | — | — | ✅ | — | 1 | — | — | — | pip install | freemium |
-| MoltBrain | Plugin | ChromaDB+SQLite | Plugin+MCP | — | ✅ | ✅ | ✅ | 1 | — | ✅ | — | npm install | free |
-| MemLayer | Python library | ChromaDB+NetworkX | Library (3 lines) | — | — | ✅ | — | 5 | — | ✅ | — | pip install memlayer | free |
-| icarus | Local Python | Markdown wiki + archive | MCP | — | — | ✅ | — | 1 | — | ✅ | — | pip install | free |
-| Memory Palace | Docker / local Python | SQLite+sqlite-vec | MCP+Skills | — | ✅ | ✅ | — | 1 | — | — | — | docker compose | free |
-| Octopoda-OS | Local server | Key-value store | MCP | — | ✅ | ✅ | — | 1 | — | — | ✅ | pip install | free |
-| ai-memory | Local binary | Git wiki (md) | MCP+Hooks | — | ✅ | ✅ | — | 1 | — | — | — | ? | free |
-| Memora | MCP server | SQLite+FTS5 | MCP | — | ✅ | ✅ | ✅ | 2 | — | ✅ | — | pip install | free |
-| memorix | Python library | FAISS/Qdrant | Python SDK | — | — | ✅ | — | 1 | — | — | — | pip install | free |
-| TeleMem | Library | Vector DB | SDK | — | — | ✅ | — | 1 | — | — | — | pip install | free |
-| context-infra | Local Python | Markdown files | MCP | — | — | ✅ | — | 1 | ✅ | — | — | setup_guide.md | free |
-| vestige | Local binary (22MB) | SQLite+FTS5 | MCP | — | ✅ | ✅ | — | 1 | — | ✅ | — | cargo install | free |
-| memoir | Plugin (Claude Code, Codex) | Hierarchical paths | Plugin+CLI | — | ✅ | ✅ | — | 1 | — | — | — | pip install | free |
-| stash | Local binary | Postgres+pgvector | MCP | — | — | ✅ | — | 1 | — | — | — | go install | free |
-| MemoMind | Local Python | Local vector DB | MCP | — | ✅ | ✅ | — | 1 | — | — | — | pip install | free |
-| Wax | Single file (Apple Silicon) | Single file (frame container) | Library+MCP | — | — | ✅ | — | 1 | — | — | — | swift build | free |
-| opencode-mem | OpenCode plugin | Local vector DB | Plugin (OpenCode) | — | ✅ | ✅ | — | 1 | — | — | — | npm install | free |
-| LightMem | Research library | Memory tokens (model) | Library | — | — | ✅ | — | 1 | — | — | — | pip install | free |
-| token-savior | MCP server | SQLite+FTS5+sqlite-vec | MCP | — | ✅ | ✅ | — | 1 | — | — | — | pip install | free |
-| mem9 | Cloud/Self-host | TiDB Cloud | MCP+Hooks | — | ✅ | ✅ | ✅ | 3 | — | ✅ | ✅ | npx install | freemium |
-| nocturne | Local MCP server | SQLite | MCP | — | ✅ | ✅ | — | 1 | — | — | — | pip install | free |
-| LangMem | Library | Pluggable backends | LangChain/LangGraph | — | — | — | — | 1 | — | — | — | pip install | free |
-| memsearch | Local CLI+MCP | Milvus+Markdown | MCP+CLI | — | — | ✅ | — | 9 | — | — | — | pip install | free |
-| mcp-memory-service | Local/Docker/Cloudflare | SQLite-vec+Cloudflare+Milvus | REST(76ep)+MCP+OAuth2+CLI | — | ✅ | ✅ | ✅ | 5 | ✅ | ✅ | ✅ | pip install | free |
-| obsidian-mind | Obsidian vault + npm | Markdown + QMD/SQLite | CLI + MCP | — | ✅ | ✅ | — | 1 | — | — | — | npm install | free |
-| MemMachine | Server+SDK | Neo4j+PostgreSQL+pgvector | MCP+SDK | — | ✅ | ✅ | ✅ | 1 | — | ✅ | — | docker compose | free |
-| Acontext | Cloud + Docker self-host | PostgreSQL+pgvector+Redis+RabbitMQ+S3 | SDK+REST | — | ✅ | ✅ | — | 3 | — | ✅ | ✅ | curl \| sh | freemium |
-| MIRIX | Self-hosted | PostgreSQL+pgvector | REST API | — | ✅ | ✅ | ✅ | 1 | — | ✅ | — | docker compose | free |
-| engram | Local bin / Cloud (opt-in) | SQLite+FTS5 | MCP+Hooks (19) | — | ✅ | ✅ | — | 2 | — | ✅ | ✅ | brew install | free |
-| OpenMemory | Self-hosted | Vector DB | REST API+MCP | — | — | ✅ | — | 1 | — | ✅ | — | docker compose | free |
-| MemoryBear | Local server | Neo4j+Elasticsearch | REST API+MCP | — | ✅ | ✅ | ✅ | 1 | — | ✅ | ✅ | docker compose | free |
-| m_flow | Local Python | Graph DB | MCP | — | ✅ | ✅ | — | 9 | — | — | — | pip install | free |
-| TencentDB-AM | Plugin (OpenClaw) | SQLite+sqlite-vec | Plugin hooks | — | — | ✅ | — | 1 | — | — | — | ? | free |
-| memory-lancedb-pro | OpenClaw plugin | LanceDB | OpenClaw plugin | — | — | ✅ | — | 1 | — | — | — | npm install | free |
-| Honcho | Server + SDK | Postgres+pgvector | SDK + REST + MCP | — | ✅ | ✅ | ✅ | 3 | — | — | — | docker compose | free |
-| ByteRover | Local CLI / Cloud | SQLite+Context tree | MCP+REPL | — | ✅ | ✅ | — | 20 | — | — | — | npm install -g | freemium |
-| EverOS | Lib/MCP | Vector DB | MCP | — | — | ✅ | — | 1 | — | — | — | ? | free |
-| MemOS | Cloud/Self-host | Neo4j+Qdrant+Redis | API+Plugin | — | ✅ | ✅ | — | 1 | — | — | — | docker compose | freemium |
-| memU | Library+MCP | Vector DB | MCP+SDK | — | — | ✅ | — | 3 | — | — | — | pip install | free |
-| hindsight | SDK/Cloud | Vector+graph+temporal | Python API+MCP | — | ✅ | ✅ | — | 1 | — | — | — | pip install | freemium |
-| Memori | Cloud / BYODB | Cloud | SDK/MCP | — | ✅ | — | — | 1 | — | — | — | ? | free |
-| Memvid | Lib/Local file | Single .mv2 file | SDK | — | — | ✅ | — | 1 | — | — | — | ? | free |
-| Cognee | Lib/Cloud | Graph+Vector | API+Hooks | — | ✅ | ✅ | — | 11 | — | — | — | ? | free |
-| agentmemory | Local server (npm) | SQLite (0 external DBs) | MCP + Hooks (12) | — | ✅ | ✅ | ✅ | 3 | — | ✅ | ✅ | npm install -g | free |
-| gbrain | Local (PGLite WASM) | PGLite+pgvector | MCP+Hooks | — | ✅ | ✅ | — | 1 | — | ✅ | — | npx install | free |
-| Supermemory | Cloud (Cloudflare Workers) | Hyperdrive (PG)+KV+Vector | MCP+API+Plugins | — | ✅ | — | — | 1 | — | — | — | npx install-mcp | freemium |
-| Letta | Server + SDK | Postgres + vector + git | SDK + REST | — | ✅ | ✅ | ✅ | 1 | — | — | — | docker compose | free |
-| OpenViking | Self-hosted | Context DB (filesystem paradigm) | API | — | ✅ | ✅ | — | 1 | — | ✅ | ✅ | pip install | free |
-| Graphiti | Library | Graph DB | Library | — | — | ✅ | — | 1 | — | — | — | ? | free |
-| Nanobot | Agent framework | Filesystem | Agent loop | — | — | ✅ | — | 1 | — | ✅ | ✅ | pip install | free |
-| MemPalace | Local CLI | ChromaDB (pluggable) | CLI + MCP | — | — | ✅ | — | 1 | — | ✅ | — | uv tool install | free |
-| Mem0 | Lib/Self-host/Cloud | Qdrant | API/SDK | — | ✅ | — | — | 16 | — | — | — | pip install | freemium |
-| claude-mem | Local CLI | SQLite+Chroma | Hooks (5) | — | ✅ | ✅ | — | 1 | — | ✅ | ✅ | npx install | free |
+| System | Deployment | Storage | Integration | Proxy | Web/TUI | Offline | Multi-agent | LLM providers | Cache optimization | Procedural memory | Sandboxed exec | Scheduled/autonomous | Privacy/encrypt | Data export | Setup | Pricing |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| gitmem | MCP server (npx) | .gitmem/ + Supabase | MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | npx install | free |
+| YesMem | Local binary | SQLite+Vector | Proxy+MCP+Hooks | ✅ | — | ✅ | ✅ | 4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | curl \| bash | free |
+| Fullerenes | Local CLI + MCP | SQLite (graph.db) | MCP | — | — | ✅ | — | 0 | — | — | — | — | — | — | npm install | free |
+| fidelis | MCP server + hooks | BM25+ChromaDB | MCP + hooks | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | pip install | free |
+| ArcRift | Local server + Chrome ext | sqlite-vec | MCP + browser | — | ✅ | ✅ | — | 1 | — | — | — | — | ✅ | — | ? | free |
+| CommonGround | Self-hosted | SQLite+Vector | REST+WebSocket | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | — | — | docker compose | free |
+| AIPass | Local CLI | ChromaDB+JSON | CLI | — | — | ✅ | — | 1 | — | — | — | — | ✅ | ✅ | pip install | free |
+| omega-memory | Local server | SQLite+Vector | MCP | — | — | ✅ | ✅ | 1 | — | — | — | — | — | — | pip install | free |
+| ClawMem | Local server (Bun) | SQLite+FTS5+Vector | Hooks + MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | ✅ | bun install | free |
+| shodh-memory | Local binary | Tantivy+FTS5+Vector | MCP | — | — | ✅ | ✅ | 1 | — | — | — | — | ✅ | — | cargo install | free |
+| memanto | Local/Cloud | Vector DB | MCP+SaaS | — | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | freemium |
+| MoltBrain | Plugin | ChromaDB+SQLite | Plugin+MCP | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | ✅ | — | npm install | free |
+| MemLayer | Python library | ChromaDB+NetworkX | Library (3 lines) | — | — | ✅ | — | 5 | — | — | — | — | ✅ | — | pip install memlayer | free |
+| icarus | Local Python | Markdown wiki + archive | MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | pip install | free |
+| Memory Palace | Docker / local Python | SQLite+sqlite-vec | MCP+Skills | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | docker compose | free |
+| Octopoda-OS | Local server | Key-value store | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | ✅ | pip install | free |
+| ai-memory | Local binary | Git wiki (md) | MCP+Hooks | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | ? | free |
+| Memora | MCP server | SQLite+FTS5 | MCP | — | ✅ | ✅ | ✅ | 2 | — | — | — | — | ✅ | — | pip install | free |
+| memorix | Python library | FAISS/Qdrant | Python SDK | — | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
+| TeleMem | Library | Vector DB | SDK | — | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
+| context-infra | Local Python | Markdown files | MCP | — | — | ✅ | — | 1 | ✅ | — | — | — | — | — | setup_guide.md | free |
+| vestige | Local binary (22MB) | SQLite+FTS5 | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | ✅ | — | cargo install | free |
+| memoir | Plugin (Claude Code, Codex) | Hierarchical paths | Plugin+CLI | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
+| stash | Local binary | Postgres+pgvector | MCP | — | — | ✅ | — | 1 | — | — | — | — | — | — | go install | free |
+| MemoMind | Local Python | Local vector DB | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
+| Wax | Single file (Apple Silicon) | Single file (frame container) | Library+MCP | — | — | ✅ | — | 1 | — | — | — | — | — | — | swift build | free |
+| opencode-mem | OpenCode plugin | Local vector DB | Plugin (OpenCode) | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | npm install | free |
+| LightMem | Research library | Memory tokens (model) | Library | — | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
+| token-savior | MCP server | SQLite+FTS5+sqlite-vec | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
+| mem9 | Cloud/Self-host | TiDB Cloud | MCP+Hooks | — | ✅ | ✅ | ✅ | 3 | — | — | — | — | ✅ | ✅ | npx install | freemium |
+| nocturne | Local MCP server | SQLite | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
+| LangMem | Library | Pluggable backends | LangChain/LangGraph | — | — | — | — | 1 | — | — | — | — | — | — | pip install | free |
+| memsearch | Local CLI+MCP | Milvus+Markdown | MCP+CLI | — | — | ✅ | — | 9 | — | — | — | — | — | — | pip install | free |
+| mcp-memory-service | Local/Docker/Cloudflare | SQLite-vec+Cloudflare+Milvus | REST(76ep)+MCP+OAuth2+CLI | — | ✅ | ✅ | ✅ | 5 | ✅ | — | — | — | ✅ | ✅ | pip install | free |
+| obsidian-mind | Obsidian vault + npm | Markdown + QMD/SQLite | CLI + MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | npm install | free |
+| MemMachine | Server+SDK | Neo4j+PostgreSQL+pgvector | MCP+SDK | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | ✅ | — | docker compose | free |
+| Acontext | Cloud + Docker self-host | PostgreSQL+pgvector+Redis+RabbitMQ+S3 | SDK+REST | — | ✅ | ✅ | — | 3 | — | — | — | — | ✅ | ✅ | curl \| sh | freemium |
+| MIRIX | Self-hosted | PostgreSQL+pgvector | REST API | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | ✅ | — | docker compose | free |
+| engram | Local bin / Cloud (opt-in) | SQLite+FTS5 | MCP+Hooks (19) | — | ✅ | ✅ | — | 2 | — | — | — | — | ✅ | ✅ | brew install | free |
+| OpenMemory | Self-hosted | Vector DB | REST API+MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | docker compose | free |
+| MemoryBear | Local server | Neo4j+Elasticsearch | REST API+MCP | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | ✅ | ✅ | docker compose | free |
+| m_flow | Local Python | Graph DB | MCP | — | ✅ | ✅ | — | 9 | — | — | — | — | — | — | pip install | free |
+| TencentDB-AM | Plugin (OpenClaw) | SQLite+sqlite-vec | Plugin hooks | — | — | ✅ | — | 1 | — | — | — | — | — | — | ? | free |
+| memory-lancedb-pro | OpenClaw plugin | LanceDB | OpenClaw plugin | — | — | ✅ | — | 1 | — | — | — | — | — | — | npm install | free |
+| Honcho | Server + SDK | Postgres+pgvector | SDK + REST + MCP | — | ✅ | ✅ | ✅ | 3 | — | — | — | — | — | — | docker compose | free |
+| ByteRover | Local CLI / Cloud | SQLite+Context tree | MCP+REPL | — | ✅ | ✅ | — | 20 | — | — | — | — | — | — | npm install -g | freemium |
+| EverOS | Lib/MCP | Vector DB | MCP | — | — | ✅ | — | 1 | — | — | — | — | — | — | ? | free |
+| MemOS | Cloud/Self-host | Neo4j+Qdrant+Redis | API+Plugin | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | docker compose | freemium |
+| memU | Library+MCP | Vector DB | MCP+SDK | — | — | ✅ | — | 3 | — | — | — | — | — | — | pip install | free |
+| hindsight | SDK/Cloud | Vector+graph+temporal | Python API+MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | freemium |
+| Memori | Cloud / BYODB | Cloud | SDK/MCP | — | ✅ | — | — | 1 | — | — | — | — | — | — | ? | free |
+| Memvid | Lib/Local file | Single .mv2 file | SDK | — | — | ✅ | — | 1 | — | — | — | — | — | — | ? | free |
+| Cognee | Lib/Cloud | Graph+Vector | API+Hooks | — | ✅ | ✅ | — | 11 | — | — | — | — | — | — | ? | free |
+| agentmemory | Local server (npm) | SQLite (0 external DBs) | MCP + Hooks (12) | — | ✅ | ✅ | ✅ | 3 | — | — | — | — | ✅ | ✅ | npm install -g | free |
+| gbrain | Local (PGLite WASM) | PGLite+pgvector | MCP+Hooks | — | ✅ | ✅ | — | 1 | — | — | — | — | ✅ | — | npx install | free |
+| Supermemory | Cloud (Cloudflare Workers) | Hyperdrive (PG)+KV+Vector | MCP+API+Plugins | — | ✅ | — | — | 1 | — | — | — | — | — | — | npx install-mcp | freemium |
+| Letta | Server + SDK | Postgres + vector + git | SDK + REST | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | — | — | docker compose | free |
+| OpenViking | Self-hosted | Context DB (filesystem paradigm) | API | — | ✅ | ✅ | — | 1 | — | — | — | — | ✅ | ✅ | pip install | free |
+| Graphiti | Library | Graph DB | Library | — | — | ✅ | — | 1 | — | — | — | — | — | — | ? | free |
+| Nanobot | Agent framework | Filesystem | Agent loop | — | — | ✅ | — | 1 | — | — | — | — | ✅ | ✅ | pip install | free |
+| MemPalace | Local CLI | ChromaDB (pluggable) | CLI + MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | uv tool install | free |
+| Mem0 | Lib/Self-host/Cloud | Qdrant | API/SDK | — | ✅ | — | — | 16 | — | — | — | — | — | — | pip install | freemium |
+| claude-mem | Local CLI | SQLite+Chroma | Hooks (5) | — | ✅ | ✅ | — | 1 | — | ✅ | — | — | ✅ | ✅ | npx install | free |
 
 ---
 
