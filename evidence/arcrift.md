@@ -1,192 +1,341 @@
-# arcrift — Evidence
+# ArcRift — Evidence
 
-> `evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/arcrift.md"`
+> `evidence: "evidence/arcrift.md"`
+> Updated: 2026-06-01 (v1.6.1 Desktop App release)
 
 ## Repo Identity
 
-- **Claimed:** `https://github.com/arcrift/memory` — **404, repo does not exist**
-- **Actual:** `https://github.com/Eshaan-Nair/ArcRift` — verified 2026-05-28
-- **Website:** https://arcrift.vercel.app
+- **URL:** https://github.com/Eshaan-Nair/ArcRift
+- **Website:** https://arcrift.vercel.app/
 - **npm:** `arcrift-setup`
 - **License:** MIT
-- **Language:** TypeScript (86.2%), CSS (6.5%), JavaScript (2.3%), Shell (2.0%)
-- **Stars:** 75, Forks: 17, Commits: 250
-- **Latest release:** v1.5.3 (2026-05-23)
-- **Created:** April 2026
+- **Language:** TypeScript
+- **Stars:** 150, Forks: 20, Commits: 286
+- **Latest release:** v1.6.1 Desktop App (2026-05-31)
+- **Created:** 2026-04-21
+- **Topics:** ai, ai-agents, ai-coding, browser-extension, chatgpt, claude, cursor, deepseek, gemini, llm, local-first, mcp, memory, productivity, rag, sqlite
 
-**Note:** The `github.com/arcrift` org exists but has zero public repositories. The actual project lives under `Eshaan-Nair/ArcRift`. The project was previously known as "Glia" and "Synq" before rebranding to ArcRift.
+**Rebranding history:** Previously known as "Glia" and "Synq" before rebranding to ArcRift.
+
+**Evidence source:** This audit is based on the public README.md, GitHub API metadata, and the v1.6.1 release assets.
 
 ---
 
-## Corrections
+## Vital Signs
 
-| Claim | Status | Detail |
-|-------|--------|--------|
-| `github.com/arcrift/memory` | **❌ URL correction** | 404. Correct repo is `github.com/Eshaan-Nair/ArcRift`. |
-| privacy = false (data.js) | **❌ wrong** | Should be true — local-first, PII scrubbing, CORS locked to localhost |
-| fulltext = false (data.js) | **❌ wrong** | Should be true — FTS5 keyword search |
-| hybrid = false (data.js) | **❌ wrong** | Should be true — three-layer hybrid (sentence + chunk + keyword) |
-| searchModes = 1 (data.js) | **❌ wrong** | Should be 3 — sentence vectors, chunk vectors, FTS5 keyword |
-| entities = false (data.js) | **❌ wrong** | Should be true — 22 entity types, 20+ relation types |
-| autoExtract = false (data.js) | **❌ wrong** | Should be true — auto-connect + knowledge graph extraction |
-| dedup = false (data.js) | **❌ wrong** | Should be true — FNV-1a deduplication |
-| explicitForget = false (data.js) | **❌ wrong** | Should be true — `prune_memory` tool |
-| supersede = false (data.js) | **❌ wrong** | Should be true — `prune_memory` + delete-then-insert update pattern |
-| p_cursor = false (data.js) | **❌ wrong** | Should be true — Cursor MCP setup documented |
-| p_windsurf = false (data.js) | **❌ wrong** | Should be true — Windsurf MCP setup documented |
+| Claim | Status | Evidence |
+|-------|--------|----------|
+| stars = 150 | ✅ | GitHub API: `stargazers_count: 150` |
+| language = TypeScript | ✅ | GitHub API: `language: "TypeScript"` |
+| license = MIT | ✅ | GitHub API: `license: { key: "mit" }` |
+| singleBinary = false | ✅ | Requires Node.js + Ollama + optional Docker |
+| created = 2026-04-21 | ✅ | GitHub API: `created_at: "2026-04-21T06:26:25Z"` |
 
 ---
 
 ## Architecture
 
-### Offline ✅
-- `README.md` — "100% Local (Ollama)", "A local-first memory layer", "local-first philosophy"
-- `README.md` — SQLite mode: all features in a single `ArcRift.db` file, no Docker needed
-- `README.md` — Privacy section: "All data lives in `ArcRift.db` on your machine", "Your conversations never leave your machine"
+### Deployment ✅
+- README: **Tauri Desktop App** — native system tray application, backend runs as hidden Rust sidecar
+- README: Chrome extension + MCP server modes also available
+- README: Three install paths: `.exe`/`.dmg`/`.deb` installers, `npx arcrift-setup`, or `git clone + npm run dev:desktop`
+- GitHub release v1.6.1: assets include `.exe`, `.msi`, `.dmg`, `.deb`, `.rpm`, `.AppImage` — cross-platform desktop binaries
 
-### Privacy ✅
-- `README.md` — PII scrubbing: "API keys, JWTs, connection strings, email addresses, and internal IPs are redacted to `[REDACTED]`"
-- `README.md` — "Local Embeddings: `nomic-embed-text` runs entirely via Ollama — zero API calls"
-- `README.md` — "CORS Locked: rejects requests from any origin other than `localhost`"
-- `README.md` — Injection defence: "scanned for 10 known prompt injection patterns"
+### Storage ✅
+- README: "SQLite-vec (vec0 virtual tables, 768-dim float32)" + "SQLite FTS5 with Porter stemmer"
+- README: "SQLite facts table (or Neo4j in Docker mode)" for knowledge graph
+- README: "Zero-Docker Mode: replaces all Docker services with a single `ArcRift.db` file"
 
-### Export ❌ (not claimed in README)
-- Not mentioned — but SQLite `.db` file is inherently portable
+### Integration ✅
+- README: Chrome extension (6 AI chat platforms) + MCP server (3+ coding tools)
+- README: Both modes share the same database — "Memory saved via the extension is immediately available in `recall_context`, and vice versa"
+- README: "WAL mode on all writes" allows concurrent reads/writes
+
+### Proxy ❌
+- Not a proxy — it's a local backend server + MCP
 
 ### Web UI ✅
-- `README.md` — Dashboard at `localhost:3001` with Graph, History, Chat, Job Queue tabs
-- `README.md` — "React 19 + D3.js + Vite" dashboard
+- README: Dashboard at `localhost:3001` with 4 tabs: Graph (D3.js force-directed), History (triples), Chat (conversation bubbles), Job Queue (background indexing)
+- README: "React 19 + D3.js + Vite" tech stack
+
+### Offline ✅
+- README: "100% Local (Ollama)", "Your conversations never leave your machine"
+- README: SQLite mode: "All features — single `.db` file + Ollama"
+
+### Multi-agent ❌
+- No multi-agent coordination documented
+
+### LLM providers = 2 ✅
+- README: Ollama primary (`nomic-embed-text` + `llama3.1:8b`), Grok API key as fallback
+- README: "Ollama must be running for the MCP server to generate embeddings and extract knowledge graph triples"
+
+### Cache optimization ❌
+- Not mentioned
+
+### Procedural memory ❌
+- Not mentioned
+
+### Sandboxed exec ❌
+- Not mentioned
+
+### Scheduled/autonomous ❌
+- Background job queue is for internal indexing, not user-scheduled execution
+
+### Privacy ✅
+- README: "PII Scrubbing: API keys, JWTs, connection strings, email addresses, and internal IPs are redacted to `[REDACTED]` in the browser before any data is sent to the backend"
+- README: "Local Embeddings: `nomic-embed-text` runs entirely via Ollama — zero API calls for embeddings"
+- README: "CORS Locked: The backend rejects requests from any origin other than `localhost`"
+- README: Helmet security headers (CSP, X-Frame-Options, X-Content-Type-Options)
+
+### Export ❌ (not claimed)
+- Not mentioned — but SQLite `.db` file is inherently portable
+
+### Setup ✅
+- README: "npx arcrift-setup" — clones repo, checks deps, pulls Ollama models, installs packages, builds backend
+- README: Or download installer from GitHub Releases
 
 ---
 
 ## Data Model
 
-### Entities ✅
-- `README.md` — "22 entity types, 20+ relation types" in knowledge graph
-- `README.md` — Knowledge Graph Stress Audit: "1,200+ nodes, 1,087 triples"
-- `README.md` — D3.js force-directed graph, "Nodes are entities, edges are relations"
+### Storage unit ✅
+- README: Three-tier: **sentence-level chunks** (surgical retrieval), **chunk-level** (300 word windows, 80-word overlap), **knowledge graph facts** (subject-relation-object triples)
+- README: "Sentence vectors, chunk vectors, and FTS5 keyword search run in parallel"
 
-### Keywords ✅
-- `README.md` — "FTS5 keyword search run in parallel" as part of three-layer hybrid search
-- `README.md` — "Prefix keyword matching": FTS5 queries use wildcard suffixes
-- `README.md` — "FTS5 Keyword" engine: "43 hits" in web benchmark, "24 hits" in MCP benchmark
+### Entities ✅
+- README: "22 entity types, 20+ relation types" in knowledge graph
+- README: Graph Stress Audit: "1,200+ nodes, 1,087 triples in a single session"
 
 ### Context (why) ✅
-- `README.md` — "ArcRift captures your AI conversations, extracts structured facts into a knowledge graph"
-- `README.md` — Conversations saved with project context, timestamps, platform attribution
-- `README.md` — MCP tools: `store_memory` saves "decisions and context", `get_project_summary` returns "structured knowledge graph summary"
+- README: Conversations saved with project name, timestamps, platform attribution
+- README: MCP tools: `store_memory` saves "decisions and context", `get_project_summary` returns "structured knowledge graph summary"
+
+### Keywords ✅
+- README: "FTS5 keyword search" with "Prefix keyword matching" (wildcard suffixes)
+- README: FTS5 engine contributed 43/54 hits in web benchmark, 24/27 hits in MCP benchmark
+
+### Data sources = 3 ✅
+- README: (1) Browser chat conversations via Chrome extension, (2) MCP `store_memory` tool, (3) **Direct Codebase Indexing** (v1.6.1 new — scan project files into knowledge graph)
+
+### Schema fields = 7 (estimate) ⚠️
+- README does not provide exact schema field count
+- Source inspection needed for precise count
+
+### Layered memory ❌
+- All layers (sentence/chunk/graph) are searched in parallel, not promoted between tiers
 
 ### Time-travel ❌
-- Not mentioned in README — no git-like versioning, branching, or rollback features
+- No git-like versioning, branching, or rollback documented
 
-### Schema fields = 7 ❌
-- Cannot verify from README alone — requires source inspection
+### Emotional ❌
+- Not mentioned
+
+### Conflict ❌
+- Not mentioned
+
+### Origin + trust ❌
+- Not mentioned
+
+### Actions ❌
+- Not mentioned
+
+### Anticipated queries ❌
+- Not mentioned (though HyDE generates hypothetical answers)
+
+### Trigger rules ❌
+- Auto-connect is always-on per project, not rule-based
+
+### Domain tag ❌
+- Not mentioned
+
+### Task type ❌
+- Not mentioned
 
 ---
 
 ## Search & Retrieval
 
 ### Full-text ✅
-- `README.md` — "FTS5 with Porter stemmer" in tech stack
-- `README.md` — Keyword engine documented in both web and MCP benchmarks
+- README: "SQLite FTS5 with Porter stemmer" in tech stack
+- README: Keyword engine documented in both web and MCP benchmarks
 
-### Semantic ✅
-- `README.md` — "Sentence vectors" and "Chunk vectors" with nomic-embed-text (768-dim)
-- `README.md` — HyDE (Hypothetical Document Embedding) for improved recall
-- `README.md` — Recall@1 of 90% in web benchmarks
+### Semantic/vector ✅
+- README: "Sentence vectors" and "chunk vectors" with `nomic-embed-text` (768-dim) via sqlite-vec
+- README: "Chunks are split into individual sentences at index time. On retrieval, only the sentences that directly match the query are returned"
 
-### Search modes = 2 (user claim) / 3 (actual) ✅
-- `README.md` — Three engines: (1) sentence vector, (2) chunk vector, (3) FTS5 keyword — run in parallel and fused
-- User claimed 2, but README documents 3 search modes
+### Hybrid (BM25+Vec) ✅
+- README: "Three-Layer Hybrid Search: Sentence vectors, chunk vectors, and FTS5 keyword search run in parallel. Results are fused and ranked by a combined score."
 
-### Hybrid search ✅ (not in submitted claims, but in README)
-- `README.md` — "Three-Layer Hybrid Search: Sentence vectors, chunk vectors, and FTS5 keyword search run in parallel. Results are fused and ranked by a combined score."
+### Deep (incl. thinking) ❌
+- Not mentioned
+
+### Code graph ❌
+- README: "Direct Codebase Indexing" scans files into knowledge graph, but does not build an AST-level code graph with symbol resolution
+
+### Docs search ❌
+- Not mentioned
+
+### Fact metadata query ❌
+- Not mentioned
+
+### Timeline view ✅
+- README: Dashboard "History" tab shows "All extracted triples (subject / relation / object) with timestamps"
+
+### Search modes = 3 ✅
+- README: (1) sentence vector, (2) chunk vector, (3) FTS5 keyword — all three verified
+
+### HyDE ✅ (bonus, not in comparison schema)
+- README: "Before querying the vector store, ArcRift generates a hypothetical answer to your query and uses that embedding alongside the raw query"
+
+### Small-to-big retrieval ✅ (bonus)
+- README: "High-precision sentence match triggers fetching the parent chunk for broader context"
+
+### Surgical sentence trimming ✅ (bonus)
+- README: "Reduces prompt noise by up to 95%" — only matching sentences returned, not full paragraphs
 
 ---
 
 ## Knowledge Lifecycle
 
+### Decay/forgetting ❌
+- Not mentioned — no time-based decay or Ebbinghaus curve
+
 ### Supersede/replace ✅
-- `README.md` — `prune_memory` tool: "Surgically removes facts or chunks matching a description"
-- `README.md` — "Delete-then-insert for vector updates": "ArcRift uses a delete-then-insert pattern to avoid UNIQUE constraint errors when re-saving a conversation"
+- README: `prune_memory` tool: "Surgically removes facts or chunks matching a description. Corrects outdated information without wiping an entire project."
+- README: "Delete-then-insert for vector updates" pattern handles re-saving
+
+### Contradiction detection ❌
+- Not mentioned
+
+### Quarantine ❌
+- Not mentioned
+
+### Auto-resolution ❌
+- Not mentioned
+
+### Trust model ❌
+- Not mentioned
 
 ### Explicit forget ✅
-- `README.md` — `prune_memory`: "Corrects outdated information without wiping an entire project"
-- `README.md` — "Knowledge Graph Pruning" in v1.5.3 changelog: "Click a node in the graph to prune it instantly"
+- README: `prune_memory` MCP tool explicitly removes memories
+- README: Dashboard graph pruning
 
 ---
 
 ## Extraction Pipeline
 
 ### Auto-extraction ✅
-- `README.md` — "Auto-Connect: Once a session is active, ArcRift re-attaches automatically on every page load"
-- `README.md` — Knowledge graph extraction: "Every saved conversation is processed to extract subject-relation-object triples"
-- `README.md` — Background indexing: "Sentence-level embedding is offloaded to a background job queue so Save is instant"
+- README: "Auto-Connect: Once a session is active, ArcRift re-attaches automatically on every page load" — prompts intercepted without manual action
+- README: Knowledge graph extraction: "Every saved conversation is processed to extract subject-relation-object triples (22 entity types, 20+ relation types)"
+- README: Background job queue: sentence-level embedding offloaded to async jobs
+
+### Content-aware preprocessing ✅
+- README: **PII scrubbing** (API keys, JWTs, emails, IPs → `[REDACTED]`)
+- README: **Injection defence**: "Retrieved chunks are scanned for 10 known prompt injection patterns before being injected"
+- README: **5-character minimum sentence filter**: "ignores fragments shorter than 5 characters"
+- README: **History-aware fallback**: if query is history-seeking, returns first 3 sentences
 
 ### Deduplication ✅
-- `README.md` — "FNV-1a Deduplication: Identical conversation segments are fingerprinted and skipped — re-saving a chat never creates duplicate embeddings"
+- README: "FNV-1a Deduplication: Identical conversation segments are fingerprinted and skipped"
 
-### Narrative ❌
-- Not mentioned in README
+### Quality refinement ❌
+- No LLM-based consolidation or two-pass refinement documented
 
-### Recurrence ❌
-- Not mentioned in README
+### Narrative generation ❌
+- Not mentioned
+
+### Clustering ❌
+- Not mentioned
+
+### Recurrence detection ❌
+- Not mentioned
+
+### Persona extraction ❌
+- Not mentioned
 
 ---
 
 ## Platform Support
 
 ### Claude Code ✅
-- `README.md` — MCP setup section: `claude mcp add ArcRift node /path/to/ARCRIFT/backend/dist/mcp/server.js`
-- `README.md` — Browser extension supports Claude web interface
+- README: `claude mcp add ArcRift node /path/to/ARCRIFT/backend/dist/mcp/server.js`
+- README: Browser extension supports Claude.ai web interface
 
-### Cursor ✅
-- `README.md` — MCP setup section: documented `.cursor/mcp.json` config
-
-### OpenAI Codex ❌
+### Codex ❌
 - Not mentioned in README
 
 ### OpenCode ❌
 - Not mentioned in README
 
-### Windsurf ✅ (not in submitted claims, but in README)
-- `README.md` — MCP setup section: documented `.windsurf/mcp.json` config
+### Gemini CLI ❌
+- Browser extension supports Gemini web, no Gemini CLI integration
 
-### GitHub Copilot ❌
-- Not mentioned as MCP target — browser extension supports Copilot web interface only
+### Copilot (IDE) ❌
+- Browser extension supports Microsoft Copilot web, but no GitHub Copilot IDE plugin
 
-### Gemini ❌ (as IDE tool)
-- Browser extension supports Gemini web, but no Gemini CLI integration documented
+### Cursor ✅
+- README: `.cursor/mcp.json` MCP setup documented
 
----
+### Windsurf ✅
+- README: `.windsurf/mcp.json` MCP setup documented
 
-## Claims NOT verified from public README
+### OpenClaw ❌
+- Not mentioned
 
-These are claimed by the submitter but have **no citation in the public README**:
+### Hermes ❌
+- Not mentioned
 
-| Claim | Status | Note |
-|-------|--------|------|
-| time-travel | ❌ no citation | No git-like versioning, branching, or rollback documented |
-| schemaFields=7 | ❌ no citation | Cannot verify from README alone |
-| narrative | ❌ no citation | Not documented |
-| recurrence | ❌ no citation | Not documented |
-| export | ❌ no citation | Not documented — though SQLite file is inherently exportable |
-| OpenCode support | ❌ not mentioned | Not in README |
-| Codex support | ❌ not mentioned | Not in README |
-| Copilot IDE support | ❌ not mentioned | Extension supports Copilot web only |
+### pi/omp ❌
+- Not mentioned
+
+### Antigravity ❌
+- Not mentioned
 
 ---
 
-## Notable: Not in submitted claims but present in README
+## Benchmarks
+
+Custom benchmarks published in README (not LoCoMo/LongMemEval):
+
+| Benchmark | Result | Detail |
+|-----------|--------|--------|
+| Web Recall@1 | 90.0% | 54/60 correct facts at rank 1 |
+| Web MRR | 0.806 | Correct answer at position 1.24 avg |
+| Web Context Compression | 95.0% | 55,350 → 2,784 chars |
+| MCP Total Recall | 90% | 27/30 correct across 3 phrasings |
+| MCP Context Compression | 81.3% | 131,700 chars noise redacted |
+| Project Isolation | 100% | Zero cross-project leakage (10 projects) |
+| Graph Stress | 1,087 triples | 4,056 triples/sec ingestion |
+| Graph Dashboard Load | < 1.5s | D3.js physics-simulated render |
+
+### LoCoMo: —
+- Not submitted to LoCoMo benchmark
+
+### LongMemEval: —
+- Not submitted to LongMemEval
+
+### Methodology open ✅
+- README: Full benchmark reports in `reports/benchmark_web.md`, `reports/benchmark_mcp.md`, `reports/mcp_stress_test.md`, `reports/graph_stress_test.md`
+- Scripts in `backend/scripts/` — "All results are reproducible"
+
+---
+
+## Notable Features Not in Comparison Schema
 
 | Feature | Detail |
 |---------|--------|
-| **Hybrid search** | Three-layer: sentence + chunk + keyword, fused and ranked |
-| **Search modes = 3** | Not 1 (data.js) or 2 (user claim) — actually 3 distinct engines |
-| **Windsurf support** | `.windsurf/mcp.json` config documented |
-| **Deduplication** | FNV-1a fingerprinting |
-| **Benchmarks** | Comprehensive: R@1=90%, MRR=0.806, context compression=95%, graph stress audit, project isolation audit |
-| **Injection defence** | 10 known prompt injection patterns scanned |
-| **HyDE** | Hypothetical Document Embedding for improved recall |
-| **Small-to-big retrieval** | Sentence-level precision with paragraph-level context |
-| **Dead letter queue** | Failed jobs retried 5× with exponential backoff |
+| **HyDE (Hypothetical Document Embedding)** | Generates hypothetical answer, embeds both query and answer for improved recall |
+| **Surgical Sentence Trimming** | Only returns matching sentences, not full paragraphs — 95% noise reduction |
+| **Small-to-Big Retrieval** | Sentence-level precision triggers parent chunk for broader context |
+| **FNV-1a Dedup** | Fingerprints segments, skips duplicates |
+| **Dead Letter Queue** | Failed jobs retried 5× with exponential backoff, visible in dashboard |
+| **Ghost Job Cleanup** | Auto-resets stuck jobs on restart |
+| **WAL Concurrency** | SQLite WAL mode allows concurrent reads/writes |
+| **Multi-Strategy DOM Resolver** | 5 ordered selector strategies per platform, auto-fallback on UI changes |
+| **Rate Limiting** | Separate rate limits for save vs read endpoints |
+| **PII Scrubbing** | JWTs, API keys, emails, IPs → `[REDACTED]` before disk |
+| **Injection Defence** | 10 prompt injection patterns scanned on retrieved chunks |
+| **Tauri Desktop App** | v1.6.1 — native system tray app, Rust sidecar, esbuild (~0.1s start) |
+| **Esbuild Backend** | Start time reduced from 60s → ~0.1s |
+| **Direct Codebase Indexing** | v1.6.1 — index project files into knowledge graph |
+| **GitHub Actions Auto-Releases** | Cross-compiled Mac/Windows/Linux installers |
