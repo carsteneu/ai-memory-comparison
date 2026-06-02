@@ -28,7 +28,7 @@ Every ✅ requires at least one public source: README, docs, or source code. If 
 ## Contributing
 
 1. **Corrections:** Open a PR with a link to the public source proving the correction
-2. **New systems:** Open an issue first — must meet curation criteria
+2. **New systems:** Submit a PR with a complete [evidence file](evidence/_TEMPLATE.md) — see [CONTRIBUTING.md](CONTRIBUTING.md) for details
 3. **New features:** PR with sources for ALL systems in that row
 
 Project maintainers: corrections to your project's row get priority review.

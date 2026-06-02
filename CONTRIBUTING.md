@@ -16,12 +16,18 @@ Every claim in the comparison table must be verifiable. That's the only rule tha
 
 ### Adding a new system
 
-1. **Open an issue first.** Describe which system and why it meets the [curation criteria](README.md#curation-criteria)
-2. Once approved, PR must include:
-   - Full row data for ALL comparison categories
-   - Source links for every ✅ claim
-   - GitHub stars and metadata
-3. One system per PR
+Submit a PR directly — no need to open an issue first. The PR must include:
+
+1. **An evidence file** at `evidence/<system-id>.md`, using the [evidence template](evidence/_TEMPLATE.md)
+   - Fill in every feature: ✅ with source citations or ❌
+   - The template lists all 79 features — work through them systematically
+   - For each ✅, link to the exact file + line on GitHub (README, docs, or source code)
+   - For ❌, just leave the ❌ — no source needed
+2. **One system per PR**
+
+The maintainers will create the `data.js` entry from your evidence file.
+
+> **Tip:** Use the [evidence template](evidence/_TEMPLATE.md) as your starting point. It has every feature pre-listed with space for citations.
 
 ### Adding a new comparison row
 
@@ -58,7 +64,7 @@ If your project is listed here and something is wrong:
 ## Review process
 
 - Corrections with clear source links: usually merged within 48 hours
-- New systems: reviewed within 1 week
+- New system PRs with complete evidence file: reviewed within 1 week
 - Maintainer corrections: fast-track (usually same day)
 - PRs without source links: asked to provide them before review
 
