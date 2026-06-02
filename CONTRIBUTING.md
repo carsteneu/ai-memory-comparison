@@ -31,9 +31,7 @@ The maintainers will create the `data.js` entry from your evidence file.
 
 ### Adding a new comparison row
 
-1. Open an issue proposing the new dimension
-2. Provide source links for ALL listed systems in that dimension
-3. One row per PR
+Handled by maintainers — adding a feature requires sourcing every row in the table. If you have a suggestion, mention it in any PR or issue discussion. Maintainers will evaluate scope and feasibility.
 
 ### Fixing a broken source link
 
