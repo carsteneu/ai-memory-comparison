@@ -2,11 +2,11 @@
 
 > **Live comparison table:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 >
-> 61 systems, 66 features, source-backed. Every ✅ links to the exact code or docs that prove it.
+> 71 systems, 79 features, source-backed. Every ✅ links to the exact code or docs that prove it.
 
 ## What this is
 
-A feature-level comparison of memory systems for AI coding agents. 61 systems compared across 66 features on six axes: Data Model, Search & Retrieval, Knowledge Lifecycle, Extraction Pipeline, Platform Support, Architecture, and Benchmarks. Every claim backed by a public source citation — no marketing, no inference.
+A feature-level comparison of memory systems for AI coding agents. 71 systems compared across 79 features on seven axes: Data Model, Search & Retrieval, Knowledge Lifecycle, Extraction Pipeline, Platform Support, Architecture, and Benchmarks. Every claim backed by a public source citation — no marketing, no inference.
 
 ## Quick start
 
