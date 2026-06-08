@@ -1,5 +1,13 @@
 # AI Memory Systems — Feature Comparison
 
+[![GitHub stars](https://img.shields.io/github/stars/carsteneu/ai-memory-comparison?style=flat)](https://github.com/carsteneu/ai-memory-comparison/stargazers)
+[![License](https://img.shields.io/badge/license-CC0-blue?style=flat)](LICENSE)
+[![Systems](https://img.shields.io/badge/systems-71-blue?style=flat)](https://carsteneu.github.io/ai-memory-comparison/)
+[![Features](https://img.shields.io/badge/features-79-blue?style=flat)](https://carsteneu.github.io/ai-memory-comparison/)
+[![Build](https://github.com/carsteneu/ai-memory-comparison/actions/workflows/build.yml/badge.svg)](https://github.com/carsteneu/ai-memory-comparison/actions/workflows/build.yml)
+[![Website](https://img.shields.io/badge/website-live-green?style=flat)](https://carsteneu.github.io/ai-memory-comparison/)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat)](https://github.com/carsteneu/ai-memory-comparison/pulls)
+
 > **Live comparison table:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 >
 > 71 systems, 79 features, source-backed. Every ✅ links to the exact code or docs that prove it.
@@ -36,6 +44,10 @@ Project maintainers: corrections to your project's row get priority review.
 ## License
 
 CC0 — Public Domain. Copy it, fork it, use it anywhere.
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=carsteneu/ai-memory-comparison&type=Date)](https://star-history.com/#carsteneu/ai-memory-comparison&Date)
 
 ## Disclosure
 
