@@ -4,7 +4,7 @@
 > Corrections via PR welcome. No affiliation with any listed project.
 
 **Last updated:** 2026-06-08  
-**Systems:** 72  
+**Systems:** 73  
 **Live:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 
 ---
@@ -24,6 +24,7 @@
 | [Continuity v2](https://github.com/Haustorium12/continuity-v2) | 32 | Python | MIT | 2026-04 | SSE proxy for Claude Code, FTS5+ANN search, compaction hooks, thread recall via BFS graph |
 | [Noosphere](https://github.com/SweetSophia/noosphere) | 53 | TypeScript | MIT | 2026-04-11 | Universal wiki + memory layer, multi-provider recall orchestration, conflict resolution, promotion pipeline, Obsidian sync |
 | [second-brain](https://github.com/rahilp/second-brain-cloudflare) | 91 | TypeScript | MIT | 2026-05-17 | Serverless Cloudflare memory, time-decay reranking, smart merge LLM, one-click deploy |
+| [Jumbo](https://github.com/jumbocontext/jumbo.cli) | 102 | TypeScript | AGPL-3.0 | 2025-12-05 | Goal-driven memory system that serves the right context at the right time |
 | [CommonGround](https://github.com/Intelligent-Internet/CommonGround) | 137 | TypeScript | MIT | 2025-11 | Shared agent workspace: collaborative memory, pub/sub events, agent directory |
 | [omega-memory](https://github.com/omega-memory/omega-memory) | 155 | Python | MIT | 2026-01 | 28-tool multi-agent memory, 5 search modes, all lifecycle features, LongMemEval 76.8% |
 | [Mengram](https://github.com/alibaizhanov/mengram) | 171 | Python | Apache 2.0 | 2026-02-10 | 3-tier memory (semantic/episodic/procedural), 30 MCP tools, experience-driven procedure evolution |
@@ -103,6 +104,7 @@
 | Continuity v2 | 32 | Python | MIT | — | 2026-04 | 13% |
 | Noosphere | 53 | TypeScript | MIT | — | 2026-04-11 | 43% |
 | second-brain | 91 | TypeScript | MIT | — | 2026-05-17 | 23% |
+| Jumbo | 102 | TypeScript | AGPL-3.0 | — | 2025-12-05 | 58% |
 | CommonGround | 137 | TypeScript | MIT | — | 2025-11 | 8% |
 | omega-memory | 155 | Python | MIT | — | 2026-01 | 43% |
 | Mengram | 171 | Python | Apache 2.0 | — | 2026-02-10 | 37% |
@@ -182,6 +184,7 @@
 | Continuity v2 | Local proxy+MCP | SQLite+FTS5+sqlite-vec | Proxy+MCP+Hooks | ✅ | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
 | Noosphere | Docker Compose (self-host) | PostgreSQL+Redis | Plugin (OpenClaw/Hermes/Opencode/Kilo) + REST API | — | ✅ | ✅ | — | 0 | ✅ | — | — | ✅ | ✅ | ✅ | docker compose up | free |
 | second-brain | Cloudflare Workers | D1+Vectorize | MCP | — | ✅ | — | — | 1 | — | — | — | — | ✅ | — | one-click deploy | free |
+| Jumbo | Local CLI | Event store + SQLite | CLI + hooks + AGENTS.md | — | ✅ | ✅ | ✅ | 6 | ✅ | ✅ | — | ✅ | ✅ | ✅ | npm install | free |
 | CommonGround | Self-hosted | SQLite+Vector | REST+WebSocket | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | — | — | docker compose | free |
 | omega-memory | Local server | SQLite+Vector | MCP | — | — | ✅ | ✅ | 1 | — | — | — | — | — | — | pip install | free |
 | Mengram | Cloud/Self-hosted | PostgreSQL+pgvector | MCP+Hooks | — | — | ✅ | — | 1 | — | ✅ | — | ✅ | — | — | pip install | free |
@@ -261,6 +264,7 @@
 | Continuity v2 | Session entry | — | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | 6 |
 | Noosphere | Article (wiki page) | — | — | ✅ | — | — | — | — | ✅ | ✅ | — | — | ✅ | ✅ | ✅ | 15 |
 | second-brain | Memory entry (8 fields) | — | — | ✅ | — | — | — | — | — | ✅ | — | — | — | — | — | 8 |
+| Jumbo | Memory entity node (11 types) + relation graph edge | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | ✅ | — | — | — | — | ✅ | ✅ | 16 |
 | CommonGround | Shared memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 4 |
 | omega-memory | Memory entry (15 fields) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 15 |
 | Mengram | Memory (3 tiers, 26 fields) | ✅ | — | ✅ | — | ✅ | — | — | ✅ | — | — | ✅ | — | ✅ | — | 26 |
@@ -340,6 +344,7 @@
 | Continuity v2 | ✅ | ✅ | — | — | — | — | — | — | 2 | 2 |
 | Noosphere | ✅ | — | — | — | — | — | — | — | 2 | 2 |
 | second-brain | — | ✅ | — | — | — | — | — | — | 4 | 1 |
+| Jumbo | ✅ | — | — | — | — | — | ✅ | — | 6 | 5 |
 | CommonGround | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | omega-memory | ✅ | ✅ | ✅ | — | — | — | — | — | 5 | 1 |
 | Mengram | ✅ | ✅ | ✅ | — | — | — | — | — | 4 | 1 |
@@ -419,6 +424,7 @@
 | Continuity v2 | — | — | — | — | — | — | — |
 | Noosphere | — | ✅ | ✅ | — | ✅ | ✅ | ✅ |
 | second-brain | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
+| Jumbo | — | ✅ | ✅ | ✅ | ✅ | — | ✅ |
 | CommonGround | — | — | — | — | — | — | — |
 | omega-memory | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Mengram | — | ✅ | ✅ | — | — | — | ✅ |
@@ -498,6 +504,7 @@
 | Continuity v2 | ✅ | — | — | — | — | ✅ | — | — |
 | Noosphere | ✅ | — | ✅ | ✅ | ✅ | ✅ | — | — |
 | second-brain | — | — | ✅ | ✅ | — | — | — | — |
+| Jumbo | — | ✅ | ✅ | ✅ | ✅ | ✅ | — | — |
 | CommonGround | — | — | — | — | — | — | — | — |
 | omega-memory | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Mengram | ✅ | — | ✅ | — | — | — | — | — |
@@ -577,6 +584,7 @@
 | Continuity v2 | ✅ | — | — | — | — | — | — | — | — | — | — |
 | Noosphere | — | — | ✅ | — | — | — | — | ✅ | ✅ | — | — |
 | second-brain | ✅ | — | — | — | — | ✅ | — | — | — | — | — |
+| Jumbo | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — | — | — |
 | CommonGround | — | — | — | — | — | — | — | — | — | — | — |
 | omega-memory | ✅ | ✅ | — | ✅ | — | ✅ | ✅ | — | — | — | — |
 | Mengram | ✅ | ✅ | — | — | — | ✅ | ✅ | ✅ | — | — | — |
@@ -656,6 +664,7 @@
 | Continuity v2 | — | — | — | — | — |
 | Noosphere | — | — | — | — | — |
 | second-brain | — | — | — | — | — |
+| Jumbo | — | — | — | — | — |
 | CommonGround | — | — | — | — | — |
 | omega-memory | — | 76.8 | — | — | ✅ |
 | Mengram | — | — | — | — | — |
