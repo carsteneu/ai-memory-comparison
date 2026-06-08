@@ -1060,5 +1060,17 @@ const SYSTEMS = [
     p_claude: true, p_codex: true, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: true, p_hermes: false, p_pi: false, p_antigravity: false,
     b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: false,
   },
+  {
+    id: "jumbo", name: "Jumbo", url: "https://github.com/jumbocontext/jumbo.cli", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/jumbo.md",
+    description: "Goal-driven memory system that serves the right context at the right time",
+    stars: 102, language: "TypeScript", license: "AGPL-3.0", singleBinary: false, created: "2025-12-05",
+    deployment: "Local CLI", storage: "Event store + SQLite", integration: "CLI + hooks + AGENTS.md", proxy: false, webUi: true, offline: true, multiAgent: true, llmFlex: 6, cacheOpt: true, proceduralMemory: true, sandboxedExec: false, scheduledExec: true, privacy: true, export: true, setup: "npm install", pricing: "free",
+    unit: "Memory entity node (11 types) + relation graph edge", entities: true, actions: true, keywords: true, anticipatedQueries: false, triggerRules: true, domainTag: true, taskType: true, context: true, source: false, originTrust: false, emotional: false, conflict: false, layeredMemory: true, timeTravel: true, schemaFields: 16,
+    fulltext: true, semantic: false, hybrid: false, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: false, searchModes: 6, dataSources: 5,
+    decay: false, supersede: true, contradiction: true, quarantine: true, autoResolve: true, trustModel: false, explicitForget: true,
+    autoExtract: false, contentPreproc: true, dedup: true, qualityRefine: true, narrative: true, clustering: true, recurrence: false, persona: false,
+    p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: true, p_cursor: true, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
+    b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: false,
+  },
 ];
 
