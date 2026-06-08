@@ -28,15 +28,7 @@
 
 ## Architecture
 
-### Proxy ✅
-- Note: Counts as a lifecycle/workflow proxy: Jumbo interposes through agent hooks and agent instructions to route work, preserve active-goal state before compaction, and rehydrate the correct goal context after compaction. This is not a model/API proxy.
-- Source: [src/domain/project/JumboMdContent.ts:25](https://github.com/jumbocontext/jumbo.cli/blob/main/src/domain/project/JumboMdContent.ts#L25) — Generated agent instructions explicitly tell the agent that Jumbo is a proxy and that Jumbo command prompts must be followed.
-- Source: [src/infrastructure/context/project/init/CodexConfigurer.ts:82](https://github.com/jumbocontext/jumbo.cli/blob/main/src/infrastructure/context/project/init/CodexConfigurer.ts#L82) — Codex integration installs a `PreCompact` lifecycle hook.
-- Source: [src/infrastructure/context/project/init/CodexConfigurer.ts:88](https://github.com/jumbocontext/jumbo.cli/blob/main/src/infrastructure/context/project/init/CodexConfigurer.ts#L88) — The Codex `PreCompact` hook runs `jumbo work pause --format text`.
-- Source: [src/infrastructure/context/project/init/CodexConfigurer.ts:93](https://github.com/jumbocontext/jumbo.cli/blob/main/src/infrastructure/context/project/init/CodexConfigurer.ts#L93) — Codex integration installs `SessionStart` hooks for startup and post-compaction paths.
-- Source: [src/infrastructure/context/project/init/CodexConfigurer.ts:108](https://github.com/jumbocontext/jumbo.cli/blob/main/src/infrastructure/context/project/init/CodexConfigurer.ts#L108) — The post-compaction `SessionStart` hook runs `jumbo work resume --format text`.
-- Source: [docs/reference/commands/work.md:121](https://github.com/jumbocontext/jumbo.cli/blob/main/docs/reference/commands/work.md#L121) — `jumbo work pause` identifies the current worker's active goal via claim ownership.
-- Source: [docs/reference/commands/work.md:153](https://github.com/jumbocontext/jumbo.cli/blob/main/docs/reference/commands/work.md#L153) — `jumbo work resume` reloads enriched session context with goal-specific orientation.
+### Proxy ❌
 
 ### Web/TUI ✅
 - Source: [README.md:160](https://github.com/jumbocontext/jumbo.cli/blob/main/README.md#L160) — Terminal UI is built with Ink and React.
@@ -161,11 +153,7 @@
 
 ### Code graph ❌
 
-### Docs search ✅
-- Source: [src/domain/project/JumboMdContent.ts:85](https://github.com/jumbocontext/jumbo.cli/blob/main/src/domain/project/JumboMdContent.ts#L85) — Generated Jumbo instructions point agents to `jumbo --help` and command-specific `--help` pages as command documentation.
-- Source: [src/presentation/cli/program/ProgramFactory.ts:35](https://github.com/jumbocontext/jumbo.cli/blob/main/src/presentation/cli/program/ProgramFactory.ts#L35) — Jumbo overrides root help output to present categorized command documentation.
-- Source: [src/presentation/cli/help/SubcommandHelpFormatter.ts:115](https://github.com/jumbocontext/jumbo.cli/blob/main/src/presentation/cli/help/SubcommandHelpFormatter.ts#L115) — Subcommand help directs users to `jumbo <command> --help` for command-specific details.
-- Source: [src/presentation/cli/commands/sessions/start/SessionStartOutputBuilder.ts:135](https://github.com/jumbocontext/jumbo.cli/blob/main/src/presentation/cli/commands/sessions/start/SessionStartOutputBuilder.ts#L135) — Session start instructions tell the agent it can scan documentation, code structure, and patterns to import existing project knowledge.
+### Docs search ❌
 
 ### Fact metadata query ✅
 - Source: [docs/reference/commands/search.md:27](https://github.com/jumbocontext/jumbo.cli/blob/main/docs/reference/commands/search.md#L27) — Global search supports category filters.
@@ -222,11 +210,7 @@
 
 ## Extraction Pipeline
 
-### Auto-extraction ✅
-- Source: [src/presentation/cli/commands/goals/start/GoalStartOutputBuilder.ts:162](https://github.com/jumbocontext/jumbo.cli/blob/main/src/presentation/cli/commands/goals/start/GoalStartOutputBuilder.ts#L162) — Goal-start output instructs the agent to register decisions, components, and relations in real time during implementation.
-- Source: [src/presentation/cli/commands/goals/codify/GoalCodifyOutputBuilder.ts:48](https://github.com/jumbocontext/jumbo.cli/blob/main/src/presentation/cli/commands/goals/codify/GoalCodifyOutputBuilder.ts#L48) — Codify output prompts the agent to extract new invariants, guidelines, decisions, components, dependencies, and architectural patterns from the completed goal.
-- Source: [docs/getting-started/first-run.md:59](https://github.com/jumbocontext/jumbo.cli/blob/main/docs/getting-started/first-run.md#L59) — Session hooks prompt the agent to capture existing project knowledge.
-- Source: [docs/getting-started/first-run.md:93](https://github.com/jumbocontext/jumbo.cli/blob/main/docs/getting-started/first-run.md#L93) — The agent scans the project and registers components, decisions, guidelines, dependencies, and more.
+### Auto-extraction ❌
 
 ### Content-aware preprocessing ✅
 - Source: [src/presentation/cli/commands/goals/codify/GoalCodifyOutputBuilder.ts:62](https://github.com/jumbocontext/jumbo.cli/blob/main/src/presentation/cli/commands/goals/codify/GoalCodifyOutputBuilder.ts#L62) — Codify output separates entity review by component, decision, invariant, guideline, dependency, and relation type.
@@ -289,25 +273,15 @@
 - Source: [src/infrastructure/context/project/init/CursorConfigurer.ts:17](https://github.com/jumbocontext/jumbo.cli/blob/main/src/infrastructure/context/project/init/CursorConfigurer.ts#L17) — Cursor configurer is implemented.
 - Source: [src/infrastructure/context/project/init/CursorConfigurer.ts:65](https://github.com/jumbocontext/jumbo.cli/blob/main/src/infrastructure/context/project/init/CursorConfigurer.ts#L65) — Cursor integration writes `.cursor/hooks.json` with a session-start hook.
 
-### Windsurf ✅
-- Source: [README.md:89](https://github.com/jumbocontext/jumbo.cli/blob/main/README.md#L89) — Jumbo works with any agent that supports AGENTS.md.
-- Source: [Windsurf docs](https://docs.windsurf.com/windsurf/cascade/agents-md) — Windsurf automatically discovers `AGENTS.md` files and feeds them into Cascade's rules engine.
+### Windsurf ❌
 
-### OpenClaw ✅
-- Source: [README.md:89](https://github.com/jumbocontext/jumbo.cli/blob/main/README.md#L89) — Jumbo works with any agent that supports AGENTS.md.
-- Source: [OpenClaw docs](https://open-claw.bot/docs/agents-md) — OpenClaw workspace setup copies an `AGENTS.md` template into the agent workspace.
+### OpenClaw ❌
 
-### Hermes ✅
-- Source: [README.md:89](https://github.com/jumbocontext/jumbo.cli/blob/main/README.md#L89) — Jumbo works with any agent that supports AGENTS.md.
-- Source: [Hermes Agent docs](https://hermes-agent.nousresearch.com/docs/user-guide/features/context-files) — Hermes lists `AGENTS.md` as a supported project context file loaded at startup and discovered progressively in subdirectories.
+### Hermes ❌
 
-### pi/omp ✅
-- Source: [README.md:89](https://github.com/jumbocontext/jumbo.cli/blob/main/README.md#L89) — Jumbo works with any agent that supports AGENTS.md.
-- Source: [Pi docs](https://pi.dev/docs/latest/quickstart) — Pi loads `~/.pi/agent/AGENTS.md` for global instructions and project `AGENTS.md` files from parent/current directories.
+### pi/omp ❌
 
-### Antigravity ✅
-- Source: [README.md:89](https://github.com/jumbocontext/jumbo.cli/blob/main/README.md#L89) — Jumbo works with any agent that supports AGENTS.md.
-- Source: [CoinGecko Antigravity setup docs](https://docs.coingecko.com/docs/ai-agent-hub/antigravity) — Antigravity rules can be supplied through project-root or global `AGENTS.md`, with `GEMINI.md` reserved for Antigravity-specific overrides.
+### Antigravity ❌
 
 ---
 
