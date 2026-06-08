@@ -1037,6 +1037,18 @@ const SYSTEMS = [
     b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: false,
   },
   {
+    id: "midas", name: "Midas", url: "https://github.com/vornicx/Midas", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/midas.md",
+    description: "Local-first, eval-first memory — no LLM at ingest or query, $0 API, source-traceable recall",
+    stars: 5, language: "Python", license: "MIT", singleBinary: false, created: "2026-06-04",
+    deployment: "Library + MCP server", storage: "SQLite", integration: "MCP, SDK, LangGraph", proxy: false, webUi: false, offline: true, multiAgent: false, llmFlex: 3, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: false, privacy: true, export: false, setup: "pip install", pricing: "free",
+    unit: "Memory (text record)", entities: false, actions: false, keywords: false, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: false, originTrust: false, emotional: false, conflict: false, layeredMemory: false, timeTravel: false, schemaFields: 6,
+    fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 3, dataSources: 1,
+    decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: false, trustModel: false, explicitForget: true,
+    autoExtract: false, contentPreproc: false, dedup: true, qualityRefine: true, narrative: false, clustering: false, recurrence: true, persona: false,
+    p_claude: true, p_codex: true, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
+    b_locomo: "0.85", b_longmemeval: "0.95", b_personamem: "—", b_token: "—", b_methodology: true,
+  },
+  {
     id: "mengram", name: "Mengram", url: "https://github.com/alibaizhanov/mengram", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/mengram.md",
     description: "3-tier memory (semantic/episodic/procedural), 30 MCP tools, experience-driven procedure evolution",
     stars: 171, language: "Python", license: "Apache 2.0", singleBinary: false, created: "2026-02-10", docs: "https://github.com/alibaizhanov/mengram#readme",
