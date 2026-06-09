@@ -2,3 +2,4 @@ dev/
 yesdocs/
 .ai-jail
 audit-jobs/
+.claude/
