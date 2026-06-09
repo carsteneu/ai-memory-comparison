@@ -74,7 +74,7 @@ for (const g of groups) secRow += `<th class="sec" colspan="${g.span}">${escapeH
 secRow += '</tr>';
 theadParts.push(secRow);
 
-let featRow = `<tr><th class="sys-h">${filtered.length} systems</th><th class="cmp-h"></th>`;
+let featRow = `<tr><th class="sys-h">${filtered.length} systems</th>`;
 for (const x of features) {
   const fid = x.f.id;
   const isSortable = fid !== 'stars';
