@@ -85,7 +85,8 @@
     td.sys-c, th.sys-h { min-width: 110px; max-width: 110px; }
     th.feat { font-size: 0.58rem; }
   }
-  .cmp-cb { margin-right: 0.3rem; vertical-align: middle; cursor: pointer; accent-color: var(--accent); }
+  .cmp-cb { cursor: pointer; accent-color: var(--accent); }
+  td.cmp-c, th.cmp-h { text-align: center; padding: 0.45rem 0.5rem; min-width: auto; }
   tr.cmp-hidden { display: none !important; }
   tr.cmp-selected { background: rgba(37, 99, 235, 0.06) !important; }
   tr.cmp-selected td.sys-c { background: rgba(37, 99, 235, 0.1) !important; }
@@ -263,7 +264,7 @@
       return current.sortAsc ? ' ▲' : ' ▼';
     }
     var theadRows = [];
-    var secRow = '<tr><th class="sys-h sortable" data-key="name">System' + arrow('name') + '</th><th class="desc-h" rowspan="2">Description</th>';
+    var secRow = '<tr><th class="sys-h sortable" data-key="name">System' + arrow('name') + '</th><th class="cmp-h" rowspan="2">Compare</th><th class="desc-h" rowspan="2">Description</th>';
     var curSec = null, secSpan = 0, spans = [];
     for (var i = 0; i < features.length; i++) {
       if (features[i].glabel !== curSec) {
@@ -278,7 +279,7 @@
     secRow += '</tr>';
     theadRows.push(secRow);
 
-    var featRow = '<tr><th class="sys-h">' + filtered.length + ' systems</th>';
+    var featRow = '<tr><th class="sys-h">' + filtered.length + ' systems</th><th class="cmp-h"></th>';
     for (var j = 0; j < features.length; j++) {
       var fid = features[j].f.id;
       var isSortable = fid !== 'stars';
@@ -325,7 +326,8 @@
       var cid = sys.id;
       var checked = compare.selected.has(cid) ? ' checked' : '';
       var row = '<tr data-id="' + cid + '">';
-      row += '<td class="sys-c"><input type="checkbox" class="cmp-cb" data-id="' + cid + '"' + checked + '> <a href="' + (sys.evidence || sys.docs || sys.url) + '" class="src" title="Evidence &amp; sources">📋</a> <a href="' + sys.url + '" target="_blank">' + sys.name + '</a><span class="stars">⭐' + fmtStars(sys.stars) + ' · ' + (sys.created || '') + '</span></td>';
+      row += '<td class="sys-c"><a href="' + (sys.evidence || sys.docs || sys.url) + '" class="src" title="Evidence &amp; sources">📋</a> <a href="' + sys.url + '" target="_blank">' + sys.name + '</a><span class="stars">⭐' + fmtStars(sys.stars) + ' · ' + (sys.created || '') + '</span></td>';
+      row += '<td class="cmp-c"><input type="checkbox" class="cmp-cb" data-id="' + cid + '"' + checked + '></td>';
       row += '<td class="desc">' + (sys.description || '') + '</td>';
       for (var c = 0; c < features.length; c++) {
         var f = features[c].f;
