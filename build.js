@@ -85,9 +85,9 @@ theadParts.push(featRow);
 
 const tbodyParts = [];
 for (const sys of filtered) {
-  let row = '<tr>';
+  let row = '<tr data-id="' + sys.id + '">';
   const href = sys.evidence || sys.docs || sys.url;
-  row += `<td class="sys-c"><a href="${escapeHtml(href)}" class="src" title="Evidence &amp; sources">📋</a> <a href="${escapeHtml(sys.url)}" target="_blank">${escapeHtml(sys.name)}</a><span class="stars">⭐${fmtStars(sys.stars)} · ${escapeHtml(sys.created || '')}</span></td>`;
+  row += `<td class="sys-c"><input type="checkbox" class="cmp-cb" data-id="${sys.id}"> <a href="${escapeHtml(href)}" class="src" title="Evidence &amp; sources">📋</a> <a href="${escapeHtml(sys.url)}" target="_blank">${escapeHtml(sys.name)}</a><span class="stars">⭐${fmtStars(sys.stars)} · ${escapeHtml(sys.created || '')}</span></td>`;
   row += `<td class="desc">${escapeHtml(sys.description || '')}</td>`;
   for (const x of features) {
     const f = x.f, val = sys[f.id];

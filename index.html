@@ -85,6 +85,12 @@
     td.sys-c, th.sys-h { min-width: 110px; max-width: 110px; }
     th.feat { font-size: 0.58rem; }
   }
+  .cmp-cb { margin-right: 0.3rem; vertical-align: middle; cursor: pointer; accent-color: var(--accent); }
+  tr.cmp-hidden { display: none !important; }
+  tr.cmp-selected { background: rgba(37, 99, 235, 0.06) !important; }
+  tr.cmp-selected td.sys-c { background: rgba(37, 99, 235, 0.1) !important; }
+  body[data-theme="dark"] tr.cmp-selected { background: rgba(96, 165, 250, 0.08) !important; }
+  body[data-theme="dark"] tr.cmp-selected td.sys-c { background: rgba(96, 165, 250, 0.12) !important; }
 </style>
 </head>
 <body data-theme="light">
@@ -98,6 +104,9 @@
     <button id="btnSort" onclick="toggleSort()" title="Sort by stars (click to toggle)">↑ Fewest first</button>
     <button id="btnRefresh" onclick="refreshStars()" title="Fetch live star counts from GitHub">🔄 Live</button>
     <span class="sep"></span>
+    <button id="btnCompare" onclick="toggleCompare()" style="display:none" title="Compare selected systems">🔍 Compare (<span id="cmpCount">0</span>)</button>
+    <button id="btnCompareClear" onclick="clearCompare()" style="display:none" title="Show all systems">✕ Clear</button>
+    <span class="sep" id="cmpSep" style="display:none"></span>
     <button id="btnTheme" onclick="toggleTheme()">🌙</button>
     <a href="comparison.md" style="font-size:0.85rem;color:var(--muted);">Markdown</a>
     <a href="https://github.com/carsteneu/ai-memory-comparison" style="font-size:0.85rem;color:var(--muted);">GitHub</a>
@@ -313,8 +322,10 @@
     var tbodyRows = [];
     for (var r = 0; r < filtered.length; r++) {
       var sys = filtered[r];
-      var row = '<tr>';
-      row += '<td class="sys-c"><a href="' + (sys.evidence || sys.docs || sys.url) + '" class="src" title="Evidence &amp; sources">📋</a> <a href="' + sys.url + '" target="_blank">' + sys.name + '</a><span class="stars">⭐' + fmtStars(sys.stars) + ' · ' + (sys.created || '') + '</span></td>';
+      var cid = sys.id;
+      var checked = compare.selected.has(cid) ? ' checked' : '';
+      var row = '<tr data-id="' + cid + '">';
+      row += '<td class="sys-c"><input type="checkbox" class="cmp-cb" data-id="' + cid + '"' + checked + '> <a href="' + (sys.evidence || sys.docs || sys.url) + '" class="src" title="Evidence &amp; sources">📋</a> <a href="' + sys.url + '" target="_blank">' + sys.name + '</a><span class="stars">⭐' + fmtStars(sys.stars) + ' · ' + (sys.created || '') + '</span></td>';
       row += '<td class="desc">' + (sys.description || '') + '</td>';
       for (var c = 0; c < features.length; c++) {
         var f = features[c].f;
@@ -465,8 +476,83 @@
   selSection.onchange = function() { current.section = this.value || null; filter(); };
   document.getElementById('selArch').onchange = function() { current.arch = this.value; filter(); };
 
+  // ── compare mode ──
+  var compare = { selected: new Set(), active: false };
+
+  function updateCompareUI() {
+    var n = compare.selected.size;
+    document.getElementById('cmpCount').textContent = n;
+    document.getElementById('btnCompare').style.display = n >= 2 ? '' : 'none';
+    document.getElementById('btnCompareClear').style.display = n >= 1 ? '' : 'none';
+    document.getElementById('cmpSep').style.display = n >= 1 ? '' : 'none';
+  }
+
+  window.toggleCompare = function() {
+    if (compare.active) {
+      compare.active = false;
+      applyCompareState();
+      history.replaceState(null, '', window.location.pathname + window.location.search.replace(/[?&]compare=[^&]*/, '').replace(/^&/, '?').replace(/\?$/, ''));
+    } else {
+      compare.active = true;
+      applyCompareState();
+      var ids = Array.from(compare.selected).join(',');
+      history.replaceState(null, '', '?compare=' + ids);
+    }
+  };
+
+  window.clearCompare = function() {
+    compare.selected.clear();
+    compare.active = false;
+    applyCompareState();
+    updateCompareUI();
+    // Uncheck all checkboxes
+    var cbs = document.querySelectorAll('.cmp-cb');
+    for (var i = 0; i < cbs.length; i++) cbs[i].checked = false;
+    history.replaceState(null, '', window.location.pathname + window.location.search.replace(/[?&]compare=[^&]*/, '').replace(/^&/, '?').replace(/\?$/, ''));
+  };
+
+  function applyCompareState() {
+    var rows = document.querySelectorAll('#tbody tr');
+    for (var i = 0; i < rows.length; i++) {
+      var id = rows[i].getAttribute('data-id');
+      if (compare.active) {
+        if (compare.selected.has(id)) {
+          rows[i].classList.remove('cmp-hidden');
+          rows[i].classList.add('cmp-selected');
+        } else {
+          rows[i].classList.add('cmp-hidden');
+          rows[i].classList.remove('cmp-selected');
+        }
+      } else {
+        rows[i].classList.remove('cmp-hidden', 'cmp-selected');
+      }
+    }
+  }
+
+  // Checkbox handler (delegated on tbody parent)
+  document.querySelector('.wrap').addEventListener('change', function(e) {
+    if (!e.target.classList.contains('cmp-cb')) return;
+    var id = e.target.dataset.id;
+    if (e.target.checked) compare.selected.add(id);
+    else compare.selected.delete(id);
+    updateCompareUI();
+    if (compare.active) applyCompareState();
+  });
+
+  // Parse URL params on load
+  (function() {
+    var m = window.location.search.match(/[?&]compare=([^&]+)/);
+    if (m) {
+      var ids = m[1].split(',');
+      for (var i = 0; i < ids.length; i++) compare.selected.add(ids[i]);
+      compare.active = true;
+      updateCompareUI();
+    }
+  })();
+
   // ── go ──
   filter();
+  applyCompareState();
 })();
 
 // Fallback: if table not rendered after 5s, show error

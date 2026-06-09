@@ -69,8 +69,8 @@ const sorted = [...SYSTEMS].sort((a, b) => (a.stars || 0) - (b.stars || 0));
 
 let html = '';
 for (const sys of sorted) {
-  html += '      <tr>';
-  html += '<td class="sys-c"><a href="' + (sys.evidence || sys.docs || sys.url) + '" class="src" title="Evidence &amp; sources">📋</a> <a href="' + sys.url + '" target="_blank">' + sys.name + '</a><span class="stars">⭐' + fmtStars(sys.stars) + ' · ' + (sys.created || '') + '</span></td>';
+  html += '      <tr data-id="' + sys.id + '">';
+  html += '<td class="sys-c"><input type="checkbox" class="cmp-cb" data-id="' + sys.id + '"> <a href="' + (sys.evidence || sys.docs || sys.url) + '" class="src" title="Evidence &amp; sources">📋</a> <a href="' + sys.url + '" target="_blank">' + sys.name + '</a><span class="stars">⭐' + fmtStars(sys.stars) + ' · ' + (sys.created || '') + '</span></td>';
   html += '<td class="desc">' + (sys.description || '') + '</td>';
   for (const f of features) {
     const val = sys[f.id];
