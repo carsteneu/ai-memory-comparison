@@ -232,7 +232,7 @@
 - Source: `BENCHMARKS.md` §1 "Retrieval quality — recall@k" — with reproduce command and a dated correction notice: the previously published 0.85 (n=50) did not reproduce against the public `locomo10.json`; the full-set number replaces it.
 
 ### LongMemEval ✅
-- Score: `recall@k 0.95` (LongMemEval-s, n=40); answer `0.84` with gpt-4o (ties the LLM-ingest SOTA at $0 ingest)
+- Score: `recall@k 0.92` (LongMemEval-s, FULL set: all 500 questions, 246,750 turns ingested; baseline-raw 0.01); answer `0.84` with gpt-4o at n=40 (ties the LLM-ingest SOTA at $0 ingest)
 - Source: `BENCHMARKS.md` §1 and §6 — with reproduce commands.
 
 ### PersonaMem ❌

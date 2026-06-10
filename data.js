@@ -1046,7 +1046,7 @@ const SYSTEMS = [
     decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: false, trustModel: true, explicitForget: true,
     autoExtract: false, contentPreproc: false, dedup: true, qualityRefine: true, narrative: false, clustering: false, recurrence: true, persona: false,
     p_claude: true, p_codex: true, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
-    b_locomo: "0.73", b_longmemeval: "0.95", b_personamem: "—", b_token: "30–40%", b_methodology: true,
+    b_locomo: "0.73", b_longmemeval: "0.92", b_personamem: "—", b_token: "30–40%", b_methodology: true,
   },
   {
     id: "mengram", name: "Mengram", url: "https://github.com/alibaizhanov/mengram", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/mengram.md",
