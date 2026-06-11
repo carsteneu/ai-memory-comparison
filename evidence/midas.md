@@ -5,7 +5,7 @@
 
 **Repo:** `github.com/vornicx/Midas`
 **Stars:** 6
-**Language:** Python
+**Language:** Python · TypeScript (experimental port)
 **License:** MIT
 **Created:** 2026-06-04
 **Description:** Local-first, eval-first memory for long-horizon AI agents — semantic recall + budgeted context assembly with **no LLM at ingest or query** (local embeddings only), and source-traceable retrieval.
@@ -20,7 +20,7 @@
 | **Storage** | `SQLite` |
 | **Integration** | `MCP / SDK / LangGraph` |
 | **Single binary?** | `no` (Python package; core has zero third-party deps) |
-| **Setup** | `pip install midas-memory` (or `uv tool install "midas-memory[mcp,local]"`) |
+| **Setup** | `pip install midas-memory` (or `uv tool install "midas-memory[mcp,local]"`) · Node: `npx -y midas-memory-mcp` (experimental TS port, `packages/midas-ts`) |
 | **Pricing** | `free` (MIT; $0 API — no LLM at ingest/query) |
 | **Storage unit** | `Memory (text record)` |
 
@@ -37,12 +37,12 @@
 - Source: `midas/embeddings.py:38-56` (`HashingEmbedder`, dependency-free offline default) and `:251-285` (`LocalEmbedder`, fastembed/ONNX bge-base — no API key, no torch) — `README.md` "works **fully offline**. No API key, ever."
 
 ### Multi-agent ✅
-> Cross-agent memory sharing: several MCP clients/processes share one DB file **live** — each store detects other connections' writes (SQLite `PRAGMA data_version`) and refreshes, so an agent sees another agent's captures without restarting. Writes are stamped with `actor`; `namespace` scopes agents/projects/users inside the shared store.
+> Cross-agent memory sharing: several MCP clients/processes share one DB file **live** — each store detects other connections' writes (SQLite `PRAGMA data_version`) and refreshes, so an agent sees another agent's captures without restarting. Writes are stamped with `actor`; `namespace` scopes agents/projects/users inside the shared store. This even works **across runtimes**: the TypeScript port uses the same SQLite schema and a bit-comparable hashing embedder, so a TS server and a Python server share one memory file bidirectionally (`packages/midas-ts`, verified in tests).
 - Source: `midas/sqlite_store.py:96-110` (`_refresh_if_stale`; module docstring "across processes — multiple MCP clients… can point at the same DB file"); `README.md` "One memory, many clients" (with demo GIF of a real two-process run); `midas/mcp_server.py:44-61` (`MIDAS_MCP_NAMESPACE` + per-call `namespace` on every tool); `midas/types.py:40` (`actor`).
 
 ### LLM providers (count: 3) ✅
 > Distinct embedding backends behind the `Embedder` protocol.
-- Source: `midas/embeddings.py` — `HashingEmbedder` (offline, `:38`), `LocalEmbedder` (fastembed/bge ONNX, `:251`), `OpenAIEmbedder` (`:58`). (No LLM is used at ingest/query; these are embedding providers.)
+- Source: `midas/embeddings.py` — `HashingEmbedder` (offline, `:38`), `LocalEmbedder` (fastembed ONNX; default bge-base or any fastembed model id, incl. `MIDAS_MCP_EMBEDDER=multilingual` → paraphrase-multilingual-MiniLM, `:251`), `OpenAIEmbedder` (`:58`). (No LLM is used at ingest/query; these are embedding providers.)
 
 ### Cache optimization ✅
 > Caches embeddings for performance.

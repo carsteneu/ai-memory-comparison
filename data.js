@@ -1039,8 +1039,8 @@ const SYSTEMS = [
   {
     id: "midas", name: "Midas", url: "https://github.com/vornicx/Midas", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/midas.md",
     description: "Local-first, eval-first memory — no LLM at ingest or query, $0 API, source-traceable recall",
-    stars: 6, language: "Python", license: "MIT", singleBinary: false, created: "2026-06-04",
-    deployment: "Library + MCP server", storage: "SQLite", integration: "MCP, SDK, LangGraph", proxy: false, webUi: false, offline: true, multiAgent: true, llmFlex: 3, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: false, privacy: true, export: false, setup: "pip install", pricing: "free",
+    stars: 6, language: "Python + TS", license: "MIT", singleBinary: false, created: "2026-06-04",
+    deployment: "Library + MCP server", storage: "SQLite", integration: "MCP, SDK, LangGraph", proxy: false, webUi: false, offline: true, multiAgent: true, llmFlex: 3, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: false, privacy: true, export: false, setup: "pip install / npx", pricing: "free",
     unit: "Memory (text record)", entities: false, actions: false, keywords: false, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: true, originTrust: true, emotional: false, conflict: false, layeredMemory: false, timeTravel: false, schemaFields: 8,
     fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 3, dataSources: 1,
     decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: false, trustModel: true, explicitForget: true,
