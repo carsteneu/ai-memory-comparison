@@ -4,8 +4,8 @@
 > Sources: GitHub repo `vornicx/Midas` (PyPI package `midas-memory`). Line numbers pinned to `main`; they may shift.
 
 **Repo:** `github.com/vornicx/Midas`
-**Stars:** 5
-**Language:** Python
+**Stars:** 6
+**Language:** Python · TypeScript (experimental port)
 **License:** MIT
 **Created:** 2026-06-04
 **Description:** Local-first, eval-first memory for long-horizon AI agents — semantic recall + budgeted context assembly with **no LLM at ingest or query** (local embeddings only), and source-traceable retrieval.
@@ -20,7 +20,7 @@
 | **Storage** | `SQLite` |
 | **Integration** | `MCP / SDK / LangGraph` |
 | **Single binary?** | `no` (Python package; core has zero third-party deps) |
-| **Setup** | `pip install midas-memory` (or `uv tool install "midas-memory[mcp,local]"`) |
+| **Setup** | `pip install midas-memory` (or `uv tool install "midas-memory[mcp,local]"`) · Node: `npx -y midas-memory-mcp` (experimental TS port, `packages/midas-ts`) |
 | **Pricing** | `free` (MIT; $0 API — no LLM at ingest/query) |
 | **Storage unit** | `Memory (text record)` |
 
@@ -36,11 +36,13 @@
 > Core memory functionality works without internet connection.
 - Source: `midas/embeddings.py:38-56` (`HashingEmbedder`, dependency-free offline default) and `:251-285` (`LocalEmbedder`, fastembed/ONNX bge-base — no API key, no torch) — `README.md` "works **fully offline**. No API key, ever."
 
-### Multi-agent ❌
+### Multi-agent ✅
+> Cross-agent memory sharing: several MCP clients/processes share one DB file **live** — each store detects other connections' writes (SQLite `PRAGMA data_version`) and refreshes, so an agent sees another agent's captures without restarting. Writes are stamped with `actor`; `namespace` scopes agents/projects/users inside the shared store. This even works **across runtimes**: the TypeScript port uses the same SQLite schema and a bit-comparable hashing embedder, so a TS server and a Python server share one memory file bidirectionally (`packages/midas-ts`, verified in tests).
+- Source: `midas/sqlite_store.py:96-110` (`_refresh_if_stale`; module docstring "across processes — multiple MCP clients… can point at the same DB file"); `README.md` "One memory, many clients" (with demo GIF of a real two-process run); `midas/mcp_server.py:44-61` (`MIDAS_MCP_NAMESPACE` + per-call `namespace` on every tool); `midas/types.py:40` (`actor`).
 
 ### LLM providers (count: 3) ✅
 > Distinct embedding backends behind the `Embedder` protocol.
-- Source: `midas/embeddings.py` — `HashingEmbedder` (offline, `:38`), `LocalEmbedder` (fastembed/bge ONNX, `:251`), `OpenAIEmbedder` (`:58`). (No LLM is used at ingest/query; these are embedding providers.)
+- Source: `midas/embeddings.py` — `HashingEmbedder` (offline, `:38`), `LocalEmbedder` (fastembed ONNX; default bge-base or any fastembed model id, incl. `MIDAS_MCP_EMBEDDER=multilingual` → paraphrase-multilingual-MiniLM, `:251`), `OpenAIEmbedder` (`:58`). (No LLM is used at ingest/query; these are embedding providers.)
 
 ### Cache optimization ✅
 > Caches embeddings for performance.
@@ -78,9 +80,13 @@
 
 ### Context (why) ❌
 
-### Source attribution ❌
+### Source attribution ✅
+> Every record carries `actor` (which agent/user/process authored it), a 4-level `provenance` (`planning` / `action` / `observation` / `user_confirmation`), and a free-form `source` pointer; recall returns them verbatim.
+- Source: `midas/types.py:23-29` (`MemoryProvenance`), `:38-41` (`source`, `provenance`, `actor` on `MemoryRecord`); `midas/mcp_server.py` `_serialize_record` (recall/inspect return provenance+actor+source).
 
-### Origin + trust ❌
+### Origin + trust ✅
+> Trust is ordered by capture method — `user_confirmation > action > observation > planning` — and a re-captured duplicate can only *upgrade* a memory's provenance, never downgrade it.
+- Source: `midas/memory.py:128-133` (`_PROVENANCE_RANK`), `:406-425` (`_upgrade_provenance`).
 
 ### Emotional ❌
 
@@ -90,9 +96,9 @@
 
 ### Time-travel ❌
 
-### Schema fields (count: 6) ✅
+### Schema fields (count: 8) ✅
 > Distinct structured fields per memory entry (excluding auto id/timestamps).
-- Source: `midas/types.py:24-35` (`MemoryRecord`): `content`, `kind`, `importance` (1-5), `source`, `metadata` (dict), `superseded_by`. (Excludes `id`, `created_at`, `updated_at`, and the derived `embedding`.)
+- Source: `midas/types.py:32-45` (`MemoryRecord`): `content`, `kind`, `importance` (1-5), `source`, `provenance`, `actor`, `metadata` (dict), `superseded_by`. (Excludes `id`, `created_at`, `updated_at`, and the derived `embedding`.)
 
 ---
 
@@ -152,11 +158,13 @@
 
 ### Auto-resolution ❌
 
-### Trust model ❌
+### Trust model ✅
+> Multi-tier trust hierarchy with enforcement: memory-justified **external/destructive actions are allowed only on `user_confirmation`-provenance memories**; lower-trust memory (planning/observation/action) can inform planning but cannot authorize them.
+- Source: `midas/guard.py:20-27` (allowed provenance per intended use), `:116` (`decide_memory_use`); MCP tool `check_memory_use`; `README.md` "Guard boundary".
 
 ### Explicit forget ✅
-> Delete a single memory or clear all.
-- Source: `midas/mcp_server.py:142-153` (`forget`, `forget_all`), `midas/store.py` (`delete`, `clear`).
+> Delete a single memory (supersession-chain-safe), erase a whole **topic** with a dry-run preview + deletion audit, or clear all.
+- Source: `midas/memory.py:1055-1106` (`forget` with chain relinking, `forget_matching` — relevance-matched erasure, dry-run, returns matched records as the audit trail); `midas/mcp_server.py:385` (`forget_matching` MCP tool, dry-run by default), `forget`, `forget_all`.
 
 ---
 
@@ -220,18 +228,19 @@
 ## Benchmarks
 
 ### LoCoMo ✅
-- Score: `recall@k 0.85` (n=50, 5 conversations, bge-base, no rerank, seed 0)
-- Source: `BENCHMARKS.md` §1 "Retrieval quality — recall@k" — with reproduce command.
+- Score: `recall@k 0.73` (FULL public set: 10 conversations, n=1,540 answerable questions, bge-base, no rerank, seed 0; baseline-raw 0.05)
+- Source: `BENCHMARKS.md` §1 "Retrieval quality — recall@k" — with reproduce command and a dated correction notice: the previously published 0.85 (n=50) did not reproduce against the public `locomo10.json`; the full-set number replaces it.
 
 ### LongMemEval ✅
-- Score: `recall@k 0.95` (LongMemEval-s, n=40); answer `0.84` with gpt-4o (ties the LLM-ingest SOTA at $0 ingest)
+- Score: `recall@k 0.92` (LongMemEval-s, FULL set: all 500 questions, 246,750 turns ingested; baseline-raw 0.01); answer `0.84` with gpt-4o at n=40 (ties the LLM-ingest SOTA at $0 ingest)
 - Source: `BENCHMARKS.md` §1 and §6 — with reproduce commands.
 
 ### PersonaMem ❌
 - Score: `—`
 
-### Token reduction ❌
-- Score: `—`
+### Token reduction ✅
+- Score: `30–40% fewer context tokens` (deterministic A/B vs the parsimony-off baseline: synthetic 102→87, conflicts 207→121, multiday 174→126 avg tokens, recall@k unchanged); plus −42%/line lean record format and a 442→198-token (−55%) injected MCP policy.
+- Source: `BENCHMARKS.md` §1 "Context parsimony — a scale-free relevance floor" (table + reproduce command); `CHANGELOG.md` "Token-lean by default".
 
 ### Methodology open ✅
 > Publicly documented, reproducible methodology.
