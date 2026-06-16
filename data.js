@@ -1072,5 +1072,17 @@ const SYSTEMS = [
     p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: true, p_cursor: true, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
     b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: false,
   },
+  {
+    id: "kage", name: "Kage", url: "https://github.com/kage-core/Kage", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/kage.md",
+    description: "Verified memory for coding agents — every memory is checked against the code it cites",
+    stars: 6, language: "TypeScript", license: "GPL-3.0-only", singleBinary: false, created: "2026-05",
+    deployment: "Local CLI + MCP + plugin", storage: "JSON packets in repo (.agent_memory/)", integration: "MCP, hooks, CLI", proxy: false, webUi: true, offline: true, multiAgent: true, llmFlex: 0, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: false, privacy: true, export: true, setup: "npx -y kage-graph-mcp install", pricing: "free",
+    unit: "Memory packet (cited, fingerprinted)", entities: true, actions: false, keywords: true, anticipatedQueries: false, triggerRules: true, domainTag: false, taskType: false, context: true, source: true, originTrust: true, emotional: false, conflict: true, layeredMemory: true, timeTravel: true, schemaFields: 12,
+    fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: true, docsSearch: false, factQuery: true, timeline: true, searchModes: 4, dataSources: 3,
+    decay: true, supersede: true, contradiction: true, quarantine: true, autoResolve: true, trustModel: true, explicitForget: true,
+    autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: true, narrative: true, clustering: false, recurrence: false, persona: false,
+    p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
+    b_locomo: "—", b_longmemeval: "96.17% R@5", b_personamem: "—", b_token: "—", b_methodology: true,
+  },
 ];
 
