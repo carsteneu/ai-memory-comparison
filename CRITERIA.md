@@ -22,9 +22,20 @@ What each feature means, and what a system must demonstrate to earn the ✅.
 |---|---|
 | **Deployment** | Described in README. |
 | **Storage** | Described in README. |
+| **Integration** | Described integration method with coding agents (MCP server, REST API, hooks, plugin, CLI, SDK, or skill). |
 | **Proxy** | Intercepts and modifies the LLM conversation stream in-flight (e.g., context collapsing, prompt injection). Not the same as an MCP server or hook system. |
 | **Web/TUI** | Ships a visual interface accessible in a browser or terminal. |
 | **Offline** | Core memory functionality works without any internet connection. |
+| **Multi-agent** | Supports coordination between multiple agents (shared memory, agent registry/directory, inter-agent communication, or parallel agent orchestration). |
+| **LLM providers** | Number of distinct LLM provider backends supported (Anthropic, OpenAI, Google, DeepSeek, etc.). Count embedding providers only when they are first-class selectable backends. |
+| **Cache optimization** | Has prompt cache optimization, context collapse prevention, or token-saving mechanisms (e.g., Sawtooth freeze, cache keepalive, fingerprint-based cache invalidation). |
+| **Procedural memory** | Stores user-defined executable tools, workflows, or scripts that persist across sessions (Caps, Hooks, Skills). Not the same as session history or declarative knowledge. |
+| **Sandboxed exec** | Can execute code or tools in a sandboxed environment with resource limits (CPU, memory, network) and security boundaries. |
+| **Scheduled/autonomous** | Has a scheduler or daemon for autonomous task execution (cron, interval-based, background daemon). Must persist across restarts and run without manual triggering. |
+| **Privacy/encrypt** | Has explicit privacy features (local-only storage, PII redaction, telemetry opt-out, content encryption, or confidential computing). |
+| **Data export** | Can export or back up memory data in a structured, reusable format (Markdown, JSON, archive, or filesystem mirror). |
+| **Setup** | Setup method is described. |
+| **Pricing** | Pricing model is described.
 
 ---
 
