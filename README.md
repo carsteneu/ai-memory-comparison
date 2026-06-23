@@ -6,7 +6,7 @@
 [![Website](https://img.shields.io/badge/website-live-green?style=flat)](https://carsteneu.github.io/ai-memory-comparison/)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat)](https://github.com/carsteneu/ai-memory-comparison/pulls)
 
-# AI Memory Systems — Feature Comparison
+# AI Memory Systems a Feature Comparison
 
 > **Live comparison table:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 >
