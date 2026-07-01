@@ -1084,5 +1084,17 @@ const SYSTEMS = [
     p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
     b_locomo: "—", b_longmemeval: "96.17% R@5", b_personamem: "—", b_token: "—", b_methodology: true,
   },
+  {
+    id: "somnigraph", name: "Somnigraph", url: "https://github.com/AlexisOlson/somnigraph", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/somnigraph.md",
+    description: "Research-driven persistent memory — SQLite+vec+FTS5 hybrid retrieval, LightGBM reranker, biological decay, NREM/REM sleep consolidation",
+    stars: 2, language: "Python", license: "Apache-2.0 + CC", singleBinary: false, created: "2026-03-07",
+    deployment: "Self-host / Local (MCP)", storage: "SQLite + sqlite-vec + FTS5", integration: "MCP (FastMCP)", proxy: false, webUi: false, offline: true, multiAgent: false, llmFlex: 2, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: false, privacy: true, export: false, setup: "pip install", pricing: "free",
+    unit: "Memory (text row)", entities: false, actions: false, keywords: true, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: true, originTrust: true, emotional: false, conflict: true, layeredMemory: true, timeTravel: false, schemaFields: 20,
+    fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 3, dataSources: 1,
+    decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: true, trustModel: true, explicitForget: true,
+    autoExtract: false, contentPreproc: false, dedup: true, qualityRefine: true, narrative: true, clustering: true, recurrence: false, persona: false,
+    p_claude: true, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
+    b_locomo: "85.1", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: true,
+  },
 ];
 
