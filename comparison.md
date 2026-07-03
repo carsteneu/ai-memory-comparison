@@ -686,16 +686,16 @@
 | System | LoCoMo | LongMemEval | PersonaMem | Token reduction | Methodology open |
 | --- | --- | --- | --- | --- | --- |
 | context-keeper | — | — | — | — | ✅ |
-| fidelis | — | 83.2% R@1 | — | — | ✅ |
-| slowave | 76.0 | 87.8% | — | 86% | ✅ |
+| fidelis | — | 83.2 (R@1) | — | — | ✅ |
+| slowave | 76.0 | 87.8 | — | 86% | ✅ |
 | Somnigraph | 85.1 | — | — | — | ✅ |
 | MarsNMe | — | — | — | — | — |
-| Midas | 0.73 | 0.92 | — | 30–40% | ✅ |
-| Kage | — | 96.17% R@5 | — | — | ✅ |
+| Midas | 73.0 | 92.0 | — | 30–40% | ✅ |
+| Kage | — | 96.17 (R@5) | — | — | ✅ |
 | gitmem | — | — | — | — | — |
 | VIR | — | — | — | — | — |
 | Fullerenes | — | — | — | 64% | ✅ |
-| YesMem | 0.87 | — | — | ~30% proxy | ✅ |
+| YesMem | 87.0 | — | — | ~30% proxy | ✅ |
 | Origin | 70.0 | 93.6 | — | — | ✅ |
 | Continuity v2 | — | — | — | — | — |
 | Noosphere | — | — | — | — | — |
@@ -732,7 +732,7 @@
 | LangMem | — | — | — | — | — |
 | memanto | 87.1 | 89.8 | — | — | ✅ |
 | memsearch | — | — | — | — | ✅ |
-| mcp-memory-service | — | 86.0% (sess) / 80.4% (turn) | — | — | ✅ |
+| mcp-memory-service | — | 86.0 (sess) / 80.4 (turn) | — | — | ✅ |
 | obsidian-mind | — | — | — | — | — |
 | MemMachine | — | — | — | — | ✅ |
 | MIRIX | 85.38 | — | — | — | ✅ |
@@ -741,27 +741,29 @@
 | OpenMemory | — | — | — | — | — |
 | m_flow | 81.8 | 89.0 | — | — | ✅ |
 | memory-lancedb-pro | — | — | — | — | — |
-| TencentDB-AM | — | — | 76% | 61% | — |
+| TencentDB-AM | — | — | 76.0 | 61% | — |
 | engram | — | — | — | — | — |
 | ByteRover | 96.1 | 92.8 | — | — | ✅ |
 | Honcho | — | — | — | — | — |
-| MemOS | 75.80 | +40.43% | +40.75% | 35.24% | ✅ |
+| MemOS | 75.80 | +40.43 (rel.) | +40.75 (rel.) | 35.24% | ✅ |
 | EverOS | 93.05 | 83.00 | — | — | ✅ |
 | memU | 92.09 | — | — | — | ✅ |
 | Memori | 81.95 | — | — | 95% fewer | ✅ |
-| Memvid | +35% SOTA | — | — | — | ✅ |
+| Memvid | — | — | — | — | ✅ |
 | hindsight | — | 91.4 | — | — | ✅ |
 | Letta | — | — | — | — | ✅ |
 | agentmemory | — | 95.2 | — | 92% fewer | ✅ |
 | gbrain | — | — | — | — | — |
 | OpenViking | 82.1 | — | — | 91% | ✅ |
 | Cognee | — | — | — | — | — |
-| Supermemory | #1 (no score) | 81.6% | — | — | — |
+| Supermemory | — | 81.6 | — | — | — |
 | Graphiti | — | — | — | — | — |
 | Nanobot | — | — | — | — | — |
 | MemPalace | 88.9 | 96.6 | — | — | ✅ |
 | Mem0 | 91.6 | 94.8 | — | — | ✅ |
 | claude-mem | — | — | — | — | — |
+
+*All benchmark scores are self-reported by the respective projects unless noted otherwise. Annotated values measure different metrics — (R@1)/(R@5) = retrieval recall, (sess)/(turn) = evaluation granularity, (rel.) = relative improvement over baseline — and are not directly comparable with plain accuracy scores.*
 
 ---
 

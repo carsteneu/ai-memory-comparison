@@ -158,6 +158,10 @@ for (const g of FEATURE_GROUPS) {
     }
     mdParts.push('| ' + cells.join(' | ') + ' |');
   }
+  if (g.note) {
+    mdParts.push('');
+    mdParts.push(`*${g.note}*`);
+  }
   mdParts.push('');
 }
 mdParts.push('---');

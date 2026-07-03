@@ -122,6 +122,7 @@ const FEATURE_GROUPS = [
   {
     id: "benchmarks",
     label: "Benchmarks (published)",
+    note: "All benchmark scores are self-reported by the respective projects unless noted otherwise. Annotated values measure different metrics — (R@1)/(R@5) = retrieval recall, (sess)/(turn) = evaluation granularity, (rel.) = relative improvement over baseline — and are not directly comparable with plain accuracy scores.",
     features: [
       { id: "b_locomo", label: "LoCoMo", type: "text" },
       { id: "b_longmemeval", label: "LongMemEval", type: "text" },
@@ -243,7 +244,7 @@ const SYSTEMS = [
     decay: false, supersede: false, contradiction: false, quarantine: false, autoResolve: false, trustModel: false, explicitForget: false,
     autoExtract: false, contentPreproc: false, dedup: false, qualityRefine: false, narrative: false, clustering: false, recurrence: false, persona: false,
     p_claude: false, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
-    b_locomo: "+35% SOTA", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: true,
+    b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: true,
   },
   {
     id: "memori",
@@ -290,7 +291,7 @@ const SYSTEMS = [
     decay: false, supersede: false, contradiction: false, quarantine: false, autoResolve: false, trustModel: false, explicitForget: false,
     autoExtract: true, contentPreproc: false, dedup: true, qualityRefine: false, narrative: false, clustering: false, recurrence: false, persona: true,
     p_claude: false, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: true, p_hermes: true, p_pi: false, p_antigravity: false,
-    b_locomo: "—", b_longmemeval: "—", b_personamem: "76%", b_token: "61%", b_methodology: false,
+    b_locomo: "—", b_longmemeval: "—", b_personamem: "76.0", b_token: "61%", b_methodology: false,
   },
   {
     id: "yesmem",
@@ -306,7 +307,7 @@ const SYSTEMS = [
     decay: true, supersede: true, contradiction: true, quarantine: true, autoResolve: true, trustModel: true, explicitForget: true,
     autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: true, narrative: true, clustering: true, recurrence: true, persona: true,
     p_claude: true, p_codex: true, p_opencode: true, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: true, p_antigravity: true,
-    b_locomo: "0.87", b_longmemeval: "—", b_personamem: "—", b_token: "~30% proxy", b_methodology: true,
+    b_locomo: "87.0", b_longmemeval: "—", b_personamem: "—", b_token: "~30% proxy", b_methodology: true,
   },
   {
     id: "ai-memory",
@@ -607,7 +608,7 @@ const SYSTEMS = [
     decay: false, supersede: false, contradiction: false, quarantine: false, autoResolve: false, trustModel: false, explicitForget: false,
     autoExtract: false, contentPreproc: false, dedup: false, qualityRefine: false, narrative: false, clustering: false, recurrence: false, persona: false,
     p_claude: true, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
-    b_locomo: "—", b_longmemeval: "83.2% R@1", b_personamem: "—", b_token: "—", b_methodology: true,
+    b_locomo: "—", b_longmemeval: "83.2 (R@1)", b_personamem: "—", b_token: "—", b_methodology: true,
   },
   {
     id: "arcrift", name: "ArcRift", url: "https://github.com/Eshaan-Nair/ArcRift", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/arcrift.md",
@@ -688,7 +689,7 @@ const SYSTEMS = [
     decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: true, trustModel: false, explicitForget: true,
     autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: true, narrative: true, clustering: false, recurrence: false, persona: true,
     p_claude: true, p_codex: false, p_opencode: true, p_gemini: false, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: true, p_hermes: true, p_pi: false, p_antigravity: false,
-    b_locomo: "#1 (no score)", b_longmemeval: "81.6%", b_personamem: "—", b_token: "—", b_methodology: false,
+    b_locomo: "—", b_longmemeval: "81.6", b_personamem: "—", b_token: "—", b_methodology: false,
   },
   {
     id: "honcho", name: "Honcho", url: "https://github.com/plastic-labs/honcho", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/honcho.md",
@@ -745,7 +746,7 @@ const SYSTEMS = [
     decay: false, supersede: true, contradiction: false, quarantine: false, autoResolve: false, trustModel: false, explicitForget: true,
     autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: true, narrative: false, clustering: false, recurrence: false, persona: false,
     p_claude: false, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: true, p_hermes: true, p_pi: false, p_antigravity: false,
-    b_locomo: "75.80", b_longmemeval: "+40.43%", b_personamem: "+40.75%", b_token: "35.24%", b_methodology: true,
+    b_locomo: "75.80", b_longmemeval: "+40.43 (rel.)", b_personamem: "+40.75 (rel.)", b_token: "35.24%", b_methodology: true,
   },
   {
     id: "memory-lancedb-pro", name: "memory-lancedb-pro", url: "https://github.com/CortexReach/memory-lancedb-pro", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/memory-lancedb-pro.md",
@@ -938,7 +939,7 @@ const SYSTEMS = [
     decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: true, trustModel: false, explicitForget: true,
     autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: true, narrative: true, clustering: true, recurrence: true, persona: false,
     p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: true, p_cursor: true, p_windsurf: true, p_openclaw: true, p_hermes: false, p_pi: false, p_antigravity: false,
-    b_locomo: "—", b_longmemeval: "86.0% (sess) / 80.4% (turn)", b_personamem: "—", b_token: "—", b_methodology: true,
+    b_locomo: "—", b_longmemeval: "86.0 (sess) / 80.4 (turn)", b_personamem: "—", b_token: "—", b_methodology: true,
   },
   {
     id: "memu", name: "memU", url: "https://github.com/NevaMind-AI/memU", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/memu.md",
@@ -1046,7 +1047,7 @@ const SYSTEMS = [
     decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: false, trustModel: true, explicitForget: true,
     autoExtract: false, contentPreproc: false, dedup: true, qualityRefine: true, narrative: false, clustering: false, recurrence: true, persona: false,
     p_claude: true, p_codex: true, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
-    b_locomo: "0.73", b_longmemeval: "0.92", b_personamem: "—", b_token: "30–40%", b_methodology: true,
+    b_locomo: "73.0", b_longmemeval: "92.0", b_personamem: "—", b_token: "30–40%", b_methodology: true,
   },
   {
     id: "mengram", name: "Mengram", url: "https://github.com/alibaizhanov/mengram", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/mengram.md",
@@ -1082,7 +1083,7 @@ const SYSTEMS = [
     decay: true, supersede: true, contradiction: true, quarantine: true, autoResolve: true, trustModel: true, explicitForget: true,
     autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: true, narrative: true, clustering: false, recurrence: false, persona: false,
     p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
-    b_locomo: "—", b_longmemeval: "96.17% R@5", b_personamem: "—", b_token: "—", b_methodology: true,
+    b_locomo: "—", b_longmemeval: "96.17 (R@5)", b_personamem: "—", b_token: "—", b_methodology: true,
   },
   {
     id: "somnigraph", name: "Somnigraph", url: "https://github.com/AlexisOlson/somnigraph", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/somnigraph.md",
@@ -1106,7 +1107,7 @@ const SYSTEMS = [
     decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: true, trustModel: false, explicitForget: true,
     autoExtract: false, contentPreproc: false, dedup: true, qualityRefine: false, narrative: false, clustering: true, recurrence: true, persona: false,
     p_claude: true, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
-    b_locomo: "76.0", b_longmemeval: "87.8%", b_personamem: "—", b_token: "86%", b_methodology: true,
+    b_locomo: "76.0", b_longmemeval: "87.8", b_personamem: "—", b_token: "86%", b_methodology: true,
   },
   {
     id: "context-keeper", name: "context-keeper", url: "https://github.com/jarmstrong158/context-keeper", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/context-keeper.md",
