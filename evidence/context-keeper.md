@@ -1,7 +1,7 @@
 # context-keeper — Evidence
 
 > Every ✅ claim backed by public source code or documentation.
-> Sources: GitHub repo `jarmstrong158/context-keeper`. Version observed: 0.6.0 (pyproject.toml). Lines may shift; pinned to `main` for readability.
+> Sources: GitHub repo `jarmstrong158/context-keeper`. Version observed: 0.7.0 (pyproject.toml). Lines may shift; pinned to `main` for readability.
 > Disclosure: submitted by the project author.
 
 **Repo:** `github.com/jarmstrong158/context-keeper`
@@ -76,7 +76,10 @@
 - `server.py` — every entry type carries `"tags": {"type": "array"}` in its input schema; retrieval scores tag overlap (`score_entry`: "Tag matching (0-40)")
 - `CLAUDE.md` (Tags Convention) — "Use lowercase, hyphen-separated tags."
 
-### Anticipated queries ❌
+### Anticipated queries ✅
+- `server.py` (record_* inputSchemas) — `retrieval_hints`: "2-4 alternate phrasings a future session might search for (synonyms, symptom descriptions, error messages). Indexed for retrieval — rescues vocabulary-mismatch queries without needing embeddings." The recording agent is prompted by the schema to predict search phrasings at capture time
+- `server.py` (`_text_words`) — hints are indexed into the lexical retrieval word set; `semantic_index.py` (`entry_text`) includes them in embeddings
+- `README.md` (v0.7) — documented with a measured result: two held-out eval queries crowded out of the top-5 recovered to rank 1 after their gold entries got hints
 
 ### Trigger rules ✅
 - `hooks/scope_guard.py` — "the moment the agent edits a file that a constraint's `scope` covers, the constraint is injected right there via hookSpecificOutput.additionalContext"
@@ -91,9 +94,12 @@
 - `server.py` (record_decision inputSchema) — `problem` ("What forced this decision?"), `why_chosen` ("Actual reasoning... What evidence, principle, or constraint drove the choice?"), both required with server-side min-length validation: "Thin entries are rejected server-side with field-specific guidance" (`README.md`)
 - Constraints store `reason` (required, min 40 chars) and `triggering_incident` ("the gotcha story behind the rule")
 
-### Source attribution ❌
+### Source attribution ✅
+- `server.py` (record_* inputSchemas) — `origin` enum with 3 distinct source levels: `"user"` (explicitly stated), `"agent"` (inferred from the session), `"import"` (backfilled/migrated); stored on every entry, default `agent`
 
-### Origin + trust ❌
+### Origin + trust ✅
+- `server.py` (`score_entry`) — "Origin trust (0-10): user-stated entries outrank agent-inferred, which outrank imported/backfilled" — trust weights `{"user": 10, "agent": 5, "import": 2}`
+- `CLAUDE.md` — agent guidance: "only claim `user` for things the user actually said"
 
 ### Emotional ❌
 
@@ -108,10 +114,10 @@
 ### Time-travel ✅
 - `server.py` (`handle_deprecate_entry`) — deprecated entries are never deleted: status flips to "deprecated", `deprecated_reason` and `superseded_by` are recorded, and the entry stays in the store
 - `server.py` (`handle_get_context`) — direct ID lookup returns any entry including deprecated ones ("Fetch a single entry by ID"), so superseded versions remain queryable with a traceable chain
-- No temporal (`since`/`before`) search — the ✅ rests on superseded-version querying
+- Temporal search also available via `since`/`before` (see Timeline view)
 
-### Schema fields (count: 11) ✅
-- `server.py` (`handle_record_decision`) — decision entries carry: summary, problem, why_chosen, what_we_tried, tradeoffs, alternatives, constraints_created, related_to, tags, status, superseded_by (excluding auto IDs/timestamps/schema_version). Constraints: rule, reason, triggering_incident, scope, hardness, related_to, tags, status (8)
+### Schema fields (count: 13) ✅
+- `server.py` (`handle_record_decision`) — decision entries carry: summary, problem, why_chosen, what_we_tried, tradeoffs, alternatives, constraints_created, related_to, tags, retrieval_hints, origin, status, superseded_by (excluding auto IDs/timestamps/schema_version). Constraints: rule, reason, triggering_incident, scope, hardness, related_to, tags, retrieval_hints, origin, status (10)
 
 ---
 
@@ -138,8 +144,10 @@
 - `server.py` (get_context inputSchema) — structured filters: `types` (decisions/pipelines/constraints), `tags`, `scope`, `id` — e.g. "all decisions tagged Y" is `types=["decisions"], tags=["Y"]`
 - `README.md` — "`get_context` — Retrieve relevant entries by query, tags, scope, or ID"
 
-### Timeline view ❌
-- (`prune_stale` lists entries by age, but there is no `since`/`before` search parameter.)
+### Timeline view ✅
+- `server.py` (get_context inputSchema) — `since`: "Temporal filter: only entries verified/created on or after this ISO date"; `before`: "only entries verified/created strictly before this ISO date"
+- `README.md` (v0.7) — "'what did we decide this month' is now a query"
+- `prune_stale` additionally lists entries by age (staleness view)
 
 ### Search modes (count: 3) ✅
 - `server.py` (TOOLS) — three retrieval tools: `get_context` (query/tags/scope/id), `get_project_summary` (compact overview), `prune_stale` (staleness listing)
@@ -210,17 +218,21 @@
 - `README.md` (Claude Code Hook Setup) — full hooks config for SessionStart, PreCompact, Stop, PostToolUse (commit capture + scoped constraints); MCP install: `claude mcp add --scope user context-keeper -- python /path/to/context-keeper/server.py`
 - Also documents Claude Desktop setup (`claude_desktop_config.json`)
 
-### Codex ❌
+### Codex ✅
+- `README.md` (Other MCP clients) — documented `~/.codex/config.toml` `[mcp_servers.context-keeper]` configuration
 
 ### OpenCode ❌
 
-### Gemini CLI ❌
+### Gemini CLI ✅
+- `README.md` (Other MCP clients) — documented `~/.gemini/settings.json` `mcpServers` configuration
 
 ### Copilot ❌
 
-### Cursor ❌
+### Cursor ✅
+- `README.md` (Other MCP clients) — documented `~/.cursor/mcp.json` / per-project `.cursor/mcp.json` configuration
 
-### Windsurf ❌
+### Windsurf ✅
+- `README.md` (Other MCP clients) — documented `~/.codeium/windsurf/mcp_config.json` configuration
 
 ### OpenClaw ❌
 
