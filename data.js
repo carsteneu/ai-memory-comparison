@@ -1121,5 +1121,17 @@ const SYSTEMS = [
     p_claude: true, p_codex: true, p_opencode: false, p_gemini: true, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
     b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: true,
   },
+  {
+    id: "mnemos", name: "mnemos", url: "https://github.com/arhuman/mnemos", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/mnemos.md",
+    description: "Local cited memory for AI agents — single Go binary indexing Markdown/docs/code into SQLite FTS5 + optional embeddings, served over MCP",
+    stars: 4, language: "Go", license: "MIT", singleBinary: true, created: "2026-06-29",
+    deployment: "Local CLI + MCP", storage: "SQLite (FTS5)", integration: "MCP (stdio) + CLI", proxy: false, webUi: false, offline: true, multiAgent: false, llmFlex: 1, cacheOpt: false, proceduralMemory: false, sandboxedExec: false, scheduledExec: true, privacy: true, export: false, setup: "git clone + make install", pricing: "free",
+    unit: "Chunk (file#section + line range)", entities: false, actions: false, keywords: true, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: false, originTrust: false, emotional: false, conflict: false, layeredMemory: false, timeTravel: false, schemaFields: 8,
+    fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: true, factQuery: true, timeline: false, searchModes: 4, dataSources: 1,
+    decay: false, supersede: false, contradiction: false, quarantine: false, autoResolve: false, trustModel: false, explicitForget: true,
+    autoExtract: false, contentPreproc: true, dedup: false, qualityRefine: false, narrative: false, clustering: false, recurrence: false, persona: false,
+    p_claude: true, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
+    b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: true,
+  },
 ];
 
