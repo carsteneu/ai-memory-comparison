@@ -4,7 +4,7 @@
 > Corrections via PR welcome. No affiliation with any listed project.
 
 **Last updated:** 2026-07-03  
-**Systems:** 77  
+**Systems:** 78  
 **Live:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 
 ---
@@ -17,6 +17,7 @@
 | [fidelis](https://github.com/hermes-labs-ai/fidelis) | 1 | Python | MIT | 2026-03 | Non-LLM agent memory, BM25 + rerank, 83.2% R@1 on LongMemEval-S, depends on mem0 |
 | [slowave](https://github.com/mrsalty/slowave) | 1 | Python | AGPL-3.0 | 2026-06-08 | Zero-LLM shared local memory layer — one private memory across Claude Code, Cursor, Cline, Windsurf |
 | [Somnigraph](https://github.com/AlexisOlson/somnigraph) | 2 | Python | Apache-2.0 + CC | 2026-03-07 | Research-driven persistent memory — SQLite+vec+FTS5 hybrid retrieval, LightGBM reranker, biological decay, NREM/REM sleep consolidation |
+| [mnemos](https://github.com/arhuman/mnemos) | 4 | Go | MIT | 2026-06-29 | Local cited memory for AI agents — single Go binary indexing Markdown/docs/code into SQLite FTS5 + optional embeddings, served over MCP |
 | [MarsNMe](https://github.com/marsmanleo/MarsNMe) | 5 | JavaScript | MIT | 2026-03 | MCP memory gateway, own Supabase, TTL decay, supersede chains, 5+ platforms |
 | [Midas](https://github.com/vornicx/Midas) | 6 | Python + TS | MIT | 2026-06-04 | Local-first, eval-first memory — no LLM at ingest or query, $0 API, source-traceable recall |
 | [Kage](https://github.com/kage-core/Kage) | 6 | TypeScript | GPL-3.0-only | 2026-05 | Verified memory for coding agents — every memory is checked against the code it cites |
@@ -101,6 +102,7 @@
 | fidelis | 1 | Python | MIT | — | 2026-03 | 10% |
 | slowave | 1 | Python | AGPL-3.0 | — | 2026-06-08 | 38% |
 | Somnigraph | 2 | Python | Apache-2.0 + CC | — | 2026-03-07 | 42% |
+| mnemos | 4 | Go | MIT | ✅ | 2026-06-29 | 23% |
 | MarsNMe | 5 | JavaScript | MIT | — | 2026-03 | 25% |
 | Midas | 6 | Python + TS | MIT | — | 2026-06-04 | 40% |
 | Kage | 6 | TypeScript | GPL-3.0-only | — | 2026-05 | 67% |
@@ -185,6 +187,7 @@
 | fidelis | MCP server + hooks | BM25+ChromaDB | MCP + hooks | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | pip install | free |
 | slowave | Local CLI / MCP | SQLite | MCP | — | — | ✅ | — | 0 | — | — | — | — | ✅ | ✅ | pipx install slowave | free |
 | Somnigraph | Self-host / Local (MCP) | SQLite + sqlite-vec + FTS5 | MCP (FastMCP) | — | — | ✅ | — | 2 | ✅ | — | — | — | ✅ | — | pip install | free |
+| mnemos | Local CLI + MCP | SQLite (FTS5) | MCP (stdio) + CLI | — | — | ✅ | — | 1 | — | — | — | ✅ | ✅ | — | git clone + make install | free |
 | MarsNMe | MCP server | Supabase+pgvector | MCP | — | — | — | — | 1 | — | — | — | — | ✅ | — | npm install | free |
 | Midas | Library + MCP server | SQLite | MCP, SDK, LangGraph | — | — | ✅ | ✅ | 3 | ✅ | — | — | — | ✅ | — | pip install / npx | free |
 | Kage | Local CLI + MCP + plugin | JSON packets in repo (.agent_memory/) | MCP, hooks, CLI | — | ✅ | ✅ | ✅ | 0 | ✅ | — | — | — | ✅ | ✅ | npx -y kage-graph-mcp install | free |
@@ -269,6 +272,7 @@
 | fidelis | Verbatim passage | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 3 |
 | slowave | Memory (episode / prototype / schema) | — | — | — | — | — | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | — | 14 |
 | Somnigraph | Memory (text row) | — | — | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | — | 20 |
+| mnemos | Chunk (file#section + line range) | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 8 |
 | MarsNMe | Memory entry (28 fields) | — | — | — | — | — | — | — | ✅ | ✅ | — | — | ✅ | — | — | 28 |
 | Midas | Memory (text record) | — | — | — | — | — | — | — | — | ✅ | ✅ | — | — | — | — | 8 |
 | Kage | Memory packet (cited, fingerprinted) | ✅ | — | ✅ | — | ✅ | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 12 |
@@ -353,6 +357,7 @@
 | fidelis | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | slowave | ✅ | ✅ | ✅ | — | — | — | — | — | 2 | 2 |
 | Somnigraph | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 1 |
+| mnemos | ✅ | ✅ | ✅ | — | — | ✅ | ✅ | — | 4 | 1 |
 | MarsNMe | — | ✅ | — | — | — | — | — | — | 2 | 5 |
 | Midas | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 1 |
 | Kage | ✅ | ✅ | ✅ | — | ✅ | — | ✅ | ✅ | 4 | 3 |
@@ -437,6 +442,7 @@
 | fidelis | — | — | — | — | — | — | — |
 | slowave | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
 | Somnigraph | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ |
+| mnemos | — | — | — | — | — | — | ✅ |
 | MarsNMe | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | Midas | ✅ | ✅ | ✅ | — | — | ✅ | ✅ |
 | Kage | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -521,6 +527,7 @@
 | fidelis | — | — | — | — | — | — | — | — |
 | slowave | — | — | ✅ | — | — | ✅ | ✅ | — |
 | Somnigraph | — | — | ✅ | ✅ | ✅ | ✅ | — | — |
+| mnemos | — | ✅ | — | — | — | — | — | — |
 | MarsNMe | — | — | ✅ | — | — | — | — | — |
 | Midas | — | — | ✅ | ✅ | — | — | ✅ | — |
 | Kage | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — |
@@ -605,6 +612,7 @@
 | fidelis | ✅ | — | — | — | — | — | — | — | — | — | — |
 | slowave | ✅ | — | — | — | — | ✅ | ✅ | — | — | — | — |
 | Somnigraph | ✅ | — | — | — | — | — | — | — | — | — | — |
+| mnemos | ✅ | — | — | — | — | — | — | — | — | — | — |
 | MarsNMe | ✅ | — | — | — | — | ✅ | — | ✅ | ✅ | — | — |
 | Midas | ✅ | ✅ | — | — | — | ✅ | ✅ | — | — | — | — |
 | Kage | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | — | — | — |
@@ -689,6 +697,7 @@
 | fidelis | — | 83.2 (R@1) | — | — | ✅ |
 | slowave | 76.0 | 87.8 | — | 86% | ✅ |
 | Somnigraph | 85.1 | — | — | — | ✅ |
+| mnemos | — | — | — | — | ✅ |
 | MarsNMe | — | — | — | — | — |
 | Midas | 73.0 | 92.0 | — | 30–40% | ✅ |
 | Kage | — | 96.17 (R@5) | — | — | ✅ |
