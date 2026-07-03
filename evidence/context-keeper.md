@@ -1,7 +1,7 @@
 # context-keeper — Evidence
 
 > Every ✅ claim backed by public source code or documentation.
-> Sources: GitHub repo `jarmstrong158/context-keeper`. Version observed: 0.7.0 (pyproject.toml). Lines may shift; pinned to `main` for readability.
+> Sources: GitHub repo `jarmstrong158/context-keeper`. Version observed: 0.8.0 (pyproject.toml). Lines may shift; pinned to `main` for readability.
 > Disclosure: submitted by the project author.
 
 **Repo:** `github.com/jarmstrong158/context-keeper`
@@ -35,7 +35,7 @@
 
 ### Offline ✅
 - `README.md` — "By default, `get_context` ranks entries with pure lexical matching (tag + word overlap) — zero dependencies, works offline."
-- `README.md` — "All data stored as human-editable JSON files in `.context/` inside your project directory. Zero external dependencies."
+- `README.md` — "All data stored as human-editable JSON files in `.context/` inside your project directory. Zero dependencies by default, semantic retrieval optional."
 - Semantic mode is opt-in and fail-safe: "if Ollama is unreachable or the model is missing, retrieval silently falls back to lexical ranking" (`README.md`, Semantic Retrieval section)
 
 ### Multi-agent ❌
@@ -57,10 +57,11 @@
 ### Scheduled/autonomous ❌
 
 ### Privacy/encrypt ✅
-- `README.md` — "All data stored as human-editable JSON files in `.context/` inside your project directory. Zero external dependencies." — local-only storage, no cloud component, no telemetry; the only optional network call is to a user-run local Ollama server
+- `README.md` — "All data stored as human-editable JSON files in `.context/` inside your project directory. Zero dependencies by default, semantic retrieval optional." — local-only storage, no cloud component, no telemetry; the only optional network call is to a user-run local Ollama server
 
 ### Data export ✅
 - `README.md` (Data Storage) — "All files are human-readable JSON. You can edit them directly." — the store itself is a structured filesystem mirror (decisions.json / pipelines.json / constraints.json), directly reusable without an export step
+- `README.md` (v0.8) — `export_markdown` tool: "Regenerate `DECISIONS.md` from the decisions store — a derived, read-only projection"; opt-in render-on-write keeps the markdown mirror current on every decision write
 
 ---
 
