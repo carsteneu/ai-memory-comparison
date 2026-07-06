@@ -1,7 +1,7 @@
 # context-keeper — Evidence
 
 > Every ✅ claim backed by public source code or documentation.
-> Sources: GitHub repo `jarmstrong158/context-keeper`. Version observed: 0.8.0 (pyproject.toml). Lines may shift; pinned to `main` for readability.
+> Sources: GitHub repo `jarmstrong158/context-keeper`. Version observed: 0.9.0 (pyproject.toml). Lines may shift; pinned to `main` for readability.
 > Disclosure: submitted by the project author.
 
 **Repo:** `github.com/jarmstrong158/context-keeper`
@@ -41,9 +41,9 @@
 ### Multi-agent ❌
 - (Cross-project queries exist via `project_dir`, but no shared-memory coordination between agents.)
 
-### LLM providers (count: 1) ✅
-- `README.md` (Configuration) — `"semantic": { "model": "nomic-embed-text", "url": "http://localhost:11434" }` — Ollama is the one selectable embedding backend; model and URL are configurable
-- `semantic_index.py` — `_Embedder` class posts to Ollama `/api/embed`
+### LLM providers (count: 2) ✅
+- `README.md` (Configuration) — `"semantic": { "model": ..., "url": ..., "api": "ollama" }` — Ollama is the default embedding backend
+- `semantic_index.py` (`_Embedder`) — two selectable API shapes: `"ollama"` (POST `/api/embed`) and `"openai"` (POST `/v1/embeddings` — "Covers LM Studio, llama.cpp server, OpenAI, and anything else speaking the OpenAI embeddings API"), with optional bearer auth via `api_key_env`
 
 ### Cache optimization ✅
 - `README.md` — "Entry embeddings are cached per store in `.context/embeddings.json`, keyed by a hash of the entry text, so an edited entry is re-embedded automatically."
@@ -176,7 +176,10 @@
 ### Auto-resolution ❌
 - (`prune_stale` flags stale entries for review but deliberately never auto-archives: "Returns them for review — does not delete.")
 
-### Trust model ❌
+### Trust model ✅
+- `server.py` (`score_entry`) — three-tier origin hierarchy weighted at retrieval: `{"user": 10, "agent": 5, "import": 2}`
+- `server.py` (`_SIMILAR_NOTE`) — conflict precedence stated on every capture-time conflict warning: "When entries conflict, origin trust decides the default winner: user-stated overrides agent-inferred overrides imported."
+- `similar_entries` matches carry each candidate's `origin` so the agent can apply the precedence
 
 ### Explicit forget ✅
 - `server.py` (`handle_deprecate_entry`) — agent or user retires any entry by ID with a required reason; store files are also plain JSON, directly editable/deletable by the user
@@ -204,8 +207,10 @@
 - `server.py` (`handle_get_project_summary`) — generates a compact project profile (absolute constraints first, then decisions, pipelines, staleness warnings), designed for conversation start and injected by the SessionStart hook
 - Note: project-profile generation only; no per-session summaries
 
-### Clustering ❌
-- (`related_to` arc links are explicit/manual; graph traversal at retrieval is not clustering.)
+### Clustering ✅
+- `server.py` (`handle_get_project_summary`) — above 8 decisions, the summary clusters decisions by topic: "Assign each decision to its most-frequent tag across the store, so entries sharing a dominant topic land in the same cluster"
+- `README.md` (v0.9) — "a 59-decision store reads as a dozen topics"
+- Grouping is tag/topic-based, not embedding-based
 
 ### Recurrence detection ❌
 
@@ -222,12 +227,14 @@
 ### Codex ✅
 - `README.md` (Other MCP clients) — documented `~/.codex/config.toml` `[mcp_servers.context-keeper]` configuration
 
-### OpenCode ❌
+### OpenCode ✅
+- `README.md` (Other MCP clients) — documented `opencode.json` config: `"mcp": { "context-keeper": { "type": "local", "command": [...] } }`
 
 ### Gemini CLI ✅
 - `README.md` (Other MCP clients) — documented `~/.gemini/settings.json` `mcpServers` configuration
 
-### Copilot ❌
+### Copilot ✅
+- `README.md` (Other MCP clients) — documented `~/.copilot/mcp-config.json` stdio configuration
 
 ### Cursor ✅
 - `README.md` (Other MCP clients) — documented `~/.cursor/mcp.json` / per-project `.cursor/mcp.json` configuration
@@ -235,13 +242,17 @@
 ### Windsurf ✅
 - `README.md` (Other MCP clients) — documented `~/.codeium/windsurf/mcp_config.json` configuration
 
-### OpenClaw ❌
+### OpenClaw ✅
+- `README.md` (Other MCP clients) — documented `openclaw.json` `mcpServers` stdio configuration
 
-### Hermes ❌
+### Hermes ✅
+- `README.md` (Other MCP clients) — documented `~/.hermes/config.yaml` `mcp_servers` configuration (YAML, command/args/env)
 
-### pi/omp ❌
+### pi/omp ✅
+- `README.md` (Other MCP clients) — documented oh-my-pi `mcpServers` configuration with `"type": "stdio"`
 
-### Antigravity ❌
+### Antigravity ✅
+- `README.md` (Other MCP clients) — documented `~/.gemini/config/mcp_config.json` / workspace `.agents/mcp_config.json` configuration
 
 ---
 
@@ -256,9 +267,10 @@
 ### PersonaMem ❌
 - Score: `—`
 
-### Token reduction ❌
-- Score: `—`
-- (Retrieval is token-budget-capped — "Results are capped by a configurable token budget (default: 4000 tokens)" — but no savings-vs-baseline number is published.)
+### Token reduction ✅
+- Score: `94-97% on large stores (78 entries: ~75k tokens dumped vs ~2k injected)`
+- `evals/token_reduction.py` — runnable measurement: session-start injection (`get_project_summary` output) vs. baseline of dumping every active entry into context, published across four real stores in `evals/README.md`
+- Caveats stated in-script: chars/4 estimator on both sides; summary is budget-capped, so large-store reduction is partly by construction — "the real property is injected cost staying flat as stores grow"
 
 ### Methodology open ✅
 - `evals/README.md` — full retrieval eval harness: labeled query→gold-entry datasets across three real project stores, dev/test splits ("Tune weights on `dev`, report on the held-out `test` split"), runnable scripts (`run_eval.py`), stored baselines
