@@ -1118,7 +1118,7 @@ const SYSTEMS = [
     fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: false, timeline: false, searchModes: 3, dataSources: 3,
     decay: true, supersede: true, contradiction: false, quarantine: false, autoResolve: false, trustModel: false, explicitForget: true,
     autoExtract: false, contentPreproc: false, dedup: false, qualityRefine: true, narrative: true, clustering: false, recurrence: false, persona: false,
-    p_claude: true, p_codex: true, p_opencode: false, p_gemini: true, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
+    p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: true, p_cursor: true, p_windsurf: true, p_openclaw: true, p_hermes: true, p_pi: true, p_antigravity: true,
     b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: true,
   },
   {
@@ -1132,6 +1132,18 @@ const SYSTEMS = [
     autoExtract: false, contentPreproc: true, dedup: false, qualityRefine: false, narrative: false, clustering: false, recurrence: false, persona: false,
     p_claude: true, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
     b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: true,
+  },
+  {
+    id: "artesian", name: "Artesian", url: "https://github.com/aquifer-labs/artesian", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/artesian.md",
+    description: "Local-first ACC memory controller — bounded committed context with admission audit log, 7 search modes, transactional multi-writer",
+    stars: 0, language: "Rust", license: "Apache-2.0", singleBinary: true, created: "2026-06-13",
+    deployment: "Local CLI + MCP, single binary or Docker", storage: "Pluggable (Files, sqlite-vec, Qdrant, pgvector)", integration: "MCP (rmcp, stdio/HTTP) + CLI + hooks", proxy: false, webUi: false, offline: true, multiAgent: true, llmFlex: 5, cacheOpt: true, proceduralMemory: true, sandboxedExec: false, scheduledExec: true, privacy: true, export: true, setup: "brew install aquifer-labs/tap/artesian", pricing: "free",
+    unit: "MemoryRecord (L0Raw/L1Atom/L2Scenario/L3Project)", entities: true, actions: false, keywords: true, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: true, originTrust: false, emotional: false, conflict: true, layeredMemory: true, timeTravel: true, schemaFields: 19,
+    fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 7, dataSources: 5,
+    decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: true, trustModel: false, explicitForget: true,
+    autoExtract: true, contentPreproc: false, dedup: true, qualityRefine: true, narrative: true, clustering: true, recurrence: true, persona: false,
+    p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: false, p_hermes: true, p_pi: false, p_antigravity: false,
+    b_locomo: "0.475", b_longmemeval: "0.70", b_personamem: "—", b_token: "0.037–0.343", b_methodology: true,
   },
 ];
 
