@@ -1145,5 +1145,17 @@ const SYSTEMS = [
     p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: false, p_hermes: true, p_pi: false, p_antigravity: false,
     b_locomo: "0.475", b_longmemeval: "0.70", b_personamem: "—", b_token: "0.037–0.343", b_methodology: true,
   },
+  {
+    id: "memspec", name: "memspec", url: "https://github.com/siimvene/memspec", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/memspec.md",
+    description: "Git-backed project memory for AI coding agents — Markdown canonical, SQLite FTS5 derived index, optional embeddings",
+    stars: 1, language: "TypeScript", license: "MIT", singleBinary: false, created: "2026-04",
+    deployment: "Local CLI + MCP + Library", storage: "Markdown (canonical) + SQLite FTS5 (derived) + optional embeddings", integration: "MCP + CLI", proxy: false, webUi: false, offline: true, multiAgent: false, llmFlex: 2, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: true, privacy: true, export: true, setup: "npm install", pricing: "free",
+    unit: "Memory record (fact / decision / procedure / observation)", entities: false, actions: false, keywords: true, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: true, source: true, originTrust: true, emotional: false, conflict: true, layeredMemory: true, timeTravel: true, schemaFields: 20,
+    fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 3, dataSources: 4,
+    decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: false, trustModel: true, explicitForget: true,
+    autoExtract: false, contentPreproc: false, dedup: true, qualityRefine: false, narrative: false, clustering: false, recurrence: false, persona: false,
+    p_claude: true, p_codex: true, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: true, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
+    b_locomo: "—", b_longmemeval: "R@5=1.0", b_personamem: "—", b_token: "—", b_methodology: true,
+  },
 ];
 
