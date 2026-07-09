@@ -1,6 +1,6 @@
 [![GitHub stars](https://img.shields.io/github/stars/carsteneu/ai-memory-comparison?style=flat)](https://github.com/carsteneu/ai-memory-comparison/stargazers)
 [![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
-[![Systems](https://img.shields.io/badge/systems-80-blue?style=flat)](https://carsteneu.github.io/ai-memory-comparison/)
+[![Systems](https://img.shields.io/badge/systems-81-blue?style=flat)](https://carsteneu.github.io/ai-memory-comparison/)
 [![Features](https://img.shields.io/badge/features-79-blue?style=flat)](https://carsteneu.github.io/ai-memory-comparison/)
 [![Build](https://github.com/carsteneu/ai-memory-comparison/actions/workflows/build.yml/badge.svg)](https://github.com/carsteneu/ai-memory-comparison/actions/workflows/build.yml)
 [![Website](https://img.shields.io/badge/website-live-green?style=flat)](https://carsteneu.github.io/ai-memory-comparison/)
@@ -10,11 +10,11 @@
 
 > **Live comparison table:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 >
-> 80 systems, 79 features, source-backed. Every ✅ links to the exact code or docs that prove it.
+> 81 systems, 79 features, source-backed. Every ✅ links to the exact code or docs that prove it.
 
 ## What this is
 
-A feature-level comparison of memory systems for AI coding agents. 80 systems compared across 79 features on seven axes: Data Model, Search & Retrieval, Knowledge Lifecycle, Extraction Pipeline, Platform Support, Architecture, and Benchmarks. Every claim backed by a public source citation — no marketing, no inference.
+A feature-level comparison of memory systems for AI coding agents. 81 systems compared across 79 features on seven axes: Data Model, Search & Retrieval, Knowledge Lifecycle, Extraction Pipeline, Platform Support, Architecture, and Benchmarks. Every claim backed by a public source citation — no marketing, no inference.
 
 ## Quick start
 
