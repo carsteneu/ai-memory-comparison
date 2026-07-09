@@ -47,15 +47,9 @@ CC0 — Public Domain. Copy it, fork it, use it anywhere.
 
 ## Star History
 
-## Star History
+<img alt="Star History Chart" src="star-history.svg" />
 
-<a href="https://www.star-history.com/?repos=carsteneu%2Fai-memory-comparison&type=date&legend=top-left">
- <picture>
-   <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/chart?repos=carsteneu/ai-memory-comparison&type=date&theme=dark&legend=top-left" />
-   <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/chart?repos=carsteneu/ai-memory-comparison&type=date&legend=top-left" />
-   <img alt="Star History Chart" src="https://api.star-history.com/chart?repos=carsteneu/ai-memory-comparison&type=date&legend=top-left" />
- </picture>
-</a>
+> Chart is regenerated periodically via `python3 tools/star-history.py`. Last updated: 2026-07-09.
 
 ## Disclosure
 
