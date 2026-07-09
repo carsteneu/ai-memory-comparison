@@ -28,10 +28,13 @@ jobs:
           echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" | sudo tee /etc/apt/sources.list.d/github-cli.list > /dev/null
           sudo apt update && sudo apt install gh -y
 
+      - name: Clone mystarhistory tool
+        run: git clone --depth 1 https://github.com/carsteneu/mystarhistory.git /tmp/mystarhistory
+
       - name: Generate star history SVG
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python tools/mystarhistory.py --repo ${{ github.repository }} --output star-history.svg --color "#dd4528"
+        run: python /tmp/mystarhistory/mystarhistory.py --repo ${{ github.repository }} --output star-history.svg --color "#dd4528"
 
       - name: Commit if changed
         run: |
