@@ -2,7 +2,7 @@ name: Update star history chart
 
 on:
   schedule:
-    - cron: '0 6 * * 1'  # Mondays 06:00 UTC = 08:00 CEST
+    - cron: '0 6 * * *'  # Daily 06:00 UTC = 08:00 CEST
   workflow_dispatch:
 
 permissions:
