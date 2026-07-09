@@ -47,9 +47,10 @@ CC0 — Public Domain. Copy it, fork it, use it anywhere.
 
 ## Star History
 
-<img alt="Star History Chart" src="star-history.svg" />
-
-> Chart is regenerated periodically via `python3 tools/star-history.py`. Last updated: 2026-07-09.
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="star-history-dark.svg" />
+  <img alt="Star History Chart" src="star-history.svg" />
+</picture>
 
 ## Disclosure
 
