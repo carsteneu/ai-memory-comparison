@@ -1,38 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 380" width="100%" height="auto">
-  <style>
-    .grid { stroke: #e8e8e8; stroke-width: 0.5; }
-    .ylabel { fill: #666; font-size: 12px; text-anchor: end; font-family: system-ui, -apple-system, sans-serif; }
-    .axis-label { fill: #888; font-size: 12px; text-anchor: middle; font-family: system-ui, -apple-system, sans-serif; }
-    .xlabel { fill: #666; font-size: 12px; text-anchor: middle; font-family: system-ui, -apple-system, sans-serif; }
-    .xyear { fill: #999; font-size: 10px; text-anchor: start; font-family: system-ui, -apple-system, sans-serif; }
-    .baseline { stroke: #ddd; stroke-width: 1; }
-  </style>
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#7b5ea7" stop-opacity="0.2"/>
-      <stop offset="100%" stop-color="#7b5ea7" stop-opacity="0.01"/>
+      <stop offset="0%" stop-color="#7b5ea7" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#7b5ea7" stop-opacity="0.02"/>
     </linearGradient>
   </defs>
   <rect width="800" height="380" fill="#fff"/>
-    <line x1="85" y1="254.0" x2="760" y2="254.0" class="grid"/>
-    <text x="75" y="259.0" class="ylabel">25</text>
-    <line x1="85" y1="188.1" x2="760" y2="188.1" class="grid"/>
-    <text x="75" y="193.1" class="ylabel">50</text>
-    <line x1="85" y1="122.1" x2="760" y2="122.1" class="grid"/>
-    <text x="75" y="127.1" class="ylabel">75</text>
-    <line x1="85" y1="56.1" x2="760" y2="56.1" class="grid"/>
-    <text x="75" y="61.1" class="ylabel">100</text>
-    <line x1="85" y1="-9.9" x2="760" y2="-9.9" class="grid"/>
-    <text x="75" y="-4.9" class="ylabel">125</text>
-      <text x="18" y="177.5" class="axis-label" transform="rotate(-90, 18, 177.5)">GitHub Stars</text>
-    <text x="85.0" y="342" class="xlabel">May</text>
-    <text x="136.9" y="342" class="xlabel">Jun</text>
-    <text x="638.8" y="342" class="xlabel">Jul</text>
-    <text x="85.0" y="360" class="xyear">2026</text>
-  <line x1="85" y1="320" x2="760" y2="320" class="baseline"/>
-  <path d="M 85.0,317.4 C 104.5,312.4 111.0,310.1 136.9,304.2 C 162.9,298.2 141.2,304.5 154.2,301.5 C 167.2,298.6 139.1,305.2 171.5,296.2 C 204.0,287.3 208.3,300.5 240.8,277.8 C 273.2,255.0 245.1,255.3 258.1,235.6 C 271.1,215.8 262.4,231.9 275.4,225.0 C 288.4,218.1 279.7,222.0 292.7,217.1 C 305.7,212.1 290.5,214.8 310.0,211.8 C 329.5,208.8 325.1,211.1 344.6,209.2 C 364.1,207.2 329.5,209.5 361.9,206.5 C 394.4,203.6 372.7,205.2 431.2,201.2 C 489.6,197.3 446.3,199.9 517.7,196.0 C 589.1,192.0 576.1,206.5 621.5,190.7 C 667.0,174.9 625.9,171.6 638.8,153.8 C 651.8,135.9 643.2,162.0 656.2,143.2 C 669.1,124.4 660.5,127.4 673.5,103.6 C 686.4,79.9 677.8,92.7 690.8,79.9 C 703.8,67.0 695.1,81.2 708.1,69.3 C 721.1,57.4 705.9,61.1 725.4,48.2 C 744.9,35.3 747.0,39.9 760.0,35.0 L 760.0,320.0 L 85.0,320.0 Z" fill="url(#g)"/>
-  <path d="M 85.0,317.4 C 104.5,312.4 111.0,310.1 136.9,304.2 C 162.9,298.2 141.2,304.5 154.2,301.5 C 167.2,298.6 139.1,305.2 171.5,296.2 C 204.0,287.3 208.3,300.5 240.8,277.8 C 273.2,255.0 245.1,255.3 258.1,235.6 C 271.1,215.8 262.4,231.9 275.4,225.0 C 288.4,218.1 279.7,222.0 292.7,217.1 C 305.7,212.1 290.5,214.8 310.0,211.8 C 329.5,208.8 325.1,211.1 344.6,209.2 C 364.1,207.2 329.5,209.5 361.9,206.5 C 394.4,203.6 372.7,205.2 431.2,201.2 C 489.6,197.3 446.3,199.9 517.7,196.0 C 589.1,192.0 576.1,206.5 621.5,190.7 C 667.0,174.9 625.9,171.6 638.8,153.8 C 651.8,135.9 643.2,162.0 656.2,143.2 C 669.1,124.4 660.5,127.4 673.5,103.6 C 686.4,79.9 677.8,92.7 690.8,79.9 C 703.8,67.0 695.1,81.2 708.1,69.3 C 721.1,57.4 705.9,61.1 725.4,48.2 C 744.9,35.3 747.0,39.9 760.0,35.0" fill="none" stroke="#7b5ea7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="760.0" cy="35.0" r="5" fill="#7b5ea7" stroke="#fff" stroke-width="2.5"/>
-  <text x="710.0" y="23.0" text-anchor="end" fill="#7b5ea7" font-size="15" font-weight="700" font-family="system-ui, -apple-system, sans-serif">108</text>
+<line x1="70" y1="256.7" x2="765" y2="256.7" stroke="#e2e2e2" stroke-width="1" shape-rendering="crispEdges"/>
+<text x="62" y="261.7" text-anchor="end" fill="#555" font-size="12" font-family="system-ui, -apple-system, sans-serif">25</text>
+<line x1="70" y1="188.4" x2="765" y2="188.4" stroke="#e2e2e2" stroke-width="1" shape-rendering="crispEdges"/>
+<text x="62" y="193.4" text-anchor="end" fill="#555" font-size="12" font-family="system-ui, -apple-system, sans-serif">50</text>
+<line x1="70" y1="120.1" x2="765" y2="120.1" stroke="#e2e2e2" stroke-width="1" shape-rendering="crispEdges"/>
+<text x="62" y="125.1" text-anchor="end" fill="#555" font-size="12" font-family="system-ui, -apple-system, sans-serif">75</text>
+<line x1="70" y1="51.9" x2="765" y2="51.9" stroke="#e2e2e2" stroke-width="1" shape-rendering="crispEdges"/>
+<text x="62" y="56.9" text-anchor="end" fill="#555" font-size="12" font-family="system-ui, -apple-system, sans-serif">100</text>
+<line x1="70" y1="-16.4" x2="765" y2="-16.4" stroke="#e2e2e2" stroke-width="1" shape-rendering="crispEdges"/>
+<text x="62" y="-11.4" text-anchor="end" fill="#555" font-size="12" font-family="system-ui, -apple-system, sans-serif">125</text>
+<text x="16" y="177.5" text-anchor="middle" fill="#777" font-size="12" font-family="system-ui, -apple-system, sans-serif" transform="rotate(-90, 16, 177.5)">GitHub Stars</text>
+<text x="96.7" y="347" text-anchor="middle" fill="#555" font-size="12" font-family="system-ui, -apple-system, sans-serif">May</text>
+<text x="381.9" y="347" text-anchor="middle" fill="#555" font-size="12" font-family="system-ui, -apple-system, sans-serif">Jun</text>
+<text x="702.6" y="347" text-anchor="middle" fill="#555" font-size="12" font-family="system-ui, -apple-system, sans-serif">Jul</text>
+<text x="70.0" y="365" text-anchor="start" fill="#999" font-size="10" font-family="system-ui, -apple-system, sans-serif">2026</text>
+  <line x1="70" y1="325" x2="765" y2="325" stroke="#d0d0d0" stroke-width="1" shape-rendering="crispEdges"/>
+  <path d="M 70.0,322.3 C 90.0,317.1 96.7,314.8 123.5,308.6 C 150.2,302.5 127.9,309.0 141.3,305.9 C 154.6,302.8 125.7,309.6 159.1,300.4 C 192.5,291.2 197.0,304.9 230.4,281.3 C 263.8,257.7 234.8,258.1 248.2,237.6 C 261.6,217.1 252.7,233.8 266.0,226.7 C 279.4,219.5 270.5,223.6 283.8,218.5 C 297.2,213.4 281.6,216.1 301.7,213.0 C 321.7,209.9 317.3,212.3 337.3,210.3 C 357.4,208.2 321.7,210.6 355.1,207.5 C 388.5,204.5 366.3,206.2 426.4,202.1 C 486.6,198.0 442.0,200.7 515.5,196.6 C 589.0,192.5 575.7,207.5 622.4,191.2 C 669.2,174.8 626.9,171.4 640.3,152.9 C 653.6,134.5 644.7,161.5 658.1,142.0 C 671.4,122.5 662.5,125.6 675.9,101.0 C 689.3,76.4 680.4,89.8 693.7,76.4 C 707.1,63.1 698.2,77.8 711.5,65.5 C 724.9,53.2 709.3,57.0 729.4,43.7 C 749.4,30.3 751.6,35.1 765.0,30.0 L 765.0,325.0 L 70.0,325.0 Z" fill="url(#g)"/>
+  <path d="M 70.0,322.3 C 90.0,317.1 96.7,314.8 123.5,308.6 C 150.2,302.5 127.9,309.0 141.3,305.9 C 154.6,302.8 125.7,309.6 159.1,300.4 C 192.5,291.2 197.0,304.9 230.4,281.3 C 263.8,257.7 234.8,258.1 248.2,237.6 C 261.6,217.1 252.7,233.8 266.0,226.7 C 279.4,219.5 270.5,223.6 283.8,218.5 C 297.2,213.4 281.6,216.1 301.7,213.0 C 321.7,209.9 317.3,212.3 337.3,210.3 C 357.4,208.2 321.7,210.6 355.1,207.5 C 388.5,204.5 366.3,206.2 426.4,202.1 C 486.6,198.0 442.0,200.7 515.5,196.6 C 589.0,192.5 575.7,207.5 622.4,191.2 C 669.2,174.8 626.9,171.4 640.3,152.9 C 653.6,134.5 644.7,161.5 658.1,142.0 C 671.4,122.5 662.5,125.6 675.9,101.0 C 689.3,76.4 680.4,89.8 693.7,76.4 C 707.1,63.1 698.2,77.8 711.5,65.5 C 724.9,53.2 709.3,57.0 729.4,43.7 C 749.4,30.3 751.6,35.1 765.0,30.0" fill="none" stroke="#7b5ea7" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="765.0" cy="30.0" r="5" fill="#7b5ea7" stroke="#fff" stroke-width="2.5"/>
+  <text x="715.0" y="18.0" text-anchor="end" fill="#7b5ea7" font-size="15" font-weight="700" font-family="system-ui, -apple-system, sans-serif">108</text>
 </svg>
