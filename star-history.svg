@@ -9,7 +9,7 @@
   </defs>
   <rect width='800' height='533' fill='#fff'/>
   <text x='50%' y='30' text-anchor='middle' fill='#000' font-size='20' font-weight='700' font-family='xkcd'>Star History</text>
-  <rect width='216.5' height='32' x='8' y='5' fill='#fff' fill-opacity='0.85' stroke='#000' stroke-width='2' rx='5' ry='5'/>
+  <rect width='300' height='32' x='8' y='5' fill='#fff' fill-opacity='0.85' stroke='#000' stroke-width='2' rx='5' ry='5'/>
 <rect width='8' height='8' x='15' y='17' rx='2' ry='2' fill='#dd4528'/>
 <text x='30' y='25' fill='#000' font-size='15' font-family='xkcd'>carsteneu/ai-memory-comparison</text>
 <text x='48' y='468.0' text-anchor='end' fill='#000' font-size='16' font-family='xkcd'>0</text>
