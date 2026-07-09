@@ -4,7 +4,7 @@
 > Corrections via PR welcome. No affiliation with any listed project.
 
 **Last updated:** 2026-07-09  
-**Systems:** 80  
+**Systems:** 81  
 **Live:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 
 ---
@@ -21,6 +21,7 @@
 | [Somnigraph](https://github.com/AlexisOlson/somnigraph) | 2 | Python | Apache-2.0 + CC | 2026-03-07 | Research-driven persistent memory — SQLite+vec+FTS5 hybrid retrieval, LightGBM reranker, biological decay, NREM/REM sleep consolidation |
 | [mnemos](https://github.com/arhuman/mnemos) | 4 | Go | MIT | 2026-06-29 | Local cited memory for AI agents — single Go binary indexing Markdown/docs/code into SQLite FTS5 + optional embeddings, served over MCP |
 | [MarsNMe](https://github.com/marsmanleo/MarsNMe) | 5 | JavaScript | MIT | 2026-03 | MCP memory gateway, own Supabase, TTL decay, supersede chains, 5+ platforms |
+| [Engram Alpha](https://github.com/techtheist/engram) | 5 | Rust | MIT | 2026-07-03 | Typed graph memory for coding agents — 8 node types, 7 edge types, SQLite+vec+FTS5, IDE plugins, browser UI |
 | [Midas](https://github.com/vornicx/Midas) | 6 | Python + TS | MIT | 2026-06-04 | Local-first, eval-first memory — no LLM at ingest or query, $0 API, source-traceable recall |
 | [Kage](https://github.com/kage-core/Kage) | 6 | TypeScript | GPL-3.0-only | 2026-05 | Verified memory for coding agents — every memory is checked against the code it cites |
 | [gitmem](https://github.com/gitmem-dev/gitmem) | 9 | TypeScript | MIT | 2026-04 | MCP server, BM25+semantic, 17 schema fields, keywords, local-first |
@@ -108,6 +109,7 @@
 | Somnigraph | 2 | Python | Apache-2.0 + CC | — | 2026-03-07 | 42% |
 | mnemos | 4 | Go | MIT | ✅ | 2026-06-29 | 23% |
 | MarsNMe | 5 | JavaScript | MIT | — | 2026-03 | 25% |
+| Engram Alpha | 5 | Rust | MIT | ✅ | 2026-07-03 | 53% |
 | Midas | 6 | Python + TS | MIT | — | 2026-06-04 | 40% |
 | Kage | 6 | TypeScript | GPL-3.0-only | — | 2026-05 | 67% |
 | gitmem | 9 | TypeScript | MIT | — | 2026-04 | 17% |
@@ -195,6 +197,7 @@
 | Somnigraph | Self-host / Local (MCP) | SQLite + sqlite-vec + FTS5 | MCP (FastMCP) | — | — | ✅ | — | 2 | ✅ | — | — | — | ✅ | — | pip install | free |
 | mnemos | Local CLI + MCP | SQLite (FTS5) | MCP (stdio) + CLI | — | — | ✅ | — | 1 | — | — | — | ✅ | ✅ | — | git clone + make install | free |
 | MarsNMe | MCP server | Supabase+pgvector | MCP | — | — | — | — | 1 | — | — | — | — | ✅ | — | npm install | free |
+| Engram Alpha | Local daemon + IDE plugins + browser UI | SQLite (+ sqlite-vec, FTS5) | MCP + JetBrains plugin + browser | — | ✅ | ✅ | ✅ | 1 | — | — | — | ✅ | ✅ | ✅ | cargo install | free |
 | Midas | Library + MCP server | SQLite | MCP, SDK, LangGraph | — | — | ✅ | ✅ | 3 | ✅ | — | — | — | ✅ | — | pip install / npx | free |
 | Kage | Local CLI + MCP + plugin | JSON packets in repo (.agent_memory/) | MCP, hooks, CLI | — | ✅ | ✅ | ✅ | 0 | ✅ | — | — | — | ✅ | ✅ | npx -y kage-graph-mcp install | free |
 | gitmem | MCP server (npx) | .gitmem/ + Supabase | MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | npx install | free |
@@ -282,6 +285,7 @@
 | Somnigraph | Memory (text row) | — | — | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | — | 20 |
 | mnemos | Chunk (file#section + line range) | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 8 |
 | MarsNMe | Memory entry (28 fields) | — | — | — | — | — | — | — | ✅ | ✅ | — | — | ✅ | — | — | 28 |
+| Engram Alpha | Typed graph node (8 types) + edge (7 types) | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | — | ✅ | — | ✅ | 8 |
 | Midas | Memory (text record) | — | — | — | — | — | — | — | — | ✅ | ✅ | — | — | — | — | 8 |
 | Kage | Memory packet (cited, fingerprinted) | ✅ | — | ✅ | — | ✅ | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 12 |
 | gitmem | Learning entry | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 17 |
@@ -369,6 +373,7 @@
 | Somnigraph | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 1 |
 | mnemos | ✅ | ✅ | ✅ | — | — | ✅ | ✅ | — | 4 | 1 |
 | MarsNMe | — | ✅ | — | — | — | — | — | — | 2 | 5 |
+| Engram Alpha | ✅ | ✅ | ✅ | — | — | — | ✅ | — | 5 | 1 |
 | Midas | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 1 |
 | Kage | ✅ | ✅ | ✅ | — | ✅ | — | ✅ | ✅ | 4 | 3 |
 | gitmem | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
@@ -456,6 +461,7 @@
 | Somnigraph | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ |
 | mnemos | — | — | — | — | — | — | ✅ |
 | MarsNMe | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
+| Engram Alpha | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ |
 | Midas | ✅ | ✅ | ✅ | — | — | ✅ | ✅ |
 | Kage | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | gitmem | — | — | — | — | — | — | ✅ |
@@ -543,6 +549,7 @@
 | Somnigraph | — | — | ✅ | ✅ | ✅ | ✅ | — | — |
 | mnemos | — | ✅ | — | — | — | — | — | — |
 | MarsNMe | — | — | ✅ | — | — | — | — | — |
+| Engram Alpha | — | — | ✅ | ✅ | — | — | — | — |
 | Midas | — | — | ✅ | ✅ | — | — | ✅ | — |
 | Kage | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — |
 | gitmem | — | — | — | — | — | — | — | — |
@@ -630,6 +637,7 @@
 | Somnigraph | ✅ | — | — | — | — | — | — | — | — | — | — |
 | mnemos | ✅ | — | — | — | — | — | — | — | — | — | — |
 | MarsNMe | ✅ | — | — | — | — | ✅ | — | ✅ | ✅ | — | — |
+| Engram Alpha | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | — | — | ✅ |
 | Midas | ✅ | ✅ | — | — | — | ✅ | ✅ | — | — | — | — |
 | Kage | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | — | — | — |
 | gitmem | ✅ | ✅ | — | — | — | ✅ | ✅ | — | — | — | — |
@@ -717,6 +725,7 @@
 | Somnigraph | 85.1 | — | — | — | ✅ |
 | mnemos | — | — | — | — | ✅ |
 | MarsNMe | — | — | — | — | — |
+| Engram Alpha | — | — | — | — | — |
 | Midas | 73.0 | 92.0 | — | 30–40% | ✅ |
 | Kage | — | 96.17 (R@5) | — | — | ✅ |
 | gitmem | — | — | — | — | — |
