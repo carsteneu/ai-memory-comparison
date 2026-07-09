@@ -1157,6 +1157,18 @@ const SYSTEMS = [
     p_claude: true, p_codex: true, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: true, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
     b_locomo: "—", b_longmemeval: "R@5=1.0", b_personamem: "—", b_token: "—", b_methodology: true,
   },
+  {
+    id: "engram-alpha", name: "Engram Alpha", url: "https://github.com/techtheist/engram", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/engram-alpha.md",
+    description: "Typed graph memory for coding agents — 8 node types, 7 edge types, SQLite+vec+FTS5, IDE plugins, browser UI",
+    stars: 5, language: "Rust", license: "MIT", singleBinary: true, created: "2026-07-03",
+    deployment: "Local daemon + IDE plugins + browser UI", storage: "SQLite (+ sqlite-vec, FTS5)", integration: "MCP + JetBrains plugin + browser", proxy: false, webUi: true, offline: true, multiAgent: true, llmFlex: 1, cacheOpt: false, proceduralMemory: false, sandboxedExec: false, scheduledExec: true, privacy: true, export: true, setup: "cargo install", pricing: "free",
+    unit: "Typed graph node (8 types) + edge (7 types)", entities: true, actions: false, keywords: false, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: true, context: true, source: false, originTrust: true, emotional: false, conflict: true, layeredMemory: false, timeTravel: true, schemaFields: 8,
+    fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: false, searchModes: 5, dataSources: 1,
+    decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: true, trustModel: true, explicitForget: true,
+    autoExtract: false, contentPreproc: false, dedup: true, qualityRefine: true, narrative: false, clustering: false, recurrence: false, persona: false,
+    p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: true,
+    b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: false,
+  },
 ];
 
 // cache: 1783602143
