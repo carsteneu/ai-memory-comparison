@@ -1,5 +1,5 @@
 [![GitHub stars](https://img.shields.io/github/stars/carsteneu/ai-memory-comparison?style=flat)](https://github.com/carsteneu/ai-memory-comparison/stargazers)
-[![License](https://img.shields.io/badge/license-CC0-blue?style=flat)](LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue?style=flat)](LICENSE)
 [![Systems](https://img.shields.io/badge/systems-79-blue?style=flat)](https://carsteneu.github.io/ai-memory-comparison/)
 [![Features](https://img.shields.io/badge/features-79-blue?style=flat)](https://carsteneu.github.io/ai-memory-comparison/)
 [![Build](https://github.com/carsteneu/ai-memory-comparison/actions/workflows/build.yml/badge.svg)](https://github.com/carsteneu/ai-memory-comparison/actions/workflows/build.yml)
@@ -43,7 +43,7 @@ Project maintainers: corrections to your project's row get priority review.
 
 ## License
 
-CC0 — Public Domain. Copy it, fork it, use it anywhere.
+MIT — attribution required. Copy it, fork it, use it anywhere.
 
 ## Star History
 
