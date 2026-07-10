@@ -16,6 +16,13 @@
 
 A feature-level comparison of memory systems for AI coding agents. 81 systems compared across 79 features on seven axes: Data Model, Search & Retrieval, Knowledge Lifecycle, Extraction Pipeline, Platform Support, Architecture, and Benchmarks. Every claim backed by a public source citation — no marketing, no inference.
 
+## Star History
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="star-history-dark.svg" />
+  <img alt="Star History Chart" src="star-history.svg" />
+</picture>
+
 ## Quick start
 
 - **Browse the table:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/) — sortable, filterable, underdogs first
@@ -45,12 +52,7 @@ Project maintainers: corrections to your project's row get priority review.
 
 MIT — attribution required. Copy it, fork it, use it anywhere.
 
-## Star History
 
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="star-history-dark.svg" />
-  <img alt="Star History Chart" src="star-history.svg" />
-</picture>
 
 ## Disclosure
 
