@@ -33,7 +33,7 @@ jobs:
 
       - name: Generate light + dark charts
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.STAR_HISTORY_TOKEN }}
         run: |
           python /tmp/mystarhistory/mystarhistory.py --repo ${{ github.repository }} --output star-history.svg --color "#dd4528"
           python /tmp/mystarhistory/mystarhistory.py --repo ${{ github.repository }} --output star-history-dark.svg --color "#dd4528" --dark
