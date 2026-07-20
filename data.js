@@ -1041,7 +1041,7 @@ const SYSTEMS = [
     id: "midas", name: "Midas", url: "https://github.com/vornicx/Midas", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/midas.md",
     description: "Local governed memory + trust plane — source-traceable recall, action guard, conflicts/time-travel, $0 default ingest",
     stars: 12, language: "Python + TS", license: "Apache 2.0", singleBinary: false, created: "2026-06-04",
-    deployment: "Local CLI + MCP + SDK", storage: "SQLite/SQLCipher", integration: "MCP, CLI, SDK, LangGraph", proxy: false, webUi: true, offline: true, multiAgent: true, llmFlex: 3, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: true, privacy: true, export: true, setup: "uv / pip / npx", pricing: "free",
+    deployment: "Local CLI + MCP + SDK", storage: "SQLite/SQLCipher", integration: "MCP (10 clients), CLI, SDK, LangGraph", proxy: false, webUi: true, offline: true, multiAgent: true, llmFlex: 3, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: true, privacy: true, export: true, setup: "uv / pip / npx", pricing: "free",
     unit: "Memory (verbatim text record)", entities: false, actions: false, keywords: false, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: true, originTrust: true, emotional: false, conflict: true, layeredMemory: true, timeTravel: true, schemaFields: 8,
     fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 3, dataSources: 1,
     decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: false, trustModel: true, explicitForget: true,

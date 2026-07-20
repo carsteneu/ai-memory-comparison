@@ -1,7 +1,7 @@
 # Midas — Evidence
 
 > Every ✅ claim is backed by public source code or documentation.
-> Audited 2026-07-20 against public Midas v1.0.0 at commit [`face702`](https://github.com/vornicx/Midas/commit/face702d33b9d37d0e0f521a47ff8d663ece9d38).
+> Audited 2026-07-20 against public Midas v1.0.0 at commit [`face702`](https://github.com/vornicx/Midas/commit/face702d33b9d37d0e0f521a47ff8d663ece9d38), plus the Grok Build integration published at [`bde8569`](https://github.com/vornicx/Midas/commit/bde8569e625a9db37909e78aed796cab56ab209e).
 
 **Repo:** `github.com/vornicx/Midas`
 
@@ -24,13 +24,14 @@
 |---|---|
 | **Deployment** | `Local CLI + MCP server + SDK` |
 | **Storage** | `SQLite` (optional SQLCipher encryption at rest) |
-| **Integration** | `MCP / CLI / SDK / LangGraph` |
+| **Integration** | `MCP (10 client integrations) / CLI / SDK / LangGraph` |
 | **Single binary?** | `no` (Python package; experimental TypeScript port also ships through npm) |
 | **Setup** | `uv tool install "midas-memory[mcp,local]"` then `midas init` · Node: `npx -y midas-memory-mcp` |
 | **Pricing** | `free` (Apache-2.0; no paid tiers or feature gates) |
 | **Storage unit** | `Memory (verbatim text record)` |
 
 - Sources: [README install and setup](https://github.com/vornicx/Midas/blob/face702d33b9d37d0e0f521a47ff8d663ece9d38/README.md#L13-L23), [client and interface overview](https://github.com/vornicx/Midas/blob/face702d33b9d37d0e0f521a47ff8d663ece9d38/README.md#L132-L166), [free and open-source terms](https://github.com/vornicx/Midas/blob/face702d33b9d37d0e0f521a47ff8d663ece9d38/README.md#L346-L351), and [`pyproject.toml`](https://github.com/vornicx/Midas/blob/face702d33b9d37d0e0f521a47ff8d663ece9d38/pyproject.toml#L1-L7).
+- Grok Build sources: [10-client overview](https://github.com/vornicx/Midas/blob/bde8569e625a9db37909e78aed796cab56ab209e/README.md#L144-L147), [manual command](https://github.com/vornicx/Midas/blob/bde8569e625a9db37909e78aed796cab56ab209e/README.md#L176-L183), and [native `midas init` wiring](https://github.com/vornicx/Midas/blob/bde8569e625a9db37909e78aed796cab56ab209e/midas/cli.py#L219-L240).
 
 ---
 
@@ -245,6 +246,10 @@
 ### pi/omp ❌
 
 ### Antigravity ❌
+
+### Additional documented client: Grok Build ✅
+> Grok Build is not a dedicated column in this comparison, so it does not alter the platform score. Midas nevertheless supports it as a first-class `midas init` target, including native add, status detection, and uninstall.
+- Sources: [documented Grok Build setup](https://github.com/vornicx/Midas/blob/bde8569e625a9db37909e78aed796cab56ab209e/README.md#L176-L183), [`midas init` add command](https://github.com/vornicx/Midas/blob/bde8569e625a9db37909e78aed796cab56ab209e/midas/cli.py#L219-L240), [status detection](https://github.com/vornicx/Midas/blob/bde8569e625a9db37909e78aed796cab56ab209e/midas/cli.py#L414-L420), and [native uninstall](https://github.com/vornicx/Midas/blob/bde8569e625a9db37909e78aed796cab56ab209e/midas/cli.py#L689-L699).
 
 ---
 
