@@ -28,8 +28,7 @@
   <line x1="90" y1="80.0" x2="765" y2="80.0" stroke="#eee" stroke-width="1" filter="url(#xkcdify)"/>
   <text x="85" y="85.0" fill="#000" font-size="16" font-family="Handlee, cursive" font-weight="bold" text-anchor="end">150</text>
   <text x="43" y="271.5" fill="#000" font-size="17" font-family="Handlee, cursive" font-weight="bold" transform="rotate(-90, 43, 271.5)">GitHub Stars</text>
-  <text x="108.8" y="488" fill="#000" font-size="16" font-family="Handlee, cursive" font-weight="bold">May 2026</text>
-  <text x="308.8" y="488" fill="#000" font-size="16" font-family="Handlee, cursive" font-weight="bold">Jun 2026</text>
+  <text x="290.0" y="488" fill="#000" font-size="16" font-family="Handlee, cursive" font-weight="bold">May 2026</text>
   <text x="627.5" y="488" fill="#000" font-size="16" font-family="Handlee, cursive" font-weight="bold">Jul 2026</text>
   <text x="50%" y="525" fill="#000" font-size="17" font-family="Handlee, cursive" font-weight="bold">Date</text>
   <line x1="90" y1="80" x2="90" y2="463" stroke="#222" stroke-width="2.5" filter="url(#xkcdify)"/>
