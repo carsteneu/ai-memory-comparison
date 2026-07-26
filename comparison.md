@@ -137,7 +137,7 @@
 | Memora | 433 | Python | MIT | — | 2025-11-11 | 27% |
 | TeleMem | 461 | Python | MIT | — | 2026-05 | 7% |
 | Octopoda-OS | 536 | Python | MIT | — | 2026-04-02 | 15% |
-| vestige | 588 | Rust | AGPL-3.0 | ✅ | 2026-01-25 | 42% |
+| vestige | 588 | Rust | AGPL-3.0 | ✅ | 2026-01-25 | 47% |
 | memoir | 594 | Python | Apache-2.0 | — | 2025-08 | 18% |
 | context-infra | 672 | Python | MIT | — | 2026-03-16 | 23% |
 | MemoMind | 697 | Python | ? | — | 2026-03-15 | 23% |
@@ -401,7 +401,7 @@
 | Memora | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 4 | 1 |
 | TeleMem | — | ✅ | — | — | — | — | — | — | 1 | 1 |
 | Octopoda-OS | — | ✅ | — | — | — | — | — | — | 3 | 1 |
-| vestige | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 8 | 3 |
+| vestige | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 3 |
 | memoir | ✅ | — | — | — | — | — | — | ✅ | 2 | 1 |
 | context-infra | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | MemoMind | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 2 | 3 |
@@ -577,7 +577,7 @@
 | Memora | — | ✅ | ✅ | — | — | — | — | — |
 | TeleMem | ✅ | — | ✅ | — | — | — | — | — |
 | Octopoda-OS | ✅ | — | ✅ | — | — | — | — | — |
-| vestige | — | — | ✅ | — | — | — | — | — |
+| vestige | — | — | ✅ | ✅ | — | ✅ | — | — |
 | memoir | ✅ | — | — | — | — | — | — | — |
 | context-infra | ✅ | ✅ | — | ✅ | ✅ | — | ✅ | ✅ |
 | MemoMind | ✅ | — | ✅ | ✅ | — | — | — | — |
