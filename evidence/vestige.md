@@ -55,6 +55,8 @@ Multiple MCP clients can share one `--data-dir`, but there is no agent identity 
 - [`crates/vestige-core/src/storage/sqlite.rs:2843`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-core/src/storage/sqlite.rs#L2843) — `get_query_embedding()` returns the cached vector on hit, `cache.put(...)` on miss, so repeated queries skip re-embedding
 - [`crates/vestige-core/Cargo.toml:156`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-core/Cargo.toml#L156) — dependency declared under the comment "LRU cache for query embeddings"
 
+*Definitional note, volunteered:* the evidence template's wording ("caches intermediate results — embeddings, search results") is satisfied plainly. `CRITERIA.md`'s wording leans toward prompt/token caching ("prompt cache optimization, context collapse prevention, token-saving"), which Vestige does not do. The two documents differ; happy to take your ruling under whichever governs.
+
 ### Procedural memory ❌
 `MemorySystem::Procedural` ([`memory/mod.rs:81`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-core/src/memory/mod.rs#L81)) is a memory-type classification. Nothing loads, interprets, or executes stored content. The definition requires execution at retrieval time. Not claimed.
 
@@ -147,7 +149,7 @@ times_retrieved, times_useful, emotional_valence, flashbulb, temporal_level,
 has_embedding, embedding_model, suppression_count, suppressed_at, source_envelope
 ```
 
-The current entry lists 5. Counting only fields with a live production writer still gives roughly 20.
+The current entry lists 5. `CRITERIA.md` asks for an "approximate count of distinct structured fields per memory entry", which is 27 as defined. If you prefer to count only fields with a live production writer, the number is ~20 — either way, 5 is off by 4-5x. Both counts offered; your rubric, your pick.
 
 ---
 
@@ -174,14 +176,20 @@ No model thinking or reasoning trace is stored anywhere; a repo-wide grep for `t
 ### Docs search ❌
 The only connectors are GitHub Issues and Redmine issues ([`tools/source_sync.rs:35`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-mcp/src/tools/source_sync.rs#L35)). No documentation ingestion.
 
-### Fact metadata query ❌
-Three query-free structured surfaces exist (`codebase get_context`, `memory_status view='timeline'`, `intention list`), but the main search tool's `query` field is non-optional, so metadata-only queries are not generally available. Not claimed.
+### Fact metadata query ✅ ← **was ❌**
+> Structured queries on memory metadata (e.g. "all unfinished tasks in project X", "all decisions about Y").
+
+- [`crates/vestige-core/src/storage/sqlite.rs:2767`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-core/src/storage/sqlite.rs#L2767) — `get_nodes_by_type_and_tag(node_type, tag_filter, limit)`: a pure metadata query, no text query required
+- [`crates/vestige-mcp/src/tools/codebase_unified.rs:301`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-mcp/src/tools/codebase_unified.rs#L301) — exposed live: `codebase(action='get_context')` returns all `pattern`/`decision` nodes for a codebase tag — literally the criterion's "all decisions about Y"
+- [`crates/vestige-mcp/src/tools/intention_unified.rs:129`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-mcp/src/tools/intention_unified.rs#L129) — `intention(action='list', filter_status='active')` — literally "all unfinished tasks"
+
+*Scope stated plainly:* these are fixed structured surfaces, not a general metadata query language; the main search tool still requires a text query. Claimed because the criterion's own two examples are both directly satisfied.
 
 ### Timeline view ✅
 - [`crates/vestige-mcp/src/tools/timeline.rs:17`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-mcp/src/tools/timeline.rs#L17) — ISO-8601 `start`/`end` range, `node_type`, `tags`, grouped by day
 
-### Search modes (count: 8) ✅
-`recall` lookup / `recall` concrete-literal / `recall` reason / `recall` contradictions / `memory_status` timeline / `memory_status` changelog / `graph` associations / `graph` predict — registered at [`server.rs:254`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-mcp/src/server.rs#L254) and [`:341`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-mcp/src/server.rs#L341). Current entry says 4.
+### Search modes (count: 7) ✅
+`recall` lookup / `recall` reason / `recall` contradictions / `memory_status` timeline / `memory_status` changelog / `graph` associations / `graph` predict. (The auto-detected literal/exact routing inside `recall` is deliberately **not** counted as an eighth mode: it is a parameter, not a distinct tool.) — registered at [`server.rs:254`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-mcp/src/server.rs#L254) and [`:341`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-mcp/src/server.rs#L341). Current entry says 4.
 
 ### Data sources (count: 3) ✅
 Memories/learnings; issue-tracker records (GitHub Issues with folded comment threads, Redmine issues and journals — [`connectors/github.rs:312`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-core/src/connectors/github.rs#L312)); codebase patterns and decisions. Connectors ship on by default ([`release.yml:41`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/.github/workflows/release.yml#L41)). Current entry says 1.
@@ -233,14 +241,27 @@ Every write path is an explicitly invoked MCP tool ([`server.rs:564`](https://gi
 - [`crates/vestige-core/src/storage/sqlite.rs:4066`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-core/src/storage/sqlite.rs#L4066) — `auto_dedup_consolidation` clusters at cosine ≥ 0.85 and merges automatically each cycle
 - [`crates/vestige-mcp/src/tools/dedup.rs:173`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-mcp/src/tools/dedup.rs#L173) — manual `scan`/`plan_merge`/`apply`/`undo` with union-find clustering
 
-### Quality refinement ❌
-An ingest-time confidence composite and contradiction check exist, but there is no distinct post-extraction refinement pass. Not claimed.
+### Quality refinement ✅ ← **was ❌**
+> LLM-based or rule-based quality pass after initial extraction (confidence scoring, contradiction check).
+
+Rule-based, exactly the criterion's parenthetical:
+
+- [`crates/vestige-mcp/src/tools/smart_ingest.rs:186`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-mcp/src/tools/smart_ingest.rs#L186) — 4-channel importance/confidence composite computed for every ingest
+- [`crates/vestige-core/src/advanced/prediction_error.rs:364`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-core/src/advanced/prediction_error.rs#L364) — contradiction check against top-k similar memories inside the same gate, rerouting create → update/supersede/merge
+- [`crates/vestige-core/src/advanced/dreams.rs:1541`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-core/src/advanced/dreams.rs#L1541) — post-hoc: consolidation-generated insights are dropped unless `novelty_score >= config.min_novelty` and confidence passes
+
+No LLM is involved; the criterion explicitly allows rule-based.
 
 ### Narrative generation ❌
 `MemoryCompressor::generate_summary` runs in consolidation step 9, but its result is bound to `if let Some(_compressed)` at [`sqlite.rs:3909`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-core/src/storage/sqlite.rs#L3909) and discarded. Nothing is persisted or surfaced.
 
-### Clustering ❌
-`dedup scan` and `MemoryDreamer::find_clusters` both group by embedding similarity, but there is no topic-cluster model or browsable cluster surface. Not claimed.
+### Clustering ✅ ← **was ❌**
+> Groups related memories by topic, embedding similarity, or semantic relationship.
+
+- [`crates/vestige-core/src/advanced/dreams.rs:1456`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-core/src/advanced/dreams.rs#L1456) — `find_clusters`: connected components over discovered connections (embedding cosine when available, else tag/word Jaccard), running unattended in consolidation step 8 ([`sqlite.rs:3702`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-core/src/storage/sqlite.rs#L3702)); cluster membership persists via `insights.source_memories`
+- [`crates/vestige-mcp/src/tools/dedup.rs:173`](https://github.com/samvallad33/vestige/blob/54f69b369ec478aefddfc72093bf06d0fc9d21a3/crates/vestige-mcp/src/tools/dedup.rs#L173) — on-demand union-find clusters at cosine ≥ threshold
+
+"Embedding similarity" grouping is the criterion's own wording. There is no *topic model*; the criterion does not require one.
 
 ### Recurrence detection ❌
 Tag-count heuristics only, with no session model or same-bug identity matching.
@@ -312,10 +333,10 @@ python3 tests/bm25_baseline.py results/runA-trial-1/corpus-export.json --no-dens
 
 ## Summary of changes
 
-**Upgraded (8):** `cacheOpt`, `scheduledExec`, `export`, `triggerRules`, `conflict`, `p_opencode`, `p_cursor`, `b_methodology`
+**Upgraded (11):** `cacheOpt`, `scheduledExec`, `export`, `triggerRules`, `conflict`, `factQuery`, `qualityRefine`, `clustering`, `p_opencode`, `p_cursor`, `b_methodology`
 
 **Corrected down (4):** `entities`, `deep`, `trustModel`, `autoExtract`
 
-**Counts corrected:** `schemaFields` 5 → 27, `searchModes` 4 → 8, `dataSources` 1 → 3
+**Counts corrected:** `schemaFields` 5 → 27, `searchModes` 4 → 7, `dataSources` 1 → 3
 
-Net effect on coverage: 21/60 → 25/60.
+Net effect on coverage: 21/60 → 28/60.
