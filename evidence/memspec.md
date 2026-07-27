@@ -1,11 +1,11 @@
 # memspec — Evidence
 
 > Every ✅ claim backed by public source code or documentation.
-> Audit date: 2026-07-08. Source: GitHub `siimvene/memspec` main branch (v0.7.1).
+> Audit date: 2026-07-27. Source: GitHub `siimvene/memspec` main branch (v0.9.0).
 
 **Repo:** `siimvene/memspec`
-**Stars:** 1  
-**npm:** `memspec` (latest `v0.7.0` on npm registry; `v0.7.1` tagged on GitHub 2026-07-07)
+**Stars:** 3  
+**npm:** `memspec` (latest `v0.9.0` on npm registry, published 2026-07-27)
 **Language:** TypeScript
 **License:** MIT
 **Created:** 2026-04
@@ -35,8 +35,8 @@
 > No browser or TUI ships with memspec. `memspec status` prints a plain-text health readout only.
 
 ### Offline ✅
-- Source: [`README.md#L30`](https://github.com/siimvene/memspec/blob/main/README.md#L30) — "Zero infrastructure. `npm install -g memspec` + `memspec init`. No accounts, no API keys, no hosted services."
-- Source: [`README.md#L115-L116`](https://github.com/siimvene/memspec/blob/main/README.md#L115-L116) — "FTS5 (default): SQLite full-text + BM25. Zero setup beyond `better-sqlite3`." Local SQLite; no network calls required at read/write time.
+- Source: [`README.md#L32`](https://github.com/siimvene/memspec/blob/main/README.md#L32) — "Zero infrastructure. `npm install -g memspec` + `memspec init`. No accounts, no API keys, no hosted services."
+- Source: [`README.md#L115-L118`](https://github.com/siimvene/memspec/blob/main/README.md#L115-L118) — "FTS5 (default): SQLite full-text + BM25. Zero setup beyond `better-sqlite3`." Local SQLite; no network calls required at read/write time.
 - Source: [`src/lib/fts.ts#L38-L48`](https://github.com/siimvene/memspec/blob/main/src/lib/fts.ts#L38-L48) — FTS5 index runs in-process against a local SQLite file or `:memory:`.
 
 ### Multi-agent ❌
@@ -44,7 +44,7 @@
 
 ### LLM providers (count: 2) ✅
 - Source: [`src/lib/embeddings.ts#L20-L27`](https://github.com/siimvene/memspec/blob/main/src/lib/embeddings.ts#L20-L27) — `ApiProviderConfig` supports `'openai' | 'ollama'` for optional hybrid-search reranking.
-- Source: [`README.md#L26`](https://github.com/siimvene/memspec/blob/main/README.md#L26) — "SQLite FTS5 + BM25 by default; optional dense embeddings rerank via OpenAI-compatible endpoints or Ollama."
+- Source: [`README.md#L28`](https://github.com/siimvene/memspec/blob/main/README.md#L28) — "SQLite FTS5 + BM25 by default; optional dense embeddings rerank via OpenAI-compatible endpoints or Ollama."
 
 ### Cache optimization ✅
 - Source: [`src/lib/fts.ts#L78-L89`](https://github.com/siimvene/memspec/blob/main/src/lib/fts.ts#L78-L89) — `FtsIndex.openOrBuild` reuses an on-disk FTS cache if mtime-fresh; only rebuilds when a source file changed.
@@ -55,17 +55,17 @@
 ### Sandboxed execution ❌
 
 ### Scheduled/autonomous ✅
-- Source: [`README.md#L220-L224`](https://github.com/siimvene/memspec/blob/main/README.md#L220-L224) — `memspec-dream` weekly cron example: `0 22 * * 0  cd /path/to/project && MEMSPEC_DREAM_AUTOCOMMIT=1 memspec-dream`.
+- Source: [`README.md#L252-L258`](https://github.com/siimvene/memspec/blob/main/README.md#L252-L258) — `memspec-dream` weekly cron example: `0 22 * * 0  cd /path/to/project && MEMSPEC_DREAM_AUTOCOMMIT=1 memspec-dream`.
 - Source: [`scripts/dream.sh#L1-L36`](https://github.com/siimvene/memspec/blob/main/scripts/dream.sh#L1-L36) — Periodic reflection script; designed to run headlessly.
 
 ### Privacy/encrypt ✅
 - Source: [`README.md#L5`](https://github.com/siimvene/memspec/blob/main/README.md#L5) — "No backend service. No hosted memory API. No vendor lock-in." Data lives entirely on disk under `.memspec/`.
-- Source: [`README.md#L133`](https://github.com/siimvene/memspec/blob/main/README.md#L133) — Trust profiles: "Secrets: never stored. Anywhere. Ever."
+- Source: [`README.md#L135`](https://github.com/siimvene/memspec/blob/main/README.md#L135) — Trust profiles: "Secrets: never stored. Anywhere. Ever."
 - Source: [`package.json#L48-L56`](https://github.com/siimvene/memspec/blob/main/package.json#L48-L56) — Dependencies: MCP SDK, SQLite driver, CLI parser, YAML, ULID, Zod — no telemetry or analytics.
 
 ### Data export ✅
 - Source: [`src/mcp.ts#L450-L479`](https://github.com/siimvene/memspec/blob/main/src/mcp.ts#L450-L479) — `memspec_export` tool: JSONL / GraphML / DOT of the memory graph.
-- Source: [`README.md#L196`](https://github.com/siimvene/memspec/blob/main/README.md#L196) — CLI mirror: `memspec export --format <jsonl|graphml|dot>`.
+- Source: [`README.md#L232`](https://github.com/siimvene/memspec/blob/main/README.md#L232) — CLI mirror: `memspec export --format <jsonl|graphml|dot>`.
 
 ---
 
@@ -116,6 +116,7 @@
 - Source: [`README.md#L24`](https://github.com/siimvene/memspec/blob/main/README.md#L24) — "Layered stores (v0.6+). A project `.memspec/` and a global `~/.memspec/` merge at retrieval time — project records take priority, global merges as a lower layer."
 - Source: [`SPEC.md#L612-L672`](https://github.com/siimvene/memspec/blob/main/SPEC.md#L612-L672) — §12 Store Composition: named layers with priority, writable flag, precedence rules for search and write.
 - Source: [`src/lib/composite-store.ts`](https://github.com/siimvene/memspec/blob/main/src/lib/composite-store.ts) — `CompositeStore.forCwd(cwd)` implements layered retrieval.
+- Source: [`README.md#L171-L197`](https://github.com/siimvene/memspec/blob/main/README.md#L171-L197) — v0.9 multi-store: `.memspec.yaml` pointer file binds a store-less repo to explicit layers; `claims:` route ingestion by owned working directories, unclaimed content held local ([`src/lib/registry.ts`](https://github.com/siimvene/memspec/blob/main/src/lib/registry.ts)).
 
 ### Time-travel ✅
 - Source: [`src/lib/schema.ts#L82-L85`](https://github.com/siimvene/memspec/blob/main/src/lib/schema.ts#L82-L85) — Optional `valid_from` / `valid_to` ISO8601 fields on every record: world-state truth window, orthogonal to `check_by`.
@@ -138,11 +139,11 @@
 ### Semantic/vector ✅
 - Source: [`src/lib/embeddings.ts#L8-L13`](https://github.com/siimvene/memspec/blob/main/src/lib/embeddings.ts#L8-L13) — `EmbeddingProvider` interface for hybrid re-ranking.
 - Source: [`src/lib/embeddings.ts#L89-L103`](https://github.com/siimvene/memspec/blob/main/src/lib/embeddings.ts#L89-L103) — `cosineSimilarity` for vector re-rank against BM25 candidates.
-- Source: [`README.md#L115-L116`](https://github.com/siimvene/memspec/blob/main/README.md#L115-L116) — CLI init flag `--search-engine hybrid` opts into embeddings.
+- Source: [`README.md#L115-L118`](https://github.com/siimvene/memspec/blob/main/README.md#L115-L118) — CLI init flag `--search-engine hybrid` opts into embeddings.
 
 ### Hybrid (BM25+Vec) ✅
-- Source: [`README.md#L26`](https://github.com/siimvene/memspec/blob/main/README.md#L26) — "Hybrid search. SQLite FTS5 + BM25 by default; optional dense embeddings rerank via OpenAI-compatible endpoints or Ollama."
-- Source: [`README.md#L114-L118`](https://github.com/siimvene/memspec/blob/main/README.md#L114-L118) — Two engines picked at `memspec init`: FTS5 (default) or Hybrid.
+- Source: [`README.md#L28`](https://github.com/siimvene/memspec/blob/main/README.md#L28) — "Hybrid search. SQLite FTS5 + BM25 by default; optional dense embeddings rerank via OpenAI-compatible endpoints or Ollama."
+- Source: [`README.md#L114-L119`](https://github.com/siimvene/memspec/blob/main/README.md#L114-L119) — Two engines picked at `memspec init`: FTS5 (default) or Hybrid.
 - Source: [`src/cli.ts#L37`](https://github.com/siimvene/memspec/blob/main/src/cli.ts#L37) — `--search-engine <engine>` init flag: `fts5 | hybrid`.
 
 ### Deep (incl. thinking) ❌
@@ -199,7 +200,7 @@
 - Source: [`context.jsonld#L150-L173`](https://github.com/siimvene/memspec/blob/main/context.jsonld#L150-L173) — SKOS mapping of the four witness classes with definitions.
 
 ### Explicit forget ✅
-- Source: [`README.md#L195`](https://github.com/siimvene/memspec/blob/main/README.md#L195) — `memspec sweep` — interactive per-item retirement, "the only path that physically removes items."
+- Source: [`README.md#L231`](https://github.com/siimvene/memspec/blob/main/README.md#L231) — `memspec sweep` — interactive per-item retirement, "the only path that physically removes items."
 - Source: [`SPEC.md#L185`](https://github.com/siimvene/memspec/blob/main/SPEC.md#L185) — "Physical retirement is `memspec sweep` — interactive, one prompt per candidate, CLI-only by design."
 - Source: [`src/commands/sweep.ts`](https://github.com/siimvene/memspec/blob/main/src/commands/sweep.ts) — Implementation.
 
@@ -207,22 +208,27 @@
 
 ## Extraction Pipeline
 
-### Auto-extraction ❌
-> memspec is agent-authored only; no conversation-mining pipeline. Writes require explicit `memspec_remember` / `memspec_observe` calls.
+### Auto-extraction ✅
+- Source: [`README.md#L26`](https://github.com/siimvene/memspec/blob/main/README.md#L26) — "Transcript ingestion (v0.9+). `normalize` → `distill` → `reduce` turns raw harness session logs (Claude Code, Codex) into weekly experience digests" — no manual save calls in the pipeline.
+- Source: [`src/commands/normalize.ts`](https://github.com/siimvene/memspec/blob/main/src/commands/normalize.ts) — harness session logs → structured trajectory records (deterministic, watermark-driven, per-harness adapters).
+- Source: [`src/commands/distill.ts#L111-L165`](https://github.com/siimvene/memspec/blob/main/src/commands/distill.ts#L111-L165) — automatic per-session LLM distillation into structured digests (what happened / decisions / fixes / discoveries).
+> Scope note: sessions are auto-extracted into structured *digests*; promotion into memory records stays proposal-gated (the dream pass emits ready-to-run `remember` proposals under `UNRECORDED WORK`, human-reviewed).
 
-### Content-aware preprocessing ❌
-> Bodies are stored as-authored; no type-specific truncation (code vs text) at ingest.
+### Content-aware preprocessing ✅
+- Source: [`src/commands/normalize.ts#L47-L50`](https://github.com/siimvene/memspec/blob/main/src/commands/normalize.ts#L47-L50) — type-differentiated truncation budgets at ingest: tool input 500 / tool output 1500 / reasoning 2000 / natural text 10000 chars.
+- Source: [`src/commands/distill.ts#L46`](https://github.com/siimvene/memspec/blob/main/src/commands/distill.ts) — prompt budget (~400k chars) keeps head+tail of oversized sessions and elides the middle; secret-shaped strings redacted before extraction.
 
 ### Deduplication ✅
 - Source: [`src/commands/remember.ts#L170-L179`](https://github.com/siimvene/memspec/blob/main/src/commands/remember.ts#L170-L179) — `remember` refuses near-duplicate writes when an active same-type record with the same normalised title exists; points at `memspec supersede`.
-- Source: [`README.md#L25`](https://github.com/siimvene/memspec/blob/main/README.md#L25) — "Dedup-aware writes. `remember` refuses near-duplicate claims and points at the existing record, so memory accretes corrections via `supersede` instead of silent duplicates."
+- Source: [`README.md#L27`](https://github.com/siimvene/memspec/blob/main/README.md#L27) — "Dedup-aware writes. `remember` refuses near-duplicate claims and points at the existing record, so memory accretes corrections via `supersede` instead of silent duplicates."
 - Source: [`src/mcp.ts#L294`](https://github.com/siimvene/memspec/blob/main/src/mcp.ts#L294) — `merge_from` on supersede collapses N duplicates into one survivor atomically.
 
 ### Quality refinement ❌
 > No LLM-based post-extraction quality pass. The dream loop (v0.7) is a human-reviewed proposal surface, not an automated quality filter.
 
-### Narrative generation ❌
-> No session summary or handover-narrative generator ships. Dream is proposal-focused, not narrative.
+### Narrative generation ✅
+- Source: [`src/commands/distill.ts#L158-L162`](https://github.com/siimvene/memspec/blob/main/src/commands/distill.ts#L158-L162) — per-session digest with fixed narrative sections: WHAT HAPPENED / DECISIONS / PROBLEMS-FIXES / DISCOVERED / UNRESOLVED.
+- Source: [`README.md#L264-L279`](https://github.com/siimvene/memspec/blob/main/README.md#L264-L279) — `reduce` merges session digests into a committed weekly experience digest (handover narrative per machine).
 
 ### Clustering ❌
 
@@ -236,13 +242,13 @@
 ## Platform Support
 
 ### Claude Code ✅
-- Source: [`README.md#L27`](https://github.com/siimvene/memspec/blob/main/README.md#L27) — "MCP server. Eleven tools, first-class integration with Claude Code, Cursor, Codex."
-- Source: [`README.md#L144`](https://github.com/siimvene/memspec/blob/main/README.md#L144) — `memspec init` auto-creates `.mcp.json` for host tool discovery (Claude Code, Cursor).
-- Source: [`README.md#L199-L206`](https://github.com/siimvene/memspec/blob/main/README.md#L199-L206) — Two Claude Code hooks installed at `~/.claude/hooks/`: `memspec-session-start.js` and `memspec-consolidate.js`.
+- Source: [`README.md#L29`](https://github.com/siimvene/memspec/blob/main/README.md#L29) — "MCP server. Eleven tools, first-class integration with Claude Code, Cursor, Codex."
+- Source: [`README.md#L146`](https://github.com/siimvene/memspec/blob/main/README.md#L146) — `memspec init` auto-creates `.mcp.json` for host tool discovery (Claude Code, Cursor).
+- Source: [`README.md#L235-L242`](https://github.com/siimvene/memspec/blob/main/README.md#L235-L242) — Two Claude Code hooks installed at `~/.claude/hooks/`: `memspec-session-start.js` and `memspec-consolidate.js`.
 - Source: [`hooks/memspec-session-start.js`](https://github.com/siimvene/memspec/blob/main/hooks/memspec-session-start.js) — Session-start hook (emits Claude Code `SessionStart` `hookEventName`).
 
 ### Codex ✅
-- Source: [`README.md#L27`](https://github.com/siimvene/memspec/blob/main/README.md#L27) — "MCP server. Eleven tools, first-class integration with Claude Code, Cursor, Codex."
+- Source: [`README.md#L29`](https://github.com/siimvene/memspec/blob/main/README.md#L29) — "MCP server. Eleven tools, first-class integration with Claude Code, Cursor, Codex."
 
 ### OpenCode ❌
 > Not named in README/SPEC.
@@ -252,8 +258,8 @@
 ### Copilot ❌
 
 ### Cursor ✅
-- Source: [`README.md#L27`](https://github.com/siimvene/memspec/blob/main/README.md#L27) — "first-class integration with Claude Code, Cursor, Codex."
-- Source: [`README.md#L144`](https://github.com/siimvene/memspec/blob/main/README.md#L144) — Auto-created `.mcp.json` for host tool discovery names Cursor explicitly.
+- Source: [`README.md#L29`](https://github.com/siimvene/memspec/blob/main/README.md#L29) — "first-class integration with Claude Code, Cursor, Codex."
+- Source: [`README.md#L146`](https://github.com/siimvene/memspec/blob/main/README.md#L146) — Auto-created `.mcp.json` for host tool discovery names Cursor explicitly.
 
 ### Windsurf ❌
 
@@ -270,11 +276,13 @@
 
 ## Benchmarks
 
-### LoCoMo ❌
-- Score: `—`
+### LoCoMo ✅
+- Score: Recall@5 / Recall@10 / MRR = 0.700 / 0.700 / 0.675 on cat-2 Temporal slice (n=20, seed=42; retrieval-only protocol, no LLM in the loop).
+- Source: [`BENCHMARK.md`](https://github.com/siimvene/memspec/blob/main/BENCHMARK.md) — v0.9.0 rerun 2026-07-27; dataset `snap-research/locomo` `locomo10.json` sha256-pinned; identical scores to the v0.5-era multi-condition runs (full analysis at git tag `v0.6.3`).
 
 ### LongMemEval ✅
-- Score: Recall@5 / Recall@10 / MRR = 1.000 on Knowledge-Update slice (n=20); saturated ceiling — dataset does not differentiate strategies.
+- Score: Recall@5 / Recall@10 / MRR = 1.000 on Knowledge-Update slice (n=20, seed=42; v0.9.0 rerun 2026-07-27); saturated ceiling — dataset does not differentiate strategies.
+- Source: [`BENCHMARK.md`](https://github.com/siimvene/memspec/blob/main/BENCHMARK.md) — methodology, dataset sha256, and rerun instructions; restored to main with the v0.9.0 results.
 - Source: [`CHANGELOG.md#L197-L220`](https://github.com/siimvene/memspec/blob/main/CHANGELOG.md#L197-L220) — v0.5.0 release notes: `BENCHMARK.md` + `scripts/run-bench.mjs` "homegrown retrieval-only eval harness running against the public LongMemEval-S dataset. Recall@5, Recall@10, MRR, plus latency p50/p99."
 - Note: Honest finding in the changelog — retrieval saturates because ground-truth tags are lexically distinctive; harness commits methodology + baseline for future regressions.
 

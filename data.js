@@ -1148,14 +1148,14 @@ const SYSTEMS = [
   {
     id: "memspec", name: "memspec", url: "https://github.com/siimvene/memspec", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/memspec.md",
     description: "Git-backed project memory for AI coding agents — Markdown canonical, SQLite FTS5 derived index, optional embeddings",
-    stars: 1, language: "TypeScript", license: "MIT", singleBinary: false, created: "2026-04",
+    stars: 3, language: "TypeScript", license: "MIT", singleBinary: false, created: "2026-04",
     deployment: "Local CLI + MCP + Library", storage: "Markdown (canonical) + SQLite FTS5 (derived) + optional embeddings", integration: "MCP + CLI", proxy: false, webUi: false, offline: true, multiAgent: false, llmFlex: 2, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: true, privacy: true, export: true, setup: "npm install", pricing: "free",
     unit: "Memory record (fact / decision / procedure / observation)", entities: false, actions: false, keywords: true, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: true, source: true, originTrust: true, emotional: false, conflict: true, layeredMemory: true, timeTravel: true, schemaFields: 20,
     fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 3, dataSources: 4,
     decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: false, trustModel: true, explicitForget: true,
-    autoExtract: false, contentPreproc: false, dedup: true, qualityRefine: false, narrative: false, clustering: false, recurrence: false, persona: false,
+    autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: false, narrative: true, clustering: false, recurrence: false, persona: false,
     p_claude: true, p_codex: true, p_opencode: false, p_gemini: false, p_copilot: false, p_cursor: true, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
-    b_locomo: "—", b_longmemeval: "R@5=1.0", b_personamem: "—", b_token: "—", b_methodology: true,
+    b_locomo: "R@5=0.70", b_longmemeval: "R@5=1.0", b_personamem: "—", b_token: "—", b_methodology: true,
   },
   {
     id: "engram-alpha", name: "Engram Alpha", url: "https://github.com/techtheist/engram", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/engram-alpha.md",
