@@ -1111,7 +1111,7 @@ const SYSTEMS = [
   },
   {
     id: "context-keeper", name: "context-keeper", url: "https://github.com/jarmstrong158/context-keeper", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/context-keeper.md",
-    description: "MCP server for project memory — structured decisions, pipelines, constraints with schema-enforced rationale, lexical+semantic hybrid retrieval",
+    description: "MCP server for project memory — schema-enforced decisions, constraints and pipelines with the rationale behind them, supersession history, and a reproducible retrieval benchmark",
     stars: 0, language: "Python", license: "MIT", singleBinary: false, created: "2026-04-01",
     deployment: "Local / MCP", storage: "JSON files (.context/)", integration: "MCP", proxy: false, webUi: false, offline: true, multiAgent: false, llmFlex: 2, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: false, privacy: true, export: true, setup: "pip install context-keeper-mcp", pricing: "free",
     unit: "Entry (decision / pipeline / constraint)", entities: false, actions: true, keywords: true, anticipatedQueries: true, triggerRules: true, domainTag: false, taskType: false, context: true, source: true, originTrust: true, emotional: false, conflict: true, layeredMemory: false, timeTravel: true, schemaFields: 13,

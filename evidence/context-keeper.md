@@ -1,8 +1,8 @@
 # context-keeper — Evidence
 
 > Every ✅ claim backed by public source code or documentation.
-> Sources: GitHub repo `jarmstrong158/context-keeper`. Version observed: 0.18.0 (pyproject.toml), commit `7bfd900`.
-> Citations added or revised in this refresh are permalinked to `7bfd900` per `evidence/README.md` rule 4. Older citations reference file + symbol rather than line, and were re-checked against `7bfd900` — every cited symbol still resolves.
+> Sources: GitHub repo `jarmstrong158/context-keeper`. Version observed: 0.19.0 (pyproject.toml), commit `558dfbc`.
+> Citations added or revised in this refresh are permalinked to `558dfbc` per `evidence/README.md` rule 4. Older citations reference file + symbol rather than line, and were re-checked against `558dfbc` — every cited symbol still resolves.
 > Disclosure: submitted by the project author.
 
 **Repo:** `github.com/jarmstrong158/context-keeper`
@@ -275,6 +275,20 @@
 
 ### PersonaMem ❌
 - Score: `—`
+
+### Supersession is first-class (v0.19) ✅
+
+- `record_entry` returns a write-time advisory naming active same-kind entries covering the same subject, scored on shared tags and whole-component scope overlap — `server.py` `_supersession_candidates` / `_attach_capture_advisories`. Advisory only: it never links, never blocks the write, never mutates the older entry.
+- `get_context` prepends one line for the **immediate** predecessor of any entry that superseded something (what it said, why it changed) — `server.py` `_predecessor_line` / `_predecessor_map`. One level deep; under budget pressure the line is dropped and an id trail kept, never the entry.
+- The remote Worker emits a byte-identical line (`context-keeper-remote/src/entries.ts` `predecessorLine`), so `get_context` does not diverge between stdio and HTTP transports.
+- `scripts/survey_supersessions.py` proposes backfill links **read-only** — opens no store for writing, calls no lifecycle tool.
+
+### Retrieval benchmark, reproducible (v0.19) ✅
+
+- `evals/run_retrieval_eval.py` — 59 cases over a **frozen** 7-store corpus committed at `evals/fixtures/corpus`: 44 positive, 9 negative (plausible in-domain questions with no answer), 6 asking for superseded history.
+- Questions are authored from the PROBLEM each entry solves, never reworded from its summary — the stated control against paraphrase contamination inflating lexical recall.
+- Measured 2026-08-05: lexical recall@5 0.417 / MRR 0.370; embedding blend (w=150) recall@5 0.644 / MRR 0.553. Strict recall@k (|gold ∩ top-k| / |gold|), hit@k reported alongside.
+- `tests/test_retrieval_eval.py` pins the lexical arm and runs in CI against the committed corpus.
 
 ### Token reduction ✅
 - Score: `94-97% on large stores (78 entries: ~75k tokens dumped vs ~2k injected)`
