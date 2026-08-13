@@ -1,7 +1,8 @@
 # context-keeper — Evidence
 
 > Every ✅ claim backed by public source code or documentation.
-> Sources: GitHub repo `jarmstrong158/context-keeper`. Version observed: 0.9.0 (pyproject.toml). Lines may shift; pinned to `main` for readability.
+> Sources: GitHub repo `jarmstrong158/context-keeper`. Version observed: 0.19.0 (pyproject.toml), commit `558dfbc`.
+> Citations added or revised in this refresh are permalinked to `558dfbc` per `evidence/README.md` rule 4. Older citations reference file + symbol rather than line, and were re-checked against `558dfbc` — every cited symbol still resolves.
 > Disclosure: submitted by the project author.
 
 **Repo:** `github.com/jarmstrong158/context-keeper`
@@ -108,7 +109,8 @@
 - `server.py` (`_find_similar_entries`) — "surface near-duplicates and potential contradictions at capture time"; every `record_*` response includes `similar_entries` when overlap is detected
 - `server.py` (`_SIMILAR_NOTE`) — "if it contradicts one, resolve the conflict (deprecate_entry with superseded_by)"
 - `CLAUDE.md` (Acting on similar_entries) — explicit resolution protocol: restatement → deprecate; contradiction → supersede; distinct → link
-- Note: detection is lexical overlap (word-set Jaccard); judging duplicate-vs-contradiction is delegated to the agent
+- [`server.py:1261`](https://github.com/jarmstrong158/context-keeper/blob/7bfd900a99117d0faa40ca142bb02b441e036c97/server.py#L1261) (`_classify_overlap`) — since v0.12 each flagged pair is additionally labelled `likely_restatement` or `likely_contradiction`, so the duplicate-vs-contradiction call is made by the server, not left to the agent
+- Note: overlap detection is lexical (word-set Jaccard), and the restatement/contradiction label is a polarity heuristic — see Contradiction detection
 
 ### Layered memory ❌
 
@@ -168,8 +170,12 @@
 - `server.py` (`handle_deprecate_entry`) — `superseded_by` field links a deprecated decision to its replacement
 - `README.md` — "`deprecate_entry` — Retire an entry with reason"; decisions carry `superseded_by` from creation
 
-### Contradiction detection ❌
-- (Capture-time similar-entry surfacing flags heavy overlap for the agent to judge — see Conflict surfacing — but there is no semantic contradiction detection.)
+### Contradiction detection ✅
+- Added in v0.12, after this file was first submitted at v0.9.0.
+- [`server.py:1261`](https://github.com/jarmstrong158/context-keeper/blob/7bfd900a99117d0faa40ca142bb02b441e036c97/server.py#L1261) (`_classify_overlap`) — "Label a high-overlap entry pair as a likely contradiction or restatement. Returns `likely_contradiction` when the two texts hold opposite polarity — a negation marker present on one side only, or each side holding an opposing member of an antonym pair"
+- [`server.py:1366`](https://github.com/jarmstrong158/context-keeper/blob/7bfd900a99117d0faa40ca142bb02b441e036c97/server.py#L1366) (`_attach_similar`) — a `likely_contradiction` match raises a top-level `contradiction_note` on the `record_*` result: "the new entry appears to reverse an existing rule rather than restate it"
+- Runs on every `record_*` with no agent prompting, so detection is automatic
+- Limits, stated plainly: this is a lexical polarity heuristic with no LLM call and no embedding step; it is advisory only (the write always proceeds); and it is evaluated only on pairs Jaccard has already flagged as overlapping — so it detects the *direction* of a known overlap, not contradictions between entries that share little vocabulary. `CLAUDE.md` tells the agent to "confirm the reversal is real before acting."
 
 ### Quarantine ❌
 
@@ -193,10 +199,13 @@
 
 ### Content-aware preprocessing ❌
 
-### Deduplication ⚠️ (detects; agent merges)
-- `server.py` (`_find_similar_entries`) — automatic near-duplicate detection on every `record_*` (word-set Jaccard vs all active entries, configurable `similar_threshold`)
-- `CLAUDE.md` — merge protocol: "Restatement — deprecate the entry you just created and `update_entry` the original instead"
-- ⚠️ Detection is automatic; the merge itself is performed by the agent following the returned guidance, not by the server
+### Deduplication ✅
+- The ⚠️ here was accurate at v0.9.0 — the merge was performed by the agent. Server-side merge landed in v0.14.
+- Detects: [`server.py:1287`](https://github.com/jarmstrong158/context-keeper/blob/7bfd900a99117d0faa40ca142bb02b441e036c97/server.py#L1287) (`_find_similar_entries`) — automatic near-duplicate detection on every `record_*` (word-set Jaccard vs all active entries, configurable `similar_threshold`)
+- Merges: [`server.py:2906`](https://github.com/jarmstrong158/context-keeper/blob/7bfd900a99117d0faa40ca142bb02b441e036c97/server.py#L2906) — `deprecate_entry(merge_into=...)` calls [`_merge_entry_fields`](https://github.com/jarmstrong158/context-keeper/blob/7bfd900a99117d0faa40ca142bb02b441e036c97/server.py#L2837), folding the deprecated entry's unique content into the surviving target and writing both sides in a single atomic write. The target is fully validated before any write, "so a bad merge_into never leaves a half-applied state"
+- Schema: [`server.py:467`](https://github.com/jarmstrong158/context-keeper/blob/7bfd900a99117d0faa40ca142bb02b441e036c97/server.py#L467) — `merge_into` parameter on `deprecate_entry`
+- Tests: [`tests/test_server.py:967`](https://github.com/jarmstrong158/context-keeper/blob/7bfd900a99117d0faa40ca142bb02b441e036c97/tests/test_server.py#L967) — merge, self-merge rejection, missing target, cross-type rejection
+- Limit, stated plainly: detection is automatic, but the merge is agent-invoked — the server does not merge autonomously. Reading the criterion as not requiring autonomy, since `Decay/forgetting` specifies "Must be automatic, not manual" and this row does not. If that bar is intended here too, ⚠️ is the correct mark.
 
 ### Quality refinement ✅
 - `server.py` (`handle_verify_quality`) — rule-based quality pass over all entries: flags `legacy` (pre-v0.4 schema), `thin_reason` (rationale below threshold), `no_tags`, `isolated` (tag overlap but no links)
@@ -266,6 +275,20 @@
 
 ### PersonaMem ❌
 - Score: `—`
+
+### Supersession is first-class (v0.19) ✅
+
+- `record_entry` returns a write-time advisory naming active same-kind entries covering the same subject, scored on shared tags and whole-component scope overlap — `server.py` `_supersession_candidates` / `_attach_capture_advisories`. Advisory only: it never links, never blocks the write, never mutates the older entry.
+- `get_context` prepends one line for the **immediate** predecessor of any entry that superseded something (what it said, why it changed) — `server.py` `_predecessor_line` / `_predecessor_map`. One level deep; under budget pressure the line is dropped and an id trail kept, never the entry.
+- The remote Worker emits a byte-identical line (`context-keeper-remote/src/entries.ts` `predecessorLine`), so `get_context` does not diverge between stdio and HTTP transports.
+- `scripts/survey_supersessions.py` proposes backfill links **read-only** — opens no store for writing, calls no lifecycle tool.
+
+### Retrieval benchmark, reproducible (v0.19) ✅
+
+- `evals/run_retrieval_eval.py` — 59 cases over a **frozen** 7-store corpus committed at `evals/fixtures/corpus`: 44 positive, 9 negative (plausible in-domain questions with no answer), 6 asking for superseded history.
+- Questions are authored from the PROBLEM each entry solves, never reworded from its summary — the stated control against paraphrase contamination inflating lexical recall.
+- Measured 2026-08-05: lexical recall@5 0.417 / MRR 0.370; embedding blend (w=150) recall@5 0.644 / MRR 0.553. Strict recall@k (|gold ∩ top-k| / |gold|), hit@k reported alongside.
+- `tests/test_retrieval_eval.py` pins the lexical arm and runs in CI against the committed corpus.
 
 ### Token reduction ✅
 - Score: `94-97% on large stores (78 entries: ~75k tokens dumped vs ~2k injected)`
