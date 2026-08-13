@@ -13,9 +13,9 @@
 
 | System | Stars | Lang | License | Created | Description |
 |---|---:|---|---|---|---|
-| [context-keeper](https://github.com/jarmstrong158/context-keeper) | ? | Python | MIT | 2026-04-01 | MCP server for project memory — schema-enforced decisions, constraints and pipelines with the rationale behind them, supersession history, and a reproducible retrieval benchmark |
 | [Artesian](https://github.com/aquifer-labs/artesian) | ? | Rust | Apache-2.0 | 2026-06-13 | Local-first ACC memory controller — bounded committed context with admission audit log, 7 search modes, transactional multi-writer |
 | [slowave](https://github.com/mrsalty/slowave) | 1 | Python | AGPL-3.0 | 2026-06-08 | Zero-LLM shared local memory layer — one private memory across Claude Code, Cursor, Cline, Windsurf |
+| [context-keeper](https://github.com/jarmstrong158/context-keeper) | 1 | Python | MIT | 2026-04-01 | MCP server for project memory — schema-enforced decisions, constraints and pipelines with the rationale behind them, supersession history, and a reproducible retrieval benchmark |
 | [Somnigraph](https://github.com/AlexisOlson/somnigraph) | 2 | Python | Apache-2.0 + CC | 2026-03-07 | Research-driven persistent memory — SQLite+vec+FTS5 hybrid retrieval, LightGBM reranker, biological decay, NREM/REM sleep consolidation |
 | [memspec](https://github.com/siimvene/memspec) | 3 | TypeScript | MIT | 2026-04 | Git-backed project memory for AI coding agents — Markdown canonical, SQLite FTS5 derived index, optional embeddings |
 | [mnemos](https://github.com/arhuman/mnemos) | 4 | Go | MIT | 2026-06-29 | Local cited memory for AI agents — single Go binary indexing Markdown/docs/code into SQLite FTS5 + optional embeddings, served over MCP |
@@ -29,8 +29,8 @@
 | [fidelis](https://github.com/hermes-labs-ai/fidelis) | 21 | Python | MIT | 2026-03 | Non-LLM agent memory, BM25 + rerank, 83.2% R@1 on LongMemEval-S, depends on mem0 |
 | [Origin](https://github.com/7xuanlu/origin) | 31 | Rust | Apache 2.0 | 2026-04-19 | Local-first Rust daemon with git-versioned memories, distilled wiki pages, and knowledge graph |
 | [Continuity v2](https://github.com/Haustorium12/continuity-v2) | 32 | Python | MIT | 2026-04 | SSE proxy for Claude Code, FTS5+ANN search, compaction hooks, thread recall via BFS graph |
-| [pond](https://github.com/tenequm/pond) | 35 | Rust | Apache-2.0 | 2026-05-07 | Lossless session archive and search for AI agents — Lance storage, local embeddings, every session from every client in one pond |
 | [YesMem](https://github.com/carsteneu/yesmem) | 38 | Go | Apache 2.0 | 2026-04-09 | Project continuity layer with deepest data model and proxy collapse |
+| [pond](https://github.com/tenequm/pond) | 39 | Rust | Apache-2.0 | 2026-05-07 | Lossless session archive and search for AI agents — Lance storage, local embeddings, every session from every client in one pond |
 | [Noosphere](https://github.com/SweetSophia/noosphere) | 53 | TypeScript | MIT | 2026-04-11 | Universal wiki + memory layer, multi-provider recall orchestration, conflict resolution, promotion pipeline, Obsidian sync |
 | [second-brain](https://github.com/rahilp/second-brain-cloudflare) | 91 | TypeScript | MIT | 2026-05-17 | Serverless Cloudflare memory, time-decay reranking, smart merge LLM, one-click deploy |
 | [Jumbo](https://github.com/jumbocontext/jumbo.cli) | 102 | TypeScript | AGPL-3.0 | 2025-12-05 | Goal-driven memory system that serves the right context at the right time |
@@ -48,10 +48,10 @@
 | [Memory Palace](https://github.com/AGI-is-going-to-arrive/Memory-Palace) | 312 | Python | MIT | 2026-02-19 | Forgetting engine, snapshot rollback, intent-aware search, 4 maintenance engines |
 | [memorix](https://github.com/memorix-ai/memorix) | 433 | Python | Apache 2.0 | 2026-02-14 | Generic vector-store SDK wrapping FAISS/Qdrant — NOT agent memory |
 | [TeleMem](https://github.com/Tele-AI/TeleMem) | 461 | Python | MIT | 2026-05 | Mem0 drop-in replacement: semantic dedup, multimodal video, multi-user |
-| [deja-vu](https://github.com/vshulcz/deja-vu) | 493 | Go | MIT | 2026-07-01 | Retroactive local memory for 17 coding agents — indexes existing session transcripts, no capture step, no LLM calls, serves via MCP/hooks |
 | [Octopoda-OS](https://github.com/RyjoxTechnologies/Octopoda-OS) | 506 | Python | MIT | 2026-04-02 | Memory OS: loop detection, agent messaging, crash recovery, 29 MCP tools |
 | [vestige](https://github.com/samvallad33/vestige) | 602 | Rust | AGPL-3.0 | 2026-01-25 | Local-first cognitive memory for AI agents — FSRS-6 decay, prediction-error-gated ingest, MCP-native, single Rust binary with embedded dashboard |
 | [memoir](https://github.com/zhangfengcdt/memoir) | 605 | Python | Apache-2.0 | 2025-08 | Git-like branch/commit/merge memory, visual explorer, Claude+Codex plugins |
+| [deja-vu](https://github.com/vshulcz/deja-vu) | 631 | Go | MIT | 2026-07-01 | Retroactive local memory for 17 coding agents — indexes existing session transcripts, no capture step, no LLM calls, serves via MCP/hooks |
 | [Memora](https://github.com/agentic-box/memora) | 635 | Python | MIT | 2025-11-11 | MCP memory: hybrid RRF, auto-hierarchy, LLM dedup, live graph UI, event-driven multi-agent |
 | [MemoMind](https://github.com/24kchengYe/MemoMind) | 652 | Python | ? | 2026-03-15 | GPU-accelerated, 4-way hybrid retrieval, 4600+ entities, web dashboard |
 | [context-infra](https://github.com/grapeot/context-infrastructure) | 712 | Python | MIT | 2026-03-16 | Memory + rules + skills + scheduled observations |
@@ -103,9 +103,9 @@
 
 | System | Stars | Language | License | Single binary | Created | Coverage |
 | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | 0 | Python | MIT | — | 2026-04-01 | 63% |
 | Artesian | 0 | Rust | Apache-2.0 | ✅ | 2026-06-13 | 60% |
 | slowave | 1 | Python | AGPL-3.0 | — | 2026-06-08 | 38% |
+| context-keeper | 1 | Python | MIT | — | 2026-04-01 | 63% |
 | Somnigraph | 2 | Python | Apache-2.0 + CC | — | 2026-03-07 | 42% |
 | memspec | 3 | TypeScript | MIT | — | 2026-04 | 50% |
 | mnemos | 4 | Go | MIT | ✅ | 2026-06-29 | 23% |
@@ -119,8 +119,8 @@
 | fidelis | 21 | Python | MIT | — | 2026-03 | 10% |
 | Origin | 31 | Rust | Apache 2.0 | — | 2026-04-19 | 63% |
 | Continuity v2 | 32 | Python | MIT | — | 2026-04 | 13% |
-| pond | 35 | Rust | Apache-2.0 | ✅ | 2026-05-07 | 40% |
 | YesMem | 38 | Go | Apache 2.0 | ✅ | 2026-04-09 | 87% |
+| pond | 39 | Rust | Apache-2.0 | ✅ | 2026-05-07 | 40% |
 | Noosphere | 53 | TypeScript | MIT | — | 2026-04-11 | 43% |
 | second-brain | 91 | TypeScript | MIT | — | 2026-05-17 | 23% |
 | Jumbo | 102 | TypeScript | AGPL-3.0 | — | 2025-12-05 | 58% |
@@ -138,10 +138,10 @@
 | Memory Palace | 312 | Python | MIT | — | 2026-02-19 | 33% |
 | memorix | 433 | Python | Apache 2.0 | — | 2026-02-14 | 7% |
 | TeleMem | 461 | Python | MIT | — | 2026-05 | 7% |
-| deja-vu | 493 | Go | MIT | ✅ | 2026-07-01 | 58% |
 | Octopoda-OS | 506 | Python | MIT | — | 2026-04-02 | 15% |
 | vestige | 602 | Rust | AGPL-3.0 | ✅ | 2026-01-25 | 48% |
 | memoir | 605 | Python | Apache-2.0 | — | 2025-08 | 18% |
+| deja-vu | 631 | Go | MIT | ✅ | 2026-07-01 | 58% |
 | Memora | 635 | Python | MIT | — | 2025-11-11 | 27% |
 | MemoMind | 652 | Python | ? | — | 2026-03-15 | 23% |
 | context-infra | 712 | Python | MIT | — | 2026-03-16 | 23% |
@@ -193,9 +193,9 @@
 
 | System | Deployment | Storage | Integration | Proxy | Web/TUI | Offline | Multi-agent | LLM providers | Cache optimization | Procedural memory | Sandboxed exec | Scheduled/autonomous | Privacy/encrypt | Data export | Setup | Pricing |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | Local / MCP | JSON files (.context/) | MCP | — | — | ✅ | — | 2 | ✅ | — | — | — | ✅ | ✅ | pip install context-keeper-mcp | free |
 | Artesian | Local CLI + MCP, single binary or Docker | Pluggable (Files, sqlite-vec, Qdrant, pgvector) | MCP (rmcp, stdio/HTTP) + CLI + hooks | — | — | ✅ | ✅ | 5 | ✅ | ✅ | — | ✅ | ✅ | ✅ | brew install aquifer-labs/tap/artesian | free |
 | slowave | Local CLI / MCP | SQLite | MCP | — | — | ✅ | — | 0 | — | — | — | — | ✅ | ✅ | pipx install slowave | free |
+| context-keeper | Local / MCP | JSON files (.context/) | MCP | — | — | ✅ | — | 2 | ✅ | — | — | — | ✅ | ✅ | pip install context-keeper-mcp | free |
 | Somnigraph | Self-host / Local (MCP) | SQLite + sqlite-vec + FTS5 | MCP (FastMCP) | — | — | ✅ | — | 2 | ✅ | — | — | — | ✅ | — | pip install | free |
 | memspec | Local CLI + MCP + Library | Markdown (canonical) + SQLite FTS5 (derived) + optional embeddings | MCP + CLI | — | — | ✅ | — | 2 | ✅ | — | — | ✅ | ✅ | ✅ | npm install | free |
 | mnemos | Local CLI + MCP | SQLite (FTS5) | MCP (stdio) + CLI | — | — | ✅ | — | 1 | — | — | — | ✅ | ✅ | — | git clone + make install | free |
@@ -209,8 +209,8 @@
 | fidelis | MCP server + hooks | BM25+ChromaDB | MCP + hooks | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | pip install | free |
 | Origin | Local daemon | libSQL+FTS5 | MCP+CC plugin | — | — | ✅ | — | 2 | — | ✅ | — | ✅ | ✅ | ✅ | npx setup | free |
 | Continuity v2 | Local proxy+MCP | SQLite+FTS5+sqlite-vec | Proxy+MCP+Hooks | ✅ | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
-| pond | Local CLI (self-host object store optional) | Lance (local FS / S3 / GCS / Azure) | MCP / CLI / HTTP | — | — | ✅ | ✅ | 1 | ✅ | — | — | ✅ | ✅ | ✅ | brew install / cargo install | free |
 | YesMem | Local binary | SQLite+Vector | Proxy+MCP+Hooks | ✅ | — | ✅ | ✅ | 4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | curl \| bash | free |
+| pond | Local CLI (self-host object store optional) | Lance (local FS / S3 / GCS / Azure) | MCP / CLI / HTTP | — | — | ✅ | ✅ | 1 | ✅ | — | — | ✅ | ✅ | ✅ | brew install / cargo install | free |
 | Noosphere | Docker Compose (self-host) | PostgreSQL+Redis | Plugin (OpenClaw/Hermes/Opencode/Kilo) + REST API | — | ✅ | ✅ | — | 0 | ✅ | — | — | ✅ | ✅ | ✅ | docker compose up | free |
 | second-brain | Cloudflare Workers | D1+Vectorize | MCP | — | ✅ | — | — | 1 | — | — | — | — | ✅ | — | one-click deploy | free |
 | Jumbo | Local CLI | Event store + SQLite | CLI + hooks + AGENTS.md | — | ✅ | ✅ | ✅ | 6 | ✅ | ✅ | — | ✅ | ✅ | ✅ | npm install | free |
@@ -228,10 +228,10 @@
 | Memory Palace | Docker / local Python | SQLite+sqlite-vec | MCP+Skills | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | docker compose | free |
 | memorix | Python library | FAISS/Qdrant | Python SDK | — | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
 | TeleMem | Library | Vector DB | SDK | — | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
-| deja-vu | Local CLI, single binary | Custom append-only log + postings index | MCP + hooks + CLI + opencode plugin | — | ✅ | ✅ | ✅ | 0 | — | — | — | — | ✅ | ✅ | curl \| sh / brew / npm / go install | free |
 | Octopoda-OS | Local server | Key-value store | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | ✅ | pip install | free |
 | vestige | Local binary (22MB) | SQLite + FTS5 + USearch HNSW | MCP | — | ✅ | ✅ | — | 1 | ✅ | — | — | ✅ | ✅ | ✅ | cargo install / npx @vestige/init | free |
 | memoir | Plugin (Claude Code, Codex) | Hierarchical paths | Plugin+CLI | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
+| deja-vu | Local CLI, single binary | Custom append-only log + postings index | MCP + hooks + CLI + opencode plugin | — | ✅ | ✅ | ✅ | 0 | — | — | — | — | ✅ | ✅ | curl \| sh / brew / npm / go install | free |
 | Memora | MCP server | SQLite+FTS5 | MCP | — | ✅ | ✅ | ✅ | 2 | — | — | — | — | ✅ | — | pip install | free |
 | MemoMind | Local Python | Local vector DB | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
 | context-infra | Local Python | Markdown files | MCP | — | — | ✅ | — | 1 | ✅ | — | — | — | — | — | setup_guide.md | free |
@@ -283,9 +283,9 @@
 
 | System | Storage unit | Entities | Actions | Keywords/tags | Anticipated queries | Trigger rules | Domain tag | Task type | Context (why) | Source attribution | Origin + trust | Emotional | Conflict surfacing | Layered memory | Time-travel | Schema fields |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | Entry (decision / pipeline / constraint) | — | ✅ | ✅ | ✅ | ✅ | — | — | ✅ | ✅ | ✅ | — | ✅ | — | ✅ | 13 |
 | Artesian | MemoryRecord (L0Raw/L1Atom/L2Scenario/L3Project) | ✅ | — | ✅ | — | — | — | — | — | ✅ | — | — | ✅ | ✅ | ✅ | 19 |
 | slowave | Memory (episode / prototype / schema) | — | — | — | — | — | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | — | 14 |
+| context-keeper | Entry (decision / pipeline / constraint) | — | ✅ | ✅ | ✅ | ✅ | — | — | ✅ | ✅ | ✅ | — | ✅ | — | ✅ | 13 |
 | Somnigraph | Memory (text row) | — | — | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | — | 20 |
 | memspec | Memory record (fact / decision / procedure / observation) | — | — | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 20 |
 | mnemos | Chunk (file#section + line range) | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 8 |
@@ -299,8 +299,8 @@
 | fidelis | Verbatim passage | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 3 |
 | Origin | Memory + Page | ✅ | — | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 40 |
 | Continuity v2 | Session entry | — | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | 6 |
-| pond | Session (Sessions -> Messages -> Parts, lossless) | — | ✅ | — | — | — | — | — | — | ✅ | — | — | — | — | ✅ | 22 |
 | YesMem | Learning V2 (structured) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | 51 |
+| pond | Session (Sessions -> Messages -> Parts, lossless) | — | ✅ | — | — | — | — | — | — | ✅ | — | — | — | — | ✅ | 22 |
 | Noosphere | Article (wiki page) | — | — | ✅ | — | — | — | — | ✅ | ✅ | — | — | ✅ | ✅ | ✅ | 15 |
 | second-brain | Memory entry (8 fields) | — | — | ✅ | — | — | — | — | — | ✅ | — | — | — | — | — | 8 |
 | Jumbo | Memory entity node (11 types) + relation graph edge | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | ✅ | — | — | — | — | ✅ | ✅ | 16 |
@@ -318,10 +318,10 @@
 | Memory Palace | Memory entry | — | — | — | — | ✅ | — | — | — | — | — | — | — | ✅ | ✅ | 8 |
 | memorix | Vector entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 6 |
 | TeleMem | Memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 7 |
-| deja-vu | Message record (verbatim transcript text, redacted) | — | — | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | ✅ | 6 |
 | Octopoda-OS | Memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 5 |
 | vestige | Cognitive memory unit | — | — | ✅ | — | ✅ | — | — | — | — | — | — | ✅ | — | — | 27 |
 | memoir | Hierarchical memory node | ✅ | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 5 |
+| deja-vu | Message record (verbatim transcript text, redacted) | — | — | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | ✅ | 6 |
 | Memora | Memory entry (hierarchical) | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 8 |
 | MemoMind | Memory entry | ✅ | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 6 |
 | context-infra | Context entry | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | — | 4 |
@@ -373,9 +373,9 @@
 
 | System | Full-text | Semantic/vector | Hybrid (BM25+Vec) | Deep (incl. thinking) | Code graph | Docs search | Fact metadata query | Timeline view | Search modes | Data sources |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 3 |
 | Artesian | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 5 |
 | slowave | ✅ | ✅ | ✅ | — | — | — | — | — | 2 | 2 |
+| context-keeper | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 3 |
 | Somnigraph | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 1 |
 | memspec | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 4 |
 | mnemos | ✅ | ✅ | ✅ | — | — | ✅ | ✅ | — | 4 | 1 |
@@ -389,8 +389,8 @@
 | fidelis | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | Origin | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 3 |
 | Continuity v2 | ✅ | ✅ | — | — | — | — | — | — | 2 | 2 |
-| pond | ✅ | ✅ | — | — | — | — | ✅ | ✅ | 3 | 3 |
 | YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 9 | 4 |
+| pond | ✅ | ✅ | — | — | — | — | ✅ | ✅ | 3 | 3 |
 | Noosphere | ✅ | — | — | — | — | — | — | — | 2 | 2 |
 | second-brain | — | ✅ | — | — | — | — | — | — | 4 | 1 |
 | Jumbo | ✅ | — | — | — | — | — | ✅ | — | 6 | 5 |
@@ -408,10 +408,10 @@
 | Memory Palace | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
 | memorix | — | ✅ | — | — | — | — | — | — | 2 | 1 |
 | TeleMem | — | ✅ | — | — | — | — | — | — | 1 | 1 |
-| deja-vu | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 6 | 13 |
 | Octopoda-OS | — | ✅ | — | — | — | — | — | — | 3 | 1 |
 | vestige | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 3 |
 | memoir | ✅ | — | — | — | — | — | — | ✅ | 2 | 1 |
+| deja-vu | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 6 | 13 |
 | Memora | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 4 | 1 |
 | MemoMind | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 2 | 3 |
 | context-infra | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
@@ -463,9 +463,9 @@
 
 | System | Decay/forgetting | Supersede/replace | Contradiction detect | Quarantine | Auto-resolution | Trust model | Explicit forget |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | ✅ | ✅ | ✅ | — | — | ✅ | ✅ |
 | Artesian | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
 | slowave | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
+| context-keeper | ✅ | ✅ | ✅ | — | — | ✅ | ✅ |
 | Somnigraph | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ |
 | memspec | ✅ | ✅ | ✅ | — | — | ✅ | ✅ |
 | mnemos | — | — | — | — | — | — | ✅ |
@@ -479,8 +479,8 @@
 | fidelis | — | — | — | — | — | — | — |
 | Origin | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Continuity v2 | — | — | — | — | — | — | — |
-| pond | — | — | — | — | — | — | — |
 | YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| pond | — | — | — | — | — | — | — |
 | Noosphere | — | ✅ | ✅ | — | ✅ | ✅ | ✅ |
 | second-brain | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
 | Jumbo | — | ✅ | ✅ | ✅ | ✅ | — | ✅ |
@@ -498,10 +498,10 @@
 | Memory Palace | ✅ | — | — | — | — | — | ✅ |
 | memorix | — | ✅ | — | — | — | — | ✅ |
 | TeleMem | — | — | — | — | — | — | — |
-| deja-vu | ✅ | ✅ | — | — | — | ✅ | ✅ |
 | Octopoda-OS | — | — | — | — | — | — | ✅ |
 | vestige | ✅ | ✅ | ✅ | — | — | — | ✅ |
 | memoir | — | ✅ | — | — | — | — | — |
+| deja-vu | ✅ | ✅ | — | — | — | ✅ | ✅ |
 | Memora | — | ✅ | ✅ | — | — | — | ✅ |
 | MemoMind | — | ✅ | — | — | — | — | ✅ |
 | context-infra | — | — | — | — | — | — | — |
@@ -553,9 +553,9 @@
 
 | System | Auto-extraction | Content-aware preproc | Deduplication | Quality refinement | Narrative generation | Clustering | Recurrence detection | Persona extraction |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | — | — | ✅ | ✅ | ✅ | — | — | — |
 | Artesian | ✅ | — | ✅ | ✅ | ✅ | ✅ | ✅ | — |
 | slowave | — | — | ✅ | — | — | ✅ | ✅ | — |
+| context-keeper | — | — | ✅ | ✅ | ✅ | — | — | — |
 | Somnigraph | — | — | ✅ | ✅ | ✅ | ✅ | — | — |
 | memspec | ✅ | ✅ | ✅ | — | ✅ | — | — | — |
 | mnemos | — | ✅ | — | — | — | — | — | — |
@@ -569,8 +569,8 @@
 | fidelis | — | — | — | — | — | — | — | — |
 | Origin | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ |
 | Continuity v2 | ✅ | — | — | — | — | ✅ | — | — |
-| pond | ✅ | ✅ | ✅ | — | — | — | — | — |
 | YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| pond | ✅ | ✅ | ✅ | — | — | — | — | — |
 | Noosphere | ✅ | — | ✅ | ✅ | ✅ | ✅ | — | — |
 | second-brain | — | — | ✅ | ✅ | — | — | — | — |
 | Jumbo | — | ✅ | ✅ | ✅ | ✅ | ✅ | — | — |
@@ -588,10 +588,10 @@
 | Memory Palace | — | — | ✅ | — | — | ✅ | — | — |
 | memorix | — | — | — | — | — | — | — | — |
 | TeleMem | ✅ | — | ✅ | — | — | — | — | — |
-| deja-vu | — | ✅ | ✅ | — | — | — | ✅ | — |
 | Octopoda-OS | ✅ | — | ✅ | — | — | — | — | — |
 | vestige | — | — | ✅ | ✅ | — | ✅ | — | — |
 | memoir | ✅ | — | — | — | — | — | — | — |
+| deja-vu | — | ✅ | ✅ | — | — | — | ✅ | — |
 | Memora | — | ✅ | ✅ | — | — | — | — | — |
 | MemoMind | ✅ | — | ✅ | ✅ | — | — | — | — |
 | context-infra | ✅ | ✅ | — | ✅ | ✅ | — | ✅ | ✅ |
@@ -643,9 +643,9 @@
 
 | System | Claude Code | Codex | OpenCode | Gemini CLI | Copilot | Cursor | Windsurf | OpenClaw | Hermes | pi/omp | Antigravity |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Artesian | ✅ | ✅ | ✅ | ✅ | — | — | — | — | ✅ | — | — |
 | slowave | ✅ | — | — | — | — | ✅ | ✅ | — | — | — | — |
+| context-keeper | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Somnigraph | ✅ | — | — | — | — | — | — | — | — | — | — |
 | memspec | ✅ | ✅ | — | — | — | ✅ | — | — | — | — | — |
 | mnemos | ✅ | — | — | — | — | — | — | — | — | — | — |
@@ -659,8 +659,8 @@
 | fidelis | ✅ | — | — | — | — | — | — | — | — | — | — |
 | Origin | ✅ | ✅ | — | ✅ | ✅ | ✅ | — | — | — | — | — |
 | Continuity v2 | ✅ | — | — | — | — | — | — | — | — | — | — |
-| pond | ✅ | ✅ | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — |
 | YesMem | ✅ | ✅ | ✅ | — | — | — | — | — | — | ✅ | ✅ |
+| pond | ✅ | ✅ | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — |
 | Noosphere | — | — | ✅ | — | — | — | — | ✅ | ✅ | — | — |
 | second-brain | ✅ | — | — | — | — | ✅ | — | — | — | — | — |
 | Jumbo | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — | — | — |
@@ -678,10 +678,10 @@
 | Memory Palace | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | — | — | ✅ |
 | memorix | — | — | — | — | — | — | — | — | — | — | — |
 | TeleMem | — | — | — | — | — | — | — | — | — | — | — |
-| deja-vu | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | ✅ |
 | Octopoda-OS | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
 | vestige | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | — | — | — | — |
 | memoir | ✅ | ✅ | — | — | — | — | — | — | — | — | — |
+| deja-vu | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | ✅ |
 | Memora | ✅ | ✅ | — | — | — | — | — | — | — | — | — |
 | MemoMind | ✅ | — | — | — | — | — | — | — | — | — | — |
 | context-infra | ✅ | — | ✅ | — | — | ✅ | — | — | — | — | — |
@@ -733,9 +733,9 @@
 
 | System | LoCoMo | LongMemEval | PersonaMem | Token reduction | Methodology open |
 | --- | --- | --- | --- | --- | --- |
-| context-keeper | — | — | — | 94–97% | ✅ |
 | Artesian | 0.475 | 0.70 | — | 0.037–0.343 | ✅ |
 | slowave | 76.0 | 87.8 | — | 86% | ✅ |
+| context-keeper | — | — | — | 94–97% | ✅ |
 | Somnigraph | 85.1 | — | — | — | ✅ |
 | memspec | R@5=0.70 | R@5=1.0 | — | — | ✅ |
 | mnemos | — | — | — | — | ✅ |
@@ -749,8 +749,8 @@
 | fidelis | — | 83.2 (R@1) | — | — | ✅ |
 | Origin | 70.0 | 93.6 | — | — | ✅ |
 | Continuity v2 | — | — | — | — | — |
-| pond | — | — | — | — | ✅ |
 | YesMem | 87.0 | — | — | ~30% proxy | ✅ |
+| pond | — | — | — | — | ✅ |
 | Noosphere | — | — | — | — | — |
 | second-brain | — | — | — | — | — |
 | Jumbo | — | — | — | — | — |
@@ -768,10 +768,10 @@
 | Memory Palace | — | — | — | — | ✅ |
 | memorix | — | — | — | — | — |
 | TeleMem | — | — | — | — | — |
-| deja-vu | h@1=0.70 | h@1=0.85 | — | ~200× vs grep | ✅ |
 | Octopoda-OS | — | — | — | — | — |
 | vestige | — | — | — | — | ✅ |
 | memoir | — | — | — | — | — |
+| deja-vu | h@1=0.70 | h@1=0.85 | — | ~200× vs grep | ✅ |
 | Memora | — | — | — | — | — |
 | MemoMind | — | — | — | — | — |
 | context-infra | — | — | — | — | — |

@@ -1112,7 +1112,7 @@ const SYSTEMS = [
   {
     id: "context-keeper", name: "context-keeper", url: "https://github.com/jarmstrong158/context-keeper", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/context-keeper.md",
     description: "MCP server for project memory — schema-enforced decisions, constraints and pipelines with the rationale behind them, supersession history, and a reproducible retrieval benchmark",
-    stars: 0, language: "Python", license: "MIT", singleBinary: false, created: "2026-04-01",
+    stars: 1, language: "Python", license: "MIT", singleBinary: false, created: "2026-04-01",
     deployment: "Local / MCP", storage: "JSON files (.context/)", integration: "MCP", proxy: false, webUi: false, offline: true, multiAgent: false, llmFlex: 2, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: false, privacy: true, export: true, setup: "pip install context-keeper-mcp", pricing: "free",
     unit: "Entry (decision / pipeline / constraint)", entities: false, actions: true, keywords: true, anticipatedQueries: true, triggerRules: true, domainTag: false, taskType: false, context: true, source: true, originTrust: true, emotional: false, conflict: true, layeredMemory: false, timeTravel: true, schemaFields: 13,
     fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 3, dataSources: 3,
@@ -1172,7 +1172,7 @@ const SYSTEMS = [
   {
     id: "deja-vu", name: "deja-vu", url: "https://github.com/vshulcz/deja-vu", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/deja-vu.md",
     description: "Retroactive local memory for 17 coding agents — indexes existing session transcripts, no capture step, no LLM calls, serves via MCP/hooks",
-    stars: 493, language: "Go", license: "MIT", singleBinary: true, created: "2026-07-01",
+    stars: 631, language: "Go", license: "MIT", singleBinary: true, created: "2026-07-01",
     deployment: "Local CLI, single binary", storage: "Custom append-only log + postings index", integration: "MCP + hooks + CLI + opencode plugin", proxy: false, webUi: true, offline: true, multiAgent: true, llmFlex: 0, cacheOpt: false, proceduralMemory: false, sandboxedExec: false, scheduledExec: false, privacy: true, export: true, setup: "curl | sh / brew / npm / go install", pricing: "free",
     unit: "Message record (verbatim transcript text, redacted)", entities: false, actions: false, keywords: true, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: true, originTrust: true, emotional: false, conflict: true, layeredMemory: true, timeTravel: true, schemaFields: 6,
     fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 6, dataSources: 13,
@@ -1184,7 +1184,7 @@ const SYSTEMS = [
   {
     id: "pond", name: "pond", url: "https://github.com/tenequm/pond", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/pond.md",
     description: "Lossless session archive and search for AI agents — Lance storage, local embeddings, every session from every client in one pond",
-    stars: 35, language: "Rust", license: "Apache-2.0", singleBinary: true, created: "2026-05-07",
+    stars: 39, language: "Rust", license: "Apache-2.0", singleBinary: true, created: "2026-05-07",
     deployment: "Local CLI (self-host object store optional)", storage: "Lance (local FS / S3 / GCS / Azure)", integration: "MCP / CLI / HTTP", proxy: false, webUi: false, offline: true, multiAgent: true, llmFlex: 1, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: true, privacy: true, export: true, setup: "brew install / cargo install", pricing: "free",
     unit: "Session (Sessions -> Messages -> Parts, lossless)", entities: false, actions: true, keywords: false, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: true, originTrust: false, emotional: false, conflict: false, layeredMemory: false, timeTravel: true, schemaFields: 22,
     fulltext: true, semantic: true, hybrid: false, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 3, dataSources: 3,
