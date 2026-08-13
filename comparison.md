@@ -49,7 +49,7 @@
 | [TeleMem](https://github.com/Tele-AI/TeleMem) | 461 | Python | MIT | 2026-05 | Mem0 drop-in replacement: semantic dedup, multimodal video, multi-user |
 | [deja-vu](https://github.com/vshulcz/deja-vu) | 493 | Go | MIT | 2026-07-01 | Retroactive local memory for 17 coding agents — indexes existing session transcripts, no capture step, no LLM calls, serves via MCP/hooks |
 | [Octopoda-OS](https://github.com/RyjoxTechnologies/Octopoda-OS) | 506 | Python | MIT | 2026-04-02 | Memory OS: loop detection, agent messaging, crash recovery, 29 MCP tools |
-| [vestige](https://github.com/samvallad33/vestige) | 602 | Rust | AGPL-3.0 | 2026-01-25 | FSRS-6 spaced repetition, 29 brain modules, 3D dashboard, Rust binary |
+| [vestige](https://github.com/samvallad33/vestige) | 602 | Rust | AGPL-3.0 | 2026-01-25 | Local-first cognitive memory for AI agents — FSRS-6 decay, prediction-error-gated ingest, MCP-native, single Rust binary with embedded dashboard |
 | [memoir](https://github.com/zhangfengcdt/memoir) | 605 | Python | Apache-2.0 | 2025-08 | Git-like branch/commit/merge memory, visual explorer, Claude+Codex plugins |
 | [Memora](https://github.com/agentic-box/memora) | 635 | Python | MIT | 2025-11-11 | MCP memory: hybrid RRF, auto-hierarchy, LLM dedup, live graph UI, event-driven multi-agent |
 | [MemoMind](https://github.com/24kchengYe/MemoMind) | 652 | Python | ? | 2026-03-15 | GPU-accelerated, 4-way hybrid retrieval, 4600+ entities, web dashboard |
@@ -138,7 +138,7 @@
 | TeleMem | 461 | Python | MIT | — | 2026-05 | 7% |
 | deja-vu | 493 | Go | MIT | ✅ | 2026-07-01 | 58% |
 | Octopoda-OS | 506 | Python | MIT | — | 2026-04-02 | 15% |
-| vestige | 602 | Rust | AGPL-3.0 | ✅ | 2026-01-25 | 35% |
+| vestige | 602 | Rust | AGPL-3.0 | ✅ | 2026-01-25 | 48% |
 | memoir | 605 | Python | Apache-2.0 | — | 2025-08 | 18% |
 | Memora | 635 | Python | MIT | — | 2025-11-11 | 27% |
 | MemoMind | 652 | Python | ? | — | 2026-03-15 | 23% |
@@ -227,7 +227,7 @@
 | TeleMem | Library | Vector DB | SDK | — | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
 | deja-vu | Local CLI, single binary | Custom append-only log + postings index | MCP + hooks + CLI + opencode plugin | — | ✅ | ✅ | ✅ | 0 | — | — | — | — | ✅ | ✅ | curl \| sh / brew / npm / go install | free |
 | Octopoda-OS | Local server | Key-value store | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | ✅ | pip install | free |
-| vestige | Local binary (22MB) | SQLite+FTS5 | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | ✅ | — | cargo install | free |
+| vestige | Local binary (22MB) | SQLite + FTS5 + USearch HNSW | MCP | — | ✅ | ✅ | — | 1 | ✅ | — | — | ✅ | ✅ | ✅ | cargo install / npx @vestige/init | free |
 | memoir | Plugin (Claude Code, Codex) | Hierarchical paths | Plugin+CLI | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
 | Memora | MCP server | SQLite+FTS5 | MCP | — | ✅ | ✅ | ✅ | 2 | — | — | — | — | ✅ | — | pip install | free |
 | MemoMind | Local Python | Local vector DB | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
@@ -316,7 +316,7 @@
 | TeleMem | Memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 7 |
 | deja-vu | Message record (verbatim transcript text, redacted) | — | — | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | ✅ | 6 |
 | Octopoda-OS | Memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 5 |
-| vestige | Cognitive memory unit | ✅ | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 5 |
+| vestige | Cognitive memory unit | — | — | ✅ | — | ✅ | — | — | — | — | — | — | ✅ | — | — | 27 |
 | memoir | Hierarchical memory node | ✅ | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 5 |
 | Memora | Memory entry (hierarchical) | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 8 |
 | MemoMind | Memory entry | ✅ | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 6 |
@@ -405,7 +405,7 @@
 | TeleMem | — | ✅ | — | — | — | — | — | — | 1 | 1 |
 | deja-vu | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 6 | 13 |
 | Octopoda-OS | — | ✅ | — | — | — | — | — | — | 3 | 1 |
-| vestige | ✅ | ✅ | ✅ | ✅ | — | — | — | ✅ | 4 | 1 |
+| vestige | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 3 |
 | memoir | ✅ | — | — | — | — | — | — | ✅ | 2 | 1 |
 | Memora | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 4 | 1 |
 | MemoMind | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 2 | 3 |
@@ -494,7 +494,7 @@
 | TeleMem | — | — | — | — | — | — | — |
 | deja-vu | ✅ | ✅ | — | — | — | ✅ | ✅ |
 | Octopoda-OS | — | — | — | — | — | — | ✅ |
-| vestige | ✅ | ✅ | ✅ | — | — | ✅ | ✅ |
+| vestige | ✅ | ✅ | ✅ | — | — | — | ✅ |
 | memoir | — | ✅ | — | — | — | — | — |
 | Memora | — | ✅ | ✅ | — | — | — | ✅ |
 | MemoMind | — | ✅ | — | — | — | — | ✅ |
@@ -583,7 +583,7 @@
 | TeleMem | ✅ | — | ✅ | — | — | — | — | — |
 | deja-vu | — | ✅ | ✅ | — | — | — | ✅ | — |
 | Octopoda-OS | ✅ | — | ✅ | — | — | — | — | — |
-| vestige | ✅ | — | ✅ | — | — | — | — | — |
+| vestige | — | — | ✅ | ✅ | — | ✅ | — | — |
 | memoir | ✅ | — | — | — | — | — | — | — |
 | Memora | — | ✅ | ✅ | — | — | — | — | — |
 | MemoMind | ✅ | — | ✅ | ✅ | — | — | — | — |
@@ -672,7 +672,7 @@
 | TeleMem | — | — | — | — | — | — | — | — | — | — | — |
 | deja-vu | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | ✅ |
 | Octopoda-OS | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
-| vestige | ✅ | ✅ | — | — | — | — | ✅ | — | — | — | — |
+| vestige | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | — | — | — | — |
 | memoir | ✅ | ✅ | — | — | — | — | — | — | — | — | — |
 | Memora | ✅ | ✅ | — | — | — | — | — | — | — | — | — |
 | MemoMind | ✅ | — | — | — | — | — | — | — | — | — | — |
@@ -761,7 +761,7 @@
 | TeleMem | — | — | — | — | — |
 | deja-vu | h@1=0.70 | h@1=0.85 | — | ~200× vs grep | ✅ |
 | Octopoda-OS | — | — | — | — | — |
-| vestige | — | — | — | — | — |
+| vestige | — | — | — | — | ✅ |
 | memoir | — | — | — | — | — |
 | Memora | — | — | — | — | — |
 | MemoMind | — | — | — | — | — |
