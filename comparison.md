@@ -4,7 +4,7 @@
 > Corrections via PR welcome. No affiliation with any listed project.
 
 **Last updated:** 2026-08-13  
-**Systems:** 82  
+**Systems:** 83  
 **Live:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 
 ---
@@ -29,6 +29,7 @@
 | [fidelis](https://github.com/hermes-labs-ai/fidelis) | 21 | Python | MIT | 2026-03 | Non-LLM agent memory, BM25 + rerank, 83.2% R@1 on LongMemEval-S, depends on mem0 |
 | [Origin](https://github.com/7xuanlu/origin) | 31 | Rust | Apache 2.0 | 2026-04-19 | Local-first Rust daemon with git-versioned memories, distilled wiki pages, and knowledge graph |
 | [Continuity v2](https://github.com/Haustorium12/continuity-v2) | 32 | Python | MIT | 2026-04 | SSE proxy for Claude Code, FTS5+ANN search, compaction hooks, thread recall via BFS graph |
+| [pond](https://github.com/tenequm/pond) | 35 | Rust | Apache-2.0 | 2026-05-07 | Lossless session archive and search for AI agents — Lance storage, local embeddings, every session from every client in one pond |
 | [YesMem](https://github.com/carsteneu/yesmem) | 38 | Go | Apache 2.0 | 2026-04-09 | Project continuity layer with deepest data model and proxy collapse |
 | [Noosphere](https://github.com/SweetSophia/noosphere) | 53 | TypeScript | MIT | 2026-04-11 | Universal wiki + memory layer, multi-provider recall orchestration, conflict resolution, promotion pipeline, Obsidian sync |
 | [second-brain](https://github.com/rahilp/second-brain-cloudflare) | 91 | TypeScript | MIT | 2026-05-17 | Serverless Cloudflare memory, time-decay reranking, smart merge LLM, one-click deploy |
@@ -118,6 +119,7 @@
 | fidelis | 21 | Python | MIT | — | 2026-03 | 10% |
 | Origin | 31 | Rust | Apache 2.0 | — | 2026-04-19 | 63% |
 | Continuity v2 | 32 | Python | MIT | — | 2026-04 | 13% |
+| pond | 35 | Rust | Apache-2.0 | ✅ | 2026-05-07 | 40% |
 | YesMem | 38 | Go | Apache 2.0 | ✅ | 2026-04-09 | 87% |
 | Noosphere | 53 | TypeScript | MIT | — | 2026-04-11 | 43% |
 | second-brain | 91 | TypeScript | MIT | — | 2026-05-17 | 23% |
@@ -207,6 +209,7 @@
 | fidelis | MCP server + hooks | BM25+ChromaDB | MCP + hooks | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | pip install | free |
 | Origin | Local daemon | libSQL+FTS5 | MCP+CC plugin | — | — | ✅ | — | 2 | — | ✅ | — | ✅ | ✅ | ✅ | npx setup | free |
 | Continuity v2 | Local proxy+MCP | SQLite+FTS5+sqlite-vec | Proxy+MCP+Hooks | ✅ | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
+| pond | Local CLI (self-host object store optional) | Lance (local FS / S3 / GCS / Azure) | MCP / CLI / HTTP | — | — | ✅ | ✅ | 1 | ✅ | — | — | ✅ | ✅ | ✅ | brew install / cargo install | free |
 | YesMem | Local binary | SQLite+Vector | Proxy+MCP+Hooks | ✅ | — | ✅ | ✅ | 4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | curl \| bash | free |
 | Noosphere | Docker Compose (self-host) | PostgreSQL+Redis | Plugin (OpenClaw/Hermes/Opencode/Kilo) + REST API | — | ✅ | ✅ | — | 0 | ✅ | — | — | ✅ | ✅ | ✅ | docker compose up | free |
 | second-brain | Cloudflare Workers | D1+Vectorize | MCP | — | ✅ | — | — | 1 | — | — | — | — | ✅ | — | one-click deploy | free |
@@ -296,6 +299,7 @@
 | fidelis | Verbatim passage | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 3 |
 | Origin | Memory + Page | ✅ | — | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 40 |
 | Continuity v2 | Session entry | — | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | 6 |
+| pond | Session (Sessions -> Messages -> Parts, lossless) | — | ✅ | — | — | — | — | — | — | ✅ | — | — | — | — | ✅ | 22 |
 | YesMem | Learning V2 (structured) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | 51 |
 | Noosphere | Article (wiki page) | — | — | ✅ | — | — | — | — | ✅ | ✅ | — | — | ✅ | ✅ | ✅ | 15 |
 | second-brain | Memory entry (8 fields) | — | — | ✅ | — | — | — | — | — | ✅ | — | — | — | — | — | 8 |
@@ -385,6 +389,7 @@
 | fidelis | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | Origin | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 3 |
 | Continuity v2 | ✅ | ✅ | — | — | — | — | — | — | 2 | 2 |
+| pond | ✅ | ✅ | — | — | — | — | ✅ | ✅ | 3 | 3 |
 | YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 9 | 4 |
 | Noosphere | ✅ | — | — | — | — | — | — | — | 2 | 2 |
 | second-brain | — | ✅ | — | — | — | — | — | — | 4 | 1 |
@@ -474,6 +479,7 @@
 | fidelis | — | — | — | — | — | — | — |
 | Origin | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Continuity v2 | — | — | — | — | — | — | — |
+| pond | — | — | — | — | — | — | — |
 | YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Noosphere | — | ✅ | ✅ | — | ✅ | ✅ | ✅ |
 | second-brain | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
@@ -563,6 +569,7 @@
 | fidelis | — | — | — | — | — | — | — | — |
 | Origin | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ |
 | Continuity v2 | ✅ | — | — | — | — | ✅ | — | — |
+| pond | ✅ | ✅ | ✅ | — | — | — | — | — |
 | YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Noosphere | ✅ | — | ✅ | ✅ | ✅ | ✅ | — | — |
 | second-brain | — | — | ✅ | ✅ | — | — | — | — |
@@ -652,6 +659,7 @@
 | fidelis | ✅ | — | — | — | — | — | — | — | — | — | — |
 | Origin | ✅ | ✅ | — | ✅ | ✅ | ✅ | — | — | — | — | — |
 | Continuity v2 | ✅ | — | — | — | — | — | — | — | — | — | — |
+| pond | ✅ | ✅ | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — |
 | YesMem | ✅ | ✅ | ✅ | — | — | — | — | — | — | ✅ | ✅ |
 | Noosphere | — | — | ✅ | — | — | — | — | ✅ | ✅ | — | — |
 | second-brain | ✅ | — | — | — | — | ✅ | — | — | — | — | — |
@@ -741,6 +749,7 @@
 | fidelis | — | 83.2 (R@1) | — | — | ✅ |
 | Origin | 70.0 | 93.6 | — | — | ✅ |
 | Continuity v2 | — | — | — | — | — |
+| pond | — | — | — | — | ✅ |
 | YesMem | 87.0 | — | — | ~30% proxy | ✅ |
 | Noosphere | — | — | — | — | — |
 | second-brain | — | — | — | — | — |
