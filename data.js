@@ -1169,6 +1169,18 @@ const SYSTEMS = [
     p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: false, p_cursor: true, p_windsurf: true, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: true,
     b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: false,
   },
+  {
+    id: "deja-vu", name: "deja-vu", url: "https://github.com/vshulcz/deja-vu", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/deja-vu.md",
+    description: "Retroactive local memory for 17 coding agents — indexes existing session transcripts, no capture step, no LLM calls, serves via MCP/hooks",
+    stars: 493, language: "Go", license: "MIT", singleBinary: true, created: "2026-07-01",
+    deployment: "Local CLI, single binary", storage: "Custom append-only log + postings index", integration: "MCP + hooks + CLI + opencode plugin", proxy: false, webUi: true, offline: true, multiAgent: true, llmFlex: 0, cacheOpt: false, proceduralMemory: false, sandboxedExec: false, scheduledExec: false, privacy: true, export: true, setup: "curl | sh / brew / npm / go install", pricing: "free",
+    unit: "Message record (verbatim transcript text, redacted)", entities: false, actions: false, keywords: true, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: true, originTrust: true, emotional: false, conflict: true, layeredMemory: true, timeTravel: true, schemaFields: 6,
+    fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 6, dataSources: 13,
+    decay: true, supersede: true, contradiction: false, quarantine: false, autoResolve: false, trustModel: true, explicitForget: true,
+    autoExtract: false, contentPreproc: true, dedup: true, qualityRefine: false, narrative: false, clustering: false, recurrence: true, persona: false,
+    p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: true, p_cursor: true, p_windsurf: false, p_openclaw: true, p_hermes: true, p_pi: true, p_antigravity: true,
+    b_locomo: "h@1=0.70", b_longmemeval: "h@1=0.85", b_personamem: "—", b_token: "~200× vs grep", b_methodology: true,
+  },
 ];
 
 // cache: 1783602143
