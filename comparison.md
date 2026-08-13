@@ -13,11 +13,11 @@
 
 | System | Stars | Lang | License | Created | Description |
 |---|---:|---|---|---|---|
-| [context-keeper](https://github.com/jarmstrong158/context-keeper) | ? | Python | MIT | 2026-04-01 | MCP server for project memory — structured decisions, pipelines, constraints with schema-enforced rationale, lexical+semantic hybrid retrieval |
+| [context-keeper](https://github.com/jarmstrong158/context-keeper) | ? | Python | MIT | 2026-04-01 | MCP server for project memory — schema-enforced decisions, constraints and pipelines with the rationale behind them, supersession history, and a reproducible retrieval benchmark |
 | [Artesian](https://github.com/aquifer-labs/artesian) | ? | Rust | Apache-2.0 | 2026-06-13 | Local-first ACC memory controller — bounded committed context with admission audit log, 7 search modes, transactional multi-writer |
 | [slowave](https://github.com/mrsalty/slowave) | 1 | Python | AGPL-3.0 | 2026-06-08 | Zero-LLM shared local memory layer — one private memory across Claude Code, Cursor, Cline, Windsurf |
-| [memspec](https://github.com/siimvene/memspec) | 1 | TypeScript | MIT | 2026-04 | Git-backed project memory for AI coding agents — Markdown canonical, SQLite FTS5 derived index, optional embeddings |
 | [Somnigraph](https://github.com/AlexisOlson/somnigraph) | 2 | Python | Apache-2.0 + CC | 2026-03-07 | Research-driven persistent memory — SQLite+vec+FTS5 hybrid retrieval, LightGBM reranker, biological decay, NREM/REM sleep consolidation |
+| [memspec](https://github.com/siimvene/memspec) | 3 | TypeScript | MIT | 2026-04 | Git-backed project memory for AI coding agents — Markdown canonical, SQLite FTS5 derived index, optional embeddings |
 | [mnemos](https://github.com/arhuman/mnemos) | 4 | Go | MIT | 2026-06-29 | Local cited memory for AI agents — single Go binary indexing Markdown/docs/code into SQLite FTS5 + optional embeddings, served over MCP |
 | [MarsNMe](https://github.com/marsmanleo/MarsNMe) | 5 | JavaScript | MIT | 2026-03 | MCP memory gateway, own Supabase, TTL decay, supersede chains, 5+ platforms |
 | [Engram Alpha](https://github.com/techtheist/engram) | 5 | Rust | MIT | 2026-07-03 | Typed graph memory for coding agents — 8 node types, 7 edge types, SQLite+vec+FTS5, IDE plugins, browser UI |
@@ -102,11 +102,11 @@
 
 | System | Stars | Language | License | Single binary | Created | Coverage |
 | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | 0 | Python | MIT | — | 2026-04-01 | 53% |
+| context-keeper | 0 | Python | MIT | — | 2026-04-01 | 63% |
 | Artesian | 0 | Rust | Apache-2.0 | ✅ | 2026-06-13 | 60% |
 | slowave | 1 | Python | AGPL-3.0 | — | 2026-06-08 | 38% |
-| memspec | 1 | TypeScript | MIT | — | 2026-04 | 45% |
 | Somnigraph | 2 | Python | Apache-2.0 + CC | — | 2026-03-07 | 42% |
+| memspec | 3 | TypeScript | MIT | — | 2026-04 | 50% |
 | mnemos | 4 | Go | MIT | ✅ | 2026-06-29 | 23% |
 | MarsNMe | 5 | JavaScript | MIT | — | 2026-03 | 25% |
 | Engram Alpha | 5 | Rust | MIT | ✅ | 2026-07-03 | 53% |
@@ -191,11 +191,11 @@
 
 | System | Deployment | Storage | Integration | Proxy | Web/TUI | Offline | Multi-agent | LLM providers | Cache optimization | Procedural memory | Sandboxed exec | Scheduled/autonomous | Privacy/encrypt | Data export | Setup | Pricing |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | Local / MCP | JSON files (.context/) | MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | ✅ | git clone + pip install | free |
+| context-keeper | Local / MCP | JSON files (.context/) | MCP | — | — | ✅ | — | 2 | ✅ | — | — | — | ✅ | ✅ | pip install context-keeper-mcp | free |
 | Artesian | Local CLI + MCP, single binary or Docker | Pluggable (Files, sqlite-vec, Qdrant, pgvector) | MCP (rmcp, stdio/HTTP) + CLI + hooks | — | — | ✅ | ✅ | 5 | ✅ | ✅ | — | ✅ | ✅ | ✅ | brew install aquifer-labs/tap/artesian | free |
 | slowave | Local CLI / MCP | SQLite | MCP | — | — | ✅ | — | 0 | — | — | — | — | ✅ | ✅ | pipx install slowave | free |
-| memspec | Local CLI + MCP + Library | Markdown (canonical) + SQLite FTS5 (derived) + optional embeddings | MCP + CLI | — | — | ✅ | — | 2 | ✅ | — | — | ✅ | ✅ | ✅ | npm install | free |
 | Somnigraph | Self-host / Local (MCP) | SQLite + sqlite-vec + FTS5 | MCP (FastMCP) | — | — | ✅ | — | 2 | ✅ | — | — | — | ✅ | — | pip install | free |
+| memspec | Local CLI + MCP + Library | Markdown (canonical) + SQLite FTS5 (derived) + optional embeddings | MCP + CLI | — | — | ✅ | — | 2 | ✅ | — | — | ✅ | ✅ | ✅ | npm install | free |
 | mnemos | Local CLI + MCP | SQLite (FTS5) | MCP (stdio) + CLI | — | — | ✅ | — | 1 | — | — | — | ✅ | ✅ | — | git clone + make install | free |
 | MarsNMe | MCP server | Supabase+pgvector | MCP | — | — | — | — | 1 | — | — | — | — | ✅ | — | npm install | free |
 | Engram Alpha | Local daemon + IDE plugins + browser UI | SQLite (+ sqlite-vec, FTS5) | MCP + JetBrains plugin + browser | — | ✅ | ✅ | ✅ | 1 | — | — | — | ✅ | ✅ | ✅ | cargo install | free |
@@ -283,8 +283,8 @@
 | context-keeper | Entry (decision / pipeline / constraint) | — | ✅ | ✅ | ✅ | ✅ | — | — | ✅ | ✅ | ✅ | — | ✅ | — | ✅ | 13 |
 | Artesian | MemoryRecord (L0Raw/L1Atom/L2Scenario/L3Project) | ✅ | — | ✅ | — | — | — | — | — | ✅ | — | — | ✅ | ✅ | ✅ | 19 |
 | slowave | Memory (episode / prototype / schema) | — | — | — | — | — | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | — | 14 |
-| memspec | Memory record (fact / decision / procedure / observation) | — | — | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 20 |
 | Somnigraph | Memory (text row) | — | — | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | — | 20 |
+| memspec | Memory record (fact / decision / procedure / observation) | — | — | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 20 |
 | mnemos | Chunk (file#section + line range) | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 8 |
 | MarsNMe | Memory entry (28 fields) | — | — | — | — | — | — | — | ✅ | ✅ | — | — | ✅ | — | — | 28 |
 | Engram Alpha | Typed graph node (8 types) + edge (7 types) | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | — | ✅ | — | ✅ | 8 |
@@ -369,11 +369,11 @@
 
 | System | Full-text | Semantic/vector | Hybrid (BM25+Vec) | Deep (incl. thinking) | Code graph | Docs search | Fact metadata query | Timeline view | Search modes | Data sources |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 3 |
+| context-keeper | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 3 |
 | Artesian | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 5 |
 | slowave | ✅ | ✅ | ✅ | — | — | — | — | — | 2 | 2 |
-| memspec | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 4 |
 | Somnigraph | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 1 |
+| memspec | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 4 |
 | mnemos | ✅ | ✅ | ✅ | — | — | ✅ | ✅ | — | 4 | 1 |
 | MarsNMe | — | ✅ | — | — | — | — | — | — | 2 | 5 |
 | Engram Alpha | ✅ | ✅ | ✅ | — | — | — | ✅ | — | 5 | 1 |
@@ -458,11 +458,11 @@
 
 | System | Decay/forgetting | Supersede/replace | Contradiction detect | Quarantine | Auto-resolution | Trust model | Explicit forget |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | ✅ | ✅ | — | — | — | — | ✅ |
+| context-keeper | ✅ | ✅ | ✅ | — | — | ✅ | ✅ |
 | Artesian | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
 | slowave | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
-| memspec | ✅ | ✅ | ✅ | — | — | ✅ | ✅ |
 | Somnigraph | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ |
+| memspec | ✅ | ✅ | ✅ | — | — | ✅ | ✅ |
 | mnemos | — | — | — | — | — | — | ✅ |
 | MarsNMe | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | Engram Alpha | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ |
@@ -547,11 +547,11 @@
 
 | System | Auto-extraction | Content-aware preproc | Deduplication | Quality refinement | Narrative generation | Clustering | Recurrence detection | Persona extraction |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| context-keeper | — | — | — | ✅ | ✅ | — | — | — |
+| context-keeper | — | — | ✅ | ✅ | ✅ | — | — | — |
 | Artesian | ✅ | — | ✅ | ✅ | ✅ | ✅ | ✅ | — |
 | slowave | — | — | ✅ | — | — | ✅ | ✅ | — |
-| memspec | — | — | ✅ | — | — | — | — | — |
 | Somnigraph | — | — | ✅ | ✅ | ✅ | ✅ | — | — |
+| memspec | ✅ | ✅ | ✅ | — | ✅ | — | — | — |
 | mnemos | — | ✅ | — | — | — | — | — | — |
 | MarsNMe | — | — | ✅ | — | — | — | — | — |
 | Engram Alpha | — | — | ✅ | ✅ | — | — | — | — |
@@ -639,8 +639,8 @@
 | context-keeper | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Artesian | ✅ | ✅ | ✅ | ✅ | — | — | — | — | ✅ | — | — |
 | slowave | ✅ | — | — | — | — | ✅ | ✅ | — | — | — | — |
-| memspec | ✅ | ✅ | — | — | — | ✅ | — | — | — | — | — |
 | Somnigraph | ✅ | — | — | — | — | — | — | — | — | — | — |
+| memspec | ✅ | ✅ | — | — | — | ✅ | — | — | — | — | — |
 | mnemos | ✅ | — | — | — | — | — | — | — | — | — | — |
 | MarsNMe | ✅ | — | — | — | — | ✅ | — | ✅ | ✅ | — | — |
 | Engram Alpha | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | — | — | ✅ |
@@ -725,11 +725,11 @@
 
 | System | LoCoMo | LongMemEval | PersonaMem | Token reduction | Methodology open |
 | --- | --- | --- | --- | --- | --- |
-| context-keeper | — | — | — | — | ✅ |
+| context-keeper | — | — | — | 94–97% | ✅ |
 | Artesian | 0.475 | 0.70 | — | 0.037–0.343 | ✅ |
 | slowave | 76.0 | 87.8 | — | 86% | ✅ |
-| memspec | — | R@5=1.0 | — | — | ✅ |
 | Somnigraph | 85.1 | — | — | — | ✅ |
+| memspec | R@5=0.70 | R@5=1.0 | — | — | ✅ |
 | mnemos | — | — | — | — | ✅ |
 | MarsNMe | — | — | — | — | — |
 | Engram Alpha | — | — | — | — | — |
