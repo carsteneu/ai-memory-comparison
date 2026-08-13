@@ -1181,6 +1181,18 @@ const SYSTEMS = [
     p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: true, p_cursor: true, p_windsurf: false, p_openclaw: true, p_hermes: true, p_pi: true, p_antigravity: true,
     b_locomo: "h@1=0.70", b_longmemeval: "h@1=0.85", b_personamem: "—", b_token: "~200× vs grep", b_methodology: true,
   },
+  {
+    id: "pond", name: "pond", url: "https://github.com/tenequm/pond", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/pond.md",
+    description: "Lossless session archive and search for AI agents — Lance storage, local embeddings, every session from every client in one pond",
+    stars: 35, language: "Rust", license: "Apache-2.0", singleBinary: true, created: "2026-05-07",
+    deployment: "Local CLI (self-host object store optional)", storage: "Lance (local FS / S3 / GCS / Azure)", integration: "MCP / CLI / HTTP", proxy: false, webUi: false, offline: true, multiAgent: true, llmFlex: 1, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: true, privacy: true, export: true, setup: "brew install / cargo install", pricing: "free",
+    unit: "Session (Sessions -> Messages -> Parts, lossless)", entities: false, actions: true, keywords: false, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: true, originTrust: false, emotional: false, conflict: false, layeredMemory: false, timeTravel: true, schemaFields: 22,
+    fulltext: true, semantic: true, hybrid: false, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 3, dataSources: 3,
+    decay: false, supersede: false, contradiction: false, quarantine: false, autoResolve: false, trustModel: false, explicitForget: false,
+    autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: false, narrative: false, clustering: false, recurrence: false, persona: false,
+    p_claude: true, p_codex: true, p_opencode: true, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: true, p_hermes: true, p_pi: true, p_antigravity: false,
+    b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: true,
+  },
 ];
 
 // cache: 1783602143
