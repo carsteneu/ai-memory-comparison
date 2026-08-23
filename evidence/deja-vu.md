@@ -1,11 +1,11 @@
 # deja-vu — Evidence
 
 **Repo:** `github.com/vshulcz/deja-vu`
-**Stars:** 493
+**Stars:** 657
 **Language:** Go
 **License:** MIT
 **Created:** 2026-07-01
-**Description:** Retroactive local memory for 17 coding agents — indexes the session transcripts the agents already write to disk (no capture step, history from before install), serves it back over MCP/hooks; zero daemon, no API keys, no LLM calls.
+**Description:** Retroactive local memory for 20 coding agents — indexes the session transcripts the agents already write to disk (no capture step, history from before install), serves it back over MCP/hooks; zero daemon, no API keys, no LLM calls.
 
 ---
 
@@ -207,23 +207,38 @@
 ### pi/omp ✅
 - Source: [internal/sources/pi.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/internal/sources/pi.go) — pi session transcripts + MCP (mcp.json).
 
+### DeepSeek Harness ✅
+- Source: [internal/sources/deepseek.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/deepseek.go) — sessions under `$DSH_HOME` (zstd-compressed JSONL) are indexed; `deja install deepseek` writes the home patch layer, and the `dsh-deja` npm package registers recall tools, a `/deja` command and automatic recall.
+
+### Zed ✅
+- Source: [internal/sources/zed.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/zed.go) — agent threads from Zed's own store are indexed; MCP wiring installed by `deja install zed`.
+
+### Cline ✅
+- Source: [internal/sources/cline.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/cline.go) — Cline sessions indexed, with MCP and session-start recall installed by `deja install cline`.
+
+### Roo Code ✅
+- Source: [internal/sources/roo.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/roo.go) — Roo Code task history indexed; MCP installed by `deja install roo`.
+
+### Goose ✅
+- Source: [internal/sources/goose.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/goose.go) — Goose sessions indexed; MCP and guidance installed by `deja install goose`.
+
 ### Antigravity ✅
 - Source: [internal/sources/antigravity.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/internal/sources/antigravity.go) — transcript ingestion + MCP config (GUI app, so no hook injection).
 
-*(also indexes aider, Grok Build, Qwen Code and Kimi Code — no columns for those)*
+*(also indexes aider, Grok Build, Qwen Code and Kimi Code — no columns for those; twenty harnesses in total, listed in [internal/sources/registry.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/registry.go))*
 
 ---
 
 ## Benchmarks
 
 ### LoCoMo ✅
-- Score: session-level retrieval, 1,982 questions — hit@1 **69.8%**, hit@5 85.6%, MRR 0.766, median search ~6 ms.
-- Harness: [scripts/locomo/main.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/scripts/locomo/main.go) — `go run ./scripts/locomo -data locomo10.json`.
+- Score: session-level retrieval, 1,982 questions — hit@1 **69.6%**, hit@5 85.6%, MRR 0.766, median search ~6 ms.
+- Harness: [scripts/locomo/main.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/scripts/locomo/main.go) — `go run ./scripts/locomo -data locomo10.json`.
 - Not comparable to most published LoCoMo numbers, and the page says so: those are end-to-end QA accuracy with an answering LLM, deja reports retrieval only.
 
 ### LongMemEval ✅
-- Score: LongMemEval-S, session-level retrieval, 470 questions on the cleaned set — hit@1 **84.9%**, hit@5 94.3%, hit@10 95.7%, MRR 0.890, median search ~40 ms. Full set including abstention (500 questions): hit@1 84.2%.
-- Harness: [scripts/longmemeval/main.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/scripts/longmemeval/main.go) — `go run ./scripts/longmemeval -skip-abs -data longmemeval_s.json`.
+- Score: LongMemEval-S, session-level retrieval, 470 questions on the cleaned set — hit@1 **85.3%**, hit@5 94.3%, hit@10 95.7%, MRR 0.890, median search ~40 ms. Full set including abstention (500 questions): hit@1 84.2%.
+- Harness: [scripts/longmemeval/main.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/scripts/longmemeval/main.go) — `go run ./scripts/longmemeval -skip-abs -data longmemeval_s.json`.
 - Methodology: [benchmarks page](https://vshulcz.github.io/deja-vu/guide/benchmarks.html). Haystack sessions are written as real transcript files and indexed through the production path; questions are used verbatim, no LLM, no embeddings, no query rewriting.
 - Caveat stated on the page: hit@k credits a question when any evidence session ranks in the top k, which is looser than the official per-evidence metric.
 
