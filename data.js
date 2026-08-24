@@ -1193,6 +1193,30 @@ const SYSTEMS = [
     p_claude: true, p_codex: true, p_opencode: true, p_gemini: false, p_copilot: false, p_cursor: false, p_windsurf: false, p_openclaw: true, p_hermes: true, p_pi: true, p_antigravity: false,
     b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: true,
   },
+  {
+    id: "statewave", name: "Statewave", url: "https://github.com/smaramwbc/statewave", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/statewave.md",
+    description: "Memory runtime that compiles raw episodes into typed, provenance-tagged memories and assembles deterministic, token-bounded context bundles — instead of query-time retrieval",
+    stars: 313, language: "Python", license: "Apache-2.0", singleBinary: false, created: "2026-04-24",
+    deployment: "Self-host (Docker Compose / Helm / bare-metal)", storage: "PostgreSQL 14+ with pgvector", integration: "REST API / SDKs / MCP", proxy: false, webUi: true, offline: true, multiAgent: true, llmFlex: 100, cacheOpt: true, proceduralMemory: false, sandboxedExec: false, scheduledExec: true, privacy: true, export: true, setup: "docker compose up -d / pip install statewave", pricing: "free",
+    unit: "Memory (profile_fact / episode_summary / procedure / artifact_ref)", entities: true, actions: false, keywords: false, anticipatedQueries: false, triggerRules: false, domainTag: false, taskType: false, context: false, source: true, originTrust: false, emotional: false, conflict: true, layeredMemory: false, timeTravel: true, schemaFields: 11,
+    fulltext: true, semantic: true, hybrid: true, deep: false, codeGraph: false, docsSearch: false, factQuery: true, timeline: true, searchModes: 4, dataSources: 4,
+    decay: true, supersede: true, contradiction: true, quarantine: false, autoResolve: true, trustModel: false, explicitForget: true,
+    autoExtract: true, contentPreproc: true, dedup: true, qualityRefine: true, narrative: true, clustering: false, recurrence: true, persona: false,
+    p_claude: true, p_codex: false, p_opencode: false, p_gemini: false, p_copilot: true, p_cursor: true, p_windsurf: false, p_openclaw: false, p_hermes: false, p_pi: false, p_antigravity: false,
+    b_locomo: "0.905", b_longmemeval: "0.967", b_personamem: "—", b_token: "—", b_methodology: true,
+  },
+  {
+    id: "lwc", name: "LWC", url: "https://github.com/JanYork/llm-wiki-cli", evidence: "https://github.com/carsteneu/ai-memory-comparison/blob/main/evidence/lwc.md",
+    description: "Agent-driven proactive memory CLI that maintains persistent, source-grounded Wiki knowledge across sessions",
+    stars: 32, language: "Rust", license: "Apache-2.0", singleBinary: true, created: "2026-07-29",
+    deployment: "Local CLI", storage: "SQLite", integration: "CLI / MCP / Hooks / Skill", proxy: false, webUi: true, offline: true, multiAgent: false, llmFlex: 0, cacheOpt: false, proceduralMemory: false, sandboxedExec: false, scheduledExec: false, privacy: true, export: true, setup: "brew / npm / cargo install", pricing: "free",
+    unit: "Source / Wiki page", entities: true, actions: true, keywords: true, anticipatedQueries: false, triggerRules: true, domainTag: false, taskType: false, context: true, source: true, originTrust: false, emotional: false, conflict: false, layeredMemory: true, timeTravel: true, schemaFields: 8,
+    fulltext: true, semantic: false, hybrid: false, deep: false, codeGraph: true, docsSearch: false, factQuery: true, timeline: true, searchModes: 4, dataSources: 3,
+    decay: false, supersede: true, contradiction: false, quarantine: false, autoResolve: false, trustModel: false, explicitForget: true,
+    autoExtract: false, contentPreproc: false, dedup: true, qualityRefine: true, narrative: false, clustering: false, recurrence: false, persona: false,
+    p_claude: true, p_codex: true, p_opencode: true, p_gemini: true, p_copilot: true, p_cursor: true, p_windsurf: false, p_openclaw: false, p_hermes: true, p_pi: true, p_antigravity: true,
+    b_locomo: "—", b_longmemeval: "—", b_personamem: "—", b_token: "—", b_methodology: true,
+  },
 ];
 
 // cache: 1783602143
