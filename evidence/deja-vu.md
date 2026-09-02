@@ -1,11 +1,11 @@
 # deja-vu — Evidence
 
 **Repo:** `github.com/vshulcz/deja-vu`
-**Stars:** 657
+**Stars:** 759
 **Language:** Go
 **License:** MIT
 **Created:** 2026-07-01
-**Description:** Retroactive local memory for 20 coding agents — indexes the session transcripts the agents already write to disk (no capture step, history from before install), serves it back over MCP/hooks; zero daemon, no API keys, no LLM calls.
+**Description:** Retroactive local memory for 21 coding agents — indexes the session transcripts the agents already write to disk (no capture step, history from before install), serves it back over MCP/hooks; zero daemon, no API keys, no LLM calls.
 
 ---
 
@@ -66,7 +66,8 @@
 
 ### Anticipated queries ❌
 
-### Trigger rules ❌
+### Trigger rules ✅
+- Source: [cmd/deja/hook_tool.go#L155](https://github.com/vshulcz/deja-vu/blob/v0.19.2/cmd/deja/hook_tool.go#L155) — the pre-tool hook fires on `Edit`/`Write`/`apply_patch` with the target path and answers with that file's history ("which past sessions touched this file") before the edit lands; on `Bash` it fires with the command and surfaces the earlier failure or decision about it. Condition-based, no query from the agent.
 
 ### Domain tag ❌
 
@@ -125,8 +126,8 @@
 ### Search modes (count: 6) ✅
 - Source: [internal/index/retrieval.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/internal/index/retrieval.go#L533) — exact → substring → stem/suffix forms → fuzzy (Damerau) → co-occurrence rescue → semantic (opt-in); each degradation step is narrated in output.
 
-### Data sources (count: 13) ✅
-- Source: [internal/sources/registry.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/internal/sources/registry.go) — Claude Code, Codex, opencode, Cursor (CLI+IDE), aider, Gemini CLI, Antigravity, Grok Build, Qwen Code, Kimi Code, pi, Copilot CLI + deja's own notes.
+### Data sources (count: 21) ✅
+- Source: [internal/sources/registry.go](https://github.com/vshulcz/deja-vu/blob/v0.19.2/internal/sources/registry.go) — Claude Code, Codex, opencode, Cursor (CLI+IDE), aider, Gemini CLI, Antigravity, Grok Build, Qwen Code, Kimi Code, pi, omp, Copilot CLI, Cline, Roo Code, Goose, Hermes, OpenClaw, DeepSeek Harness, Zed, Prime + deja's own notes.
 
 ---
 
@@ -154,7 +155,8 @@
 
 ## Extraction Pipeline
 
-### Auto-extraction ❌
+### Auto-extraction ✅
+- Source: [cmd/deja/friction.go#L19](https://github.com/vshulcz/deja-vu/blob/v0.19.2/cmd/deja/friction.go#L19) — `deja friction` derives the recurring error lines of the machine (a missing tool, a module never installed, a command absent on this platform) from the indexed sessions, with per-line session counts; nothing is saved by hand. The same extraction feeds the install proof and the session-start digest ("this machine has hit `X` in N sessions").
 - (by design: serves verbatim transcript evidence, not LLM-extracted facts)
 
 ### Content-aware preprocessing ✅
@@ -165,7 +167,8 @@
 
 ### Quality refinement ❌
 
-### Narrative generation ❌
+### Narrative generation ✅
+- Source: [cmd/deja/handoff.go#L23](https://github.com/vshulcz/deja-vu/blob/v0.19.2/cmd/deja/handoff.go#L23) — `deja handoff` packages the live context of a session (the problem, what was concluded, where it stopped) as a digest and continues it in another agent; [cmd/deja/share.go](https://github.com/vshulcz/deja-vu/blob/v0.19.2/cmd/deja/share.go) writes a sanitized digest of a session for someone else.
 
 ### Clustering ❌
 
