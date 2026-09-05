@@ -84,7 +84,7 @@
 - README: Restricted articles — tagged with scopes, invisible to users/keys without matching scope
 - README: Docker internal network — PostgreSQL not exposed to host by default
 - README: Secrets stored in `~/.noosphere/.env`, outside repo
-- v1.13.2 release notes: OpenClaw credential-origin binding (protected exact HTTPS origin pin, rejects malformed/internal destinations, no authenticated redirect following) and host-owned SecretRef resolution (no plugin-side secret-file reads)
+- [v1.13.2 release notes](https://github.com/SweetSophia/noosphere/releases/tag/v1.13.2): OpenClaw credential-origin binding (protected exact HTTPS origin pin, rejects malformed/internal destinations, no authenticated redirect following; [PR #312](https://github.com/SweetSophia/noosphere/pull/312)) and host-owned SecretRef resolution (no plugin-side secret-file reads; [PR #301](https://github.com/SweetSophia/noosphere/pull/301))
 
 ### Export ✅
 - README: `POST /api/export` — download all articles as Markdown vault zip
@@ -323,8 +323,8 @@
 | **Backfill/Synthesis Jobs** | Generates curated articles from historical material with retry support |
 | **Local Scheduler** | Built-in `npm run memory:scheduler` for maintenance jobs |
 | **Redis Recall Cache** | Cache-aside layer accelerates repeat searches |
-| **Bounded MCP Recall** | `recall_memory` forced into API `auto` mode with result/token budgets; caller-controlled serialization hooks and provider mutation rejected (v1.13.2, PR #314) |
-| **Deterministic Coordinated Release** | One merge publishes app image, five npm packages, checksum-verified installer; six-file GitHub release with SHA-256 readback |
+| **Bounded MCP Recall** | `recall_memory` forced into API `auto` mode with result/token budgets; caller-controlled serialization hooks and provider mutation rejected ([v1.13.2](https://github.com/SweetSophia/noosphere/releases/tag/v1.13.2), [PR #314](https://github.com/SweetSophia/noosphere/pull/314)) |
+| **Deterministic Coordinated Release** | One merge publishes app image, five npm packages, checksum-verified installer; six-file GitHub release with SHA-256 readback ([docs/COORDINATED-RELEASE.md](https://github.com/SweetSophia/noosphere/blob/master/docs/COORDINATED-RELEASE.md), [v1.13.2](https://github.com/SweetSophia/noosphere/releases/tag/v1.13.2)) |
 | **Obsidian Sync** | Full export/import + reverse scan of Markdown vaults |
 | **Revision History** | Per-article version tracking |
 | **Topic Hierarchy** | Unlimited-depth tree organization |
