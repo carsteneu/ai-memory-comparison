@@ -3,8 +3,8 @@
 > **Open-source fact table.** Every claim links to public README, docs, or source.
 > Corrections via PR welcome. No affiliation with any listed project.
 
-**Last updated:** 2026-08-24  
-**Systems:** 85  
+**Last updated:** 2026-09-07  
+**Systems:** 86  
 **Live:** [carsteneu.github.io/ai-memory-comparison](https://carsteneu.github.io/ai-memory-comparison/)
 
 ---
@@ -16,88 +16,89 @@
 | [Artesian](https://github.com/aquifer-labs/artesian) | ? | Rust | Apache-2.0 | 2026-06-13 | Local-first ACC memory controller — bounded committed context with admission audit log, 7 search modes, transactional multi-writer |
 | [slowave](https://github.com/mrsalty/slowave) | 1 | Python | AGPL-3.0 | 2026-06-08 | Zero-LLM shared local memory layer — one private memory across Claude Code, Cursor, Cline, Windsurf |
 | [context-keeper](https://github.com/jarmstrong158/context-keeper) | 1 | Python | MIT | 2026-04-01 | MCP server for project memory — schema-enforced decisions, constraints and pipelines with the rationale behind them, supersession history, and a reproducible retrieval benchmark |
-| [Somnigraph](https://github.com/AlexisOlson/somnigraph) | 2 | Python | Apache-2.0 + CC | 2026-03-07 | Research-driven persistent memory — SQLite+vec+FTS5 hybrid retrieval, LightGBM reranker, biological decay, NREM/REM sleep consolidation |
+| [Somnigraph](https://github.com/AlexisOlson/somnigraph) | 3 | Python | Apache-2.0 + CC | 2026-03-07 | Research-driven persistent memory — SQLite+vec+FTS5 hybrid retrieval, LightGBM reranker, biological decay, NREM/REM sleep consolidation |
 | [memspec](https://github.com/siimvene/memspec) | 3 | TypeScript | MIT | 2026-04 | Git-backed project memory for AI coding agents — Markdown canonical, SQLite FTS5 derived index, optional embeddings |
 | [mnemos](https://github.com/arhuman/mnemos) | 4 | Go | MIT | 2026-06-29 | Local cited memory for AI agents — single Go binary indexing Markdown/docs/code into SQLite FTS5 + optional embeddings, served over MCP |
-| [MarsNMe](https://github.com/marsmanleo/MarsNMe) | 5 | JavaScript | MIT | 2026-03 | MCP memory gateway, own Supabase, TTL decay, supersede chains, 5+ platforms |
 | [Engram Alpha](https://github.com/techtheist/engram) | 5 | Rust | MIT | 2026-07-03 | Typed graph memory for coding agents — 8 node types, 7 edge types, SQLite+vec+FTS5, IDE plugins, browser UI |
-| [Kage](https://github.com/kage-core/Kage) | 6 | TypeScript | GPL-3.0-only | 2026-05 | Verified memory for coding agents — every memory is checked against the code it cites |
+| [MarsNMe](https://github.com/marsmanleo/MarsNMe) | 7 | JavaScript | MIT | 2026-03 | MCP memory gateway, own Supabase, TTL decay, supersede chains, 5+ platforms |
 | [gitmem](https://github.com/gitmem-dev/gitmem) | 9 | TypeScript | MIT | 2026-04 | MCP server, BM25+semantic, 17 schema fields, keywords, local-first |
-| [Midas](https://github.com/vornicx/Midas) | 12 | Python + TS | Apache 2.0 | 2026-06-04 | Local governed memory + trust plane — source-traceable recall, action guard, conflicts/time-travel, $0 default ingest |
+| [Midas](https://github.com/vornicx/Midas) | 14 | Python + TS | Apache 2.0 | 2026-06-04 | Local governed memory + trust plane — source-traceable recall, action guard, conflicts/time-travel, $0 default ingest |
 | [VIR](https://github.com/djolex999/vir) | 15 | TypeScript | MIT | 2026-04 | Obsidian-native LLM Wiki: retroactive Claude Code session distillation, MCP+CLI daemon, confidence-scored markdown notes |
-| [Fullerenes](https://github.com/codebreaker77/Fullerenes) | 19 | TypeScript | MIT | 2026-04-25 | Zero-LLM Tree-sitter code graph, blast radius analysis, 64% SWE-bench token reduction |
 | [fidelis](https://github.com/hermes-labs-ai/fidelis) | 22 | Python | MIT | 2026-03 | Non-LLM agent memory, BM25 + rerank, 83.2% R@1 on LongMemEval-S, depends on mem0 |
+| [Fullerenes](https://github.com/codebreaker77/Fullerenes) | 23 | TypeScript | MIT | 2026-04-25 | Zero-LLM Tree-sitter code graph, blast radius analysis, 64% SWE-bench token reduction |
+| [Noosphere](https://github.com/SweetSophia/noosphere) | 26 | TypeScript | Apache-2.0 | 2026-04-11 | Universal wiki + memory layer, multi-provider recall orchestration, conflict resolution, promotion pipeline, Obsidian sync |
 | [Origin](https://github.com/7xuanlu/origin) | 31 | Rust | Apache 2.0 | 2026-04-19 | Local-first Rust daemon with git-versioned memories, distilled wiki pages, and knowledge graph |
-| [Continuity v2](https://github.com/Haustorium12/continuity-v2) | 32 | Python | MIT | 2026-04 | SSE proxy for Claude Code, FTS5+ANN search, compaction hooks, thread recall via BFS graph |
+| [Kage](https://github.com/kage-core/Kage) | 32 | TypeScript | GPL-3.0-only | 2026-05 | Verified memory for coding agents — every memory is checked against the code it cites |
 | [LWC](https://github.com/JanYork/llm-wiki-cli) | 32 | Rust | Apache-2.0 | 2026-07-29 | Agent-driven proactive memory CLI that maintains persistent, source-grounded Wiki knowledge across sessions |
-| [YesMem](https://github.com/carsteneu/yesmem) | 39 | Go | Apache 2.0 | 2026-04-09 | Project continuity layer with deepest data model and proxy collapse |
+| [Continuity v2](https://github.com/Haustorium12/continuity-v2) | 35 | Python | MIT | 2026-04 | SSE proxy for Claude Code, FTS5+ANN search, compaction hooks, thread recall via BFS graph |
 | [pond](https://github.com/tenequm/pond) | 39 | Rust | Apache-2.0 | 2026-05-07 | Lossless session archive and search for AI agents — Lance storage, local embeddings, every session from every client in one pond |
-| [Noosphere](https://github.com/SweetSophia/noosphere) | 53 | TypeScript | MIT | 2026-04-11 | Universal wiki + memory layer, multi-provider recall orchestration, conflict resolution, promotion pipeline, Obsidian sync |
-| [second-brain](https://github.com/rahilp/second-brain-cloudflare) | 91 | TypeScript | MIT | 2026-05-17 | Serverless Cloudflare memory, time-decay reranking, smart merge LLM, one-click deploy |
+| [YesMem](https://github.com/carsteneu/yesmem) | 41 | Go | Apache 2.0 | 2026-04-09 | Project continuity layer with deepest data model and proxy collapse |
 | [Jumbo](https://github.com/jumbocontext/jumbo.cli) | 102 | TypeScript | AGPL-3.0 | 2025-12-05 | Goal-driven memory system that serves the right context at the right time |
 | [CommonGround](https://github.com/Intelligent-Internet/CommonGround) | 149 | TypeScript | MIT | 2025-11 | Shared agent workspace: collaborative memory, pub/sub events, agent directory |
-| [Mengram](https://github.com/alibaizhanov/mengram) | 171 | Python | Apache 2.0 | 2026-02-10 | 3-tier memory (semantic/episodic/procedural), 30 MCP tools, experience-driven procedure evolution |
-| [ClawMem](https://github.com/yoloshii/ClawMem) | 200 | TypeScript | MIT | 2026-02-06 | On-device, hybrid BM25+vector+RRF+cross-encoder, 5+ search modes, conflict detection |
-| [omega-memory](https://github.com/omega-memory/omega-memory) | 205 | Python | MIT | 2026-01 | 28-tool multi-agent memory, 5 search modes, all lifecycle features, LongMemEval 76.8% |
-| [YourMemory](https://github.com/sachitrafa/YourMemory) | 231 | Python | CC BY-NC 4.0 | 2026-03-02 | Self-hosted MCP server, Ebbinghaus forgetting, NER+graph, LoCoMo 59%/LongMemEval 89.4% |
+| [Mengram](https://github.com/alibaizhanov/mengram) | 191 | Python | Apache 2.0 | 2026-02-10 | 3-tier memory (semantic/episodic/procedural), 30 MCP tools, experience-driven procedure evolution |
+| [ClawMem](https://github.com/yoloshii/ClawMem) | 208 | TypeScript | MIT | 2026-02-06 | On-device, hybrid BM25+vector+RRF+cross-encoder, 5+ search modes, conflict detection |
+| [omega-memory](https://github.com/omega-memory/omega-memory) | 215 | Python | MIT | 2026-01 | 28-tool multi-agent memory, 5 search modes, all lifecycle features, LongMemEval 76.8% |
 | [ArcRift](https://github.com/Eshaan-Nair/ArcRift) | 245 | TypeScript | MIT | 2026-04-21 | Tauri desktop app + Chrome ext + MCP, hybrid search, KG extraction, codebase indexing |
 | [MoltBrain](https://github.com/nhevers/MoltBrain) | 253 | TypeScript | ? | 2026-01-26 | Long-term memory, MoltBook multi-agent, web viewer, ChromaDB |
-| [AIPass](https://github.com/AIOSAI/AIPass) | 261 | Python | MIT | 2026-02 | CLI-native agent workspace, ChromaDB, auto-rollover, no delete |
-| [shodh-memory](https://github.com/varun29ankuS/shodh-memory) | 275 | Rust | ? | 2025-12-03 | Cognitive: learns from use, forgets irrelevant, TinyBERT NER, RichContext |
-| [MemLayer](https://github.com/divagr18/memlayer) | 290 | Python | MIT | 2025-11-16 | 3-line LTM for any LLM: hybrid vector+graph, 3 speed tiers, salience gating, offline mode |
+| [YourMemory](https://github.com/sachitrafa/YourMemory) | 265 | Python | CC BY-NC 4.0 | 2026-03-02 | Self-hosted MCP server, Ebbinghaus forgetting, NER+graph, LoCoMo 59%/LongMemEval 89.4% |
+| [AIPass](https://github.com/AIOSAI/AIPass) | 273 | Python | MIT | 2026-02 | CLI-native agent workspace, ChromaDB, auto-rollover, no delete |
+| [shodh-memory](https://github.com/varun29ankuS/shodh-memory) | 278 | Rust | ? | 2025-12-03 | Cognitive: learns from use, forgets irrelevant, TinyBERT NER, RichContext |
+| [MemLayer](https://github.com/divagr18/memlayer) | 291 | Python | MIT | 2025-11-16 | 3-line LTM for any LLM: hybrid vector+graph, 3 speed tiers, salience gating, offline mode |
 | [icarus](https://github.com/esaradev/icarus-memory-infra) | 292 | Python | MIT | 2026-03-24 | Provenance, rollback, 3-layer: working+session+wiki, 23 schema fields |
 | [Memory Palace](https://github.com/AGI-is-going-to-arrive/Memory-Palace) | 311 | Python | MIT | 2026-02-19 | Forgetting engine, snapshot rollback, intent-aware search, 4 maintenance engines |
 | [Statewave](https://github.com/smaramwbc/statewave) | 313 | Python | Apache-2.0 | 2026-04-24 | Memory runtime that compiles raw episodes into typed, provenance-tagged memories and assembles deterministic, token-bounded context bundles — instead of query-time retrieval |
 | [memorix](https://github.com/memorix-ai/memorix) | 433 | Python | Apache 2.0 | 2026-02-14 | Generic vector-store SDK wrapping FAISS/Qdrant — NOT agent memory |
 | [TeleMem](https://github.com/Tele-AI/TeleMem) | 461 | Python | MIT | 2026-05 | Mem0 drop-in replacement: semantic dedup, multimodal video, multi-user |
-| [Octopoda-OS](https://github.com/RyjoxTechnologies/Octopoda-OS) | 506 | Python | MIT | 2026-04-02 | Memory OS: loop detection, agent messaging, crash recovery, 29 MCP tools |
-| [memoir](https://github.com/zhangfengcdt/memoir) | 607 | Python | Apache-2.0 | 2025-08 | Git-like branch/commit/merge memory, visual explorer, Claude+Codex plugins |
-| [vestige](https://github.com/samvallad33/vestige) | 608 | Rust | AGPL-3.0 | 2026-01-25 | Local-first cognitive memory for AI agents — FSRS-6 decay, prediction-error-gated ingest, MCP-native, single Rust binary with embedded dashboard |
-| [MemoMind](https://github.com/24kchengYe/MemoMind) | 609 | Python | ? | 2026-03-15 | GPU-accelerated, 4-way hybrid retrieval, 4600+ entities, web dashboard |
-| [deja-vu](https://github.com/vshulcz/deja-vu) | 631 | Go | MIT | 2026-07-01 | Retroactive local memory for 17 coding agents — indexes existing session transcripts, no capture step, no LLM calls, serves via MCP/hooks |
-| [Memora](https://github.com/agentic-box/memora) | 695 | Python | MIT | 2025-11-11 | MCP memory: hybrid RRF, auto-hierarchy, LLM dedup, live graph UI, event-driven multi-agent |
-| [context-infra](https://github.com/grapeot/context-infrastructure) | 723 | Python | MIT | 2026-03-16 | Memory + rules + skills + scheduled observations |
-| [stash](https://github.com/alash3al/stash) | 765 | Go | Apache 2.0 | 2026-04-24 | Go binary, 8-stage consolidation pipeline, causal link + hypothesis engine |
-| [Wax](https://github.com/christopherkarani/Wax) | 790 | Swift | Apache 2.0 | 2026-01-20 | Swift/Metal, Apple Silicon, single-file, sub-ms RAG, EAV entities, hybrid FTS+HNSW |
-| [LightMem](https://github.com/zjunlp/LightMem) | 1093 | Python | MIT | 2025-05 | ICLR 2026: lightweight memory-augmented generation with adaptive gating |
-| [token-savior](https://github.com/Mibayy/token-savior) | 1122 | Python | MIT | 2026-03-30 | FTS5+vector hybrid RRF, Tree-sitter code graph, Thompson-sampled persona lattice |
-| [mem9](https://github.com/mem9-ai/mem9) | 1198 | TypeScript | Apache 2.0 | 2026-01 | TiDB Cloud backed, hybrid search, multi-agent spaces, conflict resolution, 6 platforms |
-| [nocturne](https://github.com/Dataojitori/nocturne_memory) | 1327 | Python | MIT | 2025-12-25 | Rollbackable, visual LTM for MCP agents, no vector RAG, 9 MCP clients |
-| [opencode-mem](https://github.com/tickernelz/opencode-mem) | 1386 | TypeScript | ? | 2026-01-10 | OpenCode plugin, local vector DB, dashboard, dedup, persona extraction |
-| [LangMem](https://github.com/langchain-ai/langmem) | 1623 | Python | MIT | 2025-02 | LangChain memory toolkit — library only, no CLI/plugin, requires API keys |
-| [memanto](https://github.com/moorcheh-ai/memanto) | 1836 | Python | MIT | 2026-03 | Vector-only (no graph), 13 memory types, 5 search modes, LoCoMo 87.1% SOTA |
-| [memsearch](https://github.com/zilliztech/memsearch) | 1861 | Python | Apache 2.0 | 2025-08 | Cross-platform semantic memory: hybrid RRF, SHA-256 dedup, 3-layer progressive recall, ONNX bge-m3 |
-| [mcp-memory-service](https://github.com/doobidoo/mcp-memory-service) | 1901 | Python | Apache 2.0 | 2024-12-26 | Persistent memory for AI agent pipelines, REST API + MCP + knowledge graph + auto-consolidation |
-| [MemMachine](https://github.com/MemMachine/MemMachine) | 3201 | Python | Apache 2.0 | 2025-08 | Agentic retrieval with ChainOfQueryAgent multi-hop, 3-layer memory, Neo4j+PG |
-| [MIRIX](https://github.com/MIRIX-AI/MIRIX) | 3434 | Python | MIT | 2025-09 | 6-type memory architecture, LoCoMo 85.38% SOTA, 99.9% storage reduction, best extraction pipeline |
-| [Acontext](https://github.com/memodb-io/Acontext) | 3675 | JS/TS/Go/Python | Apache-2.0 | 2025-10 | Agent Skills as a Memory Layer — auto-captures learnings as Markdown skill files, progressive disclosure retrieval |
+| [Caura](https://github.com/caura-ai/caura) | 487 | Python | Apache-2.0 | 2026-04-27 | Governed shared memory for multi-tenant, multi-agent AI fleets — LLM-enriched memories with visibility scopes, trust tiers, keystone policies, auto-extracted knowledge graph, exposed over MCP and REST |
+| [Octopoda-OS](https://github.com/RyjoxTechnologies/Octopoda-OS) | 490 | Python | MIT | 2026-04-02 | Memory OS: loop detection, agent messaging, crash recovery, 29 MCP tools |
+| [memoir](https://github.com/zhangfengcdt/memoir) | 610 | Python | Apache-2.0 | 2025-08 | Git-like branch/commit/merge memory, visual explorer, Claude+Codex plugins |
+| [MemoMind](https://github.com/24kchengYe/MemoMind) | 611 | Python | ? | 2026-03-15 | GPU-accelerated, 4-way hybrid retrieval, 4600+ entities, web dashboard |
+| [vestige](https://github.com/samvallad33/vestige) | 616 | Rust | AGPL-3.0 | 2026-01-25 | Local-first cognitive memory for AI agents — FSRS-6 decay, prediction-error-gated ingest, MCP-native, single Rust binary with embedded dashboard |
+| [Memora](https://github.com/agentic-box/memora) | 715 | Python | MIT | 2025-11-11 | MCP memory: hybrid RRF, auto-hierarchy, LLM dedup, live graph UI, event-driven multi-agent |
+| [second-brain](https://github.com/rahilp/second-brain-cloudflare) | 742 | TypeScript | MIT | 2026-05-17 | Serverless Cloudflare memory, time-decay reranking, smart merge LLM, one-click deploy |
+| [context-infra](https://github.com/grapeot/context-infrastructure) | 746 | Python | MIT | 2026-03-16 | Memory + rules + skills + scheduled observations |
+| [stash](https://github.com/alash3al/stash) | 767 | Go | Apache 2.0 | 2026-04-24 | Go binary, 8-stage consolidation pipeline, causal link + hypothesis engine |
+| [deja-vu](https://github.com/vshulcz/deja-vu) | 785 | Go | MIT | 2026-07-01 | Retroactive local memory for 21 coding agents — indexes existing session transcripts, no capture step, no LLM calls, serves via MCP/hooks |
+| [Wax](https://github.com/christopherkarani/Wax) | 788 | Swift | Apache 2.0 | 2026-01-20 | Swift/Metal, Apple Silicon, single-file, sub-ms RAG, EAV entities, hybrid FTS+HNSW |
+| [LightMem](https://github.com/zjunlp/LightMem) | 1115 | Python | MIT | 2025-05 | ICLR 2026: lightweight memory-augmented generation with adaptive gating |
+| [token-savior](https://github.com/Mibayy/token-savior) | 1144 | Python | MIT | 2026-03-30 | FTS5+vector hybrid RRF, Tree-sitter code graph, Thompson-sampled persona lattice |
+| [mem9](https://github.com/mem9-ai/mem9) | 1205 | TypeScript | Apache 2.0 | 2026-01 | TiDB Cloud backed, hybrid search, multi-agent spaces, conflict resolution, 6 platforms |
+| [nocturne](https://github.com/Dataojitori/nocturne_memory) | 1345 | Python | MIT | 2025-12-25 | Rollbackable, visual LTM for MCP agents, no vector RAG, 9 MCP clients |
+| [opencode-mem](https://github.com/tickernelz/opencode-mem) | 1617 | TypeScript | ? | 2026-01-10 | OpenCode plugin, local vector DB, dashboard, dedup, persona extraction |
+| [LangMem](https://github.com/langchain-ai/langmem) | 1646 | Python | MIT | 2025-02 | LangChain memory toolkit — library only, no CLI/plugin, requires API keys |
+| [memanto](https://github.com/moorcheh-ai/memanto) | 1859 | Python | MIT | 2026-03 | Vector-only (no graph), 13 memory types, 5 search modes, LoCoMo 87.1% SOTA |
+| [mcp-memory-service](https://github.com/doobidoo/mcp-memory-service) | 1925 | Python | Apache 2.0 | 2024-12-26 | Persistent memory for AI agent pipelines, REST API + MCP + knowledge graph + auto-consolidation |
+| [memsearch](https://github.com/zilliztech/memsearch) | 2565 | Python | Apache 2.0 | 2025-08 | Cross-platform semantic memory: hybrid RRF, SHA-256 dedup, 3-layer progressive recall, ONNX bge-m3 |
+| [MemMachine](https://github.com/MemMachine/MemMachine) | 3214 | Python | Apache 2.0 | 2025-08 | Agentic retrieval with ChainOfQueryAgent multi-hop, 3-layer memory, Neo4j+PG |
+| [MIRIX](https://github.com/MIRIX-AI/MIRIX) | 3440 | Python | MIT | 2025-09 | 6-type memory architecture, LoCoMo 85.38% SOTA, 99.9% storage reduction, best extraction pipeline |
+| [Acontext](https://github.com/memodb-io/Acontext) | 3684 | JS/TS/Go/Python | Apache-2.0 | 2025-10 | Agent Skills as a Memory Layer — auto-captures learnings as Markdown skill files, progressive disclosure retrieval |
 | [MemoryBear](https://github.com/Suanmo/MemoryBear) | 4167 | Python | Apache 2.0 | 2025-06 | Bio-inspired 6-engine memory: perception, graph, hybrid search, Ebbinghaus forgetting, reflection |
-| [ai-memory](https://github.com/akitaonrails/ai-memory) | 4270 | Rust | MIT | 2026-05-21 | Git-versioned markdown wiki, zero LLM mode, cross-agent handoffs |
 | [m_flow](https://github.com/FlowElement-ai/m_flow) | 4419 | Python | Apache 2.0 | 2026-02 | Bio-inspired Graph RAG, 4-layer cone, graph-routed path-cost search, LoCoMo 81.8% #1 |
-| [memory-lancedb-pro](https://github.com/CortexReach/memory-lancedb-pro) | 4463 | TypeScript | MIT | 2025-11 | LanceDB plugin: 6-stage hybrid pipeline, Weibull decay, dreaming sidecar, multi-scope |
-| [OpenMemory](https://github.com/CaviraOSS/OpenMemory) | 4463 | Python | Apache 2.0 | 2025-10 | HMD v2 cognitive engine: 5-sector decay, temporal KG, waypoint graph, document ingestion |
+| [memory-lancedb-pro](https://github.com/CortexReach/memory-lancedb-pro) | 4459 | TypeScript | MIT | 2025-11 | LanceDB plugin: 6-stage hybrid pipeline, Weibull decay, dreaming sidecar, multi-scope |
+| [OpenMemory](https://github.com/CaviraOSS/OpenMemory) | 4475 | Python | Apache 2.0 | 2025-10 | HMD v2 cognitive engine: 5-sector decay, temporal KG, waypoint graph, document ingestion |
 | [TencentDB-AM](https://github.com/Tencent/TencentDB-Agent-Memory) | 4506 | TypeScript | MIT | 2026-04-07 | Mermaid symbolic memory, L0→L3 pyramid, 61% token reduction |
-| [obsidian-mind](https://github.com/breferrari/obsidian-mind) | 4546 | TypeScript | MIT | 2026-02-28 | Obsidian vault template, markdown-native memory, QMD hybrid RRF search |
-| [ByteRover](https://github.com/campfirein/byterover-cli) | 4949 | TypeScript | Elastic 2.0 | 2025-06-19 | Context tree with git-like VC, strongest benchmarks (LoCoMo 96.1) |
-| [engram](https://github.com/Gentleman-Programming/engram) | 6139 | Go | MIT | 2026-02-16 | Go binary agent memory with conflict surfacing and TUI |
-| [Honcho](https://github.com/plastic-labs/honcho) | 6801 | Python | AGPL-3.0 | 2024-04 | Memory library for stateful agents, theory-of-mind reasoning, multi-agent capable |
-| [MemOS](https://github.com/MemTensor/MemOS) | 10942 | Python | Apache 2.0 | 2025-10 | Self-evolving memory OS, L1/L2/L3, MemCubes, time machine, strong benchmarks |
-| [EverOS](https://github.com/EverMind-AI/EverOS) | 12373 | Python | Apache 2.0 | 2025-10-28 | Self-evolving agent memory with evaluation framework |
-| [memU](https://github.com/NevaMind-AI/memU) | 13700 | Python | MIT | 2025-09 | Always-on memory for 24/7 proactive agents, 3-tier layered, LoCoMo 92.09%, 5 modality preprocessing |
-| [Memori](https://github.com/MemoriLabs/Memori) | 16204 | Python | Apache 2.0 | 2025-07-24 | Agent-native memory (captures execution, not just conversation) |
-| [Memvid](https://github.com/memvid/memvid) | 16442 | Rust | Apache 2.0 | 2025-05-27 | Single-file memory (.mv2) with Smart Frames and time-travel |
-| [hindsight](https://github.com/vectorize-io/hindsight) | 21000 | Python | MIT | 2025-10 | Self-improving agentic memory, 91.4% LongMemEval, reflect engine, web dashboard |
-| [Letta](https://github.com/letta-ai/letta) | 24385 | Python | Apache-2.0 | 2023-10 | Stateful agent platform, 3-tier memory (core/recall/archival), sleep-time dreaming |
-| [agentmemory](https://github.com/rohitg00/agentmemory) | 27333 | TypeScript | Apache 2.0 | 2026-02-25 | 53 MCP tools, 12 hooks, 4-tier lifecycle, 3-way RRF, pi native |
-| [gbrain](https://github.com/garrytan/gbrain) | 28997 | TypeScript | MIT | 2025-07 | Garry Tan's production agent brain: zero-LLM KG, gap-aware synthesis, PGLite, dream cycle |
-| [Supermemory](https://github.com/supermemoryai/supermemory) | 29024 | TypeScript | MIT | 2024 | Cloud memory API, hybrid RAG+Memory, #1 benchmarks, Chrome ext+MCP+plugins |
-| [Cognee](https://github.com/topoteretes/cognee) | 30211 | Python | Apache 2.0 | 2023-08-16 | Memory control plane with remember/recall/forget/improve API |
-| [Graphiti](https://github.com/getzep/graphiti) | 30239 | Python | Apache 2.0 | 2024-08-08 | Temporal knowledge graph engine (powers Zep) |
-| [OpenViking](https://github.com/volcengine/OpenViking) | 32660 | Python | AGPL-3.0 | 2026-01-05 | ByteDance context DB, filesystem paradigm, L0/L1/L2 tiers, LoCoMo 82% |
-| [Nanobot](https://github.com/HKUDS/nanobot) | 47328 | Python | MIT | 2025-05 | 43.3k star AI agent framework — Dream is one subsystem, NOT dedicated memory |
-| [MemPalace](https://github.com/MemPalace/mempalace) | 58585 | Python | MIT | 2026-04-05 | Verbatim storage, palace metaphor, 96.6% LongMemEval raw retrieval |
-| [Mem0](https://github.com/mem0ai/mem0) | 63918 | Python | Apache 2.0 | 2023-06-20 | Memory-as-a-Service platform with best published benchmarks |
-| [claude-mem](https://github.com/thedotmack/claude-mem) | 91639 | TypeScript | Apache 2.0 | 2025-08-31 | Hooks-based observation capture with progressive disclosure |
+| [obsidian-mind](https://github.com/breferrari/obsidian-mind) | 4607 | TypeScript | MIT | 2026-02-28 | Obsidian vault template, markdown-native memory, QMD hybrid RRF search |
+| [ByteRover](https://github.com/campfirein/byterover-cli) | 4956 | TypeScript | Elastic 2.0 | 2025-06-19 | Context tree with git-like VC, strongest benchmarks (LoCoMo 96.1) |
+| [ai-memory](https://github.com/akitaonrails/ai-memory) | 5829 | Rust | MIT | 2026-05-21 | Git-versioned markdown wiki, zero LLM mode, cross-agent handoffs |
+| [engram](https://github.com/Gentleman-Programming/engram) | 6346 | Go | MIT | 2026-02-16 | Go binary agent memory with conflict surfacing and TUI |
+| [Honcho](https://github.com/plastic-labs/honcho) | 7037 | Python | AGPL-3.0 | 2024-04 | Memory library for stateful agents, theory-of-mind reasoning, multi-agent capable |
+| [MemOS](https://github.com/MemTensor/MemOS) | 11203 | Python | Apache 2.0 | 2025-10 | Self-evolving memory OS, L1/L2/L3, MemCubes, time machine, strong benchmarks |
+| [EverOS](https://github.com/EverMind-AI/EverOS) | 12735 | Python | Apache 2.0 | 2025-10-28 | Self-evolving agent memory with evaluation framework |
+| [memU](https://github.com/NevaMind-AI/memU) | 14380 | Python | MIT | 2025-09 | Always-on memory for 24/7 proactive agents, 3-tier layered, LoCoMo 92.09%, 5 modality preprocessing |
+| [Memori](https://github.com/MemoriLabs/Memori) | 16448 | Python | Apache 2.0 | 2025-07-24 | Agent-native memory (captures execution, not just conversation) |
+| [Memvid](https://github.com/memvid/memvid) | 16489 | Rust | Apache 2.0 | 2025-05-27 | Single-file memory (.mv2) with Smart Frames and time-travel |
+| [hindsight](https://github.com/vectorize-io/hindsight) | 22720 | Python | MIT | 2025-10 | Self-improving agentic memory, 91.4% LongMemEval, reflect engine, web dashboard |
+| [Letta](https://github.com/letta-ai/letta) | 24628 | Python | Apache-2.0 | 2023-10 | Stateful agent platform, 3-tier memory (core/recall/archival), sleep-time dreaming |
+| [agentmemory](https://github.com/rohitg00/agentmemory) | 28081 | TypeScript | Apache 2.0 | 2026-02-25 | 53 MCP tools, 12 hooks, 4-tier lifecycle, 3-way RRF, pi native |
+| [Supermemory](https://github.com/supermemoryai/supermemory) | 29238 | TypeScript | MIT | 2024 | Cloud memory API, hybrid RAG+Memory, #1 benchmarks, Chrome ext+MCP+plugins |
+| [gbrain](https://github.com/garrytan/gbrain) | 29636 | TypeScript | MIT | 2025-07 | Garry Tan's production agent brain: zero-LLM KG, gap-aware synthesis, PGLite, dream cycle |
+| [Cognee](https://github.com/topoteretes/cognee) | 30504 | Python | Apache 2.0 | 2023-08-16 | Memory control plane with remember/recall/forget/improve API |
+| [Graphiti](https://github.com/getzep/graphiti) | 30626 | Python | Apache 2.0 | 2024-08-08 | Temporal knowledge graph engine (powers Zep) |
+| [OpenViking](https://github.com/volcengine/OpenViking) | 35718 | Python | AGPL-3.0 | 2026-01-05 | ByteDance context DB, filesystem paradigm, L0/L1/L2 tiers, LoCoMo 82% |
+| [Nanobot](https://github.com/HKUDS/nanobot) | 47741 | Python | MIT | 2025-05 | 43.3k star AI agent framework — Dream is one subsystem, NOT dedicated memory |
+| [MemPalace](https://github.com/MemPalace/mempalace) | 58867 | Python | MIT | 2026-04-05 | Verbatim storage, palace metaphor, 96.6% LongMemEval raw retrieval |
+| [Mem0](https://github.com/mem0ai/mem0) | 64768 | Python | Apache 2.0 | 2023-06-20 | Memory-as-a-Service platform with best published benchmarks |
+| [claude-mem](https://github.com/thedotmack/claude-mem) | 93311 | TypeScript | Apache 2.0 | 2025-08-31 | Hooks-based observation capture with progressive disclosure |
 
 ---
 
@@ -108,88 +109,89 @@
 | Artesian | 0 | Rust | Apache-2.0 | ✅ | 2026-06-13 | 60% |
 | slowave | 1 | Python | AGPL-3.0 | — | 2026-06-08 | 38% |
 | context-keeper | 1 | Python | MIT | — | 2026-04-01 | 63% |
-| Somnigraph | 2 | Python | Apache-2.0 + CC | — | 2026-03-07 | 42% |
+| Somnigraph | 3 | Python | Apache-2.0 + CC | — | 2026-03-07 | 42% |
 | memspec | 3 | TypeScript | MIT | — | 2026-04 | 50% |
 | mnemos | 4 | Go | MIT | ✅ | 2026-06-29 | 23% |
-| MarsNMe | 5 | JavaScript | MIT | — | 2026-03 | 25% |
 | Engram Alpha | 5 | Rust | MIT | ✅ | 2026-07-03 | 53% |
-| Kage | 6 | TypeScript | GPL-3.0-only | — | 2026-05 | 67% |
+| MarsNMe | 7 | JavaScript | MIT | — | 2026-03 | 25% |
 | gitmem | 9 | TypeScript | MIT | — | 2026-04 | 17% |
-| Midas | 12 | Python + TS | Apache 2.0 | — | 2026-06-04 | 53% |
+| Midas | 14 | Python + TS | Apache 2.0 | — | 2026-06-04 | 53% |
 | VIR | 15 | TypeScript | MIT | — | 2026-04 | 35% |
-| Fullerenes | 19 | TypeScript | MIT | — | 2026-04-25 | 15% |
 | fidelis | 22 | Python | MIT | — | 2026-03 | 10% |
+| Fullerenes | 23 | TypeScript | MIT | — | 2026-04-25 | 15% |
+| Noosphere | 26 | TypeScript | Apache-2.0 | — | 2026-04-11 | 48% |
 | Origin | 31 | Rust | Apache 2.0 | — | 2026-04-19 | 63% |
-| Continuity v2 | 32 | Python | MIT | — | 2026-04 | 13% |
+| Kage | 32 | TypeScript | GPL-3.0-only | — | 2026-05 | 67% |
 | LWC | 32 | Rust | Apache-2.0 | ✅ | 2026-07-29 | 52% |
-| YesMem | 39 | Go | Apache 2.0 | ✅ | 2026-04-09 | 87% |
+| Continuity v2 | 35 | Python | MIT | — | 2026-04 | 13% |
 | pond | 39 | Rust | Apache-2.0 | ✅ | 2026-05-07 | 40% |
-| Noosphere | 53 | TypeScript | MIT | — | 2026-04-11 | 43% |
-| second-brain | 91 | TypeScript | MIT | — | 2026-05-17 | 23% |
+| YesMem | 41 | Go | Apache 2.0 | ✅ | 2026-04-09 | 87% |
 | Jumbo | 102 | TypeScript | AGPL-3.0 | — | 2025-12-05 | 58% |
 | CommonGround | 149 | TypeScript | MIT | — | 2025-11 | 8% |
-| Mengram | 171 | Python | Apache 2.0 | — | 2026-02-10 | 37% |
-| ClawMem | 200 | TypeScript | MIT | — | 2026-02-06 | 38% |
-| omega-memory | 205 | Python | MIT | — | 2026-01 | 43% |
-| YourMemory | 231 | Python | CC BY-NC 4.0 | — | 2026-03-02 | 28% |
+| Mengram | 191 | Python | Apache 2.0 | — | 2026-02-10 | 37% |
+| ClawMem | 208 | TypeScript | MIT | — | 2026-02-06 | 38% |
+| omega-memory | 215 | Python | MIT | — | 2026-01 | 43% |
 | ArcRift | 245 | TypeScript | MIT | — | 2026-04-21 | 32% |
 | MoltBrain | 253 | TypeScript | ? | — | 2026-01-26 | 20% |
-| AIPass | 261 | Python | MIT | — | 2026-02 | 28% |
-| shodh-memory | 275 | Rust | ? | ✅ | 2025-12-03 | 32% |
-| MemLayer | 290 | Python | MIT | — | 2025-11-16 | 15% |
+| YourMemory | 265 | Python | CC BY-NC 4.0 | — | 2026-03-02 | 28% |
+| AIPass | 273 | Python | MIT | — | 2026-02 | 28% |
+| shodh-memory | 278 | Rust | ? | ✅ | 2025-12-03 | 32% |
+| MemLayer | 291 | Python | MIT | — | 2025-11-16 | 15% |
 | icarus | 292 | Python | MIT | — | 2026-03-24 | 18% |
 | Memory Palace | 311 | Python | MIT | — | 2026-02-19 | 33% |
 | Statewave | 313 | Python | Apache-2.0 | — | 2026-04-24 | 52% |
 | memorix | 433 | Python | Apache 2.0 | — | 2026-02-14 | 7% |
 | TeleMem | 461 | Python | MIT | — | 2026-05 | 7% |
-| Octopoda-OS | 506 | Python | MIT | — | 2026-04-02 | 15% |
-| memoir | 607 | Python | Apache-2.0 | — | 2025-08 | 18% |
-| vestige | 608 | Rust | AGPL-3.0 | ✅ | 2026-01-25 | 48% |
-| MemoMind | 609 | Python | ? | — | 2026-03-15 | 23% |
-| deja-vu | 631 | Go | MIT | ✅ | 2026-07-01 | 58% |
-| Memora | 695 | Python | MIT | — | 2025-11-11 | 27% |
-| context-infra | 723 | Python | MIT | — | 2026-03-16 | 23% |
-| stash | 765 | Go | Apache 2.0 | ✅ | 2026-04-24 | 33% |
-| Wax | 790 | Swift | Apache 2.0 | ✅ | 2026-01-20 | 17% |
-| LightMem | 1093 | Python | MIT | — | 2025-05 | 3% |
-| token-savior | 1122 | Python | MIT | — | 2026-03-30 | 28% |
-| mem9 | 1198 | TypeScript | Apache 2.0 | — | 2026-01 | 33% |
-| nocturne | 1327 | Python | MIT | — | 2025-12-25 | 23% |
-| opencode-mem | 1386 | TypeScript | ? | — | 2026-01-10 | 15% |
-| LangMem | 1623 | Python | MIT | — | 2025-02 | 3% |
-| memanto | 1836 | Python | MIT | — | 2026-03 | 28% |
-| memsearch | 1861 | Python | Apache 2.0 | — | 2025-08 | 18% |
-| mcp-memory-service | 1901 | Python | Apache 2.0 | — | 2024-12-26 | 68% |
-| MemMachine | 3201 | Python | Apache 2.0 | — | 2025-08 | 32% |
-| MIRIX | 3434 | Python | MIT | — | 2025-09 | 40% |
-| Acontext | 3675 | JS/TS/Go/Python | Apache-2.0 | — | 2025-10 | 22% |
+| Caura | 487 | Python | Apache-2.0 | — | 2026-04-27 | 73% |
+| Octopoda-OS | 490 | Python | MIT | — | 2026-04-02 | 15% |
+| memoir | 610 | Python | Apache-2.0 | — | 2025-08 | 18% |
+| MemoMind | 611 | Python | ? | — | 2026-03-15 | 23% |
+| vestige | 616 | Rust | AGPL-3.0 | ✅ | 2026-01-25 | 48% |
+| Memora | 715 | Python | MIT | — | 2025-11-11 | 27% |
+| second-brain | 742 | TypeScript | MIT | — | 2026-05-17 | 23% |
+| context-infra | 746 | Python | MIT | — | 2026-03-16 | 23% |
+| stash | 767 | Go | Apache 2.0 | ✅ | 2026-04-24 | 33% |
+| deja-vu | 785 | Go | MIT | ✅ | 2026-07-01 | 58% |
+| Wax | 788 | Swift | Apache 2.0 | ✅ | 2026-01-20 | 17% |
+| LightMem | 1115 | Python | MIT | — | 2025-05 | 3% |
+| token-savior | 1144 | Python | MIT | — | 2026-03-30 | 28% |
+| mem9 | 1205 | TypeScript | Apache 2.0 | — | 2026-01 | 33% |
+| nocturne | 1345 | Python | MIT | — | 2025-12-25 | 23% |
+| opencode-mem | 1617 | TypeScript | ? | — | 2026-01-10 | 15% |
+| LangMem | 1646 | Python | MIT | — | 2025-02 | 3% |
+| memanto | 1859 | Python | MIT | — | 2026-03 | 28% |
+| mcp-memory-service | 1925 | Python | Apache 2.0 | — | 2024-12-26 | 68% |
+| memsearch | 2565 | Python | Apache 2.0 | — | 2025-08 | 18% |
+| MemMachine | 3214 | Python | Apache 2.0 | — | 2025-08 | 32% |
+| MIRIX | 3440 | Python | MIT | — | 2025-09 | 40% |
+| Acontext | 3684 | JS/TS/Go/Python | Apache-2.0 | — | 2025-10 | 22% |
 | MemoryBear | 4167 | Python | Apache 2.0 | — | 2025-06 | 55% |
-| ai-memory | 4270 | Rust | MIT | ✅ | 2026-05-21 | 32% |
 | m_flow | 4419 | Python | Apache 2.0 | — | 2026-02 | 23% |
-| memory-lancedb-pro | 4463 | TypeScript | MIT | — | 2025-11 | 15% |
-| OpenMemory | 4463 | Python | Apache 2.0 | — | 2025-10 | 25% |
+| memory-lancedb-pro | 4459 | TypeScript | MIT | — | 2025-11 | 15% |
+| OpenMemory | 4475 | Python | Apache 2.0 | — | 2025-10 | 25% |
 | TencentDB-AM | 4506 | TypeScript | MIT | — | 2026-04-07 | 17% |
-| obsidian-mind | 4546 | TypeScript | MIT | — | 2026-02-28 | 22% |
-| ByteRover | 4949 | TypeScript | Elastic 2.0 | — | 2025-06-19 | 25% |
-| engram | 6139 | Go | MIT | ✅ | 2026-02-16 | 38% |
-| Honcho | 6801 | Python | AGPL-3.0 | — | 2024-04 | 18% |
-| MemOS | 10942 | Python | Apache 2.0 | — | 2025-10 | 27% |
-| EverOS | 12373 | Python | Apache 2.0 | — | 2025-10-28 | 23% |
-| memU | 13700 | Python | MIT | — | 2025-09 | 17% |
-| Memori | 16204 | Python | Apache 2.0 | — | 2025-07-24 | 15% |
-| Memvid | 16442 | Rust | Apache 2.0 | — | 2025-05-27 | 17% |
-| hindsight | 21000 | Python | MIT | — | 2025-10 | 20% |
-| Letta | 24385 | Python | Apache-2.0 | — | 2023-10 | 20% |
-| agentmemory | 27333 | TypeScript | Apache 2.0 | — | 2026-02-25 | 43% |
-| gbrain | 28997 | TypeScript | MIT | — | 2025-07 | 35% |
-| Supermemory | 29024 | TypeScript | MIT | — | 2024 | 47% |
-| Cognee | 30211 | Python | Apache 2.0 | — | 2023-08-16 | 17% |
-| Graphiti | 30239 | Python | Apache 2.0 | — | 2024-08-08 | 25% |
-| OpenViking | 32660 | Python | AGPL-3.0 | — | 2026-01-05 | 28% |
-| Nanobot | 47328 | Python | MIT | — | 2025-05 | 12% |
-| MemPalace | 58585 | Python | MIT | — | 2026-04-05 | 15% |
-| Mem0 | 63918 | Python | Apache 2.0 | — | 2023-06-20 | 17% |
-| claude-mem | 91639 | TypeScript | Apache 2.0 | — | 2025-08-31 | 27% |
+| obsidian-mind | 4607 | TypeScript | MIT | — | 2026-02-28 | 22% |
+| ByteRover | 4956 | TypeScript | Elastic 2.0 | — | 2025-06-19 | 25% |
+| ai-memory | 5829 | Rust | MIT | ✅ | 2026-05-21 | 32% |
+| engram | 6346 | Go | MIT | ✅ | 2026-02-16 | 38% |
+| Honcho | 7037 | Python | AGPL-3.0 | — | 2024-04 | 18% |
+| MemOS | 11203 | Python | Apache 2.0 | — | 2025-10 | 27% |
+| EverOS | 12735 | Python | Apache 2.0 | — | 2025-10-28 | 23% |
+| memU | 14380 | Python | MIT | — | 2025-09 | 17% |
+| Memori | 16448 | Python | Apache 2.0 | — | 2025-07-24 | 15% |
+| Memvid | 16489 | Rust | Apache 2.0 | — | 2025-05-27 | 17% |
+| hindsight | 22720 | Python | MIT | — | 2025-10 | 20% |
+| Letta | 24628 | Python | Apache-2.0 | — | 2023-10 | 20% |
+| agentmemory | 28081 | TypeScript | Apache 2.0 | — | 2026-02-25 | 43% |
+| Supermemory | 29238 | TypeScript | MIT | — | 2024 | 47% |
+| gbrain | 29636 | TypeScript | MIT | — | 2025-07 | 35% |
+| Cognee | 30504 | Python | Apache 2.0 | — | 2023-08-16 | 55% |
+| Graphiti | 30626 | Python | Apache 2.0 | — | 2024-08-08 | 25% |
+| OpenViking | 35718 | Python | AGPL-3.0 | — | 2026-01-05 | 28% |
+| Nanobot | 47741 | Python | MIT | — | 2025-05 | 12% |
+| MemPalace | 58867 | Python | MIT | — | 2026-04-05 | 15% |
+| Mem0 | 64768 | Python | Apache 2.0 | — | 2023-06-20 | 17% |
+| claude-mem | 93311 | TypeScript | Apache 2.0 | — | 2025-08-31 | 27% |
 
 ---
 
@@ -203,29 +205,28 @@
 | Somnigraph | Self-host / Local (MCP) | SQLite + sqlite-vec + FTS5 | MCP (FastMCP) | — | — | ✅ | — | 2 | ✅ | — | — | — | ✅ | — | pip install | free |
 | memspec | Local CLI + MCP + Library | Markdown (canonical) + SQLite FTS5 (derived) + optional embeddings | MCP + CLI | — | — | ✅ | — | 2 | ✅ | — | — | ✅ | ✅ | ✅ | npm install | free |
 | mnemos | Local CLI + MCP | SQLite (FTS5) | MCP (stdio) + CLI | — | — | ✅ | — | 1 | — | — | — | ✅ | ✅ | — | git clone + make install | free |
-| MarsNMe | MCP server | Supabase+pgvector | MCP | — | — | — | — | 1 | — | — | — | — | ✅ | — | npm install | free |
 | Engram Alpha | Local daemon + IDE plugins + browser UI | SQLite (+ sqlite-vec, FTS5) | MCP + JetBrains plugin + browser | — | ✅ | ✅ | ✅ | 1 | — | — | — | ✅ | ✅ | ✅ | cargo install | free |
-| Kage | Local CLI + MCP + plugin | JSON packets in repo (.agent_memory/) | MCP, hooks, CLI | — | ✅ | ✅ | ✅ | 0 | ✅ | — | — | — | ✅ | ✅ | npx -y kage-graph-mcp install | free |
+| MarsNMe | MCP server | Supabase+pgvector | MCP | — | — | — | — | 1 | — | — | — | — | ✅ | — | npm install | free |
 | gitmem | MCP server (npx) | .gitmem/ + Supabase | MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | npx install | free |
 | Midas | Local CLI + MCP + SDK | SQLite/SQLCipher | MCP (10 clients), CLI, SDK, LangGraph | — | ✅ | ✅ | ✅ | 3 | ✅ | — | — | ✅ | ✅ | ✅ | uv / pip / npx | free |
 | VIR | Local CLI (npm) | SQLite + Markdown vault | MCP + Hooks + CLI | — | — | ✅ | — | 2 | ✅ | ✅ | — | ✅ | — | ✅ | npm install -g | free |
-| Fullerenes | Local CLI + MCP | SQLite (graph.db) | MCP | — | — | ✅ | — | 0 | — | — | — | — | — | — | npm install | free |
 | fidelis | MCP server + hooks | BM25+ChromaDB | MCP + hooks | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | pip install | free |
-| Origin | Local daemon | libSQL+FTS5 | MCP+CC plugin | — | — | ✅ | — | 2 | — | ✅ | — | ✅ | ✅ | ✅ | npx setup | free |
-| Continuity v2 | Local proxy+MCP | SQLite+FTS5+sqlite-vec | Proxy+MCP+Hooks | ✅ | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
-| LWC | Local CLI | SQLite | CLI / MCP / Hooks / Skill | — | ✅ | ✅ | — | 0 | — | — | — | — | ✅ | ✅ | brew / npm / cargo install | free |
-| YesMem | Local binary | SQLite+Vector | Proxy+MCP+Hooks | ✅ | — | ✅ | ✅ | 4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | curl \| bash | free |
-| pond | Local CLI (self-host object store optional) | Lance (local FS / S3 / GCS / Azure) | MCP / CLI / HTTP | — | — | ✅ | ✅ | 1 | ✅ | — | — | ✅ | ✅ | ✅ | brew install / cargo install | free |
+| Fullerenes | Local CLI + MCP | SQLite (graph.db) | MCP | — | — | ✅ | — | 0 | — | — | — | — | — | — | npm install | free |
 | Noosphere | Docker Compose (self-host) | PostgreSQL+Redis | Plugin (OpenClaw/Hermes/Opencode/Kilo) + REST API | — | ✅ | ✅ | — | 0 | ✅ | — | — | ✅ | ✅ | ✅ | docker compose up | free |
-| second-brain | Cloudflare Workers | D1+Vectorize | MCP | — | ✅ | — | — | 1 | — | — | — | — | ✅ | — | one-click deploy | free |
+| Origin | Local daemon | libSQL+FTS5 | MCP+CC plugin | — | — | ✅ | — | 2 | — | ✅ | — | ✅ | ✅ | ✅ | npx setup | free |
+| Kage | Local CLI + MCP + plugin | JSON packets in repo (.agent_memory/) | MCP, hooks, CLI | — | ✅ | ✅ | ✅ | 0 | ✅ | — | — | — | ✅ | ✅ | npx -y kage-graph-mcp install | free |
+| LWC | Local CLI | SQLite | CLI / MCP / Hooks / Skill | — | ✅ | ✅ | — | 0 | — | — | — | — | ✅ | ✅ | brew / npm / cargo install | free |
+| Continuity v2 | Local proxy+MCP | SQLite+FTS5+sqlite-vec | Proxy+MCP+Hooks | ✅ | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
+| pond | Local CLI (self-host object store optional) | Lance (local FS / S3 / GCS / Azure) | MCP / CLI / HTTP | — | — | ✅ | ✅ | 1 | ✅ | — | — | ✅ | ✅ | ✅ | brew install / cargo install | free |
+| YesMem | Local binary | SQLite+Vector | Proxy+MCP+Hooks | ✅ | — | ✅ | ✅ | 4 | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | curl \| bash | free |
 | Jumbo | Local CLI | Event store + SQLite | CLI + hooks + AGENTS.md | — | ✅ | ✅ | ✅ | 6 | ✅ | ✅ | — | ✅ | ✅ | ✅ | npm install | free |
 | CommonGround | Self-hosted | SQLite+Vector | REST+WebSocket | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | — | — | docker compose | free |
 | Mengram | Cloud/Self-hosted | PostgreSQL+pgvector | MCP+Hooks | — | — | ✅ | — | 1 | — | ✅ | — | ✅ | — | — | pip install | free |
 | ClawMem | Local server (Bun) | SQLite+FTS5+Vector | Hooks + MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | ✅ | bun install | free |
 | omega-memory | Local server | SQLite+Vector | MCP | — | — | ✅ | ✅ | 1 | — | — | — | — | — | — | pip install | free |
-| YourMemory | Self-hosted MCP | DuckDB/SQLite+pgvector | MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | pip install | free |
 | ArcRift | Tauri desktop app + Chrome ext + MCP | sqlite-vec+FTS5 | MCP + browser ext + CLI | — | ✅ | ✅ | — | 2 | — | — | — | — | ✅ | — | npx arcrift-setup | free |
 | MoltBrain | Plugin | ChromaDB+SQLite | Plugin+MCP | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | ✅ | — | npm install | free |
+| YourMemory | Self-hosted MCP | DuckDB/SQLite+pgvector | MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | pip install | free |
 | AIPass | Local CLI | ChromaDB+JSON | CLI | — | — | ✅ | — | 1 | — | — | — | — | ✅ | ✅ | pip install | free |
 | shodh-memory | Local binary | Tantivy+FTS5+Vector | MCP | — | — | ✅ | ✅ | 1 | — | — | — | — | ✅ | — | cargo install | free |
 | MemLayer | Python library | ChromaDB+NetworkX | Library (3 lines) | — | — | ✅ | — | 5 | — | — | — | — | ✅ | — | pip install memlayer | free |
@@ -234,14 +235,16 @@
 | Statewave | Self-host (Docker Compose / Helm / bare-metal) | PostgreSQL 14+ with pgvector | REST API / SDKs / MCP | — | ✅ | ✅ | ✅ | 100 | ✅ | — | — | ✅ | ✅ | ✅ | docker compose up -d / pip install statewave | free |
 | memorix | Python library | FAISS/Qdrant | Python SDK | — | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
 | TeleMem | Library | Vector DB | SDK | — | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
+| Caura | Self-host (Docker Compose / bare ASGI) + managed cloud | PostgreSQL 16 + pgvector (Redis cache/STM) | MCP (12 tools) / REST / SDKs / OpenClaw plugin / Skills | — | ✅ | ✅ | ✅ | 5 | ✅ | ✅ | — | ✅ | ✅ | ✅ | docker compose up -d / pip install caura-client | freemium |
 | Octopoda-OS | Local server | Key-value store | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | ✅ | pip install | free |
 | memoir | Plugin (Claude Code, Codex) | Hierarchical paths | Plugin+CLI | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
-| vestige | Local binary (22MB) | SQLite + FTS5 + USearch HNSW | MCP | — | ✅ | ✅ | — | 1 | ✅ | — | — | ✅ | ✅ | ✅ | cargo install / npx @vestige/init | free |
 | MemoMind | Local Python | Local vector DB | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
-| deja-vu | Local CLI, single binary | Custom append-only log + postings index | MCP + hooks + CLI + opencode plugin | — | ✅ | ✅ | ✅ | 0 | — | — | — | — | ✅ | ✅ | curl \| sh / brew / npm / go install | free |
+| vestige | Local binary (22MB) | SQLite + FTS5 + USearch HNSW | MCP | — | ✅ | ✅ | — | 1 | ✅ | — | — | ✅ | ✅ | ✅ | cargo install / npx @vestige/init | free |
 | Memora | MCP server | SQLite+FTS5 | MCP | — | ✅ | ✅ | ✅ | 2 | — | — | — | — | ✅ | — | pip install | free |
+| second-brain | Cloudflare Workers | D1+Vectorize | MCP | — | ✅ | — | — | 1 | — | — | — | — | ✅ | — | one-click deploy | free |
 | context-infra | Local Python | Markdown files | MCP | — | — | ✅ | — | 1 | ✅ | — | — | — | — | — | setup_guide.md | free |
 | stash | Local binary | Postgres+pgvector | MCP | — | — | ✅ | — | 1 | — | — | — | — | — | — | go install | free |
+| deja-vu | Local CLI, single binary | Custom append-only log + postings index | MCP + hooks + CLI + opencode plugin | — | ✅ | ✅ | ✅ | 0 | — | — | — | — | ✅ | ✅ | curl \| sh / brew / npm / go install | free |
 | Wax | Single file (Apple Silicon) | Single file (frame container) | Library+MCP | — | — | ✅ | — | 1 | — | — | — | — | — | — | swift build | free |
 | LightMem | Research library | Memory tokens (model) | Library | — | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
 | token-savior | MCP server | SQLite+FTS5+sqlite-vec | MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | free |
@@ -250,19 +253,19 @@
 | opencode-mem | OpenCode plugin | Local vector DB | Plugin (OpenCode) | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | npm install | free |
 | LangMem | Library | Pluggable backends | LangChain/LangGraph | — | — | — | — | 1 | — | — | — | — | — | — | pip install | free |
 | memanto | Local/Cloud | Vector DB | MCP+SaaS | — | — | ✅ | — | 1 | — | — | — | — | — | — | pip install | freemium |
-| memsearch | Local CLI+MCP | Milvus+Markdown | MCP+CLI | — | — | ✅ | — | 9 | — | — | — | — | — | — | pip install | free |
 | mcp-memory-service | Local/Docker/Cloudflare | SQLite-vec+Cloudflare+Milvus | REST(76ep)+MCP+OAuth2+CLI | — | ✅ | ✅ | ✅ | 5 | ✅ | — | — | — | ✅ | ✅ | pip install | free |
+| memsearch | Local CLI+MCP | Milvus+Markdown | MCP+CLI | — | — | ✅ | — | 9 | — | — | — | — | — | — | pip install | free |
 | MemMachine | Server+SDK | Neo4j+PostgreSQL+pgvector | MCP+SDK | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | ✅ | — | docker compose | free |
 | MIRIX | Self-hosted | PostgreSQL+pgvector | REST API | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | ✅ | — | docker compose | free |
 | Acontext | Cloud + Docker self-host | PostgreSQL+pgvector+Redis+RabbitMQ+S3 | SDK+REST | — | ✅ | ✅ | — | 3 | — | — | — | — | ✅ | ✅ | curl \| sh | freemium |
 | MemoryBear | Local server | Neo4j+Elasticsearch | REST API+MCP | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | ✅ | ✅ | docker compose | free |
-| ai-memory | Local binary | Git wiki (md) | MCP+Hooks | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | ? | free |
 | m_flow | Local Python | Graph DB | MCP | — | ✅ | ✅ | — | 9 | — | — | — | — | — | — | pip install | free |
 | memory-lancedb-pro | OpenClaw plugin | LanceDB | OpenClaw plugin | — | — | ✅ | — | 1 | — | — | — | — | — | — | npm install | free |
 | OpenMemory | Self-hosted | Vector DB | REST API+MCP | — | — | ✅ | — | 1 | — | — | — | — | ✅ | — | docker compose | free |
 | TencentDB-AM | Plugin (OpenClaw) | SQLite+sqlite-vec | Plugin hooks | — | — | ✅ | — | 1 | — | — | — | — | — | — | ? | free |
 | obsidian-mind | Obsidian vault + npm | Markdown + QMD/SQLite | CLI + MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | npm install | free |
 | ByteRover | Local CLI / Cloud | SQLite+Context tree | MCP+REPL | — | ✅ | ✅ | — | 20 | — | — | — | — | — | — | npm install -g | freemium |
+| ai-memory | Local binary | Git wiki (md) | MCP+Hooks | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | ? | free |
 | engram | Local bin / Cloud (opt-in) | SQLite+FTS5 | MCP+Hooks (19) | — | ✅ | ✅ | — | 2 | — | — | — | — | ✅ | ✅ | brew install | free |
 | Honcho | Server + SDK | Postgres+pgvector | SDK + REST + MCP | — | ✅ | ✅ | ✅ | 3 | — | — | — | — | — | — | docker compose | free |
 | MemOS | Cloud/Self-host | Neo4j+Qdrant+Redis | API+Plugin | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | docker compose | freemium |
@@ -273,9 +276,9 @@
 | hindsight | SDK/Cloud | Vector+graph+temporal | Python API+MCP | — | ✅ | ✅ | — | 1 | — | — | — | — | — | — | pip install | freemium |
 | Letta | Server + SDK | Postgres + vector + git | SDK + REST | — | ✅ | ✅ | ✅ | 1 | — | — | — | — | — | — | docker compose | free |
 | agentmemory | Local server (npm) | SQLite (0 external DBs) | MCP + Hooks (12) | — | ✅ | ✅ | ✅ | 3 | — | — | — | — | ✅ | ✅ | npm install -g | free |
-| gbrain | Local (PGLite WASM) | PGLite+pgvector | MCP+Hooks | — | ✅ | ✅ | — | 1 | — | — | — | — | ✅ | — | npx install | free |
 | Supermemory | Cloud (Cloudflare Workers) | Hyperdrive (PG)+KV+Vector | MCP+API+Plugins | — | ✅ | — | — | 1 | — | — | — | — | — | — | npx install-mcp | freemium |
-| Cognee | Lib/Cloud | Graph+Vector | API+Hooks | — | ✅ | ✅ | — | 11 | — | — | — | — | — | — | ? | free |
+| gbrain | Local (PGLite WASM) | PGLite+pgvector | MCP+Hooks | — | ✅ | ✅ | — | 1 | — | — | — | — | ✅ | — | npx install | free |
+| Cognee | Lib/Cloud | Graph+Vector | MCP+API+Hooks | — | ✅ | ✅ | ✅ | 11 | ✅ | — | — | — | ✅ | ✅ | ? | free |
 | Graphiti | Library | Graph DB | Library | — | — | ✅ | — | 1 | — | — | — | — | — | — | ? | free |
 | OpenViking | Self-hosted | Context DB (filesystem paradigm) | API | — | ✅ | ✅ | — | 1 | — | — | — | — | ✅ | ✅ | pip install | free |
 | Nanobot | Agent framework | Filesystem | Agent loop | — | — | ✅ | — | 1 | — | — | — | — | ✅ | ✅ | pip install | free |
@@ -295,29 +298,28 @@
 | Somnigraph | Memory (text row) | — | — | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | — | 20 |
 | memspec | Memory record (fact / decision / procedure / observation) | — | — | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 20 |
 | mnemos | Chunk (file#section + line range) | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 8 |
-| MarsNMe | Memory entry (28 fields) | — | — | — | — | — | — | — | ✅ | ✅ | — | — | ✅ | — | — | 28 |
 | Engram Alpha | Typed graph node (8 types) + edge (7 types) | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | — | ✅ | — | ✅ | 8 |
-| Kage | Memory packet (cited, fingerprinted) | ✅ | — | ✅ | — | ✅ | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 12 |
+| MarsNMe | Memory entry (28 fields) | — | — | — | — | — | — | — | ✅ | ✅ | — | — | ✅ | — | — | 28 |
 | gitmem | Learning entry | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 17 |
 | Midas | Memory (verbatim text record) | — | — | — | — | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | ✅ | 8 |
 | VIR | Typed markdown note (pattern/gotcha/decision/tool) | — | — | — | — | — | — | — | — | ✅ | ✅ | — | ✅ | — | — | 8 |
-| Fullerenes | Code symbol node | ✅ | — | — | — | — | — | — | — | — | — | — | — | — | — | 8 |
 | fidelis | Verbatim passage | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 3 |
-| Origin | Memory + Page | ✅ | — | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 40 |
-| Continuity v2 | Session entry | — | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | 6 |
-| LWC | Source / Wiki page | ✅ | ✅ | ✅ | — | ✅ | — | — | ✅ | ✅ | — | — | — | ✅ | ✅ | 8 |
-| YesMem | Learning V2 (structured) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | 51 |
-| pond | Session (Sessions -> Messages -> Parts, lossless) | — | ✅ | — | — | — | — | — | — | ✅ | — | — | — | — | ✅ | 22 |
+| Fullerenes | Code symbol node | ✅ | — | — | — | — | — | — | — | — | — | — | — | — | — | 8 |
 | Noosphere | Article (wiki page) | — | — | ✅ | — | — | — | — | ✅ | ✅ | — | — | ✅ | ✅ | ✅ | 15 |
-| second-brain | Memory entry (8 fields) | — | — | ✅ | — | — | — | — | — | ✅ | — | — | — | — | — | 8 |
+| Origin | Memory + Page | ✅ | — | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 40 |
+| Kage | Memory packet (cited, fingerprinted) | ✅ | — | ✅ | — | ✅ | — | — | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | 12 |
+| LWC | Source / Wiki page | ✅ | ✅ | ✅ | — | ✅ | — | — | ✅ | ✅ | — | — | — | ✅ | ✅ | 8 |
+| Continuity v2 | Session entry | — | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | 6 |
+| pond | Session (Sessions -> Messages -> Parts, lossless) | — | ✅ | — | — | — | — | — | — | ✅ | — | — | — | — | ✅ | 22 |
+| YesMem | Learning V2 (structured) | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | 51 |
 | Jumbo | Memory entity node (11 types) + relation graph edge | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | ✅ | — | — | — | — | ✅ | ✅ | 16 |
 | CommonGround | Shared memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 4 |
 | Mengram | Memory (3 tiers, 26 fields) | ✅ | — | ✅ | — | ✅ | — | — | ✅ | — | — | ✅ | — | ✅ | — | 26 |
 | ClawMem | Memory entry (12+ fields) | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | ✅ | — | — | ✅ | — | ✅ | 12 |
 | omega-memory | Memory entry (15 fields) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 15 |
-| YourMemory | Memory entry (12-14 fields) | ✅ | — | ✅ | — | — | — | — | ✅ | — | — | — | — | — | — | 12 |
 | ArcRift | Chunk + sentence + graph triple | ✅ | — | ✅ | — | — | — | — | ✅ | — | — | — | — | — | — | 7 |
 | MoltBrain | Observation (17 fields) | — | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | 17 |
+| YourMemory | Memory entry (12-14 fields) | ✅ | — | ✅ | — | — | — | — | ✅ | — | — | — | — | — | — | 12 |
 | AIPass | Document entry (10 metadata fields) | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 10 |
 | shodh-memory | Cognitive entry | ✅ | — | — | — | — | — | — | ✅ | ✅ | — | ✅ | — | ✅ | — | 6 |
 | MemLayer | Memory fact | ✅ | — | — | — | — | — | — | — | — | — | — | — | — | — | 6 |
@@ -326,14 +328,16 @@
 | Statewave | Memory (profile_fact / episode_summary / procedure / artifact_ref) | ✅ | — | — | — | — | — | — | — | ✅ | — | — | ✅ | — | ✅ | 11 |
 | memorix | Vector entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 6 |
 | TeleMem | Memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 7 |
+| Caura | Memory (14 typed kinds) + Document | ✅ | ✅ | ✅ | ✅ | — | — | ✅ | — | ✅ | ✅ | — | ✅ | ✅ | ✅ | 28 |
 | Octopoda-OS | Memory entry | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 5 |
 | memoir | Hierarchical memory node | ✅ | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 5 |
-| vestige | Cognitive memory unit | — | — | ✅ | — | ✅ | — | — | — | — | — | — | ✅ | — | — | 27 |
 | MemoMind | Memory entry | ✅ | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 6 |
-| deja-vu | Message record (verbatim transcript text, redacted) | — | — | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | ✅ | 6 |
+| vestige | Cognitive memory unit | — | — | ✅ | — | ✅ | — | — | — | — | — | — | ✅ | — | — | 27 |
 | Memora | Memory entry (hierarchical) | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | — | 8 |
+| second-brain | Memory entry (8 fields) | — | — | ✅ | — | — | — | — | — | ✅ | — | — | — | — | — | 8 |
 | context-infra | Context entry | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | — | 4 |
 | stash | Episode + Fact + Context | ✅ | — | — | — | — | — | — | ✅ | — | — | — | ✅ | ✅ | — | 7 |
+| deja-vu | Message record (verbatim transcript text, redacted) | — | — | ✅ | — | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | ✅ | 6 |
 | Wax | Frame entry | ✅ | — | — | — | — | — | — | — | — | — | — | — | — | — | 6 |
 | LightMem | Memory token | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 3 |
 | token-savior | Observation (18+ fields) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 14 |
@@ -342,19 +346,19 @@
 | opencode-mem | Vector entry | — | — | — | — | — | — | — | — | ✅ | — | — | — | — | — | 10 |
 | LangMem | Memory namespace | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 3 |
 | memanto | Memory (13 types) | — | — | — | — | — | — | — | — | ✅ | — | — | — | — | ✅ | 6 |
-| memsearch | Text chunk (no learning abstraction) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 9 |
 | mcp-memory-service | Memory (text+metadata) | ✅ | — | ✅ | — | — | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | ✅ | 28 |
+| memsearch | Text chunk (no learning abstraction) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 9 |
 | MemMachine | Memory (3 layers) | ✅ | — | — | — | — | — | — | ✅ | ✅ | — | — | — | ✅ | — | 10 |
 | MIRIX | Memory (6 types) | ✅ | ✅ | ✅ | — | — | — | — | — | ✅ | — | — | — | ✅ | — | 10 |
 | Acontext | Skill file (Markdown) | — | — | — | — | — | — | ✅ | — | — | — | — | — | — | — | 12 |
 | MemoryBear | Memory node (12+ fields) | ✅ | — | ✅ | — | — | — | — | ✅ | ✅ | — | ✅ | ✅ | ✅ | ✅ | 12 |
-| ai-memory | Wiki page (md) | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 10 |
 | m_flow | Graph node (4-layer cone) | ✅ | — | — | — | — | — | — | — | — | — | — | — | ✅ | — | 8 |
 | memory-lancedb-pro | Memory entry (L0-L2) | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | — | 17 |
 | OpenMemory | Memory (5 sectors) | — | — | — | — | — | — | — | — | — | — | ✅ | — | ✅ | ✅ | 13 |
 | TencentDB-AM | Atom/Scenario/Persona | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | — | 12 |
 | obsidian-mind | Markdown note (wiki) | — | — | — | — | — | — | — | — | — | — | — | — | — | — | 4 |
 | ByteRover | Context node (tree) | — | — | ✅ | — | — | — | — | — | — | — | — | — | — | ✅ | 6 |
+| ai-memory | Wiki page (md) | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 10 |
 | engram | Memory (What/Why/Where/Learned) | — | — | ✅ | — | — | — | — | ✅ | — | — | — | ✅ | — | ✅ | 6 |
 | Honcho | User-scoped memory | ✅ | — | — | — | — | — | — | ✅ | — | — | — | — | — | — | 5 |
 | MemOS | MemCube | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 19 |
@@ -365,9 +369,9 @@
 | hindsight | Memory entry | ✅ | — | ✅ | — | — | — | — | ✅ | — | — | — | — | — | ✅ | 7 |
 | Letta | Memory block | — | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 10 |
 | agentmemory | Memory entry (structured, confidence-scored) | ✅ | — | — | — | — | — | — | — | — | — | — | — | ✅ | — | 8 |
-| gbrain | Memory entry | ✅ | — | — | — | — | — | — | ✅ | ✅ | — | — | ✅ | ✅ | — | 12 |
 | Supermemory | Memory entry (versioned, ~23 fields) | ✅ | — | ✅ | — | — | — | — | ✅ | ✅ | — | — | ✅ | ✅ | ✅ | 23 |
-| Cognee | Fact (graph+vec) | ✅ | — | — | — | — | — | — | — | — | — | — | — | — | — | 10 |
+| gbrain | Memory entry | ✅ | — | — | — | — | — | — | ✅ | ✅ | — | — | ✅ | ✅ | — | 12 |
+| Cognee | Fact (graph+vec) | ✅ | ✅ | ✅ | — | — | — | — | — | ✅ | — | — | ✅ | ✅ | ✅ | 14 |
 | Graphiti | Fact (graph node) | ✅ | — | — | — | — | — | — | — | — | — | — | — | ✅ | ✅ | 8 |
 | OpenViking | Context node (filesystem tree) | — | — | — | — | — | — | — | ✅ | — | — | — | — | ✅ | — | 6 |
 | Nanobot | Dream memory entry | — | — | — | — | — | — | — | ✅ | — | — | — | — | — | ✅ | 7 |
@@ -387,29 +391,28 @@
 | Somnigraph | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 1 |
 | memspec | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 4 |
 | mnemos | ✅ | ✅ | ✅ | — | — | ✅ | ✅ | — | 4 | 1 |
-| MarsNMe | — | ✅ | — | — | — | — | — | — | 2 | 5 |
 | Engram Alpha | ✅ | ✅ | ✅ | — | — | — | ✅ | — | 5 | 1 |
-| Kage | ✅ | ✅ | ✅ | — | ✅ | — | ✅ | ✅ | 4 | 3 |
+| MarsNMe | — | ✅ | — | — | — | — | — | — | 2 | 5 |
 | gitmem | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | Midas | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 1 |
 | VIR | ✅ | ✅ | — | — | — | — | — | ✅ | 3 | 2 |
-| Fullerenes | ✅ | — | — | — | ✅ | — | — | — | 9 | 1 |
 | fidelis | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
+| Fullerenes | ✅ | — | — | — | ✅ | — | — | — | 9 | 1 |
+| Noosphere | ✅ | ✅ | ✅ | — | — | — | — | — | 2 | 2 |
 | Origin | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 3 | 3 |
-| Continuity v2 | ✅ | ✅ | — | — | — | — | — | — | 2 | 2 |
+| Kage | ✅ | ✅ | ✅ | — | ✅ | — | ✅ | ✅ | 4 | 3 |
 | LWC | ✅ | — | — | — | ✅ | — | ✅ | ✅ | 4 | 3 |
-| YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 9 | 4 |
+| Continuity v2 | ✅ | ✅ | — | — | — | — | — | — | 2 | 2 |
 | pond | ✅ | ✅ | — | — | — | — | ✅ | ✅ | 3 | 3 |
-| Noosphere | ✅ | — | — | — | — | — | — | — | 2 | 2 |
-| second-brain | — | ✅ | — | — | — | — | — | — | 4 | 1 |
+| YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | 9 | 4 |
 | Jumbo | ✅ | — | — | — | — | — | ✅ | — | 6 | 5 |
 | CommonGround | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | Mengram | ✅ | ✅ | ✅ | — | — | — | — | — | 4 | 1 |
 | ClawMem | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 5 | 3 |
 | omega-memory | ✅ | ✅ | ✅ | — | — | — | — | — | 5 | 1 |
-| YourMemory | ✅ | ✅ | ✅ | — | — | — | — | — | 4 | 1 |
 | ArcRift | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 3 | 3 |
 | MoltBrain | ✅ | ✅ | — | — | — | — | — | ✅ | 2 | 1 |
+| YourMemory | ✅ | ✅ | ✅ | — | — | — | — | — | 4 | 1 |
 | AIPass | — | ✅ | — | — | — | — | — | ✅ | 3 | 1 |
 | shodh-memory | ✅ | ✅ | ✅ | — | — | — | ✅ | — | 1 | 1 |
 | MemLayer | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
@@ -418,14 +421,16 @@
 | Statewave | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 4 | 4 |
 | memorix | — | ✅ | — | — | — | — | — | — | 2 | 1 |
 | TeleMem | — | ✅ | — | — | — | — | — | — | 1 | 1 |
+| Caura | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 6 | 5 |
 | Octopoda-OS | — | ✅ | — | — | — | — | — | — | 3 | 1 |
 | memoir | ✅ | — | — | — | — | — | — | ✅ | 2 | 1 |
-| vestige | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 3 |
 | MemoMind | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 2 | 3 |
-| deja-vu | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 6 | 13 |
+| vestige | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 3 |
 | Memora | ✅ | ✅ | ✅ | — | — | — | — | ✅ | 4 | 1 |
+| second-brain | — | ✅ | — | — | — | — | — | — | 4 | 1 |
 | context-infra | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | stash | — | ✅ | — | — | — | — | ✅ | — | 1 | 1 |
+| deja-vu | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 6 | 13 |
 | Wax | ✅ | ✅ | ✅ | — | — | — | ✅ | — | 1 | 1 |
 | LightMem | — | — | — | — | — | — | — | — | 1 | 1 |
 | token-savior | ✅ | ✅ | ✅ | — | ✅ | — | — | — | 6 | 1 |
@@ -434,19 +439,19 @@
 | opencode-mem | — | ✅ | — | — | — | — | — | ✅ | 3 | 1 |
 | LangMem | — | ✅ | — | — | — | — | — | — | 1 | 1 |
 | memanto | — | ✅ | — | — | — | — | — | ✅ | 5 | 1 |
-| memsearch | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
 | mcp-memory-service | ✅ | ✅ | ✅ | — | — | — | ✅ | ✅ | 7 | 6 |
+| memsearch | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
 | MemMachine | — | ✅ | ✅ | — | — | — | — | — | 2 | 1 |
 | MIRIX | ✅ | ✅ | — | — | — | — | — | ✅ | 6 | 1 |
 | Acontext | ✅ | — | — | — | — | — | — | — | 4 | 4 |
 | MemoryBear | ✅ | ✅ | ✅ | ✅ | — | — | ✅ | ✅ | 3 | 1 |
-| ai-memory | ✅ | ✅ | — | — | — | — | — | — | 3 | 1 |
 | m_flow | ✅ | ✅ | ✅ | ✅ | — | — | — | — | 5 | 1 |
 | memory-lancedb-pro | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
 | OpenMemory | — | ✅ | — | — | — | — | — | ✅ | 2 | 1 |
 | TencentDB-AM | ✅ | ✅ | ✅ | — | — | — | — | — | 1 | 1 |
 | obsidian-mind | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | ByteRover | ✅ | — | — | — | — | — | — | — | 1 | 1 |
+| ai-memory | ✅ | ✅ | — | — | — | — | — | — | 3 | 1 |
 | engram | ✅ | — | — | — | — | — | — | ✅ | 4 | 2 |
 | Honcho | ✅ | ✅ | — | — | — | — | — | — | 3 | 1 |
 | MemOS | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
@@ -457,9 +462,9 @@
 | hindsight | ✅ | ✅ | ✅ | — | — | — | — | — | 4 | 1 |
 | Letta | ✅ | ✅ | — | — | — | — | — | — | 2 | 1 |
 | agentmemory | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 1 |
-| gbrain | ✅ | ✅ | ✅ | — | — | — | — | — | 2 | 1 |
 | Supermemory | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 2 |
-| Cognee | ✅ | ✅ | — | — | ✅ | — | — | — | 5 | 1 |
+| gbrain | ✅ | ✅ | ✅ | — | — | — | — | — | 2 | 1 |
+| Cognee | ✅ | ✅ | — | — | ✅ | — | ✅ | ✅ | 8 | 4 |
 | Graphiti | ✅ | ✅ | ✅ | — | — | — | — | — | 2 | 1 |
 | OpenViking | ✅ | ✅ | ✅ | — | — | — | — | — | 3 | 3 |
 | Nanobot | — | — | — | — | — | — | — | — | 1 | 2 |
@@ -479,29 +484,28 @@
 | Somnigraph | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ |
 | memspec | ✅ | ✅ | ✅ | — | — | ✅ | ✅ |
 | mnemos | — | — | — | — | — | — | ✅ |
-| MarsNMe | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | Engram Alpha | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ |
-| Kage | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| MarsNMe | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | gitmem | — | — | — | — | — | — | ✅ |
 | Midas | ✅ | ✅ | ✅ | — | — | ✅ | ✅ |
 | VIR | — | ✅ | ✅ | — | — | ✅ | ✅ |
-| Fullerenes | — | — | — | — | — | — | — |
 | fidelis | — | — | — | — | — | — | — |
-| Origin | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Continuity v2 | — | — | — | — | — | — | — |
-| LWC | — | ✅ | — | — | — | — | ✅ |
-| YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| pond | — | — | — | — | — | — | — |
+| Fullerenes | — | — | — | — | — | — | — |
 | Noosphere | — | ✅ | ✅ | — | ✅ | ✅ | ✅ |
-| second-brain | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
+| Origin | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Kage | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| LWC | — | ✅ | — | — | — | — | ✅ |
+| Continuity v2 | — | — | — | — | — | — | — |
+| pond | — | — | — | — | — | — | — |
+| YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Jumbo | — | ✅ | ✅ | ✅ | ✅ | — | ✅ |
 | CommonGround | — | — | — | — | — | — | — |
 | Mengram | — | ✅ | ✅ | — | — | — | ✅ |
 | ClawMem | ✅ | ✅ | — | — | — | — | ✅ |
 | omega-memory | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| YourMemory | ✅ | ✅ | ✅ | — | — | — | — |
 | ArcRift | — | ✅ | — | — | — | — | ✅ |
 | MoltBrain | — | — | — | — | — | — | — |
+| YourMemory | ✅ | ✅ | ✅ | — | — | — | — |
 | AIPass | ✅ | ✅ | — | — | — | — | — |
 | shodh-memory | ✅ | — | — | — | — | — | ✅ |
 | MemLayer | ✅ | — | — | — | — | — | — |
@@ -510,14 +514,16 @@
 | Statewave | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
 | memorix | — | ✅ | — | — | — | — | ✅ |
 | TeleMem | — | — | — | — | — | — | — |
+| Caura | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Octopoda-OS | — | — | — | — | — | — | ✅ |
 | memoir | — | ✅ | — | — | — | — | — |
-| vestige | ✅ | ✅ | ✅ | — | — | — | ✅ |
 | MemoMind | — | ✅ | — | — | — | — | ✅ |
-| deja-vu | ✅ | ✅ | — | — | — | ✅ | ✅ |
+| vestige | ✅ | ✅ | ✅ | — | — | — | ✅ |
 | Memora | — | ✅ | ✅ | — | — | — | ✅ |
+| second-brain | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
 | context-infra | — | — | — | — | — | — | — |
 | stash | ✅ | — | — | — | ✅ | — | ✅ |
+| deja-vu | ✅ | ✅ | — | — | — | ✅ | ✅ |
 | Wax | — | — | — | — | — | — | — |
 | LightMem | — | — | — | — | — | — | — |
 | token-savior | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
@@ -526,19 +532,19 @@
 | opencode-mem | — | — | — | — | — | — | ✅ |
 | LangMem | — | — | — | — | — | — | — |
 | memanto | — | ✅ | — | — | — | — | — |
-| memsearch | — | — | — | — | — | — | — |
 | mcp-memory-service | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
+| memsearch | — | — | — | — | — | — | — |
 | MemMachine | — | — | — | — | — | — | ✅ |
 | MIRIX | ✅ | ✅ | — | — | ✅ | — | — |
 | Acontext | — | — | — | — | — | — | ✅ |
 | MemoryBear | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ |
-| ai-memory | ✅ | ✅ | — | — | — | — | — |
 | m_flow | — | — | — | — | — | — | — |
 | memory-lancedb-pro | ✅ | — | — | — | — | — | — |
 | OpenMemory | ✅ | — | — | — | — | — | ✅ |
 | TencentDB-AM | — | — | — | — | — | — | — |
 | obsidian-mind | — | — | — | — | — | — | — |
 | ByteRover | ✅ | ✅ | — | — | — | — | — |
+| ai-memory | ✅ | ✅ | — | — | — | — | — |
 | engram | — | ✅ | ✅ | — | — | — | ✅ |
 | Honcho | — | — | — | — | — | — | — |
 | MemOS | — | ✅ | — | — | — | — | ✅ |
@@ -549,9 +555,9 @@
 | hindsight | — | — | — | — | — | — | — |
 | Letta | — | — | — | — | — | — | ✅ |
 | agentmemory | ✅ | ✅ | — | — | — | — | ✅ |
-| gbrain | — | ✅ | ✅ | — | — | — | ✅ |
 | Supermemory | ✅ | ✅ | ✅ | — | ✅ | — | ✅ |
-| Cognee | — | — | — | — | — | — | ✅ |
+| gbrain | — | ✅ | ✅ | — | — | — | ✅ |
+| Cognee | ✅ | ✅ | ✅ | — | — | — | ✅ |
 | Graphiti | — | ✅ | — | — | — | — | ✅ |
 | OpenViking | — | — | — | — | — | — | — |
 | Nanobot | — | — | — | — | — | — | — |
@@ -571,29 +577,28 @@
 | Somnigraph | — | — | ✅ | ✅ | ✅ | ✅ | — | — |
 | memspec | ✅ | ✅ | ✅ | — | ✅ | — | — | — |
 | mnemos | — | ✅ | — | — | — | — | — | — |
-| MarsNMe | — | — | ✅ | — | — | — | — | — |
 | Engram Alpha | — | — | ✅ | ✅ | — | — | — | — |
-| Kage | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — |
+| MarsNMe | — | — | ✅ | — | — | — | — | — |
 | gitmem | — | — | — | — | — | — | — | — |
 | Midas | — | — | ✅ | ✅ | ✅ | — | ✅ | — |
 | VIR | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — |
-| Fullerenes | ✅ | — | — | — | — | — | — | — |
 | fidelis | — | — | — | — | — | — | — | — |
-| Origin | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ |
-| Continuity v2 | ✅ | — | — | — | — | ✅ | — | — |
-| LWC | — | — | ✅ | ✅ | — | — | — | — |
-| YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| pond | ✅ | ✅ | ✅ | — | — | — | — | — |
+| Fullerenes | ✅ | — | — | — | — | — | — | — |
 | Noosphere | ✅ | — | ✅ | ✅ | ✅ | ✅ | — | — |
-| second-brain | — | — | ✅ | ✅ | — | — | — | — |
+| Origin | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ |
+| Kage | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — |
+| LWC | — | — | ✅ | ✅ | — | — | — | — |
+| Continuity v2 | ✅ | — | — | — | — | ✅ | — | — |
+| pond | ✅ | ✅ | ✅ | — | — | — | — | — |
+| YesMem | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Jumbo | — | ✅ | ✅ | ✅ | ✅ | ✅ | — | — |
 | CommonGround | — | — | — | — | — | — | — | — |
 | Mengram | ✅ | — | ✅ | — | — | — | — | — |
 | ClawMem | ✅ | — | ✅ | — | — | — | — | — |
 | omega-memory | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| YourMemory | — | — | ✅ | — | — | — | — | — |
 | ArcRift | ✅ | ✅ | ✅ | — | — | — | — | — |
 | MoltBrain | ✅ | — | — | — | ✅ | — | — | — |
+| YourMemory | — | — | ✅ | — | — | — | — | — |
 | AIPass | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | shodh-memory | ✅ | — | ✅ | — | — | — | — | — |
 | MemLayer | ✅ | — | ✅ | — | — | — | — | — |
@@ -602,14 +607,16 @@
 | Statewave | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | — |
 | memorix | — | — | — | — | — | — | — | — |
 | TeleMem | ✅ | — | ✅ | — | — | — | — | — |
+| Caura | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — |
 | Octopoda-OS | ✅ | — | ✅ | — | — | — | — | — |
 | memoir | ✅ | — | — | — | — | — | — | — |
-| vestige | — | — | ✅ | ✅ | — | ✅ | — | — |
 | MemoMind | ✅ | — | ✅ | ✅ | — | — | — | — |
-| deja-vu | — | ✅ | ✅ | — | — | — | ✅ | — |
+| vestige | — | — | ✅ | ✅ | — | ✅ | — | — |
 | Memora | — | ✅ | ✅ | — | — | — | — | — |
+| second-brain | — | — | ✅ | ✅ | — | — | — | — |
 | context-infra | ✅ | ✅ | — | ✅ | ✅ | — | ✅ | ✅ |
 | stash | ✅ | — | ✅ | ✅ | — | ✅ | ✅ | — |
+| deja-vu | — | ✅ | ✅ | — | — | — | ✅ | — |
 | Wax | — | — | — | — | — | — | — | — |
 | LightMem | — | — | — | — | — | — | — | — |
 | token-savior | ✅ | — | ✅ | — | — | — | — | ✅ |
@@ -618,19 +625,19 @@
 | opencode-mem | — | — | ✅ | — | — | — | — | ✅ |
 | LangMem | ✅ | — | — | — | — | — | — | — |
 | memanto | ✅ | — | — | — | — | — | — | — |
-| memsearch | ✅ | — | ✅ | — | — | — | — | — |
 | mcp-memory-service | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — |
+| memsearch | ✅ | — | ✅ | — | — | — | — | — |
 | MemMachine | ✅ | ✅ | ✅ | — | — | — | — | ✅ |
 | MIRIX | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 | Acontext | ✅ | — | ✅ | — | ✅ | — | — | ✅ |
 | MemoryBear | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ |
-| ai-memory | ✅ | — | — | — | ✅ | — | — | — |
 | m_flow | ✅ | — | ✅ | — | — | — | — | — |
 | memory-lancedb-pro | ✅ | — | — | — | — | — | — | — |
 | OpenMemory | — | — | — | — | — | — | — | — |
 | TencentDB-AM | ✅ | — | ✅ | — | — | — | — | ✅ |
 | obsidian-mind | — | — | — | — | — | — | — | — |
 | ByteRover | ✅ | ✅ | ✅ | — | — | — | — | — |
+| ai-memory | ✅ | — | — | — | ✅ | — | — | — |
 | engram | — | — | ✅ | — | — | — | — | — |
 | Honcho | ✅ | — | — | — | ✅ | — | — | ✅ |
 | MemOS | ✅ | ✅ | ✅ | ✅ | — | — | — | — |
@@ -641,9 +648,9 @@
 | hindsight | ✅ | — | — | — | — | — | — | — |
 | Letta | ✅ | — | — | — | — | — | — | ✅ |
 | agentmemory | ✅ | — | ✅ | — | — | — | — | — |
-| gbrain | ✅ | — | ✅ | ✅ | — | — | — | — |
 | Supermemory | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
-| Cognee | ✅ | — | — | — | — | — | — | — |
+| gbrain | ✅ | — | ✅ | ✅ | — | — | — | — |
+| Cognee | ✅ | — | ✅ | ✅ | ✅ | — | — | ✅ |
 | Graphiti | ✅ | — | ✅ | — | ✅ | ✅ | — | — |
 | OpenViking | ✅ | ✅ | ✅ | — | — | — | — | — |
 | Nanobot | ✅ | — | — | — | ✅ | — | — | — |
@@ -663,29 +670,28 @@
 | Somnigraph | ✅ | — | — | — | — | — | — | — | — | — | — |
 | memspec | ✅ | ✅ | — | — | — | ✅ | — | — | — | — | — |
 | mnemos | ✅ | — | — | — | — | — | — | — | — | — | — |
-| MarsNMe | ✅ | — | — | — | — | ✅ | — | ✅ | ✅ | — | — |
 | Engram Alpha | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | — | — | ✅ |
-| Kage | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | — | — | — |
+| MarsNMe | ✅ | — | — | — | — | ✅ | — | ✅ | ✅ | — | — |
 | gitmem | ✅ | ✅ | — | — | — | ✅ | ✅ | — | — | — | — |
 | Midas | ✅ | ✅ | — | ✅ | — | ✅ | ✅ | — | — | — | — |
 | VIR | ✅ | — | — | — | — | — | — | — | — | — | — |
-| Fullerenes | ✅ | ✅ | — | — | — | ✅ | — | — | — | — | — |
 | fidelis | ✅ | — | — | — | — | — | — | — | — | — | — |
+| Fullerenes | ✅ | ✅ | — | — | — | ✅ | — | — | — | — | — |
+| Noosphere | — | ✅ | ✅ | — | — | — | — | ✅ | ✅ | — | — |
 | Origin | ✅ | ✅ | — | ✅ | ✅ | ✅ | — | — | — | — | — |
-| Continuity v2 | ✅ | — | — | — | — | — | — | — | — | — | — |
+| Kage | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | — | — | — |
 | LWC | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | ✅ | ✅ | ✅ |
-| YesMem | ✅ | ✅ | ✅ | — | — | — | — | — | — | ✅ | ✅ |
+| Continuity v2 | ✅ | — | — | — | — | — | — | — | — | — | — |
 | pond | ✅ | ✅ | ✅ | — | — | — | — | ✅ | ✅ | ✅ | — |
-| Noosphere | — | — | ✅ | — | — | — | — | ✅ | ✅ | — | — |
-| second-brain | ✅ | — | — | — | — | ✅ | — | — | — | — | — |
+| YesMem | ✅ | ✅ | ✅ | — | — | — | — | — | — | ✅ | ✅ |
 | Jumbo | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — | — | — |
 | CommonGround | — | — | — | — | — | — | — | — | — | — | — |
 | Mengram | ✅ | ✅ | — | — | — | ✅ | ✅ | ✅ | — | — | — |
 | ClawMem | ✅ | — | — | — | — | — | — | ✅ | ✅ | — | — |
 | omega-memory | ✅ | ✅ | — | ✅ | — | ✅ | ✅ | — | — | — | — |
-| YourMemory | ✅ | — | ✅ | — | — | ✅ | ✅ | — | — | — | — |
 | ArcRift | ✅ | — | — | — | — | ✅ | ✅ | — | — | — | — |
 | MoltBrain | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
+| YourMemory | ✅ | — | ✅ | — | — | ✅ | ✅ | — | — | — | — |
 | AIPass | ✅ | ✅ | — | — | — | — | — | — | — | — | — |
 | shodh-memory | ✅ | — | — | — | — | ✅ | — | — | — | — | — |
 | MemLayer | — | — | — | — | — | — | — | — | — | — | — |
@@ -694,14 +700,16 @@
 | Statewave | ✅ | — | — | — | ✅ | ✅ | — | — | — | — | — |
 | memorix | — | — | — | — | — | — | — | — | — | — | — |
 | TeleMem | — | — | — | — | — | — | — | — | — | — | — |
+| Caura | ✅ | ✅ | — | ✅ | — | ✅ | ✅ | ✅ | — | — | — |
 | Octopoda-OS | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
 | memoir | ✅ | ✅ | — | — | — | — | — | — | — | — | — |
-| vestige | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | — | — | — | — |
 | MemoMind | ✅ | — | — | — | — | — | — | — | — | — | — |
-| deja-vu | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | ✅ |
+| vestige | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | — | — | — | — |
 | Memora | ✅ | ✅ | — | — | — | — | — | — | — | — | — |
+| second-brain | ✅ | — | — | — | — | ✅ | — | — | — | — | — |
 | context-infra | ✅ | — | ✅ | — | — | ✅ | — | — | — | — | — |
 | stash | ✅ | — | ✅ | — | — | ✅ | ✅ | — | — | — | — |
+| deja-vu | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | ✅ |
 | Wax | ✅ | — | — | — | — | ✅ | ✅ | — | — | — | — |
 | LightMem | — | — | — | — | — | — | — | — | — | — | — |
 | token-savior | ✅ | — | — | — | — | — | — | — | — | — | — |
@@ -710,19 +718,19 @@
 | opencode-mem | — | — | ✅ | — | — | — | — | — | — | — | — |
 | LangMem | — | — | — | — | — | — | — | — | — | — | — |
 | memanto | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — |
-| memsearch | ✅ | ✅ | ✅ | — | — | — | — | ✅ | — | — | — |
 | mcp-memory-service | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | — |
+| memsearch | ✅ | ✅ | ✅ | — | — | — | — | ✅ | — | — | — |
 | MemMachine | ✅ | — | — | — | — | ✅ | — | ✅ | — | — | — |
 | MIRIX | — | — | — | — | — | — | — | — | — | — | — |
 | Acontext | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
 | MemoryBear | — | — | — | — | — | — | — | — | — | — | — |
-| ai-memory | ✅ | ✅ | ✅ | ✅ | — | ✅ | — | ✅ | — | ✅ | ✅ |
 | m_flow | ✅ | — | — | — | — | ✅ | — | ✅ | — | — | — |
 | memory-lancedb-pro | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
 | OpenMemory | ✅ | ✅ | — | — | ✅ | ✅ | ✅ | — | — | — | ✅ |
 | TencentDB-AM | — | — | — | — | — | — | — | ✅ | ✅ | — | — |
 | obsidian-mind | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | — | ✅ |
 | ByteRover | ✅ | ✅ | — | — | — | ✅ | ✅ | — | — | — | — |
+| ai-memory | ✅ | ✅ | ✅ | ✅ | — | ✅ | — | ✅ | — | ✅ | ✅ |
 | engram | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | — | — | ✅ | ✅ |
 | Honcho | ✅ | — | — | — | — | — | — | — | — | — | — |
 | MemOS | — | — | — | — | — | — | — | ✅ | ✅ | — | — |
@@ -733,9 +741,9 @@
 | hindsight | ✅ | — | — | — | — | — | — | — | — | — | — |
 | Letta | ✅ | — | — | — | — | — | — | — | — | — | — |
 | agentmemory | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | — | ✅ | ✅ | ✅ | ✅ |
-| gbrain | ✅ | — | — | — | — | ✅ | — | ✅ | ✅ | — | — |
 | Supermemory | ✅ | — | ✅ | — | — | ✅ | ✅ | ✅ | ✅ | — | — |
-| Cognee | ✅ | — | — | — | — | — | — | ✅ | — | — | — |
+| gbrain | ✅ | — | — | — | — | ✅ | — | ✅ | ✅ | — | — |
+| Cognee | ✅ | ✅ | ✅ | — | — | ✅ | — | ✅ | ✅ | — | — |
 | Graphiti | ✅ | — | — | — | — | ✅ | — | — | — | — | — |
 | OpenViking | ✅ | ✅ | — | — | — | — | — | ✅ | ✅ | — | — |
 | Nanobot | — | — | — | — | — | — | — | — | — | — | — |
@@ -755,29 +763,28 @@
 | Somnigraph | 85.1 | — | — | — | ✅ |
 | memspec | R@5=0.70 | R@5=1.0 | — | — | ✅ |
 | mnemos | — | — | — | — | ✅ |
-| MarsNMe | — | — | — | — | — |
 | Engram Alpha | — | — | — | — | — |
-| Kage | — | 96.17 (R@5) | — | — | ✅ |
+| MarsNMe | — | — | — | — | — |
 | gitmem | — | — | — | — | — |
 | Midas | 73.0 | 92.0 | — | 30–40% | ✅ |
 | VIR | — | — | — | — | — |
-| Fullerenes | — | — | — | 64% | ✅ |
 | fidelis | — | 83.2 (R@1) | — | — | ✅ |
-| Origin | 70.0 | 93.6 | — | — | ✅ |
-| Continuity v2 | — | — | — | — | — |
-| LWC | — | — | — | — | ✅ |
-| YesMem | 87.0 | — | — | ~30% proxy | ✅ |
-| pond | — | — | — | — | ✅ |
+| Fullerenes | — | — | — | 64% | ✅ |
 | Noosphere | — | — | — | — | — |
-| second-brain | — | — | — | — | — |
+| Origin | 70.0 | 93.6 | — | — | ✅ |
+| Kage | — | 96.17 (R@5) | — | — | ✅ |
+| LWC | — | — | — | — | ✅ |
+| Continuity v2 | — | — | — | — | — |
+| pond | — | — | — | — | ✅ |
+| YesMem | 87.0 | — | — | ~30% proxy | ✅ |
 | Jumbo | — | — | — | — | — |
 | CommonGround | — | — | — | — | — |
 | Mengram | — | — | — | — | — |
 | ClawMem | — | — | — | — | — |
 | omega-memory | — | 76.8 | — | — | ✅ |
-| YourMemory | 59.0 | 89.4 | — | — | ✅ |
 | ArcRift | — | — | — | — | ✅ |
 | MoltBrain | — | — | — | — | — |
+| YourMemory | 59.0 | 89.4 | — | — | ✅ |
 | AIPass | — | — | — | — | — |
 | shodh-memory | — | — | — | — | — |
 | MemLayer | — | — | — | — | — |
@@ -786,14 +793,16 @@
 | Statewave | 0.905 | 0.967 | — | — | ✅ |
 | memorix | — | — | — | — | — |
 | TeleMem | — | — | — | — | — |
+| Caura | 77.6 | 72.5 | — | 96.6% | ✅ |
 | Octopoda-OS | — | — | — | — | — |
 | memoir | — | — | — | — | — |
-| vestige | — | — | — | — | ✅ |
 | MemoMind | — | — | — | — | — |
-| deja-vu | h@1=0.70 | h@1=0.85 | — | ~200× vs grep | ✅ |
+| vestige | — | — | — | — | ✅ |
 | Memora | — | — | — | — | — |
+| second-brain | — | — | — | — | — |
 | context-infra | — | — | — | — | — |
 | stash | — | — | — | — | — |
+| deja-vu | h@1=0.70 | h@1=0.85 | — | ~200× vs grep | ✅ |
 | Wax | — | — | — | — | — |
 | LightMem | — | — | — | — | ✅ |
 | token-savior | — | — | — | -77% | — |
@@ -802,19 +811,19 @@
 | opencode-mem | — | — | — | — | — |
 | LangMem | — | — | — | — | — |
 | memanto | 87.1 | 89.8 | — | — | ✅ |
-| memsearch | — | — | — | — | ✅ |
 | mcp-memory-service | — | 86.0 (sess) / 80.4 (turn) | — | — | ✅ |
+| memsearch | — | — | — | — | ✅ |
 | MemMachine | — | — | — | — | ✅ |
 | MIRIX | 85.38 | — | — | — | ✅ |
 | Acontext | — | — | — | ~45% tool calls | — |
 | MemoryBear | — | — | — | — | ✅ |
-| ai-memory | — | — | — | — | — |
 | m_flow | 81.8 | 89.0 | — | — | ✅ |
 | memory-lancedb-pro | — | — | — | — | — |
 | OpenMemory | — | — | — | — | — |
 | TencentDB-AM | — | — | 76.0 | 61% | — |
 | obsidian-mind | — | — | — | — | — |
 | ByteRover | 96.1 | 92.8 | — | — | ✅ |
+| ai-memory | — | — | — | — | — |
 | engram | — | — | — | — | — |
 | Honcho | — | — | — | — | — |
 | MemOS | 75.80 | +40.43 (rel.) | +40.75 (rel.) | 35.24% | ✅ |
@@ -825,8 +834,8 @@
 | hindsight | — | 91.4 | — | — | ✅ |
 | Letta | — | — | — | — | ✅ |
 | agentmemory | — | 95.2 | — | 92% fewer | ✅ |
-| gbrain | — | — | — | — | — |
 | Supermemory | — | 81.6 | — | — | — |
+| gbrain | — | — | — | — | — |
 | Cognee | — | — | — | — | — |
 | Graphiti | — | — | — | — | — |
 | OpenViking | 82.1 | — | — | 91% | ✅ |
