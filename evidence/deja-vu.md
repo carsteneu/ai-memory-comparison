@@ -1,11 +1,11 @@
 # deja-vu — Evidence
 
 **Repo:** `github.com/vshulcz/deja-vu`
-**Stars:** 493
+**Stars:** 759
 **Language:** Go
 **License:** MIT
 **Created:** 2026-07-01
-**Description:** Retroactive local memory for 17 coding agents — indexes the session transcripts the agents already write to disk (no capture step, history from before install), serves it back over MCP/hooks; zero daemon, no API keys, no LLM calls.
+**Description:** Retroactive local memory for 21 coding agents — indexes the session transcripts the agents already write to disk (no capture step, history from before install), serves it back over MCP/hooks; zero daemon, no API keys, no LLM calls.
 
 ---
 
@@ -66,7 +66,8 @@
 
 ### Anticipated queries ❌
 
-### Trigger rules ❌
+### Trigger rules ✅
+- Source: [cmd/deja/hook_tool.go#L155](https://github.com/vshulcz/deja-vu/blob/v0.19.2/cmd/deja/hook_tool.go#L155) — the pre-tool hook fires on `Edit`/`Write`/`apply_patch` with the target path and answers with that file's history ("which past sessions touched this file") before the edit lands; on `Bash` it fires with the command and surfaces the earlier failure or decision about it. Condition-based, no query from the agent.
 
 ### Domain tag ❌
 
@@ -125,8 +126,8 @@
 ### Search modes (count: 6) ✅
 - Source: [internal/index/retrieval.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/internal/index/retrieval.go#L533) — exact → substring → stem/suffix forms → fuzzy (Damerau) → co-occurrence rescue → semantic (opt-in); each degradation step is narrated in output.
 
-### Data sources (count: 13) ✅
-- Source: [internal/sources/registry.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/internal/sources/registry.go) — Claude Code, Codex, opencode, Cursor (CLI+IDE), aider, Gemini CLI, Antigravity, Grok Build, Qwen Code, Kimi Code, pi, Copilot CLI + deja's own notes.
+### Data sources (count: 21) ✅
+- Source: [internal/sources/registry.go](https://github.com/vshulcz/deja-vu/blob/v0.19.2/internal/sources/registry.go) — Claude Code, Codex, opencode, Cursor (CLI+IDE), aider, Gemini CLI, Antigravity, Grok Build, Qwen Code, Kimi Code, pi, omp, Copilot CLI, Cline, Roo Code, Goose, Hermes, OpenClaw, DeepSeek Harness, Zed, Prime + deja's own notes.
 
 ---
 
@@ -154,7 +155,8 @@
 
 ## Extraction Pipeline
 
-### Auto-extraction ❌
+### Auto-extraction ✅
+- Source: [cmd/deja/friction.go#L19](https://github.com/vshulcz/deja-vu/blob/v0.19.2/cmd/deja/friction.go#L19) — `deja friction` derives the recurring error lines of the machine (a missing tool, a module never installed, a command absent on this platform) from the indexed sessions, with per-line session counts; nothing is saved by hand. The same extraction feeds the install proof and the session-start digest ("this machine has hit `X` in N sessions").
 - (by design: serves verbatim transcript evidence, not LLM-extracted facts)
 
 ### Content-aware preprocessing ✅
@@ -165,7 +167,8 @@
 
 ### Quality refinement ❌
 
-### Narrative generation ❌
+### Narrative generation ✅
+- Source: [cmd/deja/handoff.go#L23](https://github.com/vshulcz/deja-vu/blob/v0.19.2/cmd/deja/handoff.go#L23) — `deja handoff` packages the live context of a session (the problem, what was concluded, where it stopped) as a digest and continues it in another agent; [cmd/deja/share.go](https://github.com/vshulcz/deja-vu/blob/v0.19.2/cmd/deja/share.go) writes a sanitized digest of a session for someone else.
 
 ### Clustering ❌
 
@@ -207,23 +210,38 @@
 ### pi/omp ✅
 - Source: [internal/sources/pi.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/internal/sources/pi.go) — pi session transcripts + MCP (mcp.json).
 
+### DeepSeek Harness ✅
+- Source: [internal/sources/deepseek.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/deepseek.go) — sessions under `$DSH_HOME` (zstd-compressed JSONL) are indexed; `deja install deepseek` writes the home patch layer, and the `dsh-deja` npm package registers recall tools, a `/deja` command and automatic recall.
+
+### Zed ✅
+- Source: [internal/sources/zed.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/zed.go) — agent threads from Zed's own store are indexed; MCP wiring installed by `deja install zed`.
+
+### Cline ✅
+- Source: [internal/sources/cline.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/cline.go) — Cline sessions indexed, with MCP and session-start recall installed by `deja install cline`.
+
+### Roo Code ✅
+- Source: [internal/sources/roo.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/roo.go) — Roo Code task history indexed; MCP installed by `deja install roo`.
+
+### Goose ✅
+- Source: [internal/sources/goose.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/goose.go) — Goose sessions indexed; MCP and guidance installed by `deja install goose`.
+
 ### Antigravity ✅
 - Source: [internal/sources/antigravity.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/internal/sources/antigravity.go) — transcript ingestion + MCP config (GUI app, so no hook injection).
 
-*(also indexes aider, Grok Build, Qwen Code and Kimi Code — no columns for those)*
+*(also indexes aider, Grok Build, Qwen Code and Kimi Code — no columns for those; twenty harnesses in total, listed in [internal/sources/registry.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/internal/sources/registry.go))*
 
 ---
 
 ## Benchmarks
 
 ### LoCoMo ✅
-- Score: session-level retrieval, 1,982 questions — hit@1 **69.8%**, hit@5 85.6%, MRR 0.766, median search ~6 ms.
-- Harness: [scripts/locomo/main.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/scripts/locomo/main.go) — `go run ./scripts/locomo -data locomo10.json`.
+- Score: session-level retrieval, 1,982 questions — hit@1 **69.6%**, hit@5 85.6%, MRR 0.766, median search ~6 ms.
+- Harness: [scripts/locomo/main.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/scripts/locomo/main.go) — `go run ./scripts/locomo -data locomo10.json`.
 - Not comparable to most published LoCoMo numbers, and the page says so: those are end-to-end QA accuracy with an answering LLM, deja reports retrieval only.
 
 ### LongMemEval ✅
-- Score: LongMemEval-S, session-level retrieval, 470 questions on the cleaned set — hit@1 **84.9%**, hit@5 94.3%, hit@10 95.7%, MRR 0.890, median search ~40 ms. Full set including abstention (500 questions): hit@1 84.2%.
-- Harness: [scripts/longmemeval/main.go](https://github.com/vshulcz/deja-vu/blob/v0.16.0/scripts/longmemeval/main.go) — `go run ./scripts/longmemeval -skip-abs -data longmemeval_s.json`.
+- Score: LongMemEval-S, session-level retrieval, 470 questions on the cleaned set — hit@1 **85.3%**, hit@5 94.3%, hit@10 95.7%, MRR 0.890, median search ~40 ms. Full set including abstention (500 questions): hit@1 84.2%.
+- Harness: [scripts/longmemeval/main.go](https://github.com/vshulcz/deja-vu/blob/v0.18.0/scripts/longmemeval/main.go) — `go run ./scripts/longmemeval -skip-abs -data longmemeval_s.json`.
 - Methodology: [benchmarks page](https://vshulcz.github.io/deja-vu/guide/benchmarks.html). Haystack sessions are written as real transcript files and indexed through the production path; questions are used verbatim, no LLM, no embeddings, no query rewriting.
 - Caveat stated on the page: hit@k credits a question when any evidence session ranks in the top k, which is looser than the official per-evidence metric.
 
