@@ -1,17 +1,17 @@
 # Noosphere — Evidence
 
 > `evidence: "evidence/noosphere.md"`
-> Created: 2026-06-01 (v1.7.0)
-> Source README audit based on `SweetSophia/noosphere` @ master (336 commits)
+> Created: 2026-06-01 (v1.7.0) · Re-audited: 2026-09-03 (v1.13.2) by the Noosphere maintainer
+> Source README audit based on `SweetSophia/noosphere` @ master (388 commits)
 
 ## Repo Identity
 
 - **URL:** https://github.com/SweetSophia/noosphere
 - **Homepage:** https://noosphere-memory.com
-- **License:** MIT
+- **License:** Apache-2.0 (was MIT; relicensed at v1.10.0)
 - **Language:** TypeScript (Next.js 16)
-- **Stars:** 53, Forks: 0, Commits: 336
-- **Version:** v1.7.0
+- **Stars:** 25, Forks: 1, Commits: 388 (GitHub API, 2026-09-03)
+- **Version:** v1.13.2
 - **Created:** 2026-04-11
 - **Topics:** agentic-memory, agentic-rag, agentic-workflow, ai, ai-agent, ai-skill, document-management, memory-system, wiki
 
@@ -21,11 +21,12 @@
 
 | Claim | Status | Evidence |
 |-------|--------|----------|
-| stars = 53 | ✅ | GitHub API: `stargazers_count: 53` |
+| stars = 25 | ✅ | GitHub API 2026-09-03: `stargazers_count: 25` (June audit recorded 53; current API value reported) |
 | language = TypeScript | ✅ | GitHub API: `language: "TypeScript"` |
-| license = MIT | ✅ | GitHub API: `license: { key: "mit" }` |
+| license = Apache-2.0 | ✅ | [LICENSE](https://github.com/SweetSophia/noosphere/blob/master/LICENSE) is the full Apache 2.0 text; README §License ([README.md#L340](https://github.com/SweetSophia/noosphere/blob/master/README.md#L340-license)) states "Apache 2.0"; every plugin package.json declares `"license": "Apache-2.0"` (e.g. [noosphere-mcp/package.json](https://github.com/SweetSophia/noosphere/blob/master/noosphere-mcp/package.json)). GitHub API `NOASSERTION` is a detection artifact of the multi-package layout; the LICENSE file is authoritative. |
 | singleBinary = false | ✅ | Requires Docker + Node.js 22 |
 | created = 2026-04-11 | ✅ | GitHub API: `created_at: "2026-04-11T06:53:39Z"` |
+| version = 1.13.2 | ✅ | [VERSION](https://github.com/SweetSophia/noosphere/blob/master/VERSION) = `1.13.2`; release [v1.13.2](https://github.com/SweetSophia/noosphere/releases/tag/v1.13.2) published 2026-09-02 |
 
 ---
 
@@ -33,16 +34,17 @@
 
 ### Deployment ✅
 - README: Docker Compose — `docker compose up -d` on port 6578
-- README: Production Docker image: `ghcr.io/sweetsophia/noosphere:latest`
+- README: Production Docker image: `ghcr.io/sweetsophia/noosphere:<version>` (version-pinned; checksum-pinned installer at [docs/INSTALLATION.md](https://github.com/SweetSophia/noosphere/blob/master/docs/INSTALLATION.md))
 - README: `docker-compose.noosphere.yml` production template with `init` service (waits for PG, runs migrations, bootstraps admin)
 
 ### Storage ✅
 - README: PostgreSQL 16 (primary), Redis 7 (optional recall cache)
 - README: Prisma 7 ORM, filesystem image uploads, Markdown vault export
+- Optional pgvector hybrid storage layer (see Search & Retrieval)
 
 ### Integration ✅
-- README: **4 platform plugins**: OpenClaw, Hermes Agent, Opencode, Kilo Code
-- README: Universal REST API for all other systems
+- README §Choose an Integration ([README.md#L91](https://github.com/SweetSophia/noosphere/blob/master/README.md#L91-choose-an-integration)): **5 integrations**: OpenClaw, Codex CLI (MCP), Hermes Agent, Opencode, Kilo Code
+- README: Universal REST API for all other systems; stdio MCP server (`@sweetsophia/noosphere-mcp`) usable from any MCP-capable client
 - README: Obsidian vault sync (export/import + reverse scan)
 
 ### Proxy ❌
@@ -82,6 +84,7 @@
 - README: Restricted articles — tagged with scopes, invisible to users/keys without matching scope
 - README: Docker internal network — PostgreSQL not exposed to host by default
 - README: Secrets stored in `~/.noosphere/.env`, outside repo
+- [v1.13.2 release notes](https://github.com/SweetSophia/noosphere/releases/tag/v1.13.2): OpenClaw credential-origin binding (protected exact HTTPS origin pin, rejects malformed/internal destinations, no authenticated redirect following; [PR #312](https://github.com/SweetSophia/noosphere/pull/312)) and host-owned SecretRef resolution (no plugin-side secret-file reads; [PR #301](https://github.com/SweetSophia/noosphere/pull/301))
 
 ### Export ✅
 - README: `POST /api/export` — download all articles as Markdown vault zip
@@ -155,11 +158,14 @@
 - README: "PostgreSQL full-text search" — live FTS with filters
 - README: Redis recall cache accelerates repeat searches
 
-### Semantic/vector ❌
-- README: "vector (planned)" — not yet implemented
+### Semantic/vector ✅ (opt-in; changed ❌→✅)
+- Implemented opt-in pgvector semantic retrieval: [docs/HYBRID-RETRIEVAL-ADR.md](https://github.com/SweetSophia/noosphere/blob/master/docs/HYBRID-RETRIEVAL-ADR.md) and [docker/hybrid-storage/README.md](https://github.com/SweetSophia/noosphere/blob/master/docker/hybrid-storage/README.md)
+- README ([README.md#L86](https://github.com/SweetSophia/noosphere/blob/master/README.md#L86)): "Optional pgvector hybrid storage remains a separate activation step"
+- Runtime default remains keyword-only FTS; vector path is implemented but requires separate activation
 
-### Hybrid (BM25+Vec) ❌
-- Not yet — vector component still planned
+### Hybrid (BM25+Vec) ✅ (opt-in; changed ❌→✅)
+- Same activation path as semantic: PostgreSQL FTS + pgvector with RRF fusion ([HYBRID-RETRIEVAL-ADR.md](https://github.com/SweetSophia/noosphere/blob/master/docs/HYBRID-RETRIEVAL-ADR.md))
+- README comparison table ([README.md#L159](https://github.com/SweetSophia/noosphere/blob/master/README.md#L159)): "✅ PostgreSQL FTS (default) + implemented opt-in pgvector/RRF"
 
 ### Deep (incl. thinking) ❌
 - Not mentioned
@@ -176,8 +182,8 @@
 ### Timeline view ❌
 - Activity log exists (`GET /api/log`) but no timeline visualization
 
-### Search modes = 2 ✅
-- README: (1) PostgreSQL full-text search, (2) Redis recall cache lookup — confirmed
+### Search modes = 2 ✅ (default; 3 with opt-in hybrid)
+- README: (1) PostgreSQL full-text search (default), (2) Redis recall cache lookup, (3) opt-in pgvector hybrid (RRF) — counting always-on modes only
 
 ---
 
@@ -274,8 +280,11 @@
 ### Claude Code ❌
 - Not mentioned — universal REST API available but no dedicated plugin
 
-### Codex ❌
-- Not mentioned
+### Codex ✅ (changed ❌→✅)
+- New in v1.13.x (shipped at v1.13.2, 2026-09-02): `@sweetsophia/noosphere-mcp` — stdio MCP server with five tools (search_articles, get_article, recall_memory, save_memory, create_article)
+- README ([README.md#L94](https://github.com/SweetSophia/noosphere/blob/master/README.md#L94)): "Codex CLI / MCP | Five native MCP tools, a Codex skill, and a secret-safe guided installer"
+- README ([README.md#L109](https://github.com/SweetSophia/noosphere/blob/master/README.md#L109)): `npx -y @sweetsophia/noosphere-mcp@1.13.2 install-codex`
+- [noosphere-mcp/README.md](https://github.com/SweetSophia/noosphere/blob/master/noosphere-mcp/README.md): MCP client config, environment-name-only credential forwarding, ownership-safe rollback
 
 ### Gemini CLI ❌
 - Not mentioned
@@ -314,6 +323,8 @@
 | **Backfill/Synthesis Jobs** | Generates curated articles from historical material with retry support |
 | **Local Scheduler** | Built-in `npm run memory:scheduler` for maintenance jobs |
 | **Redis Recall Cache** | Cache-aside layer accelerates repeat searches |
+| **Bounded MCP Recall** | `recall_memory` forced into API `auto` mode with result/token budgets; caller-controlled serialization hooks and provider mutation rejected ([v1.13.2](https://github.com/SweetSophia/noosphere/releases/tag/v1.13.2), [PR #314](https://github.com/SweetSophia/noosphere/pull/314)) |
+| **Deterministic Coordinated Release** | One merge publishes app image, five npm packages, checksum-verified installer; six-file GitHub release with SHA-256 readback ([docs/COORDINATED-RELEASE.md](https://github.com/SweetSophia/noosphere/blob/master/docs/COORDINATED-RELEASE.md), [v1.13.2](https://github.com/SweetSophia/noosphere/releases/tag/v1.13.2)) |
 | **Obsidian Sync** | Full export/import + reverse scan of Markdown vaults |
 | **Revision History** | Per-article version tracking |
 | **Topic Hierarchy** | Unlimited-depth tree organization |
