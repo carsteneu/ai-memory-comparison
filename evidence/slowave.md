@@ -1,7 +1,7 @@
 # slowave — Evidence
 
 **Repo:** `mrsalty/slowave` — https://github.com/mrsalty/slowave  
-**Stars:** 1  
+**Stars:** 7
 **Language:** Python  
 **License:** AGPL-3.0-or-later  
 **Created:** 2026-06-08  
@@ -31,11 +31,11 @@
 
 ### Web/TUI ✅
 > Local web dashboard to inspect memories, search recall, and view the memory graph.
-- Source: `README.md` — "Watch memory compound through a local web UI: inspect what Slowave has learned, search recall, and see the memory graph grow."
+- Source: [`README.md`](https://github.com/mrsalty/slowave/blob/main/README.md#L101-L129) — `slowave dashboard` opens a local dashboard with memories, procedures, retrievals, activity, a memory graph, and system health.
 
 ### Offline ✅
-> Fully local — SQLite at `~/.slowave/slowave.db`, local HuggingFace text encoder (~45 MB, cached after first download), zero cloud backend.
-- Source: `README.md` — "Fully local memory — no cloud backend, no external memory service, no Ollama, no vector database to run."
+> Fully local — SQLite in the OS user's application-data directory, a local Hugging Face text encoder (~45 MB, cached after first download), and no hosted memory service.
+- Source: [`README.md`](https://github.com/mrsalty/slowave/blob/main/README.md#L152-L155) — local model download and no hosted-memory service; [`docs/install.md`](https://github.com/mrsalty/slowave/blob/main/docs/install.md#L207-L218) — runtime-data locations.
 
 ### Multi-agent ❌
 > No documented cross-agent memory sharing or agent directory.
@@ -47,24 +47,24 @@
 ### Cache optimization ❌
 > No documented caching layer for embeddings or search results.
 
-### Procedural memory ❌
-> Recurring workflows emerge implicitly via prototype-transition weights — no explicit procedural store.
-- Source: `docs/architecture.md` — "Behavioral Patterns: Recurring workflows emerge implicitly — no explicit procedural store."
+### Procedural memory ✅
+> Procedures are explicit records captured at commit time with a summary, durable context, ordered steps, and caveats; relevant procedures can be returned during retrieval and later assessed for usefulness.
+- Source: [`docs/architecture.md`](https://github.com/mrsalty/slowave/blob/main/docs/architecture.md#L132-L136).
 
 ### Sandboxed execution ❌
 > No sandboxed execution documented.
 
 ### Scheduled/autonomous ✅
-> Background consolidation daemon (`slowave worker start`) runs an autonomous polling loop for offline memory consolidation; `slowave consolidate` provides a one-shot trigger. HTTP daemon mode (`slowave/mcp/daemon.py`) keeps the MCP server long-lived.
-- Source: `slowave/mcp/daemon.py` — HTTP daemon for long-lived MCP service; `slowave/cli/main.py` — `worker start` and `consolidate` subcommands.
+> Setup installs auto-started HTTP daemon and background-worker services, plus a daily backup service/timer; the worker consolidates events offline.
+- Source: [`docs/install.md`](https://github.com/mrsalty/slowave/blob/main/docs/install.md#L20-L28) — setup starts the daemon and worker as system services; [`docs/install.md`](https://github.com/mrsalty/slowave/blob/main/docs/install.md#L48-L57) — service installation includes daily backup; [`docs/install.md`](https://github.com/mrsalty/slowave/blob/main/docs/install.md#L186-L205) — worker and daily-backup service details.
 
 ### Privacy/encrypt ✅
-> Fully local, no cloud backend, no telemetry. Data stays at `~/.slowave/slowave.db`.
-- Source: `README.md` — "Memory lives at ~/.slowave/slowave.db, a plain SQLite file. It is local and inspectable."
+> Memory is local and plaintext by default; Slowave does not send it to a hosted memory service. Runtime data lives in the OS user's application-data directory.
+- Source: [`README.md`](https://github.com/mrsalty/slowave/blob/main/README.md#L152-L155) — local storage and no hosted-memory service; [`docs/install.md`](https://github.com/mrsalty/slowave/blob/main/docs/install.md#L207-L218) — platform-specific runtime-data locations.
 
 ### Data export ✅
-> `slowave backup --json` exports memory data to JSON; standard backup produces a gzip-compressed SQLite snapshot.
-- Source: `slowave/cli/backup.py` — `backup()` command with `--json` flag; gzip-compressed SQLite via `.backup()` API.
+> `slowave backup` creates a gzip-compressed SQLite snapshot using SQLite's online backup API; `slowave restore` restores a selected snapshot.
+- Source: [`docs/cli.md`](https://github.com/mrsalty/slowave/blob/main/docs/cli.md#L143-L158) — backup and restore commands; [`slowave/cli/backup.py`](https://github.com/mrsalty/slowave/blob/main/slowave/cli/backup.py#L1-L5) — online SQLite backup implementation.
 
 ---
 
@@ -91,8 +91,8 @@
 - Source: `README.md` — "Scoped memory — project, domain, relationship, or universal context. Cross-project bleed is prevented by default."
 
 ### Task type ✅
-> `type` field on `slowave_remember` supports: `fact`, `preference`, `decision`, `constraint`, `procedure`, `lesson`, `warning`, `open_question`, `task`, `artifact` — 10 distinct types.
-- Source: `slowave` MCP tool schema — `slowave_remember` `type` parameter; `docs/architecture.md` MCP tool description.
+> `type` field on `slowave_remember` supports: `fact`, `preference`, `decision`, `constraint`, `instruction`, `lesson`, `warning`, `open_question`, `task`, and `artifact` — 10 distinct types.
+- Source: [`slowave/mcp/tools.py`](https://github.com/mrsalty/slowave/blob/main/slowave/mcp/tools.py#L61-L72) — accepted types; [`slowave/mcp/tools.py`](https://github.com/mrsalty/slowave/blob/main/slowave/mcp/tools.py#L99-L110) — public tool-schema type.
 
 ### Context (why) ✅
 > Memory type system includes `decision`, `lesson`, and `constraint` types which encode *why* a fact was stored; type field is a required structured field.
@@ -118,9 +118,9 @@
 ### Time-travel ❌
 > Temporal awareness in recall ranking but no historical state queries or since/before parameters documented.
 
-### Schema fields (count: 14) ✅
-> Per stored Schema entry (excluding auto ID and timestamps): `content_text`, `facets` (flexible metadata dict), `tags`, `scope_id`, `scope_kind`, `status` (active/needs_review/superseded/contradicted/archived), `confidence`, `salience`, `supporting_episode_ids`, `contradicting_episode_ids`, `needs_review`, `embedding`, `dim`, `generalization_stage` (0–3).
-- Source: `slowave/storage/schema.sql:113–133` — Schema table definition with all 14 non-ID non-timestamp columns.
+### Schema fields (count: 19) ✅
+> Per stored Schema entry (excluding auto ID and timestamps): `prototype_id`, `content_text`, `facets_json`, `tags_json`, `scope_id`, `scope_kind`, `status`, `stale_reason`, `confidence`, `salience`, `embedding`, `dim`, `facet_axes`, `facet_strengths`, `n_facet_axes`, `supporting_episode_ids`, `is_labile`, `generalization_stage`, and `logic_version`.
+- Source: [`slowave/storage/schema.sql`](https://github.com/mrsalty/slowave/blob/main/slowave/storage/schema.sql#L167-L199) — current Schema table definition.
 
 ---
 
@@ -229,11 +229,13 @@
 ### Claude Code ✅
 - Source: `docs/install.md` — explicit Claude Code support with automatic `CLAUDE.md` injection and `UserPromptSubmit`/`Stop` hooks via `slowave setup`.
 
-### Codex ❌
-> Not documented.
+### Codex ✅
+> `slowave setup --client codex` configures the local MCP server and lifecycle instructions for Codex CLI, the ChatGPT desktop app, and the Codex IDE extension.
+- Source: [`README.md`](https://github.com/mrsalty/slowave/blob/main/README.md#L139-L148) — verified Codex support on macOS, Linux, and Windows; [`integrations/codex/README.md`](https://github.com/mrsalty/slowave/blob/main/integrations/codex/README.md#L7-L28) — configuration details and covered Codex surfaces.
 
-### OpenCode ❌
-> Not documented.
+### OpenCode ✅
+> `slowave setup --client opencode` configures the OpenCode MCP server and lifecycle instruction file on macOS, Linux, and Windows.
+- Source: [`README.md`](https://github.com/mrsalty/slowave/blob/main/README.md#L139-L148) — verified OpenCode support on macOS, Linux, and Windows; [`integrations/opencode/README.md`](https://github.com/mrsalty/slowave/blob/main/integrations/opencode/README.md#L7-L25) — configuration details.
 
 ### Gemini CLI ❌
 > Not documented.
@@ -264,22 +266,20 @@
 ## Benchmarks
 
 ### LoCoMo ✅
-> Published internal score; methodology and reproduction scripts public.
-- Score: `76%` (total across 1 986 questions; beats all independently verified competitors)
-- Source: `docs/benchmarks.md` — LoCoMo table, TOTAL row: 76%.
+> Published evidence-containment score for consolidated top-20 retrieval over 1,534 answerable questions; the documentation distinguishes it from end-to-end QA accuracy.
+- Score: `71.84%` (LoCoMo multi-session category: `87.04%`)
+- Source: [`docs/benchmarks.md`](https://github.com/mrsalty/slowave/blob/main/docs/benchmarks.md#L1-L21) — current result and scope; [`docs/benchmarks.md`](https://github.com/mrsalty/slowave/blob/main/docs/benchmarks.md#L91-L104) — metric caveats.
 
 ### LongMemEval ✅
-> Published internal score across 500 questions, 6 categories.
-- Score: `87.8%`
-- Source: `docs/benchmarks.md` — LongMemEval table, TOTAL row: 87.8%.
+> Published evidence-containment score across all 500 LongMemEval oracle questions using consolidated hybrid top-20 retrieval; this is not a distractor-retrieval result.
+- Score: `65.20%`
+- Source: [`docs/benchmarks.md`](https://github.com/mrsalty/slowave/blob/main/docs/benchmarks.md#L14-L21) — current result and scope; [`docs/benchmarks.md`](https://github.com/mrsalty/slowave/blob/main/docs/benchmarks.md#L81-L88) — oracle-setting caveat.
 
 ### PersonaMem ❌
 > Not documented.
 
-### Token reduction ✅
-> 86% smaller context compared to full history replay over 20 sessions.
-- Score: `86%`
-- Source: `README.md` — "internal tests showed 86% smaller context over 20 sessions while preserving expected recall quality." Full test: `docs/token_efficiency.md`.
+### Token reduction ❌
+> No current, source-backed token-reduction benchmark is published in the project documentation.
 
 ### Methodology open ✅
 > Reproduction scripts and run conditions published; independent verification explicitly invited.
