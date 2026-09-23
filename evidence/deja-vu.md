@@ -1,11 +1,11 @@
 # deja-vu — Evidence
 
 **Repo:** `github.com/vshulcz/deja-vu`
-**Stars:** 759
+**Stars:** 915
 **Language:** Go
 **License:** MIT
 **Created:** 2026-07-01
-**Description:** Retroactive local memory for 21 coding agents — indexes the session transcripts the agents already write to disk (no capture step, history from before install), serves it back over MCP/hooks; zero daemon, no API keys, no LLM calls.
+**Description:** Retroactive local memory for 34 coding agents — indexes the session transcripts the agents already write to disk (no capture step, history from before install), serves it back over MCP/hooks; zero daemon, no API keys, no LLM calls.
 
 ---
 
