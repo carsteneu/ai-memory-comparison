@@ -2,6 +2,7 @@
 
 > Every ✅ claim backed by public documentation or source code.
 > Audit date: 2026-05-28. Source: GitHub `plastic-labs/honcho` main branch, `honcho.dev/docs`, README.md.
+> Updated 2026-10-26 against commit [`6edadaa`](https://github.com/plastic-labs/honcho/tree/6edadaa2e374d9d698aadda9c20ea88196795937): Platform Support, Explicit forget, Hybrid search and Benchmarks. Line links below marked (2026-10-26) point at that commit.
 
 ## Architecture
 
@@ -70,6 +71,7 @@
 - Embeddings via OpenAI (`EMBED_MESSAGES=true` in `.env.template`).
 
 ### Hybrid (BM25+Vec) ✅
+- (2026-10-26) [`README.md:168`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L168) — "Hybrid search (BM25 + vector)", exposed as `peer.search(...)`, `session.search(...)`, `honcho.search(...)`. [`README.md:672`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L672) — search at Workspace, Session or Peer level "using a hybrid search strategy". `data.js` currently has `hybrid: false`.
 - `README.md` — "Hybrid search (BM25 + vector)" explicitly listed as a feature.
 - Search at workspace, session, and peer level all use the same hybrid strategy.
 - "Requests can include advanced filters to further refine the results."
@@ -91,11 +93,10 @@
 - `docs/reasoning` — "Representations enable continuous improvement as new messages refine existing conclusions and scaffold new ones over time." This is additive/scaffolded improvement, not explicit replacement.
 - **Finding**: Implicit refinement exists (background reprocessing improves representations), but there is no explicit supersede mechanism with history tracking. Correctly should be marked false for the "supersede" feature as defined in the comparison (explicit chains+cycles like YesMem, update operations like engram).
 
-### Explicit forget ❌
-- README and API docs: No `forget`, `delete_conclusion`, or memory deletion API found.
-- Messages and sessions can be deleted (CRUD API exists for these primitives), but there is no "forget this specific conclusion" or "delete this inferred fact" endpoint.
-- The reasoning model is additive — conclusions accumulate over time.
-- **Finding**: No explicit forget mechanism for inferred knowledge. Marked correctly as false.
+### Explicit forget ✅ (2026-10-26)
+- [`src/routers/conclusions.py:166-192`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/src/routers/conclusions.py#L166-L192) — `DELETE /workspaces/{workspace_id}/conclusions/{conclusion_id}`: "Delete a single Conclusion by ID."
+- [`src/routers/sessions.py:418-431`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/src/routers/sessions.py#L418-L431) — `delete_session`: "Delete a Session and all associated messages."
+- **Finding**: Both a single inferred memory (conclusion) and a whole session can be deleted. CRITERIA.md defines Explicit forget as "User or agent can explicitly delete/forget a memory or session", so this is ✅. Supersedes the 2026-05-28 finding, which predates the conclusions delete endpoint.
 
 ### Decay/forgetting ❌
 - No mention of decay, Ebbinghaus forgetting curves, TTL, or automatic expiration of conclusions.
@@ -130,27 +131,61 @@
 - `docs/agentic-development` — Full Claude Code integration guide. Plugin provides persistent memory surviving context wipes and session restarts.
 - Repository includes `.claude/skills/` directory with agent skills.
 
-### Codex ❌
-- No Codex integration mentioned in README or docs. MCP server works in any MCP client but no Codex-specific integration.
+### Codex ✅ (2026-10-26)
+- [`README.md:184`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L184) and [`README.md:218-225`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L218-L225) — `npm install -g @honcho-ai/codex-honcho`, then `codex-honcho install`, which "registers hooks + MCP + skill in ~/.codex". Plugin repo: [plastic-labs/codex-honcho](https://github.com/plastic-labs/codex-honcho).
 
 ### OpenCode ✅
-- `README.md` — `opencode plugin "@honcho-ai/opencode-honcho" --global`. Then `/honcho:setup` inside OpenCode.
-- `docs/agentic-development` — OpenCode plugin guide.
+- (2026-10-26) [`README.md:187`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L187) and [`README.md:244-250`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L244-L250) — `opencode plugin "@honcho-ai/opencode-honcho" --global`. Plugin repo: [plastic-labs/opencode-honcho](https://github.com/plastic-labs/opencode-honcho). `data.js` currently has `p_opencode: false`.
 
-### Cursor ❌
-- MCP server works in any MCP client. No Cursor-specific integration listed in the supported clients table, but the raw MCP config works (`claude mcp add` equivalent).
+### Gemini CLI ❌
+
+### Copilot ✅ (2026-10-26)
+- [`docs/v3/guides/integrations/mcp.mdx:141`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/docs/v3/guides/integrations/mcp.mdx#L141) — "VS Code (Copilot Chat)" MCP setup section. Rendered at [honcho.dev/docs/v3/guides/integrations/mcp](https://honcho.dev/docs/v3/guides/integrations/mcp#vs-code-copilot-chat).
+
+### Cursor ✅ (2026-10-26)
+- [`README.md:185`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L185) and [`README.md:227-233`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L227-L233) — install script from [plastic-labs/cursor-honcho](https://github.com/plastic-labs/cursor-honcho); "The installer wires global hooks and MCP config."
+
+### Windsurf ✅ (2026-10-26)
+- [`docs/v3/guides/integrations/mcp.mdx:119-138`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/docs/v3/guides/integrations/mcp.mdx#L119-L138) — Windsurf MCP config for `~/.codeium/windsurf/mcp_config.json`. MCP only, no dedicated plugin.
 
 ### OpenClaw ✅
+- (2026-10-26) [`README.md:189`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L189) and [`README.md:261-266`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L261-L266) — `openclaw plugins install @honcho-ai/openclaw-honcho`. Plugin repo: [plastic-labs/openclaw-honcho](https://github.com/plastic-labs/openclaw-honcho). `data.js` currently has `p_openclaw: false`.
 - `README.md` — `openclaw plugins install @honcho-ai/openclaw-honcho`. Setup migrates legacy `MEMORY.md`/`USER.md`/`IDENTITY.md` into Honcho.
 
 ### Hermes ✅
-- `README.md` — `hermes memory setup` with "honcho" selection.
+- (2026-10-26) [`README.md:271-277`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L271-L277) — `hermes memory setup`, select "honcho". Hermes' own docs list Honcho under Memory Providers: [hermes-agent.nousresearch.com/docs/user-guide/features/memory-providers](https://hermes-agent.nousresearch.com/docs/user-guide/features/memory-providers). `data.js` currently has `p_hermes: false`.
+
+### pi/omp ✅ (2026-10-26)
+- [plastic-labs/pi-honcho](https://github.com/plastic-labs/pi-honcho) — official Honcho extension for the pi coding agent, published on npm as `@honcho-ai/pi-honcho`.
+
+### Antigravity ❌
 
 ---
 
 ## Benchmarks
 
-### Published benchmarks ✅
+All figures below are self-reported by Plastic Labs on [honcho.dev/evals](https://honcho.dev/evals/) (checked 2026-10-26). Unless stated otherwise the page says runs use gemini-2.5-flash-lite as deriver and claude-haiku-4.5 as dreamer and dialectic.
+
+### LoCoMo ✅ (2026-10-26)
+- Score: `89.9%` (1,540 questions; Claude Haiku 4.5 with full context: 75.6%)
+- Source: [honcho.dev/evals](https://honcho.dev/evals/) — LoCoMo section.
+
+### LongMemEval ✅ (2026-10-26)
+- Score: `90.4%` on LongMemEval S (Claude Haiku 4.5 with full context: 62.6%)
+- Source: [honcho.dev/evals](https://honcho.dev/evals/) — LongMem S section.
+
+### PersonaMem ❌
+
+### Token reduction ✅ (2026-10-26)
+- Score: `52%` fewer tokens than the full-context baseline, averaged across LoCoMo questions
+- Source: [honcho.dev/evals](https://honcho.dev/evals/) — "Honcho uses 52% fewer tokens on average than baseline across all LoCoMo questions."
+
+### Methodology open ✅ (2026-10-26)
+- Source: [plastic-labs/honcho-benchmarks](https://github.com/plastic-labs/honcho-benchmarks), linked from honcho.dev/evals as "Methodology and raw results are on GitHub". Also [`README.md:345-347`](https://github.com/plastic-labs/honcho/blob/6edadaa2e374d9d698aadda9c20ea88196795937/README.md#L345-L347).
+
+The page also reports BEAM (0.630 at 100K tokens down to 0.409 at 10M). BEAM isn't a column in this table.
+
+### Published benchmarks ✅ (2026-05-28 audit)
 - `README.md` — "Honcho's evals span LongMemEval, LoCoMo, and other long-conversation benchmarks."
 - `honcho.dev/evals` — Evals page with methodology and results.
 - `blog.plasticlabs.ai/research/Benchmarking-Honcho` — Research blog post with reproducible methodology.
@@ -183,7 +218,9 @@ The following features are correctly absent from public documentation:
 
 3. **timeTravel claim is incorrect**: Temporal reasoning exists in the pipeline (chronological queue processing), but there is no user-facing "query at time T" or snapshot rollback capability. Should be marked false.
 
-4. **explicitForget claim is incorrect**: No forget/delete API for individual conclusions or inferred knowledge. Messages/sessions can be deleted but there's no "forget this fact" endpoint. Should be marked false.
+4. **explicitForget** (updated 2026-10-26): Honcho now has `DELETE .../conclusions/{conclusion_id}` for a single inferred fact, alongside session deletion. ✅ under the CRITERIA.md definition. See Explicit forget above.
+
+11. **2026-10-26 platform refresh**: official plugins now exist for Codex, Cursor and pi, and the MCP guide documents Copilot (VS Code) and Windsurf. `data.js` also had OpenCode, OpenClaw and Hermes as false although this file marked them ✅ in May, and `hybrid: false` although this file marked it ✅.
 
 5. **export is ambiguous**: No dedicated export tool. Programmatic access via SDKs is possible, and self-hosted deployments have direct Postgres access. The spirit of "export" (one-click data export) is not met.
 
